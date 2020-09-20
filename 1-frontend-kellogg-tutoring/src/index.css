@@ -1,0 +1,32 @@
+:root {
+  --black: #000;
+  --white: #fff;
+
+  --grey-dark-0: #080808;
+  --grey-dark-1: #181818;
+  --grey-dark-2: #282828;
+  --grey-dark-3: #383838;
+  --grey-dark-4: #484848;
+
+  --grey-light-1: #585858;
+  --grey-light-2: #686868;
+  --grey-light-3: #787878;
+  --grey-light-4: #888888;
+  --grey-light-5: #989898;
+
+  --grey-light-6: #D0D0D0;
+  --grey-light-7:#E0E0E0;
+  --grey-light-8:#F0F0F0;
+
+
+  --red: rgb(230, 36, 36);
+  --yellow: #f4f73e;
+  --yellow-light: #f4f5c5;
+  --gold: #fad104;
+  --green: rgb(39, 170, 39);
+  --aqua: #2febd2;
+
+  --facebook: #3b5998;
+  --instagram: #FD1D1D;
+  --twitter: #1dcaff;
+}
