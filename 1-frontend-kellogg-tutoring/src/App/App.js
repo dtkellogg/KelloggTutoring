@@ -1,17 +1,18 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Nav from "./components/Nav";
+import NavUpper from "./components/NavUpper";
+import NavLower from "./components/NavLower";
+import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import '../index.css';
 
 const Home = React.lazy(() => import("./pages/home"));
 const MeetToshi = React.lazy(() => import("./pages/meetToshi"));
-const CourseMaterial = React.lazy(() => import("./pages/courseMaterial"));
 const StudentResources = React.lazy(() => import("./pages/studentResources"));
 const Contact = React.lazy(() => import("./pages/contact"));
-const Appointment = React.lazy(() => import("./pages/appointment"));
+const Appointment = React.lazy(() => import("./pages/appointments"));
 
 export default function App() {
   const location = useLocation();
@@ -20,7 +21,9 @@ export default function App() {
   return (
     <React.Fragment>
       <div className="container__main">
-        <Nav />
+        <NavUpper />
+        <NavLower />
+        <Sidebar />
         <div className="container__body">
           <React.Suspense fallback={<Loading />}>
             <TransitionGroup>
@@ -28,13 +31,12 @@ export default function App() {
                 <Switch location={location}>
                   <Route exact path="/" component={Home} />
                   <Route path="/meetToshi" component={MeetToshi} />
-                  <Route path="/courseMaterial" component={CourseMaterial} />
                   <Route
                     path="/studentResources"
                     component={StudentResources}
                   />
                   <Route path="/contact" component={Contact} />
-                  <Route path="/appointment" component={Appointment} />
+                  <Route path="/appointments" component={Appointment} />
                   <Route
                     render={() => (
                       <h2 className="text-size-2 _404">404: Page not found</h2>
