@@ -1,0 +1,102 @@
+.pg__home {
+  height: 400vh;
+  /* background-color: var(--blue-1); */
+  display: grid;
+  grid-template-rows: 10rem 50rem repeat(9, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  border-right: 0.5px dashed var(--green-12);
+  border-left: 0.5px dashed var(--green-12);
+}
+
+.container__hero {
+  grid-row: 1 / span 2;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(var(--green-12), var(--green-dark));
+  /* background: var(--green-12); */
+  /* clip-path: polygon(0 0, 100% 15%, 100% 90%, 0 75%); */
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 75%);
+}
+
+.highlights__appointments {
+  grid-row: 8 / span 1;
+  grid-column: 1 / -1;
+  /* background-color: var(--red); */
+}
+
+.highlights__meetToshi {
+  grid-row: 3 / span 3;
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.highlights__appointments {
+  grid-row: 6 / span 3;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(var(--green-12), var(--green-dark));
+}
+
+.highlights__contact {
+  grid-row: 10 / span 1;
+  grid-column: 1 / -1;
+  background: linear-gradient(var(--green-dark), var(--green-12));
+  /* background: var(--green-12); */
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+}
+
+.container__hero--text {
+  line-height: 5rem;
+}
+
+.hero__img {
+
+}
+
+.highlights__meetToshi--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10rem;
+  height: 50rem;
+  width: 100%;
+  background: linear-gradient(var(--green-dark), var(--green-12));
+}
+
+.card__meetToshi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 35rem;
+  width: 70rem;
+  padding: 2rem;
+  z-index: 100;
+  background-color: var(--white);
+}
+
+.card__meetToshi--header {
+  margin-bottom: 1rem;
+}
+
+.card__meetToshi--p {
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlights__header {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}

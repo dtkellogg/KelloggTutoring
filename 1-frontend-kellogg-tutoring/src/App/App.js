@@ -3,10 +3,9 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
-import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
-import '../index.css';
+import './App.scss';
 
 const Home = React.lazy(() => import("./pages/home"));
 const MeetToshi = React.lazy(() => import("./pages/meetToshi"));
@@ -23,7 +22,6 @@ export default function App() {
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        <Sidebar />
         <div className="container__body">
           <React.Suspense fallback={<Loading />}>
             <TransitionGroup>
@@ -47,7 +45,7 @@ export default function App() {
             </TransitionGroup>
           </React.Suspense>
         </div>
-        <Footer className="footer" />
+        {/* <Footer /> */}
       </div>
     </React.Fragment>
   );

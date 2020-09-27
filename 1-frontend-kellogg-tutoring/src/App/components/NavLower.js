@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
-import "../../index.css";
-
 const activeStyle = {
   color: "#e62424",
   fontWeight: "bold"

@@ -1,0 +1,82 @@
+:root {
+  --black: #000;
+  --white: #fff;
+
+  --grey-dark-0: #080808;
+  --grey-dark-1: #181818;
+  --grey-dark-2: #282828;
+  --grey-dark-3: #383838;
+  --grey-dark-4: #484848;
+
+  --grey-light-1: #585858;
+  --grey-light-2: #686868;
+  --grey-light-3: #787878;
+  --grey-light-4: #888888;
+  --grey-light-5: #989898;
+
+  --grey-light-6: #D0D0D0;
+  --grey-light-7:#E0E0E0;
+  --grey-light-8:#F0F0F0;
+  --grey-light-9:hsl(0, 0%, 96%);
+
+  --blue-1: #005c99;
+  --blue-2: #006bb3;
+  --blue-3: #007acc;
+  --blue-4: #008ae6;
+  --blue-5: #0099ff;
+  --blue-6: #1aa3ff;
+  --blue-7: #33adff;
+  --blue-8: #4db8ff;
+  --blue-9: #66c2ff;
+  --blue-10: #80ccff;
+  --blue-11: #99d6ff;
+  --blue-12: #b3e0ff;
+  /* modified blue-13 - not css colorpicker */
+  --blue-13: #edf6fc; 
+  --blue-14: #e6f5ff;
+
+    --green-12: rgb(95, 255, 95);
+    --green-dark: rgb(73, 165, 73);
+    --green-dark-2: rgb(73, 131, 77);
+    --green-13: rgb(248, 255, 238);
+
+
+  --red: rgb(230, 36, 36);
+  --yellow: #f4f73e;
+  --yellow-light: #f4f5c5;
+  --gold: #fad104;
+  --green: rgb(39, 170, 39);
+  --aqua: #2febd2;
+
+  --facebook: #3b5998;
+  --instagram: #FD1D1D;
+  --twitter: #1dcaff;
+}
+/* --------------------------------------------------------------------- */
+/* global resets */
+*,
+*::before, 
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* This defines 1 rem. */
+  font-size: 62.5%; /* 1rem = 16px; 10px/16px = 62.5% */
+}
+
+body {
+  box-sizing: border-box;
+  background: var(--white);
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+ }
+
+li {
+  list-style-type: none;
+}

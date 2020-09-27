@@ -5,7 +5,6 @@ import {
   // useLocation
 } from "react-router-dom";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
-import "../../index.css";
 
 const activeStyle = {
   color: "rgb(73, 165, 73)",
@@ -17,7 +16,7 @@ export default function NavUpper() {
     <nav className="nav__upper">
       <div className="logo">
         <a href="/">
-          <h2 className="text-size-2 black">Kellogg Tutoring, Inc. | 📚 💯</h2>
+          <h2 className="text-size-2 black">Kellogg Tutoring, Inc. | 🏠</h2>
         </a>
       </div>
 

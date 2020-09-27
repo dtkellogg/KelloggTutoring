@@ -1,0 +1,42 @@
+.container__main {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 8.5rem 5rem 90vh 12.5rem;
+  grid-template-columns: 10rem repeat(3, 1fr) 10rem;
+}
+
+.container__body {
+  background-color: var(--white);
+  /* padding: 4rem 2rem; */
+  display: grid;
+  /* grid-template-rows: 100%;
+  grid-template-columns: repeat(3, 1fr); */
+}
+
+/* --------------------------------------------------------------------- */
+/* container main layout */
+
+.container__body {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 3;
+  background: var(--white); 
+}
+
+.nav__upper {
+  grid-row: 1 / span 1;
+  grid-column: 1 / -1;
+  height: 100%;
+}
+
+.nav__lower {
+  grid-row: 2 / span 1;
+  grid-column: 1 / -1;
+  height: 100%;
+}
+
+.footer {
+  grid-row: 4 / span 1;
+  grid-column: 2 / -2;
+  background: var(--white);
+}

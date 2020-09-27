@@ -1,0 +1,6 @@
+.pg__appointment {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+}

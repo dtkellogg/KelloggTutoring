@@ -1,0 +1,13 @@
+.btn {
+  padding: 1rem;
+  border-radius: 5rem;
+}
+
+.btn__search {
+  width: 10rem;
+  border: 1px solid var(--green);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
