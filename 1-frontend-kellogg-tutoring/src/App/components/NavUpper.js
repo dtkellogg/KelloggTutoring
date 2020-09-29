@@ -16,7 +16,7 @@ export default function NavUpper() {
     <nav className="nav__upper">
       <div className="logo">
         <a href="/">
-          <h2 className="text-size-2 black">Kellogg Tutoring, Inc. | 🏠</h2>
+          <h2 className="text-size-2 black nav__upper-header">Kellogg Tutoring, Inc. | 🏠</h2>
         </a>
       </div>
 
@@ -36,7 +36,7 @@ export default function NavUpper() {
             <NavLink
               to="/appointments"
               activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
+              className="nav__link text-size-3 letter-spacing-sm"
             >
               Appointments
             </NavLink>
@@ -45,7 +45,7 @@ export default function NavUpper() {
             <NavLink
               to="/meetToshi"
               activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
+              className="nav__link text-size-3 letter-spacing-sm"
             >
               Meet Toshi
             </NavLink>
@@ -54,7 +54,7 @@ export default function NavUpper() {
             <NavLink
               to="/studentResources"
               activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
+              className="nav__link text-size-3 letter-spacing-sm"
             >
               Student Resources
             </NavLink>
@@ -63,7 +63,7 @@ export default function NavUpper() {
             <NavLink
               to="/contact"
               activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
+              className="nav__link text-size-3 letter-spacing-sm"
             >
               Contact
             </NavLink>

@@ -1,5 +1,6 @@
 .pg__home {
   height: 400vh;
+  overflow: scroll;
   /* background-color: var(--blue-1); */
   display: grid;
   grid-template-rows: 10rem 50rem repeat(9, 1fr);

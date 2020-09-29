@@ -30,6 +30,10 @@
   color: var(--yellow-light);
 }
 
+.green {
+  color: var(--green);
+}
+
 .margin-bottom {
   margin-bottom: 1rem;
 }
@@ -60,7 +64,7 @@
 }
 
 .letter-spacing-sm{
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
 }
 
 .letter-spacing-md {
@@ -68,7 +72,7 @@
 }
 
 .letter-spacing-lg {
-  letter-spacing: 0.35rem;
+  letter-spacing: 0.5rem;
 }
 
 .center {
@@ -76,15 +80,15 @@
 }
 
 .bold-1 {
-  font-weight: 400;
+  font-weight: 900;
 }
 
 .bold-2 {
-
+  font-weight: 700;
 }
 
 .bold-3 {
-
+  font-weight: 500;
 }
 
 /* .wide {
@@ -117,12 +121,12 @@
 }
 
 .text-size-3 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 300;
 }
 
 .text-size-4 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
 }
 

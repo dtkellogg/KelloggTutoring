@@ -45,7 +45,7 @@ export default function App() {
             </TransitionGroup>
           </React.Suspense>
         </div>
-        {/* <Footer /> */}
+      <Footer />
       </div>
     </React.Fragment>
   );

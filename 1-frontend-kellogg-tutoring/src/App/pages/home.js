@@ -6,9 +6,9 @@ export default function Home() {
     <div className="pg__home">
       <div className="container__hero">
         <div className="container__hero--text">
-          <h1 className="text-size-0">Welcome</h1>
-          <h3 className="text-size-3">Tutoring Simplified.</h3>
-          <h4 className="text-size-4">
+          <h1 className="text-size-0 letter-spacing-lg">Welcome</h1>
+          <h3 className="text-size-2">Tutoring Simplified.</h3>
+          <h4 className="text-size-3">
             Math, Science, English, Spanish, SAT & ACT
           </h4>
           {/* <h4 className="text-size-4">SAT & ACT</h4> */}
@@ -46,18 +46,19 @@ export default function Home() {
 
             <p className="text-size-4 card__meetToshi--p">
               I am a highly experience tutor, having been in the industry for 7
-              years. I specialize in designing teaching concepts simply, and I a
-              have a track record of being able to teach students of all
-              abilities and backgrounds. This is arguably in part to my love for
-              traveling, which I've forutantely been able satiate abundantly
-              from a very young age. It may also be due to my biracial
-              background, and my Mom's family in Japan.
+              years. I specialize in teaching concepts{" "}
+              <span className="bold-1">simply</span>, and I have a track record
+              of being able to teach students of all abilities and backgrounds.
+              This is due in part to my love for traveling, which I've
+              forutantely been able satiate abundantly from a very young age. It
+              may also be due to my biracial background, and my Mom's family in
+              Japan.
             </p>
 
             <p className="text-size-4 card__meetToshi--p">
               In addition, I am a former D1 track and cross country runner, and
               still consider exercise as a daily necessity. I attended Acalanes
-              High School in Lafayette, CA, and UC Davis, where I recieved by
+              High School in Lafayette, CA, and UC Davis, where I recieved my
               B.S. in Chemistry. I am very friendly and value forming
               mentor-student relationships, but I am also very organized,
               punctual and reliable. Please feel free to contact me if you have

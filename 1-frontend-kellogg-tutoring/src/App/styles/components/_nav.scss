@@ -30,6 +30,10 @@
   padding: 0 1rem;
   display: inline-block;
   color: var(--black);
+
+  &:hover {
+    color: var(--green);
+  }
 }
 
 .nav__header {
@@ -41,4 +45,11 @@
   align-items: center;
   justify-content: center;
   margin-left: 2rem;
+}
+
+
+.nav__upper-header {
+    &:hover {
+    color: var(--green);
+  }
 }
