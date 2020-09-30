@@ -12,6 +12,14 @@
   justify-content: space-around;
 }
 
+.btn__search:hover {
+  background-color: var(--green);
+  color: var(--white);
+  fill: var(--white);
+}
+
+
+
 .btn__cancel {
   padding: 1rem;
   border-radius: 10%;

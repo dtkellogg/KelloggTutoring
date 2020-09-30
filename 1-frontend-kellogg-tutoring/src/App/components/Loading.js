@@ -3,7 +3,7 @@ import React from "react";
 export default function Loading() {
   return (
     <div className="loading">
-      <h1>Loading Component</h1>
+      <h3 className="text-size-3">Loading</h3>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useSelector } from 'react-redux';
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
@@ -8,14 +9,15 @@ import Loading from "./components/Loading";
 import './App.scss';
 
 const Home = React.lazy(() => import("./pages/home"));
-const MeetToshi = React.lazy(() => import("./pages/meetToshi"));
+const MeetToshi = React.lazy(() => import("./pages/MeetToshi"));
 const StudentResources = React.lazy(() => import("./pages/studentResources"));
 const Contact = React.lazy(() => import("./pages/contact"));
-const Appointment = React.lazy(() => import("./pages/appointments"));
+const Appointment = React.lazy(() => import("./pages/Appointments"));
+
 
 export default function App() {
   const location = useLocation();
-  console.log(location);
+  const store = useSelector((store) => store)
 
   return (
     <React.Fragment>

@@ -1,7 +1,20 @@
 import React from "react";
+import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { subheader } from "../actions/subheader";
 import axios from "axios";
 
 export default function Contact() {
+  const sidebar = useSelector((state) => state.sidebar);
+  let location = useLocation()
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(subheader("Questions, Booking, and Payments"));
+  }, [location])
+
+  // const subheader = useSelector((state) => state.subheader);
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
@@ -58,18 +71,20 @@ export default function Contact() {
         message,
       };
 
-    //   await axios
-    //     .post("/api/v1/messages", dataToSubmit)
-    //     .then((response) => {
-    //       console.log(`axios response: ${response.data}`);
-    //     })
-    //     .then(() => {
-    //       setName("");
-    //       setEmail("");
-    //       setPhone("");
-    //       setSubject("");
-    //       setMessage("");
-    //     });
+
+
+      //   await axios
+      //     .post("/api/v1/messages", dataToSubmit)
+      //     .then((response) => {
+      //       console.log(`axios response: ${response.data}`);
+      //     })
+      //     .then(() => {
+      //       setName("");
+      //       setEmail("");
+      //       setPhone("");
+      //       setSubject("");
+      //       setMessage("");
+      //     });
     }
   };
 
@@ -94,7 +109,9 @@ export default function Contact() {
       </div>
       <div className="form__content">
         <div className="form__element">
-          <label className="text-size-4 letter-spacing-md form__label">Name</label>
+          <label className="text-size-4 letter-spacing-md form__label">
+            Name
+          </label>
           <input
             type="text"
             className="form__input form__input-contact text-size-3"
@@ -104,7 +121,10 @@ export default function Contact() {
           />
         </div>
         <div className="form__element">
-          <label className="text-size-4 letter-spacing-md form__label" for="email">
+          <label
+            className="text-size-4 letter-spacing-md form__label"
+            for="email"
+          >
             Email
           </label>
           <input
@@ -116,7 +136,9 @@ export default function Contact() {
           />
         </div>
         <div className="form__element">
-          <label className="text-size-4 letter-spacing-md form__label">Phone</label>
+          <label className="text-size-4 letter-spacing-md form__label">
+            Phone
+          </label>
           <input
             type="text"
             className="form__input form__input-contact text-size-3"
@@ -126,7 +148,9 @@ export default function Contact() {
           />
         </div>
         <div className="form__element">
-          <label className="text-size-4 letter-spacing-md form__label">Subject</label>
+          <label className="text-size-4 letter-spacing-md form__label">
+            Subject
+          </label>
           <input
             type="text"
             className="form__input form__input-contact text-size-3"
@@ -136,7 +160,10 @@ export default function Contact() {
           />
         </div>
         <div className="form__element">
-          <label className="text-size-4 letter-spacing-md form__label" for="message">
+          <label
+            className="text-size-4 letter-spacing-md form__label"
+            for="message"
+          >
             Message
           </label>
           <textarea

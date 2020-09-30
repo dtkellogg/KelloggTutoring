@@ -5,21 +5,21 @@ import App from "./App/App";
 import "./App/App.scss";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-// import reducer from "./App/reducers"
+import reducer from "./App/reducers"
 import middleware from "./App/middleware";
 
-// const store = createStore(
-  // reducers,
-  // middleware
-// )
+const store = createStore(
+  reducer,
+  middleware
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <Router>
         <App />
       </Router>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -2,3 +2,14 @@
   background: var(--green-13);
   padding: 2rem;
 }
+
+.sidebar__list {
+  margin-top: 2rem;
+  color: var(--green);
+  text-decoration: none;
+  line-height: 2.25rem;
+}
+
+.sidebar__list--item {
+    line-height: 2rem;
+}

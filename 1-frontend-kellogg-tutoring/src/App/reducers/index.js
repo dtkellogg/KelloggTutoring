@@ -1,10 +1,8 @@
 import {combineReducers} from 'redux'
-// import todos from './todos'
-// import loading from './loading'
-// import goals from './goals'
+import authedUser from './authedUser'
+import subheader from './subheader'
 
 export default combineReducers({
-    // todos,
-    // goals,
-    // loading
+    authedUser,
+    subheader,
 })

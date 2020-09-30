@@ -1,9 +1,38 @@
-import React from "react";
+import * as React from "react";
+import { Link, useRouteMatch, useLocation } from "react-router-dom";
+import slug from "slug";
 
-export default function Sidebar() {
+function CustomLink({ to, children }) {
+  const match = useRouteMatch(to.pathname);
+
+  return (
+    <li style={{ fontWeight: match ? 900 : "normal" }}>
+      <Link to={to}>{children}</Link>
+    </li>
+  );
+}
+
+export default function Sidebar({ title, list }) {
+  console.log(`title: ${title}. List: ${list}`);
+  const { url } = useRouteMatch();
+  const location = useLocation();
+
   return (
     <div className="sidebar">
-      <h3 className="text-size-4">Sidebar Component</h3>
+      <h4 className="text-size-4">{title}</h4>
+      <ul className="sidebar__list text-size-5">
+        {list.map((item) => (
+          <CustomLink
+            key={item}
+            to={{
+              pathname: `${url}/${slug(item)}`,
+              search: location.search,
+            }}
+          >
+            {item.toUpperCase()}
+          </CustomLink>
+        ))}
+      </ul>
     </div>
   );
 }
