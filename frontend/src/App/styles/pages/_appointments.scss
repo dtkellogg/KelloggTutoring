@@ -1,0 +1,56 @@
+.pg__appointment {
+  height: 85vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.appointments {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+
+  padding: 4rem 2rem;
+  height: 100%;
+    overflow: scroll;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__list {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 3rem;
+    line-height: 3.5rem;
+    // transform: translateX(3rem);
+    width: 100%;
+
+    &--item {
+      // list-style-type: decimal-leading-zero;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &-time {
+
+      }
+    }
+  }
+}
+
+.appointments__list li {
+  // content: '';
+  // position: absolute;
+  // background-color: var(--green);
+  // bottom: 0%;
+  // left: 0;
+  // height: 100%;
+  // width: 3px;
+  // list-style-type: decimal-leading-zero;
+}

@@ -1,0 +1,45 @@
+.btn {
+  padding: 1rem;
+  border-radius: 5rem;
+}
+
+.btn__search {
+  width: 10rem;
+  border: 1px solid var(--green);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn__search:hover {
+  background-color: var(--green);
+  color: var(--white);
+  fill: var(--white);
+}
+
+
+
+.btn__cancel {
+  padding: 1rem;
+  border-radius: 10%;
+  color: var(--white);
+  background-color: var(--red);
+  width: 8rem;
+}
+
+.btn__pay {
+  padding: 1rem;
+  border-radius: 10%;
+  color: var(--white);
+  background-color: skyblue;
+  width: 8rem;
+}
+
+.btn__form {
+  margin-bottom: 5rem;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  width: 8rem;
+}
