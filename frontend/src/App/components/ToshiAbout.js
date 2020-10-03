@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function ToshiAbout() {
     return (
         <div className="pg__meetToshi--card__meetToshi">

@@ -22,10 +22,15 @@
       border: 1px dashed var(--green);
     }
   }
+
+  &__emoji {
+    fill: var(--grey-light-4);
+  }
 }
 
 .legal {
   width: 100%;
   text-align: center;
   margin: auto;
+  color: var(--grey-light-4);
 }

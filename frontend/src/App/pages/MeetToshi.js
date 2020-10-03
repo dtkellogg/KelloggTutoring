@@ -1,21 +1,20 @@
 import React from "react";
 import {
   Route,
-  Link,
   Switch,
   useRouteMatch,
-  useParams,
 } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import ToshiAbout from "../components/ToshiAbout";
 import PageHeader from "../components/PageHeader";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { subheader } from "../actions/subheader";
 
 const toshiList = [
   "About",
   "Teaching",
+  "Reviews",
   "Blog",
 ];
 
@@ -27,7 +26,7 @@ export default function MeetToshi() {
 
     React.useEffect(() => {
       dispatch(subheader("Expertise, Experience, Methodology"));
-    }, [location]);
+    }, [location, dispatch]);
 
   return (
     <div className="pg__meetToshi">

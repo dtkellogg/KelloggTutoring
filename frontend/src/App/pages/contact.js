@@ -1,22 +1,30 @@
 import React from "react";
 import {
   Route,
-  Link,
   Switch,
   useRouteMatch,
-  useParams,
+  useLocation
 } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { subheader } from "../actions/subheader";
+
 import Sidebar from "../components/Sidebar";
 import ContactForm from "../components/ContactForm";
-import EmailForm from "../components/EmailForm";
-import PhoneForm from "../components/PhoneForm";
+// import EmailForm from "../components/EmailForm";
+// import PhoneForm from "../components/PhoneForm";
 import PageHeader from "../components/PageHeader";
 
 const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
 
 
 export default function Contact() {
+  let location = useLocation();
+  const dispatch = useDispatch();
   const { url } = useRouteMatch();
+
+    React.useEffect(() => {
+      dispatch(subheader("Message, Email, Call"));
+    }, [location, dispatch]);
 
   return (
     <div className="pg__contact">

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
 
+
 const activeStyle = {
   color: "rgb(73, 165, 73)",
   fontWeight: 900,
@@ -16,7 +17,12 @@ export default function NavUpper() {
     <nav className="nav__upper">
       <div className="logo">
         <a href="/">
-          <h1 className="text-size-1 black nav__upper-header">Kellogg Tutoring, Inc. | 🏠</h1>
+          <h1 className="text-size-1 black nav__upper-header">
+            Kellogg Tutoring, Inc. |{" "}
+            <span role="img" aria-label="email emoji">
+              🏠
+            </span>
+          </h1>
         </a>
       </div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { useSelector } from 'react-redux';
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
@@ -17,7 +16,6 @@ const Appointment = React.lazy(() => import("./pages/Appointments"));
 
 export default function App() {
   const location = useLocation();
-  const store = useSelector((store) => store)
 
   return (
     <React.Fragment>

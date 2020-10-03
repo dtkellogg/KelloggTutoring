@@ -1,19 +1,8 @@
 import React from "react";
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
-import { subheader } from "../actions/subheader";
-import axios from "axios";
+// import axios from "axios";
+
 
 export default function Contact() {
-  const sidebar = useSelector((state) => state.sidebar);
-  let location = useLocation()
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(subheader("Questions, Booking, and Payments"));
-  }, [location])
-
-  // const subheader = useSelector((state) => state.subheader);
 
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -70,7 +59,6 @@ export default function Contact() {
         subject,
         message,
       };
-
 
 
       //   await axios

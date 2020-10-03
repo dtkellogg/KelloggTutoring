@@ -1,31 +1,37 @@
 import React from 'react'
 import axios from 'axios'
-import Sidebar from "./Sidebar";
-// import EventCalendar from "../components/Calendar";
-import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { subheader } from "../actions/subheader";
+import { useSelector, useDispatch } from 'react-redux'
+import { listAppointments } from '../actions/appointmentActions'
+import Loading from './Loading'
+import Message from './Message'
+
 
 export default function AppointmentsList() {
-  let location = useLocation();
-  const dispatch = useDispatch();
+  ////////////////////////////////
+  // Old code but important for learing - this was used to get data from the db before redux was implemented
+  // const [appointments, setAppointments] = React.useState([]);
 
-  const [appointments, setAppointments] = React.useState([]);
+  // React.useEffect(() => {
+  //   const fetchAppointments = async () => {
+  //     const { data } = await axios.get("/api/appointments");
+  //     setAppointments(data);
+  //   };
 
+  //   fetchAppointments();
+  // }, []);
+
+  ////////////////////////////////
+  // Redux code
+  const dispatch = useDispatch()
+  const appointmentList = useSelector((state) => state.appointmentList);
+  const { loading, error, appointments } = appointmentList;
+  
   React.useEffect(() => {
-    dispatch(subheader("Schedule, Manage and Pay"));
-  }, [location]);
+    dispatch(listAppointments())
+  }, [dispatch])
+  
 
-  React.useEffect(() => {
-    const fetchAppointments = async () => {
-      const { data } = await axios.get("/api/appointments");
-      setAppointments(data);
-    };
-
-    fetchAppointments();
-  }, []);
-
-  console.log(`appointments: ${appointments.map((apt) => apt.subject)}`)
+  // console.log(`appointments: ${appointments.map((appt) => appt.date)}`);
 
   return (
     <div className="appointments">
@@ -33,222 +39,29 @@ export default function AppointmentsList() {
         Here are your upcoming appointments:
       </h2>
 
-      <ul className="appointments__list text-size-3">
-        {appointments.map((appt) => {
-          return (
-          // <li key={appt._id}>{appt.subject}</li>
-          <li className="appointments__list--item">
-            <div className="appointments__list--item-time">
-              <span className="text-size-3">{appt.date}</span>
-              <span className="text-size-3">{appt.subject}</span>
-            </div>
-            <div className="btns-container__appointments">
-              <button className="btn__cancel">Cancel</button>
-              <button className="btn__pay">Pay</button>
-            </div>
-          </li>
-        )})}
-      </ul>
-      {/* <ul className="appointments__list text-size-3">
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Monday </span> 9/28:
-            <span className="bold-3"> 4:00 p.m.</span> -
-            <span className="bold-3"> 5:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Tuesday </span> 9/29 -
-            <span className="bold-3"> 3:00 p.m.</span> -
-            <span className="bold-3"> 5:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Thursday </span> 10/1 -
-            <span className="bold-3"> 7:00 p.m.</span> -
-            <span className="bold-3"> 9:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-        <li className="appointments__list--item">
-          <div className="appointments__list--item-time">
-            <span className="bold-2">Sunday </span> 10/4 -
-            <span className="bold-3"> 12:30 p.m.</span> -
-            <span className="bold-3"> 2:00 p.m.</span>
-          </div>
-          <div className="btns-container__appointments">
-            <button className="btn__cancel">Cancel</button>
-            <button className="btn__pay">Pay</button>
-          </div>
-        </li>
-      </ul> */}
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Message variant='danger'>{error}</Message>
+      ) : (
+        <ul className="appointments__list text-size-3">
+          {appointments.map((appt) => {
+            return (
+              // <li key={appt._id}>{appt.subject}</li>
+              <li key={appt._id} className="appointments__list--item">
+                <div className="appointments__list--item-time">
+                  <span className="text-size-3">{appt.date}</span>
+                  <span className="text-size-3">{appt.subject}</span>
+                </div>
+                <div className="btns-container__appointments">
+                  <button className="btn__cancel">Cancel</button>
+                  <button className="btn__pay">Pay</button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
-  )
+  );
 }

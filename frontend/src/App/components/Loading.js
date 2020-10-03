@@ -1,9 +1,20 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
+
 
 export default function Loading() {
   return (
-    <div className="loading">
-      <h3 className="text-size-3">Loading</h3>
-    </div>
+    <Spinner 
+      animation='border' 
+      role='status' 
+      style={{ 
+        width: '100px', 
+        height: '100px',
+        margin: 'auto', 
+        display: 'block'
+      }} 
+      >
+        <span className='sr-only'>Loading...</span>
+      </Spinner>
   );
 }

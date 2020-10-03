@@ -1,9 +1,4 @@
 import React from "react";
-import {
-  NavLink,
-  // useRouteMatch,
-  // useLocation
-} from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 

@@ -1,20 +1,19 @@
 import React from 'react'
 import {
   Route,
-  Link,
   Switch,
   useRouteMatch,
-  useParams,
+  useLocation,
 } from "react-router-dom";
+import { subheader } from "../actions/subheader";
+
 import Sidebar from "../components/Sidebar";
 // import EventCalendar from "../components/Calendar";
-import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { subheader } from "../actions/subheader";
+import { useDispatch } from "react-redux";
 import AppointmentsList from "../components/AppointmentsList";
 import PageHeader from "../components/PageHeader";
 
-const appointmentsList = ["Book an Appointment", "Make a payment", "Appointments List", "Calendar"]
+const appointmentsList = ["Book an Appointment", "Make a payment", "Appointments List", "Appointments Calendar"]
 
 
 export default function Appointment() {
@@ -24,7 +23,7 @@ export default function Appointment() {
 
   React.useEffect(() => {
     dispatch(subheader("Schedule, Manage and Pay"));
-  }, [location]);
+  }, [location, dispatch]);
 
   return (
     <div className="pg__appointment">
@@ -37,7 +36,7 @@ export default function Appointment() {
         <Route exact path={`${url}/appointments-list`}>
           <AppointmentsList />
         </Route>
-        <Route path={`${url}/calendar`}>
+        <Route path={`${url}/appointments-calendar`}>
           {/* <AppointmentsList /> */}
         </Route>
         <Route path={`${url}/book-an-appointment`}>
