@@ -54,8 +54,11 @@ export default function AppointmentsList() {
                   <span className="text-size-3">{appt.subject}</span>
                 </div>
                 <div className="btns-container__appointments">
+                  {
+                    (!appt.paid) &&
+                    <button className="btn__pay">Pay</button>
+                  }
                   <button className="btn__cancel">Cancel</button>
-                  <button className="btn__pay">Pay</button>
                 </div>
               </li>
             );

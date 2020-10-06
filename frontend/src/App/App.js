@@ -5,6 +5,9 @@ import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
 import './App.scss';
 
 const Home = React.lazy(() => import("./pages/home"));
@@ -28,6 +31,9 @@ export default function App() {
               <CSSTransition timeout={250} classNames="fade" key={location.key}>
                 <Switch location={location}>
                   <Route exact path="/" component={Home} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/profile" component={Profile} />
+                  <Route path="/register" component={Register} />
                   <Route path="/meetToshi" component={MeetToshi} />
                   <Route
                     path="/studentResources"

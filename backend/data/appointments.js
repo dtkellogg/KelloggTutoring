@@ -11,14 +11,14 @@ const appointments = [
     student: "Salaar",
     date: "10-1-2020",
     duration: 2,
-    paid: false,
+    paid: true,
   },
   {
     subject: "Algebra 2",
     student: "Kyle",
     date: "10-1-2020",
     duration: 1,
-    paid: false,
+    paid: true,
   },
   {
     subject: "Physics",

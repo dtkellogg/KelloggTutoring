@@ -1,16 +1,16 @@
 .pg__home {
-  height: 400vh;
+  height: 350vh;
   overflow: scroll;
   /* background-color: var(--blue-1); */
   display: grid;
-  grid-template-rows: 10rem 50rem repeat(9, 1fr);
+  grid-template-rows: 86vh 90vh 80vh 50vh repeat(6, 1fr);
   grid-template-columns: repeat(4, 1fr);
   border-right: 0.5px dashed var(--green-12);
   border-left: 0.5px dashed var(--green-12);
 }
 
 .container__hero {
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 1;
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-around;
@@ -18,42 +18,62 @@
   background: linear-gradient(var(--green-12), var(--green-dark));
   /* background: var(--green-12); */
   /* clip-path: polygon(0 0, 100% 15%, 100% 90%, 0 75%); */
-  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 75%);
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 65%);
+
+  &--content {
+    width: 100vw;
+    // background-color: var(--red);
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(-4rem);
+  }
 }
 
-.highlights__appointments {
-  grid-row: 8 / span 1;
-  grid-column: 1 / -1;
-  /* background-color: var(--red); */
-}
+.highlights {
+  &__header {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+  }
 
-.highlights__meetToshi {
-  grid-row: 3 / span 3;
-  grid-column: 1 / -1;
+  &__meetToshi {
+    grid-row: 3 / span 1;
+    grid-column: 1 / -1;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
-}
+  &__meetToshi--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.highlights__appointments {
-  grid-row: 6 / span 3;
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(var(--green-12), var(--green-dark));
-}
+    padding: 10rem;
+    height: 50rem;
+    width: 100%;
+    background: linear-gradient(var(--green-dark), var(--green-12));
+  }
 
-.highlights__contact {
-  grid-row: 10 / span 1;
-  grid-column: 1 / -1;
-  background: linear-gradient(var(--green-dark), var(--green-12));
-  /* background: var(--green-12); */
-  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+  &__appointments {
+    grid-row: 2 / span 1;
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(var(--green-12), var(--green-dark));
+  }
+
+  &__contact {
+    grid-row: 4 / span 1;
+    grid-column: 1 / -1;
+    background: linear-gradient(var(--green-dark), var(--green-12));
+    /* background: var(--green-12); */
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+  }
 }
 
 .container__hero--text {
@@ -62,17 +82,6 @@
 
 .hero__img {
 
-}
-
-.highlights__meetToshi--container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10rem;
-  height: 50rem;
-  width: 100%;
-  background: linear-gradient(var(--green-dark), var(--green-12));
 }
 
 .card__meetToshi {
@@ -86,18 +95,13 @@
   padding: 2rem;
   z-index: 100;
   background-color: var(--white);
-}
 
-.card__meetToshi--header {
-  margin-bottom: 1rem;
-}
+  &--header {
+    margin-bottom: 1rem;
+  }
 
-.card__meetToshi--p {
-  line-height: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.highlights__header {
-  align-self: flex-start;
-  margin-bottom: 1rem;
+  &--p {
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+  }
 }

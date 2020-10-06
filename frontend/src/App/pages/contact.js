@@ -10,9 +10,9 @@ import { subheader } from "../actions/subheader";
 
 import Sidebar from "../components/Sidebar";
 import ContactForm from "../components/ContactForm";
-// import EmailForm from "../components/EmailForm";
-// import PhoneForm from "../components/PhoneForm";
 import PageHeader from "../components/PageHeader";
+
+import Login from "../components/Login";
 
 const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
 
@@ -43,7 +43,7 @@ export default function Contact() {
           {/* <EmailForm /> */}
         </Route>
         <Route path={`${url}/phone-text-and-email`}>
-          {/* <PhoneForm /> */}
+          <Login />
         </Route>
         <Route path="*">
           <PageHeader />

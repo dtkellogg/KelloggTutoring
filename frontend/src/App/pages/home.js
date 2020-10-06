@@ -5,26 +5,28 @@ export default function Home() {
   return (
     <div className="pg__home">
       <div className="container__hero">
-        <div className="container__hero--text">
-          <h1 className="text-size-0 letter-spacing-lg">Welcome</h1>
-          <h3 className="text-size-2">Tutoring Simplified.</h3>
-          <h4 className="text-size-3">
-            Math, Science, English, Spanish, SAT & ACT
-          </h4>
-          {/* <h4 className="text-size-4">SAT & ACT</h4> */}
-        </div>
+        <div className="container__hero--content">
+          <div className="container__hero--text">
+            <h1 className="text-size-0 letter-spacing-lg">Welcome</h1>
+            <h3 className="text-size-2">Tutoring Simplified.</h3>
+            <h4 className="text-size-3">
+              Math, Science, English, Spanish, SAT & ACT
+            </h4>
+            {/* <h4 className="text-size-4">SAT & ACT</h4> */}
+          </div>
 
-        {/* <img src="#" className="hero__img" /> */}
-        <FaGhost
-          size={130}
-          color="var(--black)"
-          fill="var(--black)"
-          className="social-media-icon grey-light-7"
-        />
+          {/* <img src="#" className="hero__img" /> */}
+          <FaGhost
+            size={130}
+            color="var(--black)"
+            fill="var(--black)"
+            className="social-media-icon grey-light-7"
+          />
+        </div>
       </div>
 
       <div className="highlights__appointments">
-        <h2 className="text-size-2">Appointments</h2>
+        <h2 className="text-size-2 highlights__header">Appointments</h2>
         <div className="highlights__appointments--text">
           <h3>Schedule and manage your appointments. Click here.</h3>
         </div>
