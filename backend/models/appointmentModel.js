@@ -5,7 +5,7 @@ const appointmentSchema = mongoose.Schema(
     user: {
 			type: mongoose.Schema.Types.ObjectId,
 			required: true,
-			ref: 'User'
+      ref: 'User',
     },
     subject: {
       type: String,
@@ -24,6 +24,10 @@ const appointmentSchema = mongoose.Schema(
 		// },
     duration: {
       type: Number,
+      required: true,
+    },
+    time: {
+      type: String,
       required: true,
     },
     paid: {
