@@ -1,0 +1,86 @@
+.messageForm {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+  padding: 4rem 2rem;
+  height: 100%;
+  overflow: scroll;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 9rem;
+  }
+
+  &__content {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: space-around;
+  }
+
+  &__element {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+
+  }
+
+  &__label {
+    color: var(--grey-light-5);
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid black;
+    height: 4rem;
+    color: var(--green);
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid var(--green);
+
+    }
+    
+    &--contact {
+    border: none;
+    border-bottom: 1px solid black;
+    height: 3rem;
+    }
+
+    &--contact-message {
+      height: 30rem;
+    }
+  }
+
+  &__success-message--contact {
+    color: var(--green);
+    margin-top: 1rem;
+  }
+
+  &__fail-message--contact {
+    color: var(--red);
+    margin-top: 1rem;
+  }
+
+  &__textarea {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px dashed var(--green);
+    height: 20rem;
+    color: var(--green);
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--green);
+    }
+  }
+
+}
+
+label[for="email__messageForm"]::after,
+label[for="message__messageForm"]::after {
+  content: "*";
+  color: var(--red);
+  padding-left: 0.2rem; 
+}
