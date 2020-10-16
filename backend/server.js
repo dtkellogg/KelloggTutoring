@@ -5,7 +5,9 @@ const bcrypt = require('bcryptjs')
 // const appointments = require('./data/appointments')
 const connectDB = require('./config/db.js')
 const appointmentRoutes = require('./routes/appointmentRoutes')
+const appointmentRequestRoutes = require('./routes/appointmentRequestRoutes')
 const userRoutes = require('./routes/userRoutes')
+const paymentRoutes = require('./routes/paymentRoutes')
 
 dotenv.config()
 
@@ -22,6 +24,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/appointmentRequests', appointmentRequestRoutes)
+app.use('/api/payments', paymentRoutes)
 
 const PORT = process.env.PORT || 5000
 

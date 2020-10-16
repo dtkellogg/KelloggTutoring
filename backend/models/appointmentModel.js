@@ -7,11 +7,11 @@ const appointmentSchema = mongoose.Schema(
 			required: true,
       ref: 'User',
     },
-    subject: {
+    student: {
       type: String,
       required: true,
     },
-    student: {
+    subject: {
       type: String,
       required: true,
     },
@@ -19,15 +19,12 @@ const appointmentSchema = mongoose.Schema(
       type: Date,
       required: true,
 		},
-		// paidDate: {
-		// 	type: Date
-		// },
-    duration: {
-      type: Number,
+		startTime: {
+      type: mongoose.Schema.Types.Mixed,
       required: true,
-    },
-    time: {
-      type: String,
+		},
+    endTime: {
+      type: mongoose.Schema.Types.Mixed,
       required: true,
     },
     paid: {

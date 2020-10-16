@@ -31,7 +31,7 @@ const getAppointmentById = asyncHandler(async (req, res) => {
     }
 });
 
-// @desc    Delete a appointment
+// @desc    Delete an appointment
 // @route   DELETE /api/appointments/:id
 // @access  Private/Admin
 const deleteAppointment = asyncHandler(async (req, res) => {
@@ -46,32 +46,32 @@ const deleteAppointment = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Create a appointment
+// @desc    Create an appointment
 // @route   POST /api/appointments
 // @access  Private/Admin
 const createAppointment = asyncHandler(async (req, res) => {
-  const { subject, student, date, duration, time } = req.body
+  const { student, subject, date, startTime, endTime } = req.body
 
   console.log(`req.body: ${req.body.subject}`)
 
   const appointment = await Appointment.create({
     user: req.user._id,
-    subject,
     student,
+    subject,
     date, 
-    duration, 
-    time, 
+    startTime, 
+    endTime, 
   })
 
   if (appointment) {
     res.status(201).json({
       _id: appointment._id,
       user: req.user_id,
-      subject: appointment.subject,
       student: appointment.student,
+      subject: appointment.subject,
       date: appointment.date,
-      duration: appointment.duration,
-      time: appointment.time,
+      startTime: appointment.startTime,
+      endTime: appointment.endTime,
       paid: appointment.paid,
     });
   } else {
@@ -97,11 +97,11 @@ const createAppointment = asyncHandler(async (req, res) => {
 const updateAppointment = asyncHandler(async (req, res) => {
   const {
     user,
-    subject,
     student,
+    subject,
     date,
-    duration,
-    time,
+    startTime,
+    endTime,
     paid,
   } = req.body
 
@@ -109,11 +109,11 @@ const updateAppointment = asyncHandler(async (req, res) => {
 
   if (appointment) {
     appointment.user = user
-    appointment.subject = subject
     appointment.student = student
+    appointment.subject = subject
     appointment.date = date
-    appointment.duration = duration
-    appointment.time = time
+    appointment.startTime = startTime
+    appointment.endTime = endTime
     appointment.paid = paid
 
     const updatedAppointment = await appointment.save()
