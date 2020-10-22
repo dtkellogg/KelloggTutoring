@@ -6,16 +6,14 @@ const Payment = require('../models/paymentModel.js')
 // @access  Private
 const addPaymentItems = asyncHandler(async (req, res) => {
     const {
-        orderItems,
-        shippingAddress,
+        paymentItems,
         paymentMethod,
         itemsPrice,
         taxPrice,
-        shippingPrice,
         totalPrice,
     } = req.body
 
-    if (orderItems && orderItems.length === 0) {
+    if (paymentItems && paymentItems.length === 0) {
         res.status(400)
         throw new Error('No order items')
         return
@@ -23,11 +21,9 @@ const addPaymentItems = asyncHandler(async (req, res) => {
         const payment = new Payment({
             paymentItems,
             user: req.user._id,
-            shippingAddress,
             paymentMethod,
             itemsPrice,
             taxPrice,
-            shippingPrice,
             totalPrice,
         })
 
@@ -42,8 +38,8 @@ const addPaymentItems = asyncHandler(async (req, res) => {
 // @access  Private
 const getPaymentById = asyncHandler(async (req, res) => {
     const payment = await Payment.findById(req.params.id).populate(
-        'user',
-        'name email'
+        'user', // from user
+        'name email' // this gives us the name and email
     )
 
     if (payment) {

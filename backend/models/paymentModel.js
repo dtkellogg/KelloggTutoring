@@ -9,14 +9,14 @@ const paymentSchema = mongoose.Schema(
         },
         paymentItems: [
             {
-                name: { type: String, required: true },
-                qty: { type: Number, required: true },
-                image: { type: String, required: true },
-                price: { type: Number, required: true },
-                product: {
+                appointment: { type: String, required: true },
+                student: { type: String, required: true },
+                subject: { type: String, required: true },
+                date: { type: Date, required: true },
+                appointment: {
                     type: mongoose.Schema.Types.ObjectId,
                     required: true,
-                    ref: 'Product',
+                    ref: 'Appointment',
                 },
             },
         ],

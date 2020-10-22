@@ -1,0 +1,46 @@
+.payment-steps__container {
+    
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.payment-steps__ul {
+    @include hundredPercentHW();
+    @include flexCenterCenter();
+}
+
+.payment-method__screen {
+    @include hundredPercentHW();
+    @include flexCenterCenter($flex-direction: column);
+
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    padding: 2rem;
+    height: 100%;
+    overflow: scroll;
+
+
+    &--form {
+    @include hundredPercentHW();
+    @include flexCenterCenter($align-items: flex-start);
+    }
+
+    &--form-inputs {
+    @include hundredPercentHW();
+    @include flexCenterCenter($flex-direction: column);
+    }
+
+    &--form-element {
+    // @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: space-around);
+    width: 25rem;
+    }
+
+    &--form-container {
+    width: 100%;
+    height: 30vh;
+    @include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
+    padding: auto 0 10rem 0;
+    }
+}

@@ -27,6 +27,10 @@ app.use('/api/users', userRoutes)
 app.use('/api/appointmentRequests', appointmentRequestRoutes)
 app.use('/api/payments', paymentRoutes)
 
+app.get('/api/config/paypal', (req, res) => 
+	res.send(process.env.PAYPAL_CLIENT_ID)
+)
+
 const PORT = process.env.PORT || 5000
 
 app.listen(
