@@ -15,7 +15,7 @@ const addPaymentItems = asyncHandler(async (req, res) => {
 
     if (paymentItems && paymentItems.length === 0) {
         res.status(400)
-        throw new Error('No order items')
+        throw new Error('No payment items')
         return
     } else {
         const payment = new Payment({
@@ -54,24 +54,24 @@ const getPaymentById = asyncHandler(async (req, res) => {
 // @route   GET /api/payments/:id/pay
 // @access  Private
 const updatePaymentToPaid = asyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id)
+    const payment = await Payment.findById(req.params.id)
 
-    if (order) {
-        order.isPaid = true
-        order.paidAt = Date.now()
-        order.paymentResult = {
+    if (payment) {
+        payment.isPaid = true
+        payment.paidAt = Date.now()
+        payment.paymentResult = {
             id: req.body.id,
             status: req.body.status,
             update_time: req.body.update_time,
             email_address: req.body.payer.email_address,
         }
 
-        const updatedOrder = await order.save()
+        const updatedPayment = await Payment.save()
 
-        res.json(updatedOrder)
+        res.json(updatedPayment)
     } else {
         res.status(404)
-        throw new Error('Order not found')
+        throw new Error('Payment not found')
     }
 })
 
