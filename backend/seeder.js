@@ -1,12 +1,16 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const colors = require('colors')
+
 const users = require('./data/users')
 const appointments = require('./data/appointments')
+const reviews = require('./data/reviews')
 const Appointment = require('./models/appointmentModel')
 const User = require('./models/userModel')
 const Review = require('./models/reviewModel')
+
 const connectDB = require('./config/db.js')
+
 
 dotenv.config()
 
@@ -28,6 +32,8 @@ const importData = async () => {
        })
 
        await Appointment.insertMany(sampleAppointments)
+
+       const sampleReviews = await Review.insertMany(reviews);
 
        console.log(`Data imported!`.green.inverse)
        process.exit()

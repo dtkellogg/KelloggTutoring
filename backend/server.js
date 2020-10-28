@@ -3,11 +3,13 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
 // const appointments = require('./data/appointments')
+const reviews = require('./data/reviews')
 const connectDB = require('./config/db.js')
 const appointmentRoutes = require('./routes/appointmentRoutes')
 const appointmentRequestRoutes = require('./routes/appointmentRequestRoutes')
 const userRoutes = require('./routes/userRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
+const reviewRoutes = require('./routes/reviewRoutes')
 
 dotenv.config()
 
@@ -26,6 +28,11 @@ app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/appointmentRequests', appointmentRequestRoutes)
 app.use('/api/payments', paymentRoutes)
+
+app.use('/api/reviews', reviewRoutes)
+// app.use('/api/reviews', (req, res) => {
+// 	res.json(reviews)
+// })
 
 app.get('/api/config/paypal', (req, res) => 
 	res.send(process.env.PAYPAL_CLIENT_ID)
