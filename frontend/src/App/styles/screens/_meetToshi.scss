@@ -1,0 +1,57 @@
+.pg__meetToshi {
+  height: 85vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: scroll;
+
+  &--card__meetToshi-home {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+
+    padding: 4rem 2rem;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &--card__meetToshi {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+
+    padding: 4rem 2rem;
+    height: 100%;
+    overflow: scroll;
+    cursor: ns-resize;
+
+
+    &--header {
+      text-align: center;
+      margin-bottom: 1rem;
+      // font-family: 'Tangerine', cursive;
+    }
+
+    &--p {
+      line-height: 3rem;
+      // text-align: left;
+      margin: 4rem 0;
+      // border-bottom: 1px dashed $green;
+      position: relative;
+      padding-left: 1rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: $old-blue-2;
+        bottom: 0%;
+        left: 0;
+        height: 100%;
+        width: 3px;
+      }
+    }
+  }
+}
+
+.sidebar {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+}

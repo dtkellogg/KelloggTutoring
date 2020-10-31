@@ -34,7 +34,7 @@ const reviews = [
   {
     name: "Rupy",
     relation: "Parent",
-    date: "12-10-2020",
+    date: "10-31-2020",
     msg:
       "Hey Toshi. Thank you so much for tutoring me. You've helped me out a lot over the years!",
     approved: false,
@@ -42,7 +42,7 @@ const reviews = [
   {
     name: "Kyle",
     relation: "Student",
-    date: "11-1-2020",
+    date: "10-29-2020",
     msg:
       "Hey Toshi. Thank you so much for tutoring me. You've helped me out a lot over the years!",
     approved: false,
