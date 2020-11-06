@@ -10,6 +10,8 @@ const appointmentRequestRoutes = require('./routes/appointmentRequestRoutes')
 const userRoutes = require('./routes/userRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
 const reviewRoutes = require('./routes/reviewRoutes')
+const msgRoutes = require('./routes/msgRoutes')
+const cors = require("cors")
 
 dotenv.config()
 
@@ -20,6 +22,8 @@ const app = express()
 // the following allows you to accept JSON data in the body... when u make a request to db, ur getting back JSON. This allows you to use it in the UI
 app.use(express.json())
 
+app.use(cors())
+
 app.get('/', (req, res) => {
     res.send('API is running...')
 })
@@ -28,6 +32,7 @@ app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/appointmentRequests', appointmentRequestRoutes)
 app.use('/api/payments', paymentRoutes)
+app.use('/api/messages', msgRoutes)
 
 app.use('/api/reviews', reviewRoutes)
 // app.use('/api/reviews', (req, res) => {

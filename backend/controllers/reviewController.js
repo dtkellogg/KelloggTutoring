@@ -82,18 +82,15 @@ const createReview = asyncHandler(async (req, res) => {
 // @route   PUT /api/reviews/:id
 // @access  Private/Admin
 const updateReview = asyncHandler(async (req, res) => {
-  const { user, student, subject, date, startTime, endTime, paid } = req.body;
+  const { user, name, relation, msg } = req.body;
 
   const review = await Review.findById(req.params.id);
 
   if (review) {
     review.user = user;
-    review.student = student;
-    review.subject = subject;
-    review.date = date;
-    review.startTime = startTime;
-    review.endTime = endTime;
-    review.paid = paid;
+    review.name = name;
+    review.relation = relation;
+    review.msg = msg;
 
     const updatedReview = await review.save();
     res.json(updatedReview);
