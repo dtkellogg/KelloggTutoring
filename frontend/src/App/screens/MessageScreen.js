@@ -1,6 +1,39 @@
 import React from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetails } from "../actions/userActions";
+import Sidebar from "../components/Sidebar";
 
-export default function MessageScreen() {
+
+const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+
+function getFormattedPhoneNum(input) {
+  let output = "(";
+  input.replace(/^\D*(\d{0,3})\D*(\d{0,3})\D*(\d{0,4})/, function (match, g1, g2, g3) {
+    if (g1.length) {
+      output += g1;
+      if (g1.length === 3) {
+        output += ")";
+        if (g2.length) {
+          output += " " + g2;
+          if (g2.length === 3) {
+            output += " - ";
+            if (g3.length) {
+              output += g3;
+            }
+          }
+        }
+      }
+    }
+  }
+  );
+  return output;
+}
+
+
+export default function MessageScreen({ history }) {
+
+  // console.log(`history: ${history}`)
 
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -9,6 +42,32 @@ export default function MessageScreen() {
   const [message, setMessage] = React.useState("");
   const [submitted, setSubmitted] = React.useState(false);
   const [failed, setFailed] = React.useState("");
+
+  // console.log(`FORMATED-NAME: ${getFormattedPhoneNum(phone)}`)
+
+  const dispatch = useDispatch();
+
+  const userDetails = useSelector((state) => state.userDetails);
+  const {
+    //  loading,
+    //  error,
+    user,
+  } = userDetails;
+
+  // console.log(`user: ${user}`)
+
+
+  React.useEffect(() => {
+      if (
+        !user.name ||
+        user === undefined
+        ) {
+        dispatch(getUserDetails("profile"));
+      } else {
+        setName(user.name);
+        setEmail(user.email);
+      }
+  }, [dispatch, history, user]);
 
   const validate = () => {
     // eslint-disable-next-line no-useless-escape
@@ -51,126 +110,131 @@ export default function MessageScreen() {
         setSubmitted(false);
       }, 4000);
 
-      // const dataToSubmit = {
-      //   name,
-      //   email,
-      //   phone,
-      //   subject,
-      //   message,
-      // };
+      const dataToSubmit = {
+        name,
+        email,
+        subject,
+        phone,
+        message,
+      };
 
 
-      //   await axios
-      //     .post("/api/v1/messages", dataToSubmit)
-      //     .then((response) => {
-      //       console.log(`axios response: ${response.data}`);
-      //     })
-      //     .then(() => {
-      //       setName("");
-      //       setEmail("");
-      //       setPhone("");
-      //       setSubject("");
-      //       setMessage("");
-      //     });
+        await axios
+          .post("/api/messages", dataToSubmit)
+          .then((response) => {
+            console.log(`axios response: ${response.data}`);
+          })
+          .then(() => {
+            setName("");
+            setEmail("");
+            setPhone("");
+            setSubject("");
+            setMessage("");
+          });
     }
   };
 
   return (
-    <form className="messageForm" onSubmit={handleSubmit}>
-      <div className="messageForm__header">
-        <h2 className="text-size-2 letter-spacing-sm">
-          {/* Any Questions? */}
-          Any questions? Leave a message here.
-        </h2>
-        {submitted && (
-          <p className="messageForm__success-message--contact text-size-3">
-            Email has been sent.
-          </p>
-        )}
-        {failed.length > 0 && (
-          <p className="messageForm__fail-message--contact text-size-3">
-            {/* Failed to register for newsletter. Please try again. */}
-            {failed}
-          </p>
-        )}
+    <div className="pg__contact">
+      <Sidebar title="Contact" list={contactList} />
+      <div className="user__page">
+        <form className="messageForm" onSubmit={handleSubmit}>
+          <div className="messageForm__header">
+            <h2 className="text-size-2 letter-spacing-sm">
+              Any questions? Leave a message here.
+            </h2>
+          </div>
+          <div className="messageForm__content">
+            <div className="messageForm__element">
+              <label className="text-size-5 letter-spacing-md messageForm__label">
+                name
+              </label>
+              <input
+                type="text"
+                className="messageForm__input messageForm__input-contact text-size-4"
+                placeholder="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="messageForm__element">
+              <label
+                className="text-size-5 letter-spacing-md messageForm__label"
+                htmlFor="email__messageForm"
+              >
+                email
+              </label>
+              <input
+                type="email"
+                className="messageForm__input messageForm__input-contact text-size-4"
+                placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="messageForm__element">
+              <label className="text-size-5 letter-spacing-md messageForm__label">
+                phone
+              </label>
+              <input
+                type="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                // format="(###) ###-####"
+                className="messageForm__input messageForm__input-contact text-size-4"
+                placeholder="(xxx) xxx - xxxx"
+                value={phone ? getFormattedPhoneNum(phone) : phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="messageForm__element">
+              <label className="text-size-5 letter-spacing-md messageForm__label">
+                subject
+              </label>
+              <input
+                type="text"
+                className="messageForm__input messageForm__input-contact text-size-4"
+                placeholder="subject"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+              />
+            </div>
+            <div className="messageForm__element">
+              <label
+                className="text-size-5 letter-spacing-md messageForm__label"
+                htmlFor="message__messageForm"
+              >
+                message
+              </label>
+              <textarea
+                type="text"
+                className="messageForm__textarea messageForm__input--contact-message text-size-4"
+                placeholder="Please leave your message here."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
+            
+            {submitted && (
+              <p className="messageForm__success-message--contact text-size-3">
+                Email has been sent.
+              </p>
+            )}
+            {failed.length > 0 && (
+              <p className="messageForm__fail-message--contact text-size-3">
+                {failed}
+              </p>
+            )}
+
+            <button
+              className="btn btn__messageForm"
+              onClick={handleSubmit}
+              disabled={submitted || failed.length > 0}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="messageForm__content">
-        <div className="messageForm__element">
-          <label className="text-size-5 letter-spacing-md messageForm__label">
-            name
-          </label>
-          <input
-            type="text"
-            className="messageForm__input messageForm__input-contact text-size-3"
-            placeholder="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="messageForm__element">
-          <label
-            className="text-size-5 letter-spacing-md messageForm__label"
-            htmlFor="email__messageForm"
-          >
-            email
-          </label>
-          <input
-            type="email"
-            className="messageForm__input messageForm__input-contact text-size-3"
-            placeholder="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="messageForm__element">
-          <label className="text-size-5 letter-spacing-md messageForm__label">
-            phone
-          </label>
-          <input
-            type="tel"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            // format="(###) ###-####"
-            className="messageForm__input messageForm__input-contact text-size-3"
-            placeholder="XXX XXX XXXX"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-        <div className="messageForm__element">
-          <label className="text-size-5 letter-spacing-md messageForm__label">
-            subject
-          </label>
-          <input
-            type="text"
-            className="messageForm__input messageForm__input-contact text-size-3"
-            placeholder="subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </div>
-        <div className="messageForm__element">
-          <label
-            className="text-size-5 letter-spacing-md messageForm__label"
-            htmlFor="message__messageForm"
-          >
-            message
-          </label>
-          <textarea
-            type="text"
-            className="messageForm__textarea messageForm__input--contact-message text-size-3"
-            placeholder="What's up? How can I be of service?"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </div>
-        <button
-          className="btn btn__messageForm"
-          onClick={handleSubmit}
-          disabled={submitted || failed.length > 0}
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+    </div>
   );
 }

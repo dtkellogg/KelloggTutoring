@@ -1,7 +1,7 @@
 .registerScreen {
   grid-row: 1 / span 1;
   grid-column: 2 / span 2;
-  padding: 10rem 2rem 10rem 2rem;
+  padding: 7rem 2rem 7rem 2rem;
   height: 100%;
   overflow: scroll;
 
@@ -26,18 +26,18 @@
   }
 
   &__label {
-    color: var(--grey-light-5);
+    color: $grey-light-5;
   }
 
   &__input {
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;
-    color: var(--green);
+    color: $old-blue-2;
 
     &:focus {
       outline: none;
-      border-bottom: 1px solid var(--green);
+      border-bottom: 1px solid $old-blue-2;
 
     }
     
@@ -53,26 +53,26 @@
   }
 
   &__success-message--contact {
-    color: var(--green);
+    color: $green;
     margin-top: 1rem;
   }
 
   &__fail-message--contact {
-    color: var(--red);
+    color: $red;
     margin-top: 1rem;
   }
 
   &__textarea {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px dashed var(--green);
+    border: 1px dashed $old-blue-2;
     height: 20rem;
-    color: var(--green);
+    color: $old-blue-2;
     resize: vertical;
 
     &:focus {
       outline: none;
-      border: 1px solid var(--green);
+      border: 1px solid $old-blue-2;
     }
   }
 
@@ -85,6 +85,6 @@
 label[for="email__messageForm"]::after,
 label[for="message__messageForm"]::after {
   content: "*";
-  color: var(--red);
+  color: $red;
   padding-left: 0.2rem; 
 }

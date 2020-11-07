@@ -9,29 +9,63 @@ import Calendar from '../components/Calendar'
 import Reviews from '../components/Reviews'
 
 import { subheader } from "../actions/subheader";
+
 import { useDispatch, useSelector } from "react-redux";
 import { FaGhost } from "react-icons/fa";
 
-const activeStyle = {
-  color: "rgb(73, 165, 73)",
-  fontWeight: 900,
-};
+// const activeStyle = {
+//   color: "rgb(73, 165, 73)",
+//   fontWeight: 900,
+// };
 
 export default function HomePage() {
   const [displayAppts, setDisplayAppts] = React.useState('calendar')
   let location = useLocation();
   const dispatch = useDispatch();
 
-  const appointmentList = useSelector((state) => state.appointmentList);
-  const { loading, error, appointments } = appointmentList;
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  React.useEffect(() => {
+    dispatch(subheader("Home"));
+    dispatch(listAppointments())
+  }, [location, dispatch]);
+
+  React.useEffect(() => {
+    const sendHeader =  async () => {
+      // if (loading) {
+        await dispatch(subheader("Loading..."))
+        // .then(() => {dispatch(subheader("Home"))})
+
+
+      // } 
+      // else {
+      //   dispatch(subheader("Home"));
+      // }
+
+      
+    }
+    sendHeader()
+
+    // if (!loading) {
+    //   dispatch(subheader("Home"));
+    // }
+
+    // if (error) {
+    //   dispatch(subheader({ error }));
+    // }
+
+    // dispatch(subheader("Home"));
+  }, [dispatch])
+
   // React.useEffect(() => {
-  //   dispatch(subheader(""));
-  //   dispatch(listAppointments())
-  // }, [location, dispatch]);
+    
+  //     if (appointments) {
+  //       dispatch(subheader("Home"));
+  //     }
+
+    
+  // }, [dispatch, appointments]);
 
 
   return (
@@ -76,7 +110,6 @@ export default function HomePage() {
       </div>
 
       <div className="highlights__appointments">
-        <h2 className="text-size-4 highlights__header"></h2>
         <div className="highlights__appointments--text">
           <h3 className="text-size-2">
             Here are your <b>upcoming appointments:</b>
@@ -139,11 +172,11 @@ export default function HomePage() {
         <div className="highlights__appointments--appointments__list-container">
           {displayAppts === "list" ? (
             <div style={{width: "100%"}}>
-            <ApptsList type={"upcoming"}/>
+            <ApptsList type="upcoming"/>
             </div>
           ) : userInfo ? (
             <div className="highlights__appointments--appointments__list-container">
-            <Calendar />
+            <Calendar type="home"/>
               </div>
           ) : (
              <div className="highlights__appointments--appointments__list-container">
@@ -162,7 +195,7 @@ export default function HomePage() {
       <div className="highlights__meetToshi">
         {/* <h2 className="text-size-2 highlights__header">Meet Toshi</h2> */}
         <div className="highlights__meetToshi--container">
-          <Reviews />
+          <Reviews type="home"/>
         </div>
       </div>
     </div>

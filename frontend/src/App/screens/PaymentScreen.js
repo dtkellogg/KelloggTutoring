@@ -16,12 +16,19 @@ import { addToCart } from "../actions/cartActions";
 // import { payPayment } from "../actions/paymentActions";
 import { PAYMENT_PAY_RESET, PAYMENT_PAY_FAIL } from "../constants/paymentConstants";
 import PaymentSteps from "../components/PaymentSteps";
-import PaymentMethod from "../screens/PaymentMethodScreen";
+import PaymentMethod from "./PaymentMethodScreen";
 import { removeFromCart } from "../actions/cartActions";
 import { getPaymentDetails, payPayment } from "../actions/paymentActions";
-import Loading from "../components/Loading"
+import Sidebar from "../components/Sidebar";
+
+import { subheader } from "../actions/subheader";
+
+
+const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+
 
 function PaymentScreen({ match, history }) {
+  const [loadingDefault, setLoadingDefault] = React.useState(false)
   const paymentId = match.params.id;
 
   const dispatch = useDispatch();
@@ -37,6 +44,17 @@ function PaymentScreen({ match, history }) {
       dispatch(getPaymentDetails(paymentId));
     }
   }, [dispatch, paymentId]);
+
+  // React.useEffect(() => {
+  //   if (loading) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [loading, error])
 
   // PAYPAL STUFF ... PROB WANT TO MOVE TO A CHECKOUT SCREEN EVENTUALLY
 
@@ -86,10 +104,12 @@ function PaymentScreen({ match, history }) {
   // END OF PAYPAL STUFF
 
   return loading ? (
-    <Loading />
+    setLoadingDefault(true)
   ) : error ? (
     <h2 className="text-size-2">{error}</h2>
   ) : (
+        <div className="pg__appointment">
+          <Sidebar title="Appointments" list={apptsList} />
     <div className="appointments">
       {/* <PaymentSteps step1 step2 step3 step4 /> */}
       <div className="appointments__header--container">
@@ -222,9 +242,12 @@ function PaymentScreen({ match, history }) {
       {/* // PAYPAL */}
       {!payment.isPaid && (
         <div>
-          {loadingPay && <Loading />}
+          {loadingPay 
+          &&
+          setLoadingDefault(true)
+           }
           {!sdkReady ? (
-            <Loading />
+          setLoadingDefault(true)
           ) : (
             <PayPalButton
               amount={payment.totalPrice}
@@ -233,6 +256,7 @@ function PaymentScreen({ match, history }) {
           )}
         </div>
       )}
+    </div>
     </div>
   );
 }

@@ -1,10 +1,409 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
+import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
+
+import { listAppointments } from "../actions/appointmentActions"
+
+import { useSort } from '../hooks/useSort'
+
+import Sidebar from "../components/Sidebar";
+import { subheader } from "../actions/subheader";
 
 
-export default function Calendar() {
-    return (
-        <div className="">
-            
-        </div>
-    )
+const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+
+
+
+
+export default function Calendar({ type }) {
+	const [date, setDate] = React.useState(new Date())
+	const [day, setDay] = React.useState('')
+	const [month, setMonth] = React.useState('')
+	const [year, setYear] = React.useState(date.getFullYear())
+	const [calendarDays, setCalendarDays] = React.useState([])
+	
+	const dispatch = useDispatch()
+	
+	const appointmentList = useSelector((state) => state.appointmentList);
+	const { loading, error, appointments } = appointmentList;
+
+	const userLogin = useSelector(state => state.userLogin)
+	const { userInfo } = userLogin
+
+	const sortedAppts = useSort(appointments, "startTime")
+
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+	function daysInMonth(month, year) {
+		return new Date(year, month, 0).getDate()
+	}
+
+
+	
+
+  console.log(`DATE: ${date}`)
+	
+
+	
+	const getCalendarDays = (date) => {
+		var monthIdx = date.getMonth()
+		var monthStr = months[monthIdx]
+		var nextMonthStr = months[monthIdx + 1]
+		var lastMonthStr = months[monthIdx - 1]
+		// console.log(`WDLKBASD ${date.getFullYear()}`)
+		var year = date.getFullYear();
+
+		setDay(date.getDate())
+		setMonth(monthStr)
+		// setYear(date.getFullYear())
+
+		let firstDayOfCurrentMonth = days[date.getDay() + 1];
+		let numDaysOfPreviousMonth = days.indexOf(firstDayOfCurrentMonth)
+		
+		let totalNumOfDaysInCurrentMonth = daysInMonth(date.getMonth() + 1, year)
+		let totalNumOfDaysInLastMonth = daysInMonth(date.getMonth(), year)
+
+		let arrayDaysCurrentMonth = []
+		let arrayDaysLastMonth = []
+		let arrayDaysNextMonth = []
+		
+		if (numDaysOfPreviousMonth === -1) {
+			for (var i = 1; i < totalNumOfDaysInCurrentMonth + 1; i++) {
+				arrayDaysCurrentMonth.push({ num: i, month: monthStr, year: year, appts: [] })
+			}
+			for (i = 1; i < 43 - totalNumOfDaysInCurrentMonth; i++) {
+				arrayDaysNextMonth.push({ num: i, month: nextMonthStr, year: year, appts: [] })
+			}
+
+		} else {
+			for (i = totalNumOfDaysInLastMonth; i > totalNumOfDaysInLastMonth - numDaysOfPreviousMonth; i--) {
+				arrayDaysLastMonth.unshift({ num: i, month: lastMonthStr, year: year, appts: [] })
+			}
+			for (i = 1; i < 43 - (totalNumOfDaysInCurrentMonth + numDaysOfPreviousMonth); i++) {
+				arrayDaysNextMonth.push({ num: i, month: nextMonthStr, year: year, appts: [] })
+			}
+			for (i = 1; i < totalNumOfDaysInCurrentMonth + 1; i++) {
+				arrayDaysCurrentMonth.push({ num: i, month: monthStr, year: year, appts: [] })
+			}
+		}
+
+		let arrayAllDays = arrayDaysLastMonth.concat(arrayDaysCurrentMonth).concat(arrayDaysNextMonth)
+
+		const allDaysWithAppts = []
+		
+		arrayAllDays.map((calDay) => {
+				
+		 sortedAppts.filter((appt) => appt.student === userInfo.name).map((appt) => {
+				const apptDate = appt.date.split('T')[0].split('-');
+				const apptDay = parseInt(apptDate[2])
+				const apptMonth = months[apptDate[1] - 1]
+				// const apptYear = apptDate[0]
+
+				if((apptDay === calDay.num) && (apptMonth === calDay.month)) {
+          calDay.appts.push(appt)
+        }
+        return
+			})
+				
+			allDaysWithAppts.push(calDay)
+    })
+    
+    console.log(`ALLDAYSWITHAPPS: ${allDaysWithAppts}`)
+    console.log(`ARRAYALLDAYS: ${arrayAllDays}`)
+    console.log(arrayAllDays[0])
+
+		setCalendarDays(allDaysWithAppts)
+		// setCalendarDays(arrayAllDays)
+	}
+
+
+	const handleBackwards = () => {
+		if (months.indexOf(month) > 0) {
+
+			let indexOfCurrentMonth = months.indexOf(month)
+			let indexOfPreviousMonth = indexOfCurrentMonth - 1
+
+				
+			date.setMonth(indexOfPreviousMonth)
+			
+			let newMonth = months[months.indexOf(month) - 1]
+
+			if ((newMonth) === 1) {
+				newMonth = months[12]
+			}
+
+			setDate(date)
+			setMonth(newMonth)
+			getCalendarDays(date)
+
+	} else {
+		let indexOfLastMonth = 11
+
+		date.setMonth(indexOfLastMonth)
+
+		let newMonth = months[11]
+
+			setYear((year) => year - 1)
+
+		setMonth(newMonth)
+		setDate(date)
+		getCalendarDays(date)
+	}
+  }
+  
+
+  React.useEffect(() => {
+    getCalendarDays(date);
+  }, []);
+
+  React.useEffect(() => {
+    // getCalendarDays(date);
+    dispatch(listAppointments());
+  }, [dispatch]);
+
+
+
+
+
+
+
+
+
+
+
+	const handleForwards = () => {
+		console.log(`MONTH: ${month}`)
+		console.log(`YEAR: ${year}`)
+		if (months.indexOf(month) < 11) {
+		
+			let indexOfCurrentMonth = months.indexOf(month)
+			let indexOfNextMonth = indexOfCurrentMonth + 1
+
+			date.setMonth(indexOfNextMonth)
+
+			let newMonth = months[months.indexOf(month) + 1]
+
+			// if (month === 'January') {
+			// 	setYear(year + 1)
+			// }
+
+			setMonth(newMonth)
+			setDate(date)
+			getCalendarDays(date)
+
+		} else {
+			let indexOfNextMonth = 0
+
+			date.setMonth(indexOfNextMonth)
+
+			let newMonth = months[0]
+
+			// if (month === 'December') {
+				// setYear(year + 1)
+			// }
+			setYear((year) => year + 1)
+			setMonth(newMonth)
+			setDate(date)
+			getCalendarDays(date)
+		}
+  }
+
+  
+
+  // React.useEffect(() => {
+  //   if (loading) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [dispatch, loading, error])
+
+
+
+	if(userInfo === null) {
+		return (
+			<div className={type === 'home' ? "home__calendar" : 'pg__appointment'}>
+			{/* <div className="pg__appointment"> */}
+				{type !== 'home' && <Sidebar title="Appointments" list={apptsList} />}
+      <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+        Please&nbsp;
+        <span className="text-size-2" style={{ color: "blue" }}>
+          login&nbsp;
+        </span>
+        <span className="text-size-2"> to view your appointments</span>
+      </Link>
+	  </div>
+    );
+	 } else {
+	 return (
+     //  <div className="home__calendar">
+     <div className={type === "home" ? "home__calendar" : "pg__appointment"}>
+       {/* <div className="pg__appointment"> */}
+       {/* <Sidebar title="Appointments" list={apptsList} /> */}
+       {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
+       <div className="calendar">
+         <div className="calendar__row--header text-size-2">
+           <FaCaretLeft
+             size={30}
+             // color="var(--green-dark)"
+             fill="var(--old-blue-2)"
+             className="btn__calendar"
+             onClick={() => handleBackwards()}
+           />
+           <div>{`${month} ${day}, ${year}`}</div>
+           <FaCaretRight
+             size={30}
+             // color="var(--green-dark)"
+             fill="var(--old-blue-2)"
+             className="btn__calendar"
+             onClick={() => handleForwards()}
+           />
+         </div>
+         <ul className="calendar__row--days">
+           {days.map((day) => (
+             <li key={day} className="calendar__row--day">
+               {day}
+             </li>
+           ))}
+         </ul>
+         <ul className="calendar__row--numDays">
+           {calendarDays.map((numDay) => {
+             // console.log(`numDay.year: ${numDay.year}. year: ${year}`)
+             // console.log(`num ${new Date().getMonth()}`)
+             if (numDay.month !== month) {
+               if (numDay.appts.length !== 0) {
+                 return (
+                   <li
+                     className="calendar__row--element-with-appts"
+                     style={{ color: "var(grey-light-5)" }}
+                   >
+                     <div
+                       style={{
+                         display: "block",
+                         color: "var(--grey-light-5)",
+                         alignSelf: "flex-end",
+                       }}
+                     >
+                       {numDay.num}
+                     </div>
+                     <br />
+                     <div
+                       style={{
+                         color: "var(--old-blue-2)",
+                         paddingLeft: "0.5rem",
+                         //   alignSelf: 'flex-end'
+                       }}
+                     >
+                       {numDay.appts.map((appt) => {
+                         return (
+                           <div key={appt._id}>
+                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                           </div>
+                         );
+                       })}
+                     </div>
+                   </li>
+                 );
+               } else
+                 return (
+                   <li
+                     key={numDay.num}
+                     className="calendar__row--element"
+                     style={{ color: "var(--grey-light-5)" }}
+                   >
+                     {numDay.num}
+                   </li>
+                 );
+               // return <li className="calendar__row--element" style={{color: 'var(--grey-light-5)'}} >{numDay.num}</li>
+             } else if (
+               numDay.num === day &&
+               numDay.month === months[new Date().getMonth()] &&
+               numDay.year === year
+             ) {
+               if (numDay.appts.length !== 0) {
+                 return (
+                   <li
+                     className="calendar__row--element-with-appts"
+                     style={{ color: "var(--old-blue-2)" }}
+                   >
+                     <div
+                       style={{
+                         display: "block",
+                         fontWeight: "bold",
+                         alignSelf: "flex-end",
+                       }}
+                     >
+                       {numDay.num}
+                     </div>
+                     <br />
+                     <div
+                       style={{
+                         color: "var(--old-blue-2)",
+                         paddingLeft: "0.5rem",
+                       }}
+                     >
+                       {numDay.appts.map((appt) => {
+                         return (
+                           <div>
+                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                           </div>
+                         );
+                       })}
+                     </div>
+                   </li>
+                 );
+               } else
+                 return (
+                   <li
+                     className="calendar__row--element"
+                     style={{ color: "var(--old-blue-2)" }}
+                   >
+                     {numDay.num}
+                   </li>
+                 );
+             } else {
+               if (numDay.appts.length !== 0) {
+                 return (
+                   <li className="calendar__row--element-with-appts">
+                     <div style={{ display: "block", alignSelf: "flex-end" }}>
+                       {numDay.num}
+                     </div>
+                     <br />
+                     <div
+                       style={{
+                         color: "var(--old-blue-2)",
+                         paddingLeft: "0.5rem",
+                       }}
+                     >
+                       {numDay.appts.map((appt) => {
+                         return (
+                           <div>
+                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                           </div>
+                         );
+                       })}
+                     </div>
+                   </li>
+                 );
+               } else
+                 return (
+                   <li
+                    //  key={numDay.num && numDay.month}
+                     className="calendar__row--element"
+                     style={{ color: "var(--black)" }}
+                   >
+                     {numDay.num}
+                   </li>
+                 );
+             }
+           })}
+         </ul>
+       </div>
+     </div>
+   );}
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
-import Loading from '../components/Loading'
 import { login } from '../actions/userActions'
+import { subheader } from "../actions/subheader";
 
 export default function Login({ location, history }) {
   const [email, setEmail] = React.useState('')
@@ -20,7 +19,15 @@ export default function Login({ location, history }) {
     if(userInfo) {
       history.push(redirect)
     }
-  }, [history, userInfo, redirect])
+    if(loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
+    }
+    if(error) {
+      dispatch(subheader({error}));
+    }
+  }, [dispatch, history, userInfo, redirect, loading, error])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,8 +42,6 @@ export default function Login({ location, history }) {
             Please login.
           </h2>
 
-          {error && <Message variant="danger">{error}</Message>}
-          {loading && <Loading />}
 
         </div>
         <div className="loginScreen__content">

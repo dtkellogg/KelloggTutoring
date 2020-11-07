@@ -7,30 +7,32 @@
   margin: auto auto 1rem auto;
 
   &__contact-items {
+    @include hundredPercentHW();
     padding: 3rem;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
 
   &__contact-item {
-    color: var(--grey-light-4);
+    color: $grey-light-4;
     padding: 0 5rem;
+    display: flex;
+    align-items: center;
 
     &:first-child::after {
-      border: 1px dashed var(--green);
+      border: 1px dashed $green;
     }
   }
 
   &__emoji {
-    fill: var(--grey-light-4);
+    fill: $grey-light-4;
   }
 }
 
 .legal {
-  width: 100%;
+  @include hundredPercentHW();
   text-align: center;
   margin: auto;
-  color: var(--grey-light-4);
+  color: $grey-light-4;
 }

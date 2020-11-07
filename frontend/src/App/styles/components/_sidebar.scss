@@ -1,11 +1,11 @@
 .sidebar {
-  background: var(--green-13);
+  background: $labor-work;
   padding: 2rem;
 }
 
 .sidebar__list {
   margin-top: 2rem;
-  color: var(--green);
+  color: $white;
   text-decoration: none;
   line-height: 2.25rem;
 }

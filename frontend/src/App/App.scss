@@ -1,26 +1,37 @@
 // @import "styles/abstracts/functions";
-// @import "styles/abstracts/mixins";
-// @import "styles/abstracts/variables";
+@import "styles/abstracts/mixins";
+@import "styles/abstracts/variables";
 
 @import "styles/base/base";
 @import "styles/base/routeTransitions";
 @import "styles/base/typography";
 
 @import "styles/components/buttons";
-@import "styles/components/loading";
+@import "styles/components/calendar";
+@import "styles/components/headerScreen";
 @import "styles/components/nav";
+@import "styles/components/paymentSteps";
+@import "styles/components/reviews";
 @import "styles/components/sidebar";
 
 @import "styles/layout/containers";
-@import "styles/layout/flexbox";
 @import "styles/layout/footer";
 
-@import "styles/pages/appointments";
-@import "styles/pages/contact";
-@import "styles/pages/home";
-@import "styles/pages/meetToshi";
-@import "styles/pages/pageHeader";
-@import "styles/pages/user";
+@import "styles/screens/appointments";
+@import "styles/screens/contact";
+@import "styles/screens/home";
+@import "styles/screens/meetToshi";
+@import "styles/screens/user";
+
+@import "styles/screens/adminUsersListScreen";
+@import "styles/screens/apptEditScreen";
+@import "styles/screens/createApptScreen";
+@import "styles/screens/messageFormScreen";
+@import "styles/screens/loginScreen";
+@import "styles/screens/profileScreen";
+@import "styles/screens/reviewEditScreen";
+@import "styles/screens/registerScreen";
+@import "styles/screens/userEditScreen";
 
 // @import "styles/themes/admin"
 

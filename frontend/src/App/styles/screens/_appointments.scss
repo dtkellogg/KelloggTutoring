@@ -80,6 +80,11 @@ tbody tr:nth-of-type(odd) {
   height: 100%;
   overflow: scroll;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   &__header--container {
     // text-align: center;
     // position: relative;
@@ -256,7 +261,14 @@ tbody tr:nth-of-type(odd) {
 grid-column: 2 / span 2;
 }
 
-.msg__userInfoNull,
+.msg__userInfoNull {
+  // @include hundredPercentHW();
+  @include flexCenterCenter();
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+  text-align: center;
+}
+
 .msg__no-prev-appts {
   @include hundredPercentHW();
   @include flexCenterCenter();
@@ -294,4 +306,15 @@ grid-column: 2 / span 2;
 
 .social-media-icon__trash {
   cursor: pointer;
+}
+
+.appointments-2 {
+      grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    padding: 2rem;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

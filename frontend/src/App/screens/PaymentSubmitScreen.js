@@ -1,29 +1,42 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+// import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
 // import CheckoutSteps from '../components/CheckoutSteps'
 import { createPayment } from '../actions/paymentActions'
 import { listAppointments } from '../actions/appointmentActions'
+import { subheader } from "../actions/subheader";
+
 
 export default function SubmitPaymentScreen ({ history }) {
     const dispatch = useDispatch()
 
     // const cart = useSelector((state) => state.cart)
 
+    const paymentCreate = useSelector((state) => state.paymentCreate);
+    const { payment, success, error } = paymentCreate;
+
     const appointmentList = useSelector((state) => state.appointmentList)
     const { loading, appointments } = appointmentList;
 
-    console.log(`appointmentList: ${appointments}`)
-
-    
-    
-    React.useEffect(() => {
-        dispatch(listAppointments())
-    }, [dispatch])
-    
     const cart = appointments.filter((appt) => appt.isPaid === 'false')
-    console.log(`cart: ${cart}`)
+
+
+
+    const submitPaymentHandler = () => {
+      dispatch(
+        createPayment({
+          paymentItems: cart.cartItems,
+          shippingAddress: cart.shippingAddress,
+          paymentMethod: cart.paymentMethod,
+          itemsPrice: cart.itemsPrice,
+          shippingPrice: cart.shippingPrice,
+          taxPrice: cart.taxPrice,
+          totalPrice: cart.totalPrice,
+        })
+      );
+    };
+
+
 
     //   Calculate prices
     // const addDecimals = (num) => {
@@ -41,29 +54,33 @@ export default function SubmitPaymentScreen ({ history }) {
     //     Number(cart.taxPrice)
     // ).toFixed(2)
 
-    const paymentCreate = useSelector((state) => state.paymentCreate)
-    const { payment, success, error } = paymentCreate
 
-    useEffect(() => {
+
+    
+
+    React.useEffect(() => {
         if (success) {
             history.push(`/payment/${payment._id}`)
         }
         // eslint-disable-next-line
     }, [history, success])
 
-    const submitPaymentHandler = () => {
-        dispatch(
-            createPayment({
-                paymentItems: cart.cartItems,
-                shippingAddress: cart.shippingAddress,
-                paymentMethod: cart.paymentMethod,
-                itemsPrice: cart.itemsPrice,
-                shippingPrice: cart.shippingPrice,
-                taxPrice: cart.taxPrice,
-                totalPrice: cart.totalPrice,
-            })
-        )
-    }
+    
+
+    React.useEffect(() => {
+      dispatch(listAppointments());
+    }, [dispatch]);
+
+    React.useEffect(() => {
+      if (loading) {
+        dispatch(subheader("Loading..."));
+      } else {
+        dispatch(subheader(""));
+      }
+      if (error) {
+        dispatch(subheader({ error }));
+      }
+    }, [dispatch, loading, error]);
 
     return (
         <React.Fragment>

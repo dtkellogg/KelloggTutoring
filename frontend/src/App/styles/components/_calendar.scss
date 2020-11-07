@@ -1,99 +1,69 @@
 .calendar {
-    grid-column: 2 / span 2;
-    // padding: 2rem;
+    @include hundredPercentHW();
+
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 5rem 3rem repeat(6, 1fr);
-    border: 1px solid var(--black);
-    background-color: var(--white);
-
-    // grid-gap: var(--black);
-
-    // &__row--days {
-    //     display: flex;
-    //     grid-row: 1 / span 2;
-    //     grid-column: 1 / -1;
-    // }
-
-    background-color: var(--grey-light-7);
+    grid-template-columns: repeat(7, 1fr);
+    
+    grid-column: 2 / span 2;
+    border: 1px solid $black;
+    background-color: $grey-light-7;
+    overflow: hidden;
 }
 
 .item {
-    background-color: var(--white);
-    width: 100%;
-    height: 100%;
+    @include hundredPercentHW();
+    background-color: $white;
 }
 
 .calendar__row--header {
+    @include flexCenterCenter($justify-content: space-between);
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
 
-    // display: grid;
-    // grid-template-columns: repeat(7, 1fr);
-    // justify-items: center;
-    // align-items: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25rem;
-
-    border: 1px solid var(--black);
-
-    // position: relative;
+    padding: 0 18rem;
+    border: 1px solid $black;
 }
 
-// .btn__calendar {
-//     position: absolute;
-//     transform: translate(2rem);
-// }
-
 .calendar__row--days {
+    @include hundredPercentHW();
     grid-row: 2 / span 1;
     grid-column: 1 / -1;
 
-    // display: grid;
-    // grid-template-columns: repeat(7, 1fr);
-    // justify-items: center;
-    // align-items: center;
-
-    
-
     display: flex;
     justify-content: flex-end;
-    height: 100%;
-    border-bottom: 1px solid var(--black);
-
-    // border: 1px solid var(--green);
+    border-bottom: 1px solid $black;
 }
 
 .calendar__row--day {
-    border: 0.5px solid var(--black);
-    padding: 0.5rem;
-    background-color: var(--white);
-    width: 100%;
-    height: 100%;
+    @include hundredPercentHW();
+    @include flexCenterCenter();
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 0.5px solid $black;
+    padding: 0.5rem;
+    background-color: $white;
 }
 
-.calendar__row--element 
-{
-    border: 0.5px solid var(--black);
+.calendar__row--element {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: flex-end, $align-items: flex-start);
+
+    border: 0.5px solid $black;
     padding: 0.5rem;
-    background-color: var(--white);
-    width: 100%;
-    height: 100%;
+    background-color: $white;
+}
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+.calendar__row--element-with-appts {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: flex-start, $align-items: flex-start, $flex-direction: column);
 
+    border: 0.5px solid $black;
+    padding: 0.5rem;
+    background-color: $white;
 }
 
 .calendar__row--numDays {
+    @include hundredPercentHW();
     grid-row: 3 / -1;
     grid-column: 1 / -1;
     
@@ -102,13 +72,14 @@
     grid-template-rows: repeat(6, 1fr);
     justify-items: center;
     align-items: start;
-    // padding: 0.5rem;
-    height: 100%;
-
-
 }
 
 .item {
     align-self: center;
     justify-self: center;
+}
+
+.calendar__element--appts {
+    display: flex;
+    flex-direction: column;
 }

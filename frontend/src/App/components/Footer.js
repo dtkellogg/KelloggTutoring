@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 export default function Footer() {
@@ -6,14 +7,26 @@ export default function Footer() {
       <div className="footer">
         <div className="footer__contact-items">
           <div className="footer__contact-item text-size-3">
-            <span role="img" aria-label="phone emoji" className="footer__emoji"> 📞</span>
-            +1(925)***-****
-          </div>
-          <div className="footer__contact-item text-size-3">
             <span role="img" aria-label="email emoji" className="footer__emoji">
               ✉️
             </span>
-            d******@gmail.com
+            &nbsp; kelloggtutoring@gmail.com
+          </div>
+          <div className="footer__contact-item text-size-3">
+            <span role="img" aria-label="phone emoji" className="footer__emoji">
+              📞&nbsp;
+            </span>
+            {/* &nbsp;(please ask) */}
+            <Link
+              to={`/contact/message-form`}
+              className="text-size-3 msg__userInfoNull"
+            >
+              (Please&nbsp;
+              <span className="text-size-3" style={{ color: "blue" }}>
+                ask
+              </span>
+              <span className="text-size-3">)</span>
+            </Link>
           </div>
         </div>
         <div className="legal">

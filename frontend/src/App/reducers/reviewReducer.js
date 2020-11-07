@@ -67,10 +67,7 @@ export const reviewCreateReducer = (state = {}, action) => {
   }
 };
 
-export const reviewUpdateReducer = (
-  state = { review: {} },
-  action
-) => {
+export const reviewUpdateReducer = (state = { review: {} }, action) => {
   switch (action.type) {
     case REVIEW_UPDATE_REQUEST:
       return { loading: true };
@@ -79,7 +76,7 @@ export const reviewUpdateReducer = (
     case REVIEW_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     case REVIEW_UPDATE_RESET:
-      return { appointment: {} };
+      return { review: {} };
     default:
       return state;
   }

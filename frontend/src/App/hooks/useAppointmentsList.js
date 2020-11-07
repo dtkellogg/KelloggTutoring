@@ -2,7 +2,6 @@ import React from 'react'
 // import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { listAppointments } from '../actions/appointmentActions'
-// import Loading from './Loading'
 // import Message from '../components/Message'
 
 

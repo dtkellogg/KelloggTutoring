@@ -1,4 +1,25 @@
-import { PAYMENT_CREATE_REQUEST, PAYMENT_CREATE_SUCCESS, PAYMENT_CREATE_FAIL, PAYMENT_DETAILS_REQUEST, PAYMENT_DETAILS_SUCCESS, PAYMENT_DETAILS_FAIL, PAYMENT_PAY_REQUEST, PAYMENT_PAY_SUCCESS, PAYMENT_PAY_FAIL, PAYMENT_PAY_RESET, PAYMENT_LIST_MY_REQUEST, PAYMENT_LIST_MY_SUCCESS, PAYMENT_LIST_MY_FAIL, PAYMENT_LIST_MY_RESET, PAYMENT_LIST_REQUEST, PAYMENT_LIST_SUCCESS, PAYMENT_LIST_FAIL, CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_PAYMENT_METHOD } from '../constants/paymentConstants.js'
+import { 
+    PAYMENT_CREATE_REQUEST, 
+    PAYMENT_CREATE_SUCCESS, 
+    PAYMENT_CREATE_FAIL, 
+    PAYMENT_DETAILS_REQUEST, 
+    PAYMENT_DETAILS_SUCCESS, 
+    PAYMENT_DETAILS_FAIL, 
+    PAYMENT_PAY_REQUEST, 
+    PAYMENT_PAY_SUCCESS, 
+    PAYMENT_PAY_FAIL, 
+    PAYMENT_PAY_RESET, 
+    PAYMENT_LIST_MY_REQUEST, 
+    PAYMENT_LIST_MY_SUCCESS, 
+    PAYMENT_LIST_MY_FAIL, 
+    PAYMENT_LIST_MY_RESET, 
+    PAYMENT_LIST_REQUEST, 
+    PAYMENT_LIST_SUCCESS, 
+    PAYMENT_LIST_FAIL, 
+    // CART_ADD_ITEM, 
+    // CART_REMOVE_ITEM, 
+    // CART_SAVE_PAYMENT_METHOD 
+} from '../constants/paymentConstants.js'
 
 
 export const paymentCreateReducer = (state = {}, action) => {
@@ -24,7 +45,9 @@ export const paymentCreateReducer = (state = {}, action) => {
 }
 
 export const paymentDetailsReducer = (
-    state = { loading: true, paymentItems: [], shippingAddress: {} },
+    state = { loading: true, paymentItems: [],
+        //  shippingAddress: {} 
+        },
     action
 ) => {
     switch (action.type) {
@@ -88,7 +111,7 @@ export const paymentListMyReducer = (state = { payments: [] }, action) => {
                 error: action.payload,
             }
         case PAYMENT_LIST_MY_RESET:
-            return { orders: [] }
+            return { payments: [] }
         default:
             return state
     }

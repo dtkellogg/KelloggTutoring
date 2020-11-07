@@ -33,11 +33,11 @@
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;
-    color: $green;
+    color: $old-blue-2;
 
     &:focus {
       outline: none;
-      border-bottom: 1px solid $green;
+      border-bottom: 1px solid $old-blue-2;
 
     }
     
@@ -65,14 +65,14 @@
   &__textarea {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px dashed $green;
+    border: 1px dashed $old-blue-2;
     height: 20rem;
-    color: $green;
+    color: $old-blue-2;
     resize: vertical;
 
     &:focus {
       outline: none;
-      border: 1px solid $green;
+      border: 1px solid $old-blue-2;
     }
   }
 

@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import CheckoutSteps from "../components/PaymentSteps";
 import { savePaymentMethod } from "../actions/cartActions";
+import Sidebar from "../components/Sidebar";
+// import { subheader } from "../actions/subheader";
+
+
 
 import { CART_RESET } from "../constants/cartConstants";
 
+const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+
+
 const PaymentMethodScreen = ({ history }) => {
-  const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
 //   const { shippingAddress } = cart;
 
 //   if (!shippingAddress) {
@@ -29,8 +36,21 @@ const PaymentMethodScreen = ({ history }) => {
     dispatch({type: CART_RESET})
   }
 
+  // React.useEffect(() => {
+  //   if (loading) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [loading, error])
+
 
   return (
+    <div className="pg__appointment">
+      <Sidebar title="Appointments" list={appointmentsList} />
     <div className="payment-method__screen">
       <CheckoutSteps step1 step2 step3 />
       {/* <h2 className="appointments__header--container">
@@ -82,7 +102,8 @@ const PaymentMethodScreen = ({ history }) => {
         </div>
       </form>
 
-      {/* <button onClick={handleDelete}>jhbadjbhbhda</button> */}
+      <button onClick={handleDelete}>jhbadjbhbhda</button>
+    </div>
     </div>
   );
 };

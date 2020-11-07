@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function useSort(fn, property) {
+export function useSort(fn, property) {
     return (
         fn.sort(dynamicSort(property)).reverse()
     )
@@ -8,7 +6,7 @@ export default function useSort(fn, property) {
 
 export function useSortMultiple(fn, property1, property2) {
     return (
-        fn.sort(dynamicSort(property1, property2))
+        fn.sort(dynamicSortMultiple(property1, property2)).reverse()
     )
 }
 

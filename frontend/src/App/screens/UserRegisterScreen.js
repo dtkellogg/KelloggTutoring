@@ -53,12 +53,12 @@ export default function Register({ location, history }) {
                 className="text-size-5 letter-spacing-md registerScreen__label"
                 for="name"
               >
-                name
+                Full name
               </label>
               <input
                 type="name"
                 className="registerScreen__input registerScreen__input-contact text-size-4"
-                placeholder="name"
+                placeholder="Full name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />

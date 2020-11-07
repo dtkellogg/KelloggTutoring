@@ -159,10 +159,7 @@ export const createReview = (
   }
 };
 
-export const updateReview = (review) => async (
-  dispatch,
-  getState
-) => {
+export const updateReview = (review) => async (dispatch, getState) => {
   try {
     dispatch({
       type: REVIEW_UPDATE_REQUEST,
@@ -189,6 +186,8 @@ export const updateReview = (review) => async (
       type: REVIEW_UPDATE_SUCCESS,
       payload: data,
     });
+
+    dispatch({ type: REVIEW_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
       error.response && error.response.data.message

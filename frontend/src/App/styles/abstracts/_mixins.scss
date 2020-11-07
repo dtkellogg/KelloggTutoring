@@ -1,0 +1,11 @@
+@mixin hundredPercentHW() {
+	height: 100%;
+	width: 100%;
+}
+
+@mixin flexCenterCenter($align-items: center, $justify-content: center, $flex-direction: row) {
+	display: flex;
+	flex-direction: $flex-direction;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}

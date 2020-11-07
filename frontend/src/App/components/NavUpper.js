@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import {
   NavLink,
-  // useRouteMatch,
+  withRouter,
   // useLocation
 } from "react-router-dom";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
@@ -10,24 +10,33 @@ import { logout } from '../actions/userActions'
 
 
 const activeStyle = {
-  color: "rgb(73, 165, 73)",
+  // color: "var(--old-blue-2)",
+  // backgroundColor: "var(--old-blue-2-opacity-2)",
   fontWeight: 900,
 };
 
-export default function NavUpper() {
+function NavUpper({ history }) {
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
 
-  const logoutHandler = () => {
+  const handleLogout = (e) => {
+    e.preventDefault()
     dispatch(logout())
+    history.push('/login')
   }
+
+  // React.useEffect(() => {
+  //   if (!userInfo) {
+  //     history.push('/login')
+  //   }
+  // }, [history, userInfo])
 
   return (
     <nav className="nav__upper">
       <div className="logo">
         <a href="/">
-          <h1 className="text-size-1 black nav__upper-header">
+          <h1 className="text-size-1 nav__upper-header">
             Kellogg Tutoring |{" "}
             <span role="img" aria-label="email emoji">
               🏠
@@ -36,19 +45,9 @@ export default function NavUpper() {
         </a>
       </div>
 
-      <div className="flex row">
+      <div className="nav__upper--right-container">
         <ul className="nav__list">
-          {/* <li>
-            <NavLink
-              to="/"
-              exact
-              activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
-            >
-              Home
-            </NavLink>
-          </li> */}
-          <li>
+          <li className="nav__list--item">
             <NavLink
               to="/appointments"
               activeStyle={activeStyle}
@@ -57,7 +56,8 @@ export default function NavUpper() {
               Appointments
             </NavLink>
           </li>
-          <li>
+
+          <li className="nav__list--item">
             <NavLink
               to="/meetToshi"
               activeStyle={activeStyle}
@@ -66,124 +66,167 @@ export default function NavUpper() {
               Meet Toshi
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to="/studentResources"
-              activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
-            >
-              Student Resources
-            </NavLink>
-          </li> */}
-          <li>
-            <NavLink
-              to="/contact"
-              activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
-            >
-              Contact
-            </NavLink>
-          </li>
-        </ul>
 
-        <div className="nav__user-icons">
-          {userInfo ? (
-            <h1 className="text-size-3">{userInfo.name}</h1>
-          ) : (
-            <FaUserCircle
-              size={30}
-              color="var(--green-dark)"
-              fill="var(--green-dark)"
-              className="social-media-icon grey-light-7"
+          {/* <li className="nav__list--item"> */}
+          <NavLink
+            to="/contact"
+            activeStyle={activeStyle}
+            className="nav__link text-size-5 letter-spacing-sm nav__list--item"
+          >
+            Contact
+          </NavLink>
+          {/* </li> */}
+
+          <li className="nav__user-icons nav__list-item">
+            {userInfo ? (
+              <h1 className="text-size-3">{userInfo.name}</h1>
+            ) : (
+              <FaUserCircle
+                size={30}
+                // color="var(--green-dark)"
+                fill="var(--old-blue-2)"
+                className="social-media-icon grey-light-7"
+              />
+            )}
+            <FaCaretDown
+              size={15}
+              // color="var(--green-dark)"
+              fill="var(--old-blue-2)"
+              className="social-media-icon grey-light-7 user__dropdown-menu--icon"
             />
-          )}
-          <FaCaretDown
-            size={15}
-            color="var(--green-dark)"
-            fill="var(--green-dark)"
-            className="social-media-icon grey-light-7 user__dropdown-menu--icon"
-          />
-          {(!userInfo)
-            ? (
-              <div className="user__dropdown-menu--wrapper-not-logged-in">
-                <ul className="user__dropdown-menu">
-                  <li className="user__dropdown-menu--link">
+            {
+              !userInfo ? (
+                // <div className="user__dropdown-menu--wrapper-not-logged-in">
+                <ul className="user__dropdown-menu--not-logged-in">
+                  {/* <li className="user__dropdown-menu--link"> */}
                     <NavLink
                       to="/login"
                       activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
+                      className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
                     >
                       Login
                     </NavLink>
-                  </li>
-                  <li className="user__dropdown-menu--link">
+                  {/* </li> */}
+                  {/* <li className="user__dropdown-menu--link"> */}
                     <NavLink
                       to="/settings"
                       activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
+                      className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
                     >
                       Settings
                     </NavLink>
-                  </li>
+                  {/* </li> */}
                 </ul>
-              </div>
-              ) : (
-              <div className="user__dropdown-menu--wrapper-logged-in">
-                <ul className="user__dropdown-menu">
-                  <li className="user__dropdown-menu--link">
-                    <NavLink
-                      to="/profile"
-                      activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
-                    >
-                      Profile
-                    </NavLink>
-                    </li>
-                    <li className="user__dropdown-menu--link">
-                      <NavLink
-                        to="/studentResources"
-                        activeStyle={activeStyle}
-                        className="nav__link text-size-5 letter-spacing-sm"
-                      >
-                      Resources
-                    </NavLink>
-                  </li>
-                  <li className="user__dropdown-menu--link">
-                    <NavLink
-                      to="/zoom"
-                      activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
-                    >
-                      Zoom
-                    </NavLink>
-                  </li>
-                  <li className="user__dropdown-menu--link">
-                    <NavLink
-                      to="/settings"
-                      activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
-                    >
-                      Settings
-                    </NavLink>
-                  </li>
-                  <li className="user__dropdown-menu--link">
-                    <NavLink
-                      to="/logout"
-                      activeStyle={activeStyle}
-                      className="nav__link text-size-5 letter-spacing-sm"
-                      onClick={logoutHandler}
-                    >
-                      Logout
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
-            )}
+              ) : // </div>
+              // <div className="user__dropdown-menu--wrapper-logged-in">
 
-    
-           
-        </div>
+              userInfo.isAdmin ? (
+                <ul className="user__dropdown-menu--logged-in">
+                  {userInfo.isAdmin && (
+                    <NavLink
+                      to="/admin"
+                      activeStyle={activeStyle}
+                      className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                    >
+                      Admin
+                    </NavLink>
+                  )}
+
+                  <NavLink
+                    to="/profile"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Profile
+                  </NavLink>
+
+                  <NavLink
+                    to="/zoom"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Zoom
+                  </NavLink>
+
+                  <NavLink
+                    to="/studentResources"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Resources
+                  </NavLink>
+
+                  <NavLink
+                    to="/settings"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Settings
+                  </NavLink>
+
+                  <NavLink
+                    to="/logout"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </NavLink>
+                  {/* </li> */}
+                </ul>
+              ) : (
+                <ul className="user__dropdown-menu--logged-in--not-admin">
+                  <NavLink
+                    to="/profile"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Profile
+                  </NavLink>
+                  
+                  <NavLink
+                    to="/zoom"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Zoom
+                  </NavLink>
+                  
+                  <NavLink
+                    to="/studentResources"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Resources
+                  </NavLink>
+                  
+                  <NavLink
+                    to="/settings"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Settings
+                  </NavLink>
+                  
+                  <NavLink
+                    to="/logout"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </NavLink>
+                  {/* </li> */}
+                </ul>
+              )
+
+             
+            }
+          </li>
+        </ul>
       </div>
     </nav>
   );
 }
+
+export default withRouter(NavUpper)

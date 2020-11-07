@@ -1,13 +1,23 @@
-.createApptScreen {
+.user__page {
   grid-row: 1 / span 1;
   grid-column: 2 / span 2;
-  padding: 3.5rem 2rem 10rem 2rem;
+  padding: 3.5rem 2rem 3.5rem 2rem;
   height: 100%;
   overflow: scroll;
+}
+
+.createApptScreen {
+  @include hundredPercentHW();
+  padding: 1rem 0;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
 
   &__header {
     text-align: center;
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
   }
 
   &__content {
@@ -33,11 +43,12 @@
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;
-    color: $green;
+    color: $old-blue-2;
+    cursor: pointer;
 
     &:focus {
       outline: none;
-      border-bottom: 1px solid $green;
+      border-bottom: 1px solid $old-blue-2;
 
     }
     
@@ -67,7 +78,7 @@
     padding: 1rem;
     border: 1px dashed $green;
     height: 20rem;
-    color: $green;
+    color: $old-blue-2;
     resize: vertical;
 
     &:focus {

@@ -20,6 +20,8 @@ import PaymentMethod from "./PaymentMethodScreen";
 import { removeFromCart } from "../actions/cartActions"
 import { createPayment } from "../actions/paymentActions";
 import Sidebar from "../components/Sidebar";
+import { subheader } from "../actions/subheader";
+
 
 
 const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
@@ -39,6 +41,17 @@ function PaymentCheckout({ match, history }) {
     dispatch(listAppointments());
   }, [dispatch]);
   // console.log(`PAYMENT METHOD: ${cart.paymentMethod}`)
+
+  // React.useEffect(() => {
+  //   if (loading) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [loading, error])
 
   const deleteHandler = (id) => {
     console.log(id)

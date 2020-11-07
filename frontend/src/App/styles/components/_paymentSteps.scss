@@ -10,6 +10,10 @@
     @include flexCenterCenter();
 }
 
+.payment-steps__li {
+    cursor: pointer;
+}
+
 .payment-method__screen {
     @include hundredPercentHW();
     @include flexCenterCenter($flex-direction: column);
@@ -43,4 +47,8 @@
     @include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
     padding: auto 0 10rem 0;
     }
+}
+
+.payments__btn--txt {
+    color: #fff;
 }

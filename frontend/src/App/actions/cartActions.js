@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { CART_ADD_ITEM, CART_SAVE_PAYMENT_METHOD, CART_REMOVE_ITEM } from '../constants/cartConstants'
 
-export const addToCart = (id, qty) => async (dispatch, getState) => {
+export const addToCart = (id) => async (dispatch, getState) => {
     const { data } = await axios.get(`/api/appointments/${id}`)
+
+    // console.log(`IN THE ADDTOCART ACTION`)
+    // console.log(`IN THE ADDTOCART ACTION: ${data._id}`)
 
     dispatch({
         type: CART_ADD_ITEM,
@@ -11,8 +14,8 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
             student: data.student,
             subject: data.subject,
             date: data.date,
-            // price: data.price,
-            // countInStock: data.countInStock,
+            startTime: data.startTime,
+            endTime: data.endTime,
             // qty,
         },
     })
@@ -21,6 +24,8 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 }
 
 export const removeFromCart = (id) => (dispatch, getState) => {
+
+    // console.log(`IN THE ADDTOCART ACTION: ${id}`)
     dispatch({
         type: CART_REMOVE_ITEM,
         payload: id,
