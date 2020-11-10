@@ -76,6 +76,8 @@ export default function NavLower() {
 
   // console.log(`searchInput: ${searchInput}`)
 
+  // console.log(subheader)
+
   const handleClick = () => {
     setSearchInput('')
   }
@@ -147,6 +149,7 @@ export default function NavLower() {
       >
         {filterDisplay.map((item) => {
           const linkKey = uuid();
+          
           return (
             <Link key={linkKey} to={item.link} className="search__item text-size-5" onClick={handleClick}>
               {item.name}

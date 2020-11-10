@@ -190,6 +190,7 @@ tbody tr:nth-of-type(odd) {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100%;
       // @include flexCenterCenter($justify-content: space-between);
       padding: 1rem 0;
     }
@@ -287,6 +288,7 @@ grid-column: 2 / span 2;
 }
 
 .checkout__totals {
+  margin-top: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -317,4 +319,41 @@ grid-column: 2 / span 2;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.appt__checkout {
+  // grid-row: 1 / span 1;
+  // grid-column: 2 / span 2;
+
+  // padding: 2rem;
+  // height: 100%;
+  // overflow: scroll;
+
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+
+
+      width: 100%;
+      height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-between;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    padding: 2rem;
+    height: 100%;
+    overflow: scroll;
+}
+
+.checkout__appts {
+  width: 100%;
+  height: 100%;
+}
+
+.checkout__payment-method--text {
+  // height: 100%;
+  // width: 100%;
 }

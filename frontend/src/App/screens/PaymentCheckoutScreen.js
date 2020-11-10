@@ -90,7 +90,7 @@ function PaymentCheckout({ match, history }) {
   return (
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={appointmentsList} />
-    <div className="appointments">
+    <div className="appt__checkout">
       <PaymentSteps step1 step2 step3 step4 />
       <div className="appointments__header--container">
         <h2 className="text-size-2 appointments__header">Checkout</h2>
@@ -106,7 +106,7 @@ function PaymentCheckout({ match, history }) {
         <h2 className="text-size-2">Payment Method:&nbsp;</h2>
         {/* <strong>Method:</strong> */}
 
-        <div className="text-size-2">
+        <div className="text-size-2 checkout__payment-method--text">
           <strong>{cart.paymentMethod}</strong>
         </div>
       </div>
@@ -114,7 +114,7 @@ function PaymentCheckout({ match, history }) {
       {error && <h2 className="text-size-2">{error}</h2>}
 
       <div
-        className=""
+        className="checkout__appts"
         style={{
           padding: "1rem 0",
         }}

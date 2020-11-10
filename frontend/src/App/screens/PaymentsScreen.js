@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import {
     Link, 
@@ -8,19 +8,19 @@ import {
     useRouteMatch, 
     useLocation} from 'react-router-dom'
 import { useSortMultiple } from "../hooks/useSort";
-import {PayPalButton} from 'react-paypal-button-v2'
+// import {PayPalButton} from 'react-paypal-button-v2'
 
 import { listAppointments } from '../actions/appointmentActions'
 import { addToCart } from '../actions/cartActions'
-import { payPayment } from '../actions/paymentActions'
+// import { payPayment } from '../actions/paymentActions'
 
-import { PAYMENT_PAY_RESET } from '../constants/paymentConstants'
+// import { PAYMENT_PAY_RESET } from '../constants/paymentConstants'
 
 // import Message from '../components/Message'
 import PaymentSteps from '../components/PaymentSteps'
 import Sidebar from "../components/Sidebar";
 
-import Checkout from './PaymentCheckoutScreen'
+// import Checkout from './PaymentCheckoutScreen'
 import PaymentMethod from './PaymentMethodScreen'
 import { subheader } from "../actions/subheader";
 
@@ -35,7 +35,7 @@ export default function Payments({ match, history }) {
     const [cart, setCart] = React.useState([])
     const dispatch = useDispatch()
     const location = useLocation()
-    const { url, path } = useRouteMatch()
+    // const { url, path } = useRouteMatch()
     const [disabledBtns, setDisabledBtns] = React.useState([]);
     
     // const cart = []
@@ -63,17 +63,35 @@ export default function Payments({ match, history }) {
     // }
 
 
+    // React.useEffect(async () => {
+    //     await dispatch(listAppointments()).then(() => {
+    //       setDisabledBtns(new Array(appointments.length).fill(false));
+    //     })
+
+    //     cart2.cartItems.map((appt) => {
+    //       setCart((cart) => cart.concat(appt.appointment));
+
+    //     })
+
+    // }, [dispatch])
+
     React.useEffect(async () => {
-        await dispatch(listAppointments()).then(() => {
+      const fetchAppts = async () => {
+        dispatch(listAppointments())
+
+        try {
           setDisabledBtns(new Array(appointments.length).fill(false));
-        })
+        } catch (err) {
+          console.log(err)
+        }
+      }
+     
+      fetchAppts()
 
-        cart2.cartItems.map((appt) => {
-          setCart((cart) => cart.concat(appt.appointment));
-
-        })
-
-    }, [dispatch])
+      cart2.cartItems.map((appt) => {
+        setCart((cart) => cart.concat(appt.appointment));
+      });
+    }, [dispatch]);
 
 
     const handleCheckBox = (appt) => {
@@ -224,15 +242,17 @@ export default function Payments({ match, history }) {
       .filter((appt) => appt.paid === false).length === 0)
       ) {
       return (
-        (<div className="pg__appointment">
+        <div className="pg__appointment">
           <Sidebar title="Appointments" list={apptsList} />
           <div className="appointments">
-          <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-            You have no unpaid appointments
-          </Link >
+            {/* <Link to={`/login`} className="text-size-2 msg__userInfoNull"> */}
+            <div className="text-size-2 msg__userInfoNull">
+              You have no unpaid appointments
+            </div>
+            {/* </Link > */}
           </div>
-        </div>)
-      )
+        </div>
+      );
       } else return (
         <div className="pg__appointment">
           <Sidebar title="Appointments" list={apptsList} />
@@ -408,10 +428,10 @@ export default function Payments({ match, history }) {
               // )
             }
 
-            <Switch location={location}>
+            {/* <Switch location={location}> */}
               {/* <Route exact path={`${path}`} component={Payments} /> */}
-              <Route path={`/payment-method`} component={PaymentMethod} />
-            </Switch>
+              {/* <Route path={`/payment-method`} component={PaymentMethod} />
+            </Switch> */}
 
             {/* // PAYPAL */}
             {/* <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler}/> */}

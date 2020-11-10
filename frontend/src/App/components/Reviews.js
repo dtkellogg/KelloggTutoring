@@ -28,6 +28,7 @@ export default function Reviews({type}) {
   const reviewList = useSelector((state) => state.reviewList);
   const { loading, error, reviews } = reviewList;
 
+
   const sortedReviews = useSortMultiple(reviews, "date", "name");
 
   const dispatch = useDispatch();
@@ -109,6 +110,7 @@ export default function Reviews({type}) {
   React.useEffect(() => {
     // if (userInfo && userInfo.isAdmin) {
     dispatch(listReviews());
+    dispatch(getUserDetails("profile"));
     // } else {
     // Note: come back and implement the redirect below once useHistory is defined in the right pace
     // history.push("/login");
@@ -213,10 +215,9 @@ export default function Reviews({type}) {
                       type="text"
                       placeholder="Name"
                       style={{ color: "var(--old-blue-2)" }}
-                      value={name}
+                      value={name || ''}
                       onChange={(e) => setName(e.target.value)}
-                      // onChange={handleChange}
-                    ></input>
+                    />
                     <label className="reviews__new-review--label text-size-4"></label>
                   </div>
 
@@ -348,7 +349,7 @@ export default function Reviews({type}) {
                 const date = review.date.split("T")[0].split("-");
                 const orderedDate = `${date[1]}/${date[2]}/${date[0]}`;
 
-                if (review.approved === true) {
+                if(review.approved === true) {
                   return (
                     <li key={review._id} className="reviews__card">
                       <div

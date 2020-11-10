@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 import slug from "slug";
+const { v4: uuid } = require("uuid");
 
 
 function CustomLink({ to, children }) {
@@ -34,7 +35,7 @@ export default function Sidebar({ title, list }) {
       <ul className="sidebar__list text-size-5">
         {list.map((item) => {
           if (item === 'phone, text & email') {
-            return (<button onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: '16.25px', textAlign: 'left'}}>
+            return (<button key={uuid()} onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: '16.25px', textAlign: 'left'}}>
                       phone, text & email
                     </button>)
           } else if (url.split('/').length === 3){

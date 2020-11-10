@@ -3,12 +3,16 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
+
 import { listAppointments } from "../actions/appointmentActions"
+// import { subheader } from "../actions/subheader";
+
+import Sidebar from "../components/Sidebar";
 
 import { useSort } from '../hooks/useSort'
 
-import Sidebar from "../components/Sidebar";
-import { subheader } from "../actions/subheader";
+const { v4: uuid } = require("uuid");
+
 
 
 const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
@@ -26,7 +30,11 @@ export default function Calendar({ type }) {
 	const dispatch = useDispatch()
 	
 	const appointmentList = useSelector((state) => state.appointmentList);
-	const { loading, error, appointments } = appointmentList;
+	const { 
+    // loading,
+    // error,
+    appointments
+     } = appointmentList;
 
 	const userLogin = useSelector(state => state.userLogin)
 	const { userInfo } = userLogin
@@ -43,7 +51,7 @@ export default function Calendar({ type }) {
 
 	
 
-  console.log(`DATE: ${date}`)
+  // console.log(`DATE: ${date}`)
 	
 
 	
@@ -93,9 +101,9 @@ export default function Calendar({ type }) {
 
 		const allDaysWithAppts = []
 		
-		arrayAllDays.map((calDay) => {
+		arrayAllDays.forEach((calDay) => {
 				
-		 sortedAppts.filter((appt) => appt.student === userInfo.name).map((appt) => {
+		 sortedAppts.filter((appt) => appt.student === userInfo.name).forEach((appt) => {
 				const apptDate = appt.date.split('T')[0].split('-');
 				const apptDay = parseInt(apptDate[2])
 				const apptMonth = months[apptDate[1] - 1]
@@ -104,15 +112,14 @@ export default function Calendar({ type }) {
 				if((apptDay === calDay.num) && (apptMonth === calDay.month)) {
           calDay.appts.push(appt)
         }
-        return
 			})
 				
-			allDaysWithAppts.push(calDay)
+      allDaysWithAppts.push(calDay)
     })
     
-    console.log(`ALLDAYSWITHAPPS: ${allDaysWithAppts}`)
-    console.log(`ARRAYALLDAYS: ${arrayAllDays}`)
-    console.log(arrayAllDays[0])
+    // console.log(`ALLDAYSWITHAPPS: ${allDaysWithAppts}`)
+    // console.log(`ARRAYALLDAYS: ${arrayAllDays}`)
+    // console.log(arrayAllDays[0])
 
 		setCalendarDays(allDaysWithAppts)
 		// setCalendarDays(arrayAllDays)
@@ -155,13 +162,28 @@ export default function Calendar({ type }) {
   
 
   React.useEffect(() => {
-    getCalendarDays(date);
-  }, []);
+    if (sortedAppts) {
+      getCalendarDays(date);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortedAppts]);
 
   React.useEffect(() => {
-    // getCalendarDays(date);
     dispatch(listAppointments());
   }, [dispatch]);
+
+
+  // React.useEffect(() => {
+  //   async function getAppts() {
+  //     await dispatch(listAppointments()).then((data) => {
+  //       console.log(data);
+  //       getCalendarDays(date);
+  //     });
+  //   }
+
+  //   getAppts();
+  // }, [dispatch]);
 
 
 
@@ -174,8 +196,8 @@ export default function Calendar({ type }) {
 
 
 	const handleForwards = () => {
-		console.log(`MONTH: ${month}`)
-		console.log(`YEAR: ${year}`)
+		// console.log(`MONTH: ${month}`)
+		// console.log(`YEAR: ${year}`)
 		if (months.indexOf(month) < 11) {
 		
 			let indexOfCurrentMonth = months.indexOf(month)
@@ -273,6 +295,7 @@ export default function Calendar({ type }) {
          </ul>
          <ul className="calendar__row--numDays">
            {calendarDays.map((numDay) => {
+             const dayKey = uuid();
              // console.log(`numDay.year: ${numDay.year}. year: ${year}`)
              // console.log(`num ${new Date().getMonth()}`)
              if (numDay.month !== month) {
@@ -360,6 +383,7 @@ export default function Calendar({ type }) {
                } else
                  return (
                    <li
+                   key={dayKey}
                      className="calendar__row--element"
                      style={{ color: "var(--old-blue-2)" }}
                    >
@@ -369,7 +393,10 @@ export default function Calendar({ type }) {
              } else {
                if (numDay.appts.length !== 0) {
                  return (
-                   <li className="calendar__row--element-with-appts">
+                   <li
+                     key={uuid()}
+                    className="calendar__row--element-with-appts"
+                   >
                      <div style={{ display: "block", alignSelf: "flex-end" }}>
                        {numDay.num}
                      </div>
@@ -382,7 +409,7 @@ export default function Calendar({ type }) {
                      >
                        {numDay.appts.map((appt) => {
                          return (
-                           <div>
+                           <div key={uuid()}>
                              {appt.startTime} - {appt.endTime}: {appt.subject}
                            </div>
                          );
@@ -391,9 +418,11 @@ export default function Calendar({ type }) {
                    </li>
                  );
                } else
+               
+
                  return (
                    <li
-                    //  key={numDay.num && numDay.month}
+                     key={dayKey}
                      className="calendar__row--element"
                      style={{ color: "var(--black)" }}
                    >

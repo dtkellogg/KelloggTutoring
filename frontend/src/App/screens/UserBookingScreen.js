@@ -43,18 +43,22 @@ export default function UserBookingScreen({ location, history, type}) {
   React.useEffect(() => {
     if (!user.name) {
       dispatch(getUserDetails("profile"));
-    } else {
+    } else if (user) {
       setStudent(user.name);
       // setEmail(user.email);
+    } else {
+      setStudent("");
     }
 
     // if (submitted) {
     //     history.push(redirect);
     // }
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     dispatch, 
     history,
-    user.name,
+    // user.name,
     //  redirect,
     submitted,
   ]);

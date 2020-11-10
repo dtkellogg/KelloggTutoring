@@ -110,8 +110,9 @@ export default function ApptsList({ location, type }) {
       .filter((appt) => moment(appt.date).isAfter(now)).length > 0
   ) {
     return (
-      <div className="pg__appointment">
-        <Sidebar title="Appointments" list={apptsList} />
+      // <div className="pg__appointment">
+      <div className="">
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
       <table className="text-size-3 appointments__list">
         <thead className="thead">
           <tr className="tr">
@@ -330,88 +331,88 @@ export default function ApptsList({ location, type }) {
     );
   }
 
-  if (
-    type === "upcoming" &&
-    userInfo &&
-    sortedAppts
-      .filter((appt) => appt.student === userInfo.name)
-      .filter((appt) => moment(appt.date).isAfter(now)).length > 0
-  ) {
-    return (
-      <div className="pg__appointment">
-        <Sidebar title="Appointments" list={apptsList} />
-        <table className="text-size-3 appointments__list">
-          <thead className="thead">
-            <tr className="tr">
-              <th className="appointments__th--upcoming-date">date</th>
-              <th className="appointments__th--upcoming-time">time</th>
-              <th className="appointments__th--upcoming-student">student</th>
-              <th className="appointments__th--upcoming-subject">subject</th>
-              <th className="appointments__th--upcoming-btns">paid?</th>
-              <th className="appointments__th--upcoming-btns">cancel</th>
-            </tr>
-          </thead>
-          <tbody className="tbody">
-            {sortedAppts
-              .filter((appt) => appt.student === userInfo.name)
-              .filter((appt) => moment(appt.date).isAfter(now))
+  // if (
+  //   type === "upcoming" &&
+  //   userInfo &&
+  //   sortedAppts
+  //     .filter((appt) => appt.student === userInfo.name)
+  //     .filter((appt) => moment(appt.date).isAfter(now)).length > 0
+  // ) {
+  //   return (
+  //     <div className="pg__appointment">
+  //       <Sidebar title="Appointments" list={apptsList} />
+  //       <table className="text-size-3 appointments__list">
+  //         <thead className="thead">
+  //           <tr className="tr">
+  //             <th className="appointments__th--upcoming-date">date</th>
+  //             <th className="appointments__th--upcoming-time">time</th>
+  //             <th className="appointments__th--upcoming-student">student</th>
+  //             <th className="appointments__th--upcoming-subject">subject</th>
+  //             <th className="appointments__th--upcoming-btns">paid?</th>
+  //             <th className="appointments__th--upcoming-btns">cancel</th>
+  //           </tr>
+  //         </thead>
+  //         <tbody className="tbody">
+  //           {sortedAppts
+  //             .filter((appt) => appt.student === userInfo.name)
+  //             .filter((appt) => moment(appt.date).isAfter(now))
 
-              .map((appt) => {
-                const date = appt.date.split("T")[0].split("-");
-                return (
+  //             .map((appt) => {
+  //               const date = appt.date.split("T")[0].split("-");
+  //               return (
 
-                  <tr key={appt._id} className="tr">
-                    <td className="text-size-3 appointments__td--upcoming-date">${date[1]}-${date[2]}</td>
-                    <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                    <td className="text-size-3 appointments__td--upcoming-student">
-                      {appt.student}
-                    </td>
-                    <td className="text-size-3 appointments__td--upcoming-subject">
-                      {appt.subject}
-                    </td>
-                    <td className="appointments__item--btns">
-                      {appt.paid ? (
-                        <>
-                          {/* <button className="btn__pay">Pay</button> */}
-                          {/* <button className="btn__cancel">Cancel</button> */}
-                          <FaCheckSquare
-                            size={20}
-                            color="var(--green-dark)"
-                            fill="var(--green)"
-                            className="social-media-icon grey-light-7"
-                            type="button"
-                          // onClick={() => deleteHandler(appt._id)}
-                          />
-                        </>
-                      ) : (
-                          <FaTimes
-                            size={20}
-                            color="var(--green-dark)"
-                            fill="var(--red)"
-                            className="social-media-icon grey-light-7"
-                            type="button"
-                          // onClick={() => deleteHandler(appt._id)}
-                          />
-                        )}
-                    </td>
-                    <td className="text-size-3 appointments__item--subject">
-                      <FaTrash
-                        size={20}
-                        color="var(--green-dark)"
-                        fill="var(--red)"
-                        className="social-media-icon__trash grey-light-7"
-                        type="button"
-                      // onClick={() => deleteHandler(appt._id)}
-                      />
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+  //                 <tr key={appt._id} className="tr">
+  //                   <td className="text-size-3 appointments__td--upcoming-date">${date[1]}-${date[2]}</td>
+  //                   <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
+  //                   <td className="text-size-3 appointments__td--upcoming-student">
+  //                     {appt.student}
+  //                   </td>
+  //                   <td className="text-size-3 appointments__td--upcoming-subject">
+  //                     {appt.subject}
+  //                   </td>
+  //                   <td className="appointments__item--btns">
+  //                     {appt.paid ? (
+  //                       <>
+  //                         {/* <button className="btn__pay">Pay</button> */}
+  //                         {/* <button className="btn__cancel">Cancel</button> */}
+  //                         <FaCheckSquare
+  //                           size={20}
+  //                           color="var(--green-dark)"
+  //                           fill="var(--green)"
+  //                           className="social-media-icon grey-light-7"
+  //                           type="button"
+  //                         // onClick={() => deleteHandler(appt._id)}
+  //                         />
+  //                       </>
+  //                     ) : (
+  //                         <FaTimes
+  //                           size={20}
+  //                           color="var(--green-dark)"
+  //                           fill="var(--red)"
+  //                           className="social-media-icon grey-light-7"
+  //                           type="button"
+  //                         // onClick={() => deleteHandler(appt._id)}
+  //                         />
+  //                       )}
+  //                   </td>
+  //                   <td className="text-size-3 appointments__item--subject">
+  //                     <FaTrash
+  //                       size={20}
+  //                       color="var(--green-dark)"
+  //                       fill="var(--red)"
+  //                       className="social-media-icon__trash grey-light-7"
+  //                       type="button"
+  //                     // onClick={() => deleteHandler(appt._id)}
+  //                     />
+  //                   </td>
+  //                 </tr>
+  //               );
+  //             })}
+  //         </tbody>
+  //       </table>
+  //     </div>
+  //   );
+  // }
 
   // if (type === "all" && userInfo) {
   //   return (

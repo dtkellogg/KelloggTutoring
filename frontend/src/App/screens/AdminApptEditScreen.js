@@ -46,7 +46,6 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 		// error, 
 		success: successUpdate } = appointmentUpdate;
 
-	console.log(`location.search: ${location.search}`)
 			
 	// const redirect = location.search ? location.search.split("=")[1] : "/";
 

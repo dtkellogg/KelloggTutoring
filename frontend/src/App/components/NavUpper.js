@@ -22,8 +22,11 @@ function NavUpper({ history }) {
 
   const handleLogout = (e) => {
     e.preventDefault()
-    dispatch(logout())
-    history.push('/login')
+    // if(userInfo) {
+      dispatch(logout())
+      history.push('/login')
+
+    // }
   }
 
   // React.useEffect(() => {
@@ -165,7 +168,7 @@ function NavUpper({ history }) {
                   </NavLink>
 
                   <NavLink
-                    to="/logout"
+                    to="/login"
                     activeStyle={activeStyle}
                     className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
                     onClick={handleLogout}
