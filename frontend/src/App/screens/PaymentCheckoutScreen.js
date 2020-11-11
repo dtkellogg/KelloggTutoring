@@ -1,26 +1,30 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  Link,
-  Route,
-  Switch,
-  useRouteMatch,
+  // Link,
+  // Route,
+  // Switch,
+  // useRouteMatch,
   withRouter,
-  useLocation,
+  // useLocation,
 } from "react-router-dom";
-import { FaCheckSquare, FaTrash, FaTimes } from "react-icons/fa";
-import { PayPalButton } from "react-paypal-button-v2";
+import { 
+  // FaCheckSquare, 
+  FaTrash, 
+  // FaTimes 
+} from "react-icons/fa";
+// import { PayPalButton } from "react-paypal-button-v2";
 import { listAppointments } from "../actions/appointmentActions";
-import { addToCart } from "../actions/cartActions";
+// import { addToCart } from "../actions/cartActions";
 // import { payPayment } from "../actions/paymentActions";
-import { PAYMENT_PAY_RESET } from "../constants/paymentConstants";
+// import { PAYMENT_PAY_RESET } from "../constants/paymentConstants";
 import PaymentSteps from "../components/PaymentSteps";
-import PaymentMethod from "./PaymentMethodScreen";
+// import PaymentMethod from "./PaymentMethodScreen";
 import { removeFromCart } from "../actions/cartActions"
 import { createPayment } from "../actions/paymentActions";
 import Sidebar from "../components/Sidebar";
-import { subheader } from "../actions/subheader";
+// import { subheader } from "../actions/subheader";
 
 
 
@@ -29,7 +33,7 @@ const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointme
 
 function PaymentCheckout({ match, history }) {
   const dispatch = useDispatch();
-  const location = useLocation();
+  // const location = useLocation();
 
   const cart = useSelector((state) => state.cart);
 
@@ -66,7 +70,7 @@ function PaymentCheckout({ match, history }) {
 
   React.useEffect(() => {
     if (success) {
-      history.push(`/payment/${payment._id}`);
+      history.push(`/payment/${payment._id}/edit`);
       // history.push(`/home`);
     }
     // eslint-disable-next-line
@@ -89,7 +93,7 @@ function PaymentCheckout({ match, history }) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar title="Appointments" list={appointmentsList} />
+    <Sidebar title="Appointments" list={appointmentsList} />
     <div className="appt__checkout">
       <PaymentSteps step1 step2 step3 step4 />
       <div className="appointments__header--container">
@@ -148,12 +152,10 @@ function PaymentCheckout({ match, history }) {
               {cart.cartItems.map((appt, idx) => {
                 const date = appt.date.split("T")[0].split("-");
                 const id = appt.appointment;
-                // console.log(`appt.date: ${appt.date.prototype.getUTCHours()}`)
-                // console.log(appt);
+               
                 return (
-                  // <li key={appt._id}>{appt.subject}</li>
 
-                  <tr key={idx} className="appointments__list--item">
+                  <tr key={id} className="appointments__list--item">
                     <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
                     <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
                     <td className="text-size-3 appointments__item--student">

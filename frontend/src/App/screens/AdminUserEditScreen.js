@@ -50,6 +50,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 		} else {
 			dispatch(subheader(""));
 		}
+		
 		if (error || errorUpdate) {
 			dispatch(subheader({ error }));
 		}
@@ -61,11 +62,11 @@ export default function AdminUserEdit ({ match, history, location }) {
 				history.push('/admin/userlist')
 		} else {
 				if (!user.name || user._id !== userId) {
-						dispatch(getUserDetails(userId))
+					dispatch(getUserDetails(userId))
 				} else {
-						setName(user.name)
-						setEmail(user.email)
-						setIsAdmin(user.isAdmin)
+					setName(user.name)
+					setEmail(user.email)
+					setIsAdmin(user.isAdmin)
 				}
 		}
 	}, [dispatch, history, userId, user, successUpdate])

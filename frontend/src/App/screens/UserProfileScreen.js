@@ -48,7 +48,7 @@ export default function Profile({ location, history }) {
   return (
     <form onSubmit={handleSubmit} className="profileScreen">
       <div className="profileScreen__header">
-        <h2 className="text-size-2 letter-spacing-sm">
+        <h2 className="profileScreen__title text-size-2 letter-spacing-sm">
           {/* Any Questions? */}
           Update your profile
         </h2>
@@ -116,7 +116,7 @@ export default function Profile({ location, history }) {
         </div>
 
         <button
-          className="btn btn__profileScreen"
+          className="btn__profileScreen"
           type="submit"
           onClick={handleSubmit}
         >

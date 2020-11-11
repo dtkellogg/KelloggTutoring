@@ -34,10 +34,10 @@ const Login = React.lazy(() => import("./screens/UserLoginScreen"));
 const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
 const Profile = React.lazy(() => import("./screens/UserProfileScreen"));
 const Booking = React.lazy(() => import("./screens/UserBookingScreen"));
-// const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
-// const Payment = React.lazy(() => import("./screens/PaymentScreen"));
-// const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
-// const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
+const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
+const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
+const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
+const Payment = React.lazy(() => import("./screens/PaymentScreen"));
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const Home = React.lazy(() => import("./screens/HomeScreen"));
@@ -130,13 +130,7 @@ export default function App() {
                   />
                   {/* <Route exact path="/appointments/booking" component={() => <Booking type="appts"/>} /> */}
 
-                  {/* <Route exact path="/appointments/payments" component={Payments} /> */}
-                  {/* THE NEXT LINE IS JUST FOR TESTING PURPOSES B/C IT MIGHT BE BREAKING REST OF APP */}
-                  <Route
-                    exact
-                    path="/appointments/payments"
-                    component={() => <Booking type="booking" />}
-                  />
+                  <Route exact path="/appointments/payments" component={Payments} />
 
                   <Route
                     exact
@@ -148,8 +142,8 @@ export default function App() {
                     path="/appointments/appointments-calendar"
                     component={Calendar}
                   />
-                  {/* <Route exact path="/appointments/payment-method" component={PaymentMethod} />
-                  <Route exact path="/appointments/checkout" component={Checkout} /> */}
+                  <Route exact path="/appointments/payment-method" component={PaymentMethod} />
+                  <Route exact path="/appointments/checkout" component={Checkout} />
                   <Route
                     exact
                     path="/meetToshi"
@@ -219,11 +213,7 @@ export default function App() {
                     path="/admin/user/:id/edit"
                     component={AdminUserEdit}
                   />
-                  <Route
-                    exact
-                    path="/admin/user/:id/edit"
-                    component={AdminUserEdit}
-                  />
+                 
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/profile" component={Profile} />
@@ -231,7 +221,7 @@ export default function App() {
                   <Route exact path="/resources" component={Resources} />
                   {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
                   {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
-                  {/* <Route exact path="/payment/:id" component={Payment} /> */}
+                  <Route exact path="/payment/:id/edit" component={Payment} />
                   <Route path="*" component={Home} />
                 </Switch>
               </CSSTransition>

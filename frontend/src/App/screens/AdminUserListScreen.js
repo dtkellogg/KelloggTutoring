@@ -45,10 +45,10 @@ export default function AdminUserList ({ location, history }) {
 
 	React.useEffect(() => {
 		if (userInfo && userInfo.isAdmin) {
-				dispatch(listUsers())
+			dispatch(listUsers())
 		} else {
-				// Note: come back and implement the redirect below once useHistory is defined in the right pace
-				history.push('/login')
+			// Note: come back and implement the redirect below once useHistory is defined in the right pace
+			history.push('/login')
 		}
 	}, [dispatch, history, successDelete, userInfo])
 

@@ -33,7 +33,7 @@ export const createPayment = (payment) => async (dispatch, getState) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`,
             },
         }
@@ -61,6 +61,7 @@ export const createPayment = (payment) => async (dispatch, getState) => {
 
 export const getPaymentDetails = (id) => async (dispatch, getState) => {
     try {
+        // console.log(`paymentDETAILSSS`)
         dispatch({
             type: PAYMENT_DETAILS_REQUEST,
         })
@@ -70,12 +71,15 @@ export const getPaymentDetails = (id) => async (dispatch, getState) => {
         } = getState()
 
         const config = {
-            headers: {
-                Authorization: `Bearer ${userInfo.token}`,
-            },
-        }
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        };
 
         const { data } = await axios.get(`/api/payments/${id}`, config)
+
+        console.log(`data: ${data}`);
 
         dispatch({
             type: PAYMENT_DETAILS_SUCCESS,

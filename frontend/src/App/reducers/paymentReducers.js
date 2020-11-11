@@ -44,12 +44,13 @@ export const paymentCreateReducer = (state = {}, action) => {
     }
 }
 
-export const paymentDetailsReducer = (
-    state = { loading: true, paymentItems: [],
+export const paymentDetailsReducer = (state = { loading: true, paymentItems: [],
         //  shippingAddress: {} 
         },
     action
 ) => {
+    console.log(`paymentDETAILS: ${action}`);
+    console.log(action);
     switch (action.type) {
         case PAYMENT_DETAILS_REQUEST:
             return {
@@ -67,7 +68,7 @@ export const paymentDetailsReducer = (
                 error: action.payload,
             }
         default:
-            return state
+            return {...state}
     }
 }
 

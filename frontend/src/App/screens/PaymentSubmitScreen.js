@@ -59,10 +59,10 @@ export default function SubmitPaymentScreen ({ history }) {
     
 
     React.useEffect(() => {
-        if (success) {
-            history.push(`/payment/${payment._id}`)
-        }
-        // eslint-disable-next-line
+      if (success) {
+          history.push(`/payment/${payment._id}/edit`)
+      }
+      // eslint-disable-next-line
     }, [history, success])
 
     

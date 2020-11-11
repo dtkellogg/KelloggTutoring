@@ -10,12 +10,16 @@
     margin-bottom: 3rem;
   }
 
+  &__title {
+    margin-bottom: 5rem;
+  }
+
   &__content {
     height: 60vh;
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    justify-content: space-around;
+    align-items: center;
+    // justify-content: space-around;
   }
 
   &__element {
