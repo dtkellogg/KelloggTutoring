@@ -79,8 +79,6 @@ export const getPaymentDetails = (id) => async (dispatch, getState) => {
 
         const { data } = await axios.get(`/api/payments/${id}`, config)
 
-        console.log(`data: ${data}`);
-
         dispatch({
             type: PAYMENT_DETAILS_SUCCESS,
             payload: data,

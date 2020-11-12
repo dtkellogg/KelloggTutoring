@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
+const path = require('path')
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 const connectDB = require('./config/db.js')
@@ -24,24 +25,28 @@ app.use(express.json())
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('API is running...')
-})
-
 app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/appointmentRequests', appointmentRequestRoutes)
 app.use('/api/payments', paymentRoutes)
 app.use('/api/messages', msgRoutes)
-
 app.use('/api/reviews', reviewRoutes)
-// app.use('/api/reviews', (req, res) => {
-// 	res.json(reviews)
-// })
 
 app.get('/api/config/paypal', (req, res) => 
 	res.send(process.env.PAYPAL_CLIENT_ID)
 )
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join("/frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve("frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
 
 const PORT = process.env.PORT || 5000
 

@@ -49,8 +49,6 @@ export const paymentDetailsReducer = (state = { loading: true, paymentItems: [],
         },
     action
 ) => {
-    console.log(`paymentDETAILS: ${action}`);
-    console.log(action);
     switch (action.type) {
         case PAYMENT_DETAILS_REQUEST:
             return {

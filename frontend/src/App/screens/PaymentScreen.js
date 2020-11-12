@@ -51,21 +51,7 @@ function PaymentScreen({ match, history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  // React.useEffect(() => {
-  //   if (!payment || payment._id !== paymentId) {
-  //     dispatch(getPaymentDetails(paymentId));
-  //   }
-  // }, [dispatch]);
-  
-  
-  
-  
-  
-  
-  
-  console.log(`paymentId: ${paymentId}`)
-  console.log(`payment: ${payment}`)
-  console.log(payment)
+ 
 
 
   ///////////////////////////
@@ -98,7 +84,7 @@ function PaymentScreen({ match, history }) {
     }
 
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal");
+      const { data: clientId } = await axios.get('/api/config/paypal');
       // console.log(clientId)
       const script = document.createElement("script");
       script.type = "text/javascript";
@@ -110,12 +96,12 @@ function PaymentScreen({ match, history }) {
       document.body.appendChild(script);
     };
 
+    
 
 
     ///////// HERE IS THE PROBLEM
-    // if (!payment || successPay || payment._id !== paymentId) {
-    if (payment === undefined) {
-      console.log("LJNFLJKSNDF")
+    if (!payment || successPay || payment._id !== paymentId) {
+    // if (payment === undefined) {
       dispatch({ type: PAYMENT_PAY_RESET });
       dispatch(getPaymentDetails(paymentId));
       ////////////////////////////////////////////////////////////////
@@ -141,6 +127,11 @@ function PaymentScreen({ match, history }) {
   // return loading ? (
   //   setLoadingDefault(true)
   // ) : 
+
+  if(payment) {
+    console.log(payment.totalPrice);
+
+  }
   return  loading ? (
   <Error /> 
   ) : error ? (
@@ -154,20 +145,20 @@ function PaymentScreen({ match, history }) {
           <h2 className="text-size-2 appointments__header">
             Payment {payment._id}
           </h2>
-          <p>
+          <div>
             {payment.isPaid ? (
               <h2 className="">Paid on {payment.paidAt}</h2>
             ) : (
               <h2 className="">Not Paid</h2>
             )}
-          </p>
-          <p>
+          </div>
+          <div>
             <strong> Name: </strong> {payment.user.name}
-          </p>
-          <p>
+          </div>
+          <div>
             <strong> Email: </strong>
             <a href={`mailto:${payment.user.email}`}>{payment.user.email}</a>
-          </p>
+          </div>
         </div>
 
         {/* <div className="">
@@ -223,7 +214,6 @@ function PaymentScreen({ match, history }) {
                   const date = appt.date.split("T")[0].split("-");
                   const id = appt.appointment;
                   // console.log(`appt.date: ${appt.date.prototype.getUTCHours()}`)
-                  console.log(appt);
                   return (
                     // <li key={appt._id}>{appt.subject}</li>
 
@@ -280,7 +270,8 @@ function PaymentScreen({ match, history }) {
         {/* // PAYPAL */}
         {!payment.isPaid && (
           <div>
-            {loadingPay && setLoadingDefault(true)}
+            {/* {loadingPay && setLoadingDefault(true)} */}
+            {loadingPay && <Error />}
             {!sdkReady ? (
               // setLoadingDefault(true)
               <Error />
