@@ -99,7 +99,6 @@ export default function AdminUserList ({ location, history }) {
             <tbody>
               {users.map((user) => {
                 return (
-                  // <li key={user._id}>{user.subject}</li>
                   <tr key={user._id} className="tr">
                     <td className="text-size-3 appointments__td--upcoming-date">
                       {user.name}

@@ -10,7 +10,6 @@ function CustomLink({ to, children }) {
   // const match = useRouteMatch(to.pathname);
   
   return (
-    // <li style={{ fontWeight: match ? 900 : "normal", color: match ? 'var(--old-blue-2)' : 'var(--white)' }}>
     <li style={{ fontWeight: windowLocation === to.pathname ? 900 : "normal", color: windowLocation === to.pathname ? 'var(--old-blue-2)' : 'var(--white)' }}>
       <NavLink to={to}>{children}</NavLink>
     </li>

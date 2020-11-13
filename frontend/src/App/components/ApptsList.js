@@ -51,6 +51,21 @@ export default function ApptsList({ location, type }) {
     }
   };
 
+  if (userInfo === null && type === "upcoming") {
+    return (
+      <div className="pg__appointment">
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
+        <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+          Please&nbsp;
+          <span className="text-size-2" style={{ color: "blue" }}>
+            login&nbsp;
+          </span>
+          <span className="text-size-2"> to view your appointments</span>
+        </Link>
+      </div>
+    );
+  }
+
   // console.log(`location: ${location}`)
   if (userInfo === null) {
     return (
@@ -66,6 +81,8 @@ export default function ApptsList({ location, type }) {
       </div>
     );
   }
+
+  
 
   if (
     type === "upcoming" &&
@@ -110,7 +127,6 @@ export default function ApptsList({ location, type }) {
       .filter((appt) => moment(appt.date).isAfter(now)).length > 0
   ) {
     return (
-      // <div className="pg__appointment">
       <div className="">
         {/* <Sidebar title="Appointments" list={apptsList} /> */}
       <table className="text-size-3 appointments__list">

@@ -268,7 +268,6 @@ export default function Calendar({ type }) {
     );
 	 } else {
 	 return (
-     //  <div className="home__calendar">
      <div className={type === "home" ? "home__calendar" : "pg__appointment"}>
        {/* <div className="pg__appointment"> */}
        {/* <Sidebar title="Appointments" list={apptsList} /> */}

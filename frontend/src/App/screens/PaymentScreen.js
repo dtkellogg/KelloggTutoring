@@ -215,8 +215,6 @@ function PaymentScreen({ match, history }) {
                   const id = appt.appointment;
                   // console.log(`appt.date: ${appt.date.prototype.getUTCHours()}`)
                   return (
-                    // <li key={appt._id}>{appt.subject}</li>
-
                     <tr key={id} className="appointments__list--item">
                       <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
                       <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
