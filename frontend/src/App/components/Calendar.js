@@ -99,23 +99,28 @@ export default function Calendar({ type }) {
 
 		let arrayAllDays = arrayDaysLastMonth.concat(arrayDaysCurrentMonth).concat(arrayDaysNextMonth)
 
-		const allDaysWithAppts = []
-		
-		arrayAllDays.forEach((calDay) => {
-				
-		 sortedAppts.filter((appt) => appt.student === userInfo.name).forEach((appt) => {
-				const apptDate = appt.date.split('T')[0].split('-');
-				const apptDay = parseInt(apptDate[2])
-				const apptMonth = months[apptDate[1] - 1]
-				// const apptYear = apptDate[0]
+    const allDaysWithAppts = []
 
-				if((apptDay === calDay.num) && (apptMonth === calDay.month)) {
-          calDay.appts.push(appt)
-        }
-			})
-				
-      allDaysWithAppts.push(calDay)
-    })
+    if(userInfo) {
+      arrayAllDays.forEach((calDay) => {
+        sortedAppts
+          .filter((appt) => appt.student === userInfo.name)
+          .forEach((appt) => {
+            const apptDate = appt.date.split("T")[0].split("-");
+            const apptDay = parseInt(apptDate[2]);
+            const apptMonth = months[apptDate[1] - 1];
+            // const apptYear = apptDate[0]
+
+            if (apptDay === calDay.num && apptMonth === calDay.month) {
+              calDay.appts.push(appt);
+            }
+          });
+
+        allDaysWithAppts.push(calDay);
+      })
+    } else {
+      return setCalendarDays(arrayAllDays);
+    }
     
     // console.log(`ALLDAYSWITHAPPS: ${allDaysWithAppts}`)
     // console.log(`ARRAYALLDAYS: ${arrayAllDays}`)

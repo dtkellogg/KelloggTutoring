@@ -5,6 +5,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import './App.scss';
 
+import { subheader } from "./actions/subheader";
+
 
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
@@ -14,20 +16,20 @@ import ApptsList from "./components/ApptsList";
 import Calendar from "./components/Calendar";
 import Error from "./components/Error";
 
-import ToshiAbout from "./screens/ToshiAboutScreen";
-import ToshiTeaching from "./screens/ToshiTeachingScreen";
-import Blog from "./screens/ToshiBlogScreen";
-import Reviews from "./components/Reviews";
-import MessageScreen from "./screens/MessageScreen";
-import AdminUserList from "./screens/AdminUserListScreen";
-import AdminUserEdit from "./screens/AdminUserEditScreen";
-import AdminAppointmentsList from "./screens/AdminApptsListScreen";
-import AdminAppointmentEdit from "./screens/AdminApptEditScreen";
-import AdminAppointmentCreate from "./screens/AdminApptCreateScreen";
+const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
+const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
+const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
+const Reviews = React.lazy(() => import("./components/Reviews"));
+const MessageScreen = React.lazy(() => import("./screens/MessageScreen"));
+const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
+const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
+const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
+const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
+const AdminAppointmentCreate = React.lazy(() => import("./screens/AdminApptCreateScreen"));
 
-import ReviewEdit from "./screens/ReviewEditScreen"
+const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
 
-import { subheader } from "./actions/subheader";
+
 
 
 const Login = React.lazy(() => import("./screens/UserLoginScreen"));
@@ -38,11 +40,11 @@ const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
 const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
 const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
 const Payment = React.lazy(() => import("./screens/PaymentScreen"));
-// const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const Home = React.lazy(() => import("./screens/HomeScreen"));
 
 
+// const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 
 
 

@@ -58,10 +58,7 @@ export default function MessageScreen({ history }) {
 
 
   React.useEffect(() => {
-      if (
-        !user.name ||
-        user === undefined
-        ) {
+      if (user === undefined || !user.name) {
         dispatch(getUserDetails("profile"));
       } else {
         setName(user.name);

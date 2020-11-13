@@ -116,9 +116,10 @@ export default function NavLower() {
     // console.log(searchBar.name.includes('home'))
   // }
 
+
   return (
     <nav className="nav__lower">
-      <h3 className="text-size-3">{subheader}</h3>
+      <h3 className="text-size-3">{subheader.error}</h3>
       <div className="search__wrapper">
         {/* <form onSubmit={handleSubmit} className="nav__search--form"> */}
         <input

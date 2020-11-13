@@ -91,7 +91,7 @@ export default function ReviewEdit({ match, history, location }) {
           <div className="reviewEditScreen__element">
             <label
               className="text-size-4 letter-spacing-md reviewEditScreen__label"
-              for="name"
+              htmlFor="name"
             >
               name
             </label>

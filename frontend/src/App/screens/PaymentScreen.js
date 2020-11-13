@@ -114,8 +114,8 @@ function PaymentScreen({ match, history }) {
         setSdkReady(true);
       }
     }
-  // }, [dispatch, paymentId, successPay, payment, history, userInfo]);
-  }, [dispatch, paymentId, successPay, payment]);
+  }, [dispatch, paymentId, successPay, payment, history, userInfo]);
+  // }, [dispatch, paymentId, successPay, payment]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
@@ -276,10 +276,11 @@ function PaymentScreen({ match, history }) {
               // setLoadingDefault(true)
               <Error />
             ) : (
-              <PayPalButton
-                amount={payment.totalPrice}
-                onSuccess={successPaymentHandler}
-              />
+              <p>PAYPAL BTN</p>
+              // <PayPalButton
+              //   amount={payment.totalPrice}
+              //   onSuccess={successPaymentHandler}
+              // />
             )}
           </div>
         )}

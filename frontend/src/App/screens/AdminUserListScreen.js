@@ -69,92 +69,97 @@ export default function AdminUserList ({ location, history }) {
 		}
 	}
 
-	return (
-		<div className="pg__meetToshi">
-			<Sidebar title="Toshi" list={adminList} />
-		<div className="users">
-			{/* {loading && <Loading />} */}
-			<div className="text-size-2 appointments__header--container">
-				<div className="text-size-2 appointments__header" style={{marginBottom: '1rem'}}>
-					Here are all active users:
-				</div>
-			</div>
+	if(users) {
+    return (
+      <div className="pg__meetToshi">
+        <Sidebar title="Toshi" list={adminList} />
+        <div className="users">
+          {/* {loading && <Loading />} */}
+          <div className="text-size-2 appointments__header--container">
+            <div
+              className="text-size-2 appointments__header"
+              style={{ marginBottom: "1rem" }}
+            >
+              Here are all active users:
+            </div>
+          </div>
 
-			<table className="appointments__list text-size-3">
-				<thead className="thead">
-					<tr className="tr">
-						<th className="appointments__th--upcoming-date">name</th>
-						<th className="appointments__th--upcoming-time">email</th>
-						<th className="appointments__th--upcoming-student">appointments</th>
-						<th className="appointments__th--upcoming-subject">admin?</th>
-						<th className="appointments__th--upcoming-btns">btns</th>
-					</tr>
-				</thead>
-				<tbody>
-					{users.map((user) => {
-						return (
-							// <li key={user._id}>{user.subject}</li>
-							<tr key={user._id} className="tr">
-								<td className="text-size-3 appointments__td--upcoming-date">
-									{user.name}
-								</td>
-								<td className="text-size-3 appointments__td--upcoming-time">
-									<a href={`mailto:${user.email}`}>{user.email}</a>
-								</td>
-								<td className="text-size-3 appointments__td--upcoming-student">
-									***
-								</td>
+          <table className="appointments__list text-size-3">
+            <thead className="thead">
+              <tr className="tr">
+                <th className="appointments__th--upcoming-date">name</th>
+                <th className="appointments__th--upcoming-time">email</th>
+                <th className="appointments__th--upcoming-student">
+                  appointments
+                </th>
+                <th className="appointments__th--upcoming-subject">admin?</th>
+                <th className="appointments__th--upcoming-btns">btns</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => {
+                return (
+                  // <li key={user._id}>{user.subject}</li>
+                  <tr key={user._id} className="tr">
+                    <td className="text-size-3 appointments__td--upcoming-date">
+                      {user.name}
+                    </td>
+                    <td className="text-size-3 appointments__td--upcoming-time">
+                      <a href={`mailto:${user.email}`}>{user.email}</a>
+                    </td>
+                    <td className="text-size-3 appointments__td--upcoming-student">
+                      ***
+                    </td>
 
-								{user.isAdmin ? (
-									<td className="text-size-3 appointments__td--upcoming-subject">
-										<FaCheckSquare
-											size={20}
-											color="var(--green-dark)"
-											fill="var(--green-dark)"
-											className="social-media-icon grey-light-7"
-										/>
-									</td>
-								) : (
-									<td className="text-size-3 appointments__td--upcoming-subject">
-										<FaTimes
-											size={20}
-											color="var(--green-dark)"
-											fill="var(--red)"
-											className="social-media-icon grey-light-7"
-										/>
-									</td>
-								)}
+                    {user.isAdmin ? (
+                      <td className="text-size-3 appointments__td--upcoming-subject">
+                        <FaCheckSquare
+                          size={20}
+                          color="var(--green-dark)"
+                          fill="var(--green-dark)"
+                          className="social-media-icon grey-light-7"
+                        />
+                      </td>
+                    ) : (
+                      <td className="text-size-3 appointments__td--upcoming-subject">
+                        <FaTimes
+                          size={20}
+                          color="var(--green-dark)"
+                          fill="var(--red)"
+                          className="social-media-icon grey-light-7"
+                        />
+                      </td>
+                    )}
 
-								<td className="appointments__td--upcoming-btns">
-									<Link to={`/admin/user/${user._id}/edit`}>
-										<button className="btn__edit">Edit</button>
-									</Link>
-									<FaTrash
-										size={20}
-										color="var(--green-dark)"
-										fill="var(--red)"
-										className="social-media-icon grey-light-7"
-										type="button"
-										onClick={() => deleteHandler(user._id)}
-									/>
-									{/* </button> */}
-								</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+                    <td className="appointments__td--upcoming-btns">
+                      <Link to={`/admin/user/${user._id}/edit`}>
+                        <button className="btn__edit">Edit</button>
+                      </Link>
+                      <FaTrash
+                        size={20}
+                        color="var(--green-dark)"
+                        fill="var(--red)"
+                        className="social-media-icon grey-light-7"
+                        type="button"
+                        onClick={() => deleteHandler(user._id)}
+                      />
+                      {/* </button> */}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
 
-			<Switch location={location}>
-				{/* <Route exact path="/" component={Loading} /> */}
-				<Route exact path={`${path}/edit-user`} component={AdminUserEdit} />
-				{/* <Route exact path={`${path}/delete-user`} component={UsertEdit} /> */}
-			</Switch>
-		</div>
-		</div>
-	);
-
-			
+          <Switch location={location}>
+            {/* <Route exact path="/" component={Loading} /> */}
+            <Route exact path={`${path}/edit-user`} component={AdminUserEdit} />
+            {/* <Route exact path={`${path}/delete-user`} component={UsertEdit} /> */}
+          </Switch>
+        </div>
+      </div>
+    );
+  } else return null
 }
 
 

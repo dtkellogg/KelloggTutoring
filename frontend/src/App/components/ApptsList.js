@@ -559,4 +559,6 @@ export default function ApptsList({ location, type }) {
       </table>
     );
   }
+
+  return null
 }

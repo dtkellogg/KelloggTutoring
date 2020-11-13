@@ -49,30 +49,8 @@ export default function Payments({ match, history }) {
 
   const cart2 = useSelector((state) => state.cart);
 
-  // console.log(cart2)
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime");
-
-  // setDisabledBtns(new Array(response.data.records.length).fill(false));
-
-  // console.log(disabledBtns)
-  // console.log(`cart: ${cart}`)
-
-  // if (cart.length !== 0) {
-  //     // console.log(`cart: ${cart}`)
-  // }
-
-  // React.useEffect(async () => {
-  //     await dispatch(listAppointments()).then(() => {
-  //       setDisabledBtns(new Array(appointments.length).fill(false));
-  //     })
-
-  //     cart2.cartItems.map((appt) => {
-  //       setCart((cart) => cart.concat(appt.appointment));
-
-  //     })
-
-  // }, [dispatch])
 
   React.useEffect(() => {
     const fetchAppts = async () => {
@@ -92,17 +70,9 @@ export default function Payments({ match, history }) {
     });
   }, [dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // const handleCheckBox = (appt) => {
-  //   setCheckedAppointments([...checkedAppointments, appt]);
-  // };
-
   const addToCartHandler = (e, idx, id) => {
     e.preventDefault();
     setSubmitted(true);
-    // console.log(`cart: ${id}`)
-    // console.log(`aapt: ${e.student}`)
-    // console.log(`checkedAppointments: ${checkedAppointments}`)
-    // console.log(`e.target.value: ${e.target.value}`)
     setCart((cart) => cart.concat(id));
     dispatch(addToCart(id));
 
@@ -126,49 +96,7 @@ export default function Payments({ match, history }) {
       });
   };
 
-  // PAYPAL STUFF ... PROB WANT TO MOVE TO A CHECKOUT SCREEN EVENTUALLY
-
-  // the following in the useState and useEffect are to dynamically add
-  // the paypal script
-
-  // const [sdkReady, setSdkReady] = React.useState(false)
-
-  // const paymentPay = useSelector((state) => state.paymentPay);
-  // const { loading:loadingPay, success:successPay } = paymentPay;
-
-  // React.useEffect(() => {
-  //     const addPayPalScript = async () => {
-  //         const { data: clientId } = await axios.get('/api/config/paypal')
-  //         // console.log(clientId)
-  //         const script = document.createElement('script')
-  //         script.type = 'text/javascript'
-  //         script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-  //         script.async = true
-  //         script.onload = () => {
-  //             setSdkReady(true)
-  //         }
-  //         document.body.appendChild(script)
-  //     }
-
-  //     if(!payment || successPay) {
-  //         dispatch({ type: PAYMENT_PAY_FAIL })
-  //         dispatch(getPaymentDetails(id))
-  //     } else if (!order.isPaid) {
-  //         if (!window.paypal) {
-  //             addPayPalScript()
-  //         } else {
-  //             setSdkReady(true)
-  //         }
-  //     }
-  // }, [dispatch, id, successPay, payment])
-  // //     dispatch(getPaymentDetails(paymentId))
-  // // }, [dispatch, paymentId])
-
-  // const successPaymentHandler = (paymentResults) => {
-  //     console.log(paymentResult)
-  //     dispatch(payOrder(orderId, paymentResult))
-  // }
-
+  
   ////////////////////////////////
   // The line below is just for testing purposes
 
@@ -187,9 +115,12 @@ export default function Payments({ match, history }) {
     }
   }, [dispatch, loading, error]);
 
-  if (userInfo === null) {
+  if(userInfo === null) {
     return (
-      <div div className="pg__appointment">
+
+    
+    
+      <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments-2">
           <span className="text-size-2"> Please&nbsp; </span>
@@ -201,22 +132,12 @@ export default function Payments({ match, history }) {
           <span className="text-size-2"> to view your appointments</span>
         </div>
       </div>
-    );
+      )
   }
-
-  // if (userInfo &&
-  //   sortedAppts
-  //     .filter((appt) => appt.student === userInfo.name)
-  //     .filter((appt) => appt.paid === false).length === 0) {
-  //   return (
-  //     <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-  //       You have no unpaid appointments
-  //     </Link >
-  //   )
-  // }
+  
 
   if (
-    userInfo &&
+    userInfo !== undefined &&
     sortedAppts
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => appt.paid === false).length === 0
@@ -225,15 +146,13 @@ export default function Payments({ match, history }) {
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          {/* <Link to={`/login`} className="text-size-2 msg__userInfoNull"> */}
           <div className="text-size-2 msg__userInfoNull">
             You have no unpaid appointments
           </div>
-          {/* </Link > */}
         </div>
       </div>
     );
-  } else
+  } else {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
@@ -251,12 +170,7 @@ export default function Payments({ match, history }) {
             </div>
           </div>
 
-          {/* <button className="" onClick={}>Continue</button> */}
-
           {
-            // loading ? (
-            //   // <Loading />
-            // ) :
             error ? (
               <h2 className="text-size-2">{error}</h2>
             ) : userInfo &&
@@ -266,14 +180,11 @@ export default function Payments({ match, history }) {
               <Link to={`/login`} className="text-size-2 msg__userInfoNull">
                 You have no unpaid appointments
               </Link>
-            ) : (
-              // userInfo && sortedAppts
-              //   .filter((appt) => appt.paid === true).length < 0 ? (
+            ) : userInfo !== undefined && (
               <>
                 <table className="appointments__list text-size-3">
                   <thead className="thead">
                     <tr className="tr">
-                      {/* <th className="appointments__th"></th> */}
                       <th className="appointments__th--date">date</th>
                       <th className="appointments__th--time">time</th>
                       <th className="appointments__th--student">student</th>
@@ -323,18 +234,11 @@ export default function Payments({ match, history }) {
                       .filter((appt) => appt.paid === false)
                       .map((appt, idx) => {
                         const date = appt.date.split("T")[0].split("-");
-                        // console.log(`cart.includes: ${cart.includes(appt.id)}`);
                         return (
                           <tr
                             key={appt._id}
                             className="appointments__list--item"
                           >
-                            {/* <td>
-                                  <input
-                                    type="checkbox"
-                                    onClick={() => addToCartHandler(appt._id)}
-                                  />
-                                </td> */}
                             <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
                             <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
                             <td className="text-size-3 appointments__item--student">
@@ -346,16 +250,10 @@ export default function Payments({ match, history }) {
                             <td className="appointments__item--btns">
                               {
                                 !appt.paid && (
-                                  // <Link to={{
-                                  //     pathname: `${url}/checkout`,
-                                  //     search: location.search,
-                                  // }}
-                                  // >
                                   <button
                                     key={appt._id}
                                     className="btn__addToCart"
                                     disabled={cart.includes(appt._id)}
-                                    // disabled={cart.indexOf(appt.id) !== -1}
                                     style={{
                                       backgroundImage:
                                         cart.includes(appt._id) && "none",
@@ -366,7 +264,6 @@ export default function Payments({ match, history }) {
                                     }
                                   >
                                     <span
-                                      // className="payments__btn--txt"
                                       style={{
                                         color:
                                           !cart.includes(appt._id) && "white",
@@ -378,45 +275,20 @@ export default function Payments({ match, history }) {
                                     </span>
                                   </button>
                                 )
-                                // </Link>
                               }
-                              {/* <button className="btn__cancel">Cancel</button> */}
                             </td>
                           </tr>
                         );
                       })}
                   </tbody>
-                  {/* <Link to={redirect ? `${url}/checkout?redirect=${redirect}` : `/checkout`} className="btn" 
-                        // onClick={handleSubmit}
-                        >Pay for selected</Link> */}
                 </table>
               </>
             )
-            // :  userInfo
-            // ? (
-            //   <h2 className="payments__login--msg">You have no unpaid appointments</h2>
-            // ) : (
-            //   <div className="payments__login--msg">
-            //     <Link to={`/login`} className="text-size-3 msg__userInfoNull">
-            //       Please&nbsp;
-            //     <span className="text-size-3" style={{ color: 'blue' }}>
-            //       login&nbsp;
-            //     </span>
-            //     <span className="text-size-3"> to view your appointments</span>
-            //     </Link >
-            //     </div>
-            // )
           }
 
-          {/* <Switch location={location}> */}
-          {/* <Route exact path={`${path}`} component={Payments} /> */}
-          {/* <Route path={`/payment-method`} component={PaymentMethod} />
-            </Switch> */}
-
-          {/* // PAYPAL */}
-          {/* <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler}/> */}
-          {/* // END OF PAYPAL */}
         </div>
       </div>
     );
+          
+}
 }

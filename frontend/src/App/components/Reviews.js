@@ -171,9 +171,7 @@ export default function Reviews({type}) {
               : "pg__home--review-container"
           }
         >
-          {/* {type === 'meetToshi' && <h2 className="text-size-1 pg__meetToshi--card__meetToshi--header letter-spacing-sm">
-        Reviews
-      </h2>} */}
+          
 
           <div
             className="reviews"
@@ -222,13 +220,7 @@ export default function Reviews({type}) {
                   </div>
 
                   <div className="review__new-review--radio-btns">
-                    {/* <input
-              className="reviews__new-review--input"
-              type="text"
-              placeholder="Relation"
-              value={relation}
-              onChange={(e) => setRelation(e.target.value)}
-            ></input> */}
+            
 
                     <div className="">
                       <input
@@ -343,6 +335,7 @@ export default function Reviews({type}) {
                 </span>
               </Link>
             )}
+            
 
             <ul className="reviews__list">
               {sortedReviews.map((review) => {
@@ -376,17 +369,7 @@ export default function Reviews({type}) {
                             ({review.relation})
                           </span>
                         </div>
-                        {/* <div
-                    className="reviews__card--item-relation text-size-4"
-                    style={{
-                      color:
-                        type === "meetToshi"
-                          ? "var(--black)"
-                          : "var(--grey-light-5)",
-                    }}
-                  >
-                    {review.relation}
-                  </div> */}
+                       
 
                         <div
                           className="reviews__card--item-date text-size-4"
@@ -397,7 +380,6 @@ export default function Reviews({type}) {
                                 : "var(--grey-light-5)",
                           }}
                         >
-                          {/* {review.date.split("T")[0].split("-")} */}
                           {orderedDate}
                         </div>
                       </div>
@@ -418,16 +400,14 @@ export default function Reviews({type}) {
                         >
                           {!review.approved && "Pending"}
                         </div>
-                        {review.name === user.name && (
+                        {user !== undefined && review.name === user.name && (
                           <>
                             <Link to={`/review/${review._id}/edit`}>
                               <FaEdit
                                 size={20}
-                                // style={{ marginRight: '5rem'}}
                                 fill="var(--old-blue-2)"
                                 className="social-media-icon__edit"
                                 type="button"
-                                // onClick={() => deleteHandler(appt._id)}
                               />
                             </Link>
                             <FaTrash
@@ -440,12 +420,11 @@ export default function Reviews({type}) {
                           </>
                         )}
                       </div>
-                      {/* <div className="reviews__card--item-approved text-size-4">
-                  {review.approved}
-                </div> */}
+                     
                     </li>
                   );
-                } else if (review.name === user.name) {
+                } 
+                if (user !== undefined && review.name === user.name) {
                   return (
                     <li key={review._id} className="reviews__card">
                       <div
@@ -472,17 +451,7 @@ export default function Reviews({type}) {
                             ({review.relation})
                           </span>
                         </div>
-                        {/* <div
-                    className="reviews__card--item-relation text-size-4"
-                    style={{
-                      color:
-                        type === "meetToshi"
-                          ? "var(--black)"
-                          : "var(--grey-light-5)",
-                    }}
-                  >
-                    {review.relation}
-                  </div> */}
+                        
 
                         <div
                           className="reviews__card--item-date text-size-4"
@@ -514,7 +483,7 @@ export default function Reviews({type}) {
                         >
                           {!review.approved && "Pending"}
                         </div>
-                        {review.name === user.name && (
+                        {user !== undefined && review.name === user.name && (
                           <>
                             <Link to={`/review/${review._id}/edit`}>
                               <FaEdit
@@ -535,12 +504,10 @@ export default function Reviews({type}) {
                           </>
                         )}
                       </div>
-                      {/* <div className="reviews__card--item-approved text-size-4">
-                  {review.approved}
-                </div> */}
+                     
                     </li>
                   );
-                }
+                } else return null
               })}
             </ul>
           </div>

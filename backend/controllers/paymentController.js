@@ -37,12 +37,11 @@ const addPaymentItems = asyncHandler(async (req, res) => {
 // @route   GET /api/payments/:id
 // @access  Private
 const getPaymentById = asyncHandler(async (req, res) => {
-    console.log(`getPaymentById: ${getPaymentById}`)
     const payment = await Payment.findById(req.params.id).populate(
         'user', // from user
         'name email' // this gives us the name and email
     )
-
+        
     if (payment) {
         res.json(payment)
     } else {

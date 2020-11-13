@@ -65,7 +65,7 @@ export default function AdminAppointmentCreate({ location, history }) {
           <div className="createApptScreen__element">
             <label
               className="text-size-4 letter-spacing-md createApptScreen__label"
-              for="student"
+              htmlFor="student"
             >
               student
             </label>
@@ -81,7 +81,7 @@ export default function AdminAppointmentCreate({ location, history }) {
           <div className="createApptScreen__element">
             <label
               className="text-size-4 letter-spacing-md createApptScreen__label"
-              for="subject"
+              htmlFor="subject"
             >
               subject
             </label>

@@ -36,11 +36,13 @@ app.get('/api/config/paypal', (req, res) =>
 	res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
+const modifiedPath = __dirname.split('/').slice(0,-1).join('/')
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join("/frontend/build")));
+  app.use(express.static(path.join(modifiedPath, "/frontend/build")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve("frontend", "build", "index.html"))
+    res.sendFile(path.resolve(modifiedPath, "frontend", "build", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {

@@ -9,7 +9,7 @@ const connectDB = async () => {
             useCreateIndex: true
         })
 
-        console.log(`MongoDB connected: ${conn.connection.host}`.cyan.underline)
+        console.log(`MongoDB connected: ${conn.connection.host}`.america.underline)
 
     } catch (err) {
         console.error(`Error: ${err.message}`.red.underline.bold)

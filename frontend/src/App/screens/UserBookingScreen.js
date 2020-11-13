@@ -41,7 +41,7 @@ export default function UserBookingScreen({ location, history, type}) {
   // const redirect = location.search ? location.search.split("=")[1] : "/";
 
   React.useEffect(() => {
-    if (!user.name) {
+    if (user !== undefined && !user.name) {
       dispatch(getUserDetails("profile"));
     } else if (user) {
       setStudent(user.name);
