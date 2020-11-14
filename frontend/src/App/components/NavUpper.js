@@ -60,7 +60,8 @@ function NavUpper({ history }) {
               activeStyle={activeStyle}
               className="nav__link text-size-5 letter-spacing-sm"
             >
-              Appointments
+              {/* Apptments */}
+              Appts
             </NavLink>
           </li>
 
@@ -70,7 +71,8 @@ function NavUpper({ history }) {
               activeStyle={activeStyle}
               className="nav__link text-size-5 letter-spacing-sm"
             >
-              Meet Toshi
+              {/* Meet Toshi */}
+              Toshi
             </NavLink>
           </li>
 
