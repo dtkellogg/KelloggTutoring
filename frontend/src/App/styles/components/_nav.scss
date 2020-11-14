@@ -1,101 +1,111 @@
-.nav__list {
-  @include flexCenterCenter();
-  height: 100%;
-
-  &--item {
-    height: 100%;
+.nav{
+  &__list {
     @include flexCenterCenter();
-  }
-}
-
-.nav__upper {
-  @include hundredPercentHW();
-  @include flexCenterCenter($justify-content: space-between);
-  background-color: $grey-light-9;
-  border-bottom: 1px solid $grey-light-6;
-  padding-left: 2rem;
-  color: $black;
-
-  &--right-container {
-    @include flexCenterCenter($justify-content: space-between);
     height: 100%;
-    // padding-right: 2rem;
-  }
-}
 
-.nav__lower {
-  @include hundredPercentHW();
-  @include flexCenterCenter($justify-content: space-between);
-  background-color: $grey-light-9;
-  border-bottom: 1px solid $grey-light-6;
-  padding: 1rem 1rem 1rem 12rem;
-  position: relative;
-}
-
-.nav__link {
-  // @include hundredPercentHW();
-  height: 100%;
-  // @include flexCenterCenter();
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  // display: inline-block;
-  color: $black;
-  box-sizing: border-box;
-  line-height: 100%;
-  transition: .1s;
-  // background-color: $red;
-
-  &:hover {
-    background-color: $old-blue-2-opacity;
-  }
-}
-
-.nav__link--dropdown {
-  height: 100%;
-  // width: 100%;
-  display: flex;
-  align-items: center;
-  color: $black;
-  // box-sizing: border-box;
-  line-height: 100%;
-
-  &:hover {
-    background-color: $old-blue-2-opacity;
-  }
-}
-
-.nav__header {
-  color: $black;
-}
-
-// to display drop down menu:
-.nav__user-icons {
-  @include flexCenterCenter();
-  height: 100%;
-  position: relative;
-  padding: 0 2rem;
-
-  &:hover {
-    background: $old-blue-2-opacity;
+    &--item {
+      height: 100%;
+      @include flexCenterCenter();
+    }
   }
 
-  &:hover > ul {
-    display: block;
-    position: absolute;
-    
+  &__upper {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: space-between);
+    background-color: $grey-light-9;
+    border-bottom: 1px solid $grey-light-6;
+    padding-left: 2rem;
+    color: $black;
+
+    &--right-container {
+      @include flexCenterCenter($justify-content: space-between);
+      height: 100%;
+      // padding-right: 2rem;
+    }
+
+    &--house-icon {
+
+      @media ( max-width: 650px ) {
+        display: none;
+      }
+      // display: none;
+    }
   }
-}
 
+  &__lower {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: space-between);
+    background-color: $grey-light-9;
+    border-bottom: 1px solid $grey-light-6;
+    padding: 1rem 1rem 1rem 12rem;
+    position: relative;
+  }
 
-.nav__upper-header {
+  &__link {
+    // @include hundredPercentHW();
+    height: 100%;
+    // @include flexCenterCenter();
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    // display: inline-block;
+    color: $black;
+    box-sizing: border-box;
+    line-height: 100%;
+    transition: .1s;
+    // background-color: $red;
+
     &:hover {
-    color: $old-blue-2;
+      background-color: $old-blue-2-opacity;
+    }
   }
+
+  &__link--dropdown {
+    height: 100%;
+    // width: 100%;
+    display: flex;
+    align-items: center;
+    color: $black;
+    // box-sizing: border-box;
+    line-height: 100%;
+
+    &:hover {
+      background-color: $old-blue-2-opacity;
+    }
+  }
+
+  &__header {
+    color: $black;
+  }
+
+  // to display drop down menu:
+  &__user-icons {
+    @include flexCenterCenter();
+    height: 100%;
+    position: relative;
+    padding: 0 2rem;
+
+    &:hover {
+      background: $old-blue-2-opacity;
+    }
+
+    &:hover > ul {
+      display: block;
+      position: absolute;
+      
+    }
+  }
+
+
+  &__upper-header {
+      &:hover {
+      color: $old-blue-2;
+    }
 }
 
-.nav__search-icon {
+&__search-icon {
   transition: .05s;
+}
 }
 
 .user__dropdown-menu {

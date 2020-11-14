@@ -40,9 +40,13 @@ function NavUpper({ history }) {
       <div className="logo">
         <a href="/">
           <h1 className="text-size-1 nav__upper-header">
-            Kellogg Tutoring |{" "}
-            <span role="img" aria-label="email emoji">
-              🏠
+            Kellogg Tutoring
+            <span className="nav__upper--house-icon">
+              {" "}
+              |{" "}
+              <span role="img" aria-label="email emoji">
+                🏠
+              </span>
             </span>
           </h1>
         </a>
@@ -97,134 +101,130 @@ function NavUpper({ history }) {
               fill="var(--old-blue-2)"
               className="social-media-icon grey-light-7 user__dropdown-menu--icon"
             />
-            {
-              !userInfo ? (
-                // <div className="user__dropdown-menu--wrapper-not-logged-in">
-                <ul className="user__dropdown-menu--not-logged-in">
-                  {/* <li className="user__dropdown-menu--link"> */}
-                    <NavLink
-                      to="/login"
-                      activeStyle={activeStyle}
-                      className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
-                    >
-                      Login
-                    </NavLink>
-                  {/* </li> */}
-                  {/* <li className="user__dropdown-menu--link"> */}
-                    <NavLink
-                      to="/settings"
-                      activeStyle={activeStyle}
-                      className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
-                    >
-                      Settings
-                    </NavLink>
-                  {/* </li> */}
-                </ul>
-              ) : // </div>
-              // <div className="user__dropdown-menu--wrapper-logged-in">
+            {!userInfo ? (
+              // <div className="user__dropdown-menu--wrapper-not-logged-in">
+              <ul className="user__dropdown-menu--not-logged-in">
+                {/* <li className="user__dropdown-menu--link"> */}
+                <NavLink
+                  to="/login"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
+                >
+                  Login
+                </NavLink>
+                {/* </li> */}
+                {/* <li className="user__dropdown-menu--link"> */}
+                <NavLink
+                  to="/settings"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
+                >
+                  Settings
+                </NavLink>
+                {/* </li> */}
+              </ul>
+            ) : // </div>
+            // <div className="user__dropdown-menu--wrapper-logged-in">
 
-              userInfo.isAdmin ? (
-                <ul className="user__dropdown-menu--logged-in">
-                  {userInfo.isAdmin && (
-                    <NavLink
-                      to="/admin"
-                      activeStyle={activeStyle}
-                      className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                    >
-                      Admin
-                    </NavLink>
-                  )}
+            userInfo.isAdmin ? (
+              <ul className="user__dropdown-menu--logged-in">
+                {userInfo.isAdmin && (
+                  <NavLink
+                    to="/admin"
+                    activeStyle={activeStyle}
+                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  >
+                    Admin
+                  </NavLink>
+                )}
 
-                  <NavLink
-                    to="/profile"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Profile
-                  </NavLink>
+                <NavLink
+                  to="/profile"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Profile
+                </NavLink>
 
-                  <NavLink
-                    to="/zoom"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Zoom
-                  </NavLink>
+                <NavLink
+                  to="/zoom"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Zoom
+                </NavLink>
 
-                  <NavLink
-                    to="/studentResources"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Resources
-                  </NavLink>
+                <NavLink
+                  to="/studentResources"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Resources
+                </NavLink>
 
-                  <NavLink
-                    to="/settings"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Settings
-                  </NavLink>
+                <NavLink
+                  to="/settings"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Settings
+                </NavLink>
 
-                  <NavLink
-                    to="/login"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </NavLink>
-                  {/* </li> */}
-                </ul>
-              ) : (
-                <ul className="user__dropdown-menu--logged-in--not-admin">
-                  <NavLink
-                    to="/profile"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Profile
-                  </NavLink>
-                  
-                  <NavLink
-                    to="/zoom"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Zoom
-                  </NavLink>
-                  
-                  <NavLink
-                    to="/studentResources"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Resources
-                  </NavLink>
-                  
-                  <NavLink
-                    to="/settings"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                  >
-                    Settings
-                  </NavLink>
-                  
-                  <NavLink
-                    to="/logout"
-                    activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </NavLink>
-                  {/* </li> */}
-                </ul>
-              )
+                <NavLink
+                  to="/login"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </NavLink>
+                {/* </li> */}
+              </ul>
+            ) : (
+              <ul className="user__dropdown-menu--logged-in--not-admin">
+                <NavLink
+                  to="/profile"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Profile
+                </NavLink>
 
-             
-            }
+                <NavLink
+                  to="/zoom"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Zoom
+                </NavLink>
+
+                <NavLink
+                  to="/studentResources"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Resources
+                </NavLink>
+
+                <NavLink
+                  to="/settings"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                >
+                  Settings
+                </NavLink>
+
+                <NavLink
+                  to="/logout"
+                  activeStyle={activeStyle}
+                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </NavLink>
+                {/* </li> */}
+              </ul>
+            )}
           </li>
         </ul>
       </div>
