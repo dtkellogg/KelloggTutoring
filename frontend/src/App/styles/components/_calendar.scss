@@ -23,6 +23,22 @@
 
     padding: 0 18rem;
     border: 1px solid $black;
+
+    @media (max-width: 1450px) {
+        padding: 0 13rem;
+    }
+
+    @media (max-width: 1350px) {
+        padding: 0 10rem;
+    }
+
+    @media (max-width: 1250px) {
+        padding: 0 5rem;
+    }
+
+    @media (max-width: 1150px) {
+        padding: 0 1rem;
+    }
 }
 
 .calendar__row--days {

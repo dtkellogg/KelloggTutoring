@@ -137,7 +137,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 					</div>
 
 					<button
-						className="btn btn__userEditScreen"
+						className="btn__userEditScreen"
 						type="submit"
 						onClick={handleSubmit}
 					>

@@ -203,11 +203,11 @@ export default function Reviews({type}) {
                     padding: type === "meetToshi" ? "0rem 2rem" : "1rem 2rem",
                   }}
                 >
-                  <h2 className="review__new-review--header text-size-2">
+                  <h2 className="reviews__new-review--header text-size-2">
                     Create a review
                   </h2>
 
-                  <div className="review__new-review--element">
+                  <div className="reviews__new-review--element">
                     <input
                       className="reviews__new-review--input text-size-4"
                       type="text"
@@ -219,7 +219,7 @@ export default function Reviews({type}) {
                     <label className="reviews__new-review--label text-size-4"></label>
                   </div>
 
-                  <div className="review__new-review--radio-btns">
+                  <div className="reviews__new-review--radio-btns">
             
 
                     <div className="">

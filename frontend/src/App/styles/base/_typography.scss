@@ -61,37 +61,65 @@
 .text-size-0 {
   font-size: 6rem;
   font-weight: 400;
+
+  @media (max-width: 750px) {
+    font-size: 5rem;
+  }
 }
 
 .text-size-1 {
   font-size: 3rem;
   font-weight: 300;
+
+  @media (max-width: 750px) {
+    font-size: 2.5rem;
+  }
 }
 
 .text-size-2 {
   font-size: 2.6rem;
   font-weight: 300;
   box-sizing: inherit;
+
+  @media (max-width: 750px) {
+    font-size: 2.4rem;
+  }
 }
 
 .text-size-3 {
   font-size: 2rem;
   font-weight: 300;
+
+  @media (max-width: 750px) {
+    font-size: 1.8rem;
+  }
 }
 
 .text-size-4 {
   font-size: 1.75rem;
   font-weight: 400;
+
+  @media (max-width: 750px) {
+    font-size: 1.5rem;
+  }
 }
 
 .text-size-5 {
   font-size: 1.625rem;
   font-weight: 300;
+
+  @media (max-width: 750px) {
+    font-size: 1.3rem;
+  }
 }
 
 .text-size-6 {
   font-size: 1.25rem;
   font-weight: 300;
+
+  @media (max-width: 750px) {
+    font-size: 1.1rem;
+  }
 }
 
 .width-12rem {

@@ -281,7 +281,7 @@ export default function Calendar({ type }) {
              className="btn__calendar"
              onClick={() => handleBackwards()}
            />
-           <div>{`${month} ${day}, ${year}`}</div>
+           <div className="home__calendar--header">{`${month} ${day}, ${year}`}</div>
            <FaCaretRight
              size={30}
              // color="var(--green-dark)"

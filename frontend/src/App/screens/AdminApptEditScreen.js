@@ -159,7 +159,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</div>
 
 					<button
-						className="btn btn__apptEditScreen"
+						className="btn__apptEditScreen"
 						type="submit"
 						onClick={handleSubmit}
 					>

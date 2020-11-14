@@ -312,17 +312,27 @@
   transform: translateY(390%);
   margin: 0.25rem;
   width: 20rem;
-  // background-color: $green;
   color: $white;
   border: 1px dotted $white;
 
+  @media (max-width: 1050px){
+    transform: none;
+    width: 60rem;
+    padding: 2rem;
+    margin: 0.5rem;
+  }
+
+  @media (max-width: 700px){
+    width: 40rem;
+  }
+
   &-container {
     @include flexCenterCenter($justify-content: space-between, $flex-direction: column);
-
     width: 100%;
-    // height: 100%;
-    // padding: 15%;
 
+    @media (max-width: 1050px) {
+      padding-bottom: 32rem;
+    }
   }
 
   &:hover {
@@ -359,7 +369,12 @@
   position: relative;
   padding: 20rem 0;
   height: 100%;
+  z-index: 99999999;
   @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
+
+  @media (max-width: 800px){
+    padding: 20rem 3rem;
+  }
 }
 
 .btn__highlights--appts-calendar {
@@ -369,6 +384,10 @@
   border: 1px solid $green;
   color: $green;
   cursor: pointer;
+
+  @media (max-width: 1050px) {
+    width: 14rem;
+  }
 }
 
 .btn__highlights--appts-list {
@@ -378,6 +397,10 @@
   border: 1px solid $white;
   color: $white;
   cursor: pointer;
+
+  @media (max-width: 1050px) {
+    width: 14rem;
+  }
 }
 
 .btn__list {
@@ -474,5 +497,15 @@
   &:hover {
     background-color: $green-12;
     color: $black;
+  }
+}
+
+.btns__hero--header {
+  // display: flex;
+  transform: translateY(-11rem);
+
+  @media (max-width: 900px) {
+    display: flex;
+    width: 30rem;
   }
 }

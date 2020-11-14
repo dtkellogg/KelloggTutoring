@@ -100,7 +100,7 @@ export default function HomePage() {
               size={130}
               color="var(--black)"
               fill="var(--black)"
-              className="social-media-icon grey-light-7"
+              className="social-media-icon__ghost grey-light-7"
             />
 
             <div className="ghost__eye--2"></div>
@@ -111,22 +111,22 @@ export default function HomePage() {
 
       <div className="highlights__appointments">
         <div className="highlights__appointments--text">
-          <h3 className="text-size-2">
+          <h3 className="text-size-2 highlights__appointments--header">
             Here are your <b>upcoming appointments:</b>
           </h3>
           <div className="btn__highlights--appointments-container">
             <Link to={`/appointments/booking`} className="">
-              <button className="btn btn__highlights--appointments">
+              <button className="btn__highlights--appointments">
                 Request a new appointment
               </button>
             </Link>
             <Link to={`/appointments/appointments-list`} className="">
-              <button className="btn btn__highlights--appointments">
+              <button className="btn__highlights--appointments">
                 View all appointments
               </button>
             </Link>
             <Link to={`/appointments/payments`} className="">
-              <button className="btn btn__highlights--appointments">
+              <button className="btn__highlights--appointments">
                 Pay for appointments
               </button>
             </Link>

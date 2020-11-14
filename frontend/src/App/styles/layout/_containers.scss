@@ -1,35 +1,86 @@
 .container{
+
   &__main {
-  height: max-content;
-  width: 100%;
-  display: grid;
-  // grid-template-rows: minmax(11.1vh, 7.6rem) minmax(6.0vh, 5rem) 83vh 12.5rem;
-  grid-template-rows: 8.1rem minmax(6.0vh, 5rem) 83vh 12.5rem;
-  grid-template-rows: 10.5vh 6.5vh 83vh 12.5rem;
-  // grid-template-rows: 9.5ch 5.5vh 83vh 12.5vh;
-  grid-template-columns: 10rem repeat(3, 1fr) 10rem;
-  // scroll-snap-type: y mandatory;
-  // overflow-y: auto;
+    height: max-content;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 8.1rem minmax(6.0vh, 5rem) 83vh 12.5rem;
+    grid-template-rows: 10.5vh 6.5vh 83vh 12.5rem;
+    grid-template-columns: 10rem repeat(3, 1fr) 10rem;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 8rem repeat(3, 1fr) 8rem;
+    }
+
+    @media (max-width: 800px) {
+      grid-template-columns: 3rem repeat(3, 1fr) 3rem;
+    }
 }
 
   &__body {
-  background-color: $white;
-  display: grid;
-  height: min-content;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+    background-color: $white;
+    display: grid;
+    height: min-content;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 3;
+    background: $white;
+
+    @media (max-width: 900px) {
+      // margin-right: 7rem;
+    }
+
+    @media (max-width: 800px) {
+      // margin-right: 3rem;
+    }
+  }
+
+  &__hero {
+    @include flexCenterCenter($justify-content: space-around);
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
+    background: $old-blue;
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 65%);
+    overflow: hidden;
+    // scroll-snap-align: start;
+
+    &--text {
+    position: relative;
+    line-height: 5rem;
+
+    @media (max-width: 900px) {
+      // width: 20rem;
+    }
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+  }
+
+  &--content {
+    @include flexCenterCenter($justify-content: space-around, $align-items: stretch);
+    width: 100vw;
+    transform: translateY(-4rem);
+
+    @media(max-width: 1050px) {
+      transform: translateY(-9rem);
+    }
+
+    @media(max-width: 900px) {
+      padding: 0 3rem;
+      display: flex;
+      // flex-direction: column;
+
+    }
+  }
 }
 }
 
 /* --------------------------------------------------------------------- */
 /* container main layout */
 
-.container__body {
-  grid-row: 3 / span 1;
-  grid-column: 2 / span 4;
-  margin-right: 10rem;
-  background: $white;
-}
 
 .nav__upper {
   grid-row: 1 / span 1;

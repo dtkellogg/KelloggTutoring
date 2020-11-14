@@ -223,7 +223,7 @@ export default function MessageScreen({ history }) {
             )}
 
             <button
-              className="btn btn__messageForm"
+              className="btn__messageForm"
               onClick={handleSubmit}
               disabled={submitted || failed.length > 0}
             >

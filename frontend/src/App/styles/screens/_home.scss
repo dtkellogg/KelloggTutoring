@@ -1,21 +1,18 @@
 .pg__home {
-  // 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 86vh 105vh 103vh 20vh;
-  // grid-template-rows: 105vh 105vh 100vh 20vh;
-  
   height: min-content;
-  overflow: scroll;
-  // overflow-y: scroll;
+  width: 100%;
+  overflow-y: scroll;
   border-right: 0.5px dashed $old-blue-2;
   border-left: 0.5px dashed $old-blue-2;
-  // position: relative;
-
-  
   scroll-snap-type: y mandatory;
-  // scroll-padding-top: 15vh;
-  // scroll-snap-type: y mandatory;
+
+  @media (max-width: 1050px) {
+    grid-template-rows: 86vh 165vh 163vh 20vh;
+  }
+  
 }
 
 .ghost__eye--1 {
@@ -76,21 +73,7 @@
   animation: blink 1s linear infinite;
 }
 
-.container__hero {
-  @include flexCenterCenter($justify-content: space-around);
-  grid-row: 1 / span 1;
-  grid-column: 1 / -1;
-  background: $old-blue;
-  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 65%);
-  overflow: hidden;
-  // scroll-snap-align: start;
 
-  &--content {
-    @include flexCenterCenter($justify-content: space-around, $align-items: stretch);
-    width: 100vw;
-    transform: translateY(-4rem);
-  }
-}
 
 .highlights {
   &__header {
@@ -115,8 +98,6 @@
   &__meetToshi--container {
     @include flexCenterCenter($flex-direction: column);
 
-    // padding: 10rem;
-    // height: 50rem;
     height: 100%;
     width: 100%;
   }
@@ -129,11 +110,21 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     position: relative;
-    
-    // overflow: hidden;
-
-    // background: linear-gradient($grey-light-8, $grey-light-7);
     background: $old-blue-1;
+
+    @media(max-width: 1050px) {
+      @include flexCenterCenter($flex-direction: column);
+    }
+
+    &--btns-container {
+      position: absolute;
+      margin-top: 33rem;
+
+      @media(max-width: 1050px) {
+        margin-top: 0;
+        transform: translateY(69rem);
+      }
+    }
 
     &--appointments__list {
       width: 100%;
@@ -142,6 +133,40 @@
     &--text {
       @include flexCenterCenter($flex-direction: column);
       padding-left: 5rem;
+
+      @media(max-width: 1050px) {
+        padding-left: 0;
+        flex-direction: column-reverse;
+        padding-bottom: 7rem;
+      }
+    }
+
+    &--header {
+
+      @media(max-width: 1050px) {
+        padding-bottom: 10.5rem;
+      }
+    }
+
+    &--appointments__list-container {
+      @include hundredPercentHW();
+      width: 100%;
+      // height: 100vh;
+      @include flexCenterCenter($flex-direction: column);
+      overflow: scroll;
+      padding: 5rem;
+
+      @media (max-width: 1200px) {
+        padding: 5rem 2rem;
+      }
+
+      @media (max-width: 1100px) {
+        padding: 5rem 0.5rem;
+      }
+
+      @media(max-width: 1050px) {
+        padding: 2rem;
+      }
     }
   }
 
@@ -152,10 +177,7 @@
   }
 }
 
-.container__hero--text {
-  position: relative;
-  line-height: 5rem;
-}
+
 
 .hero__img {
 
@@ -180,22 +202,13 @@
   }
 }
 
-.btns__hero--header {
-  // display: flex;
-  transform: translateY(-190%)
-}
 
 .hero__right-container{
   @include flexCenterCenter($flex-direction: column);
-}
 
-.highlights__appointments--appointments__list-container {
-  @include hundredPercentHW();
-  width: 100%;
-  // height: 100vh;
-  @include flexCenterCenter($flex-direction: column);
-  overflow: scroll;
-  padding: 5rem;
+  @media (max-width: 1050px) {
+    transform: translateY(-4rem);
+  }
 }
 
 .meetToshi__ball--container {
@@ -232,10 +245,7 @@
   stroke: $white;
 }
 
-.highlights__appointments--btns-container {
-  position: absolute;
-  margin-top: 33rem;
-}
+
 
 // .height: 85vh;
 //   display: grid;
@@ -246,6 +256,10 @@
 .home__calendar {
   height: 100%;
   width: 100%;
+
+  &__header {
+    
+  }
 }
 
 .pg__home--review-container {
@@ -264,4 +278,9 @@
   grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
   overflow: scroll;
+}
+
+.social-media-icon__ghost {
+  width: 10rem;
+  height: 10rem;
 }

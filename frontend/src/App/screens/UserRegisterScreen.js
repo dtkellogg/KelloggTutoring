@@ -108,7 +108,7 @@ export default function Register({ location, history }) {
           </div>
 
           <button
-            className="btn btn__registerScreen"
+            className="btn__registerScreen"
             type="submit"
             onClick={handleSubmit}
           >
