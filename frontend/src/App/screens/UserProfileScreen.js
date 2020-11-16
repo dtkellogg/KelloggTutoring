@@ -24,6 +24,7 @@ export default function Profile({ location, history }) {
   const { success } = userUpdateProfile;
 
   React.useEffect(() => {
+    if (user) {
     if (!userInfo) {
       history.push('/login');
     } else {
@@ -33,6 +34,7 @@ export default function Profile({ location, history }) {
             setName(user.name)
             setEmail(user.email)
         }
+    }
     }
   }, [dispatch, history, userInfo, user]);
 

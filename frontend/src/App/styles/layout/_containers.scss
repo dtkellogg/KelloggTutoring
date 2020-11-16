@@ -42,31 +42,52 @@
   }
 
   &__hero {
-    @include flexCenterCenter($justify-content: space-around);
+    // @include flexCenterCenter($justify-content: space-around);
     grid-row: 1 / span 1;
     grid-column: 1 / -1;
     background: $old-blue;
     clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 65%);
     overflow: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    justify-items: center;
+    align-items: center;
     // scroll-snap-align: start;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      overflow: hidden;
+    }
 
     &--text {
       position: relative;
       line-height: 5rem;
+      grid-row: 2 / span 2;
+      grid-column: 1 / span 1;
 
-      @media (max-width: 900px) {
-        // width: 20rem;
-      }
-
+      
       @media (max-width: 900px) {
         width: 100%;
       }
+
+      @media (max-width: 600px) {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 2;
+
+        justify-items: center;
+        align-items: center;
+      }
+
+      
     }
 
     &--content {
       @include flexCenterCenter($justify-content: space-around, $align-items: stretch);
       width: 100vw;
-      transform: translateY(-4rem);
+      grid-row: 2 / span 2;
+      grid-column: 1 / -1;
 
       @media(max-width: 1050px) {
         transform: translateY(-9rem);

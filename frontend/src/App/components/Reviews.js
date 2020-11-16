@@ -222,7 +222,7 @@ export default function Reviews({type}) {
                   <div className="reviews__new-review--radio-btns">
             
 
-                    <div className="">
+                    <div className="reviews__new-review--radio-btn">
                       <input
                         type="radio"
                         id="Student"
@@ -246,7 +246,7 @@ export default function Reviews({type}) {
                       </label>
                     </div>
 
-                    <div className="">
+                    <div className="reviews__new-review--radio-btn">
                       <input
                         type="radio"
                         id="Parent"
@@ -268,7 +268,7 @@ export default function Reviews({type}) {
                       </label>
                     </div>
 
-                    <div className="">
+                    <div className="reviews__new-review--radio-btn">
                       <input
                         type="radio"
                         id="Friend"

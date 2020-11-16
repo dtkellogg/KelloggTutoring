@@ -1,16 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 import {
   FaCheckSquare,
   FaTrash,
   FaTimes
 } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
-import {useSortMultiple} from '../hooks/useSort'
+
 import Sidebar from "../components/Sidebar";
+
+import {useSortMultiple} from '../hooks/useSort'
+
+
 import { subheader } from "../actions/subheader";
+import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 
 
 const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
@@ -18,12 +22,12 @@ const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Cal
 
 export default function ApptsList({ location, type }) {
   var now = moment();
-  // console.log(`now : ${now}`);
 
   const dispatch = useDispatch();
 
   const appointmentList = useSelector((state) => state.appointmentList);
   const { loading, error, appointments } = appointmentList;
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -54,7 +58,6 @@ export default function ApptsList({ location, type }) {
   if (userInfo === null && type === "upcoming") {
     return (
       <div className="pg__appointment">
-        {/* <Sidebar title="Appointments" list={apptsList} /> */}
         <Link to={`/login`} className="text-size-2 msg__userInfoNull">
           Please&nbsp;
           <span className="text-size-2" style={{ color: "blue" }}>
@@ -66,7 +69,6 @@ export default function ApptsList({ location, type }) {
     );
   }
 
-  // console.log(`location: ${location}`)
   if (userInfo === null) {
     return (
       <div className="pg__appointment">
@@ -117,7 +119,6 @@ export default function ApptsList({ location, type }) {
     );
   }
 
-  // console.log(`KNDL: ${sortedAppts.map((appt) => appt.student === userInfo.name).length === 0}`)
 
   if (
     type === "upcoming" &&
@@ -287,7 +288,6 @@ export default function ApptsList({ location, type }) {
           <tr className="tr">
             <th className="appointments__th--date">date</th>
             <th className="appointments__th--time">time</th>
-            {/* <th className="appointments__th--student">student</th> */}
             <th className="appointments__th--subject">subject</th>
             <th className="appointments__th--btns">Paid?</th>
             <th className="appointments__th--cancel">Cancel</th>
@@ -307,8 +307,6 @@ export default function ApptsList({ location, type }) {
                 <td className="appointments__item--btns">
                   {appt.paid ? (
                     <>
-                      {/* <button className="btn__pay">Pay</button> */}
-                      {/* <button className="btn__cancel">Cancel</button> */}
                       <FaCheckSquare
                         size={20}
                         color="var(--green-dark)"

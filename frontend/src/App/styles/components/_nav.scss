@@ -102,6 +102,12 @@
     }
   }
 
+  &__user-name {
+    @media (max-width: 425px) {
+      display: none;
+    }
+  }
+
 
   &__upper-header {
       &:hover {

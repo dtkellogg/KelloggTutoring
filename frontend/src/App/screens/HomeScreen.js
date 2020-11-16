@@ -71,7 +71,7 @@ export default function HomePage() {
   return (
     <div className="pg__home">
       <div className="container__hero">
-        <div className="container__hero--content">
+        {/* <div className="container__hero--content"> */}
           {/* <div className="hero__thought-clouds--container">
             <span className="hero__thought-clouds text-size-2">O</span>
             <span className="hero__thought-clouds text-size-2">O</span>
@@ -84,7 +84,7 @@ export default function HomePage() {
             </h4>
           </div>
 
-          <div className="hero__right-container">
+          {/* <div className="hero__right-container"> */}
             <div className="btns__hero--header">
               <Link to={`/appointments/booking`} className="">
                 <button className="btn__request-tutoring">
@@ -105,8 +105,8 @@ export default function HomePage() {
 
             <div className="ghost__eye--2"></div>
             {/* <div className="ghost__eye--1">.</div> */}
-          </div>
-        </div>
+          {/* </div> */}
+        {/* </div> */}
       </div>
 
       <div className="highlights__appointments">
