@@ -103,7 +103,7 @@ export default function HomePage() {
               className="social-media-icon__ghost grey-light-7"
             />
 
-            <div className="ghost__eye--2"></div>
+            {/* <div className="ghost__eye--2"></div> */}
             {/* <div className="ghost__eye--1">.</div> */}
           {/* </div> */}
         {/* </div> */}

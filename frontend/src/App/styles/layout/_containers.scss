@@ -59,6 +59,11 @@
     @media (max-width: 600px) {
       grid-template-columns: 1fr;
       overflow: hidden;
+      padding-left: 5rem;
+    }
+
+    @media (max-width: 450px) {
+      padding-left: 2rem;
     }
 
     &--text {

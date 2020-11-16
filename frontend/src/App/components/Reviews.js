@@ -200,7 +200,7 @@ export default function Reviews({type}) {
                   className="reviews__new-review"
                   style={{
                     // padding: type === "meetToshi" ? "0rem 2rem" : "8rem 2rem",
-                    padding: type === "meetToshi" ? "0rem 2rem" : "1rem 2rem",
+                    // padding: type === "meetToshi" ? "0rem 2rem" : "1rem 2rem",
                   }}
                 >
                   <h2 className="reviews__new-review--header text-size-2">
