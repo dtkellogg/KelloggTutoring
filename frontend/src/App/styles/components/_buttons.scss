@@ -515,7 +515,7 @@
 .btns__hero--header {
   grid-row: 1 / span 2;
   grid-column: 2 / span 1;
-  // align-self: start;
+  align-self: start;
 
   
   @media (max-width: 900px) {
@@ -529,6 +529,6 @@
 
     align-self: start;
     justify-self: start;
-    transform: translate(20%, 96%);
+    transform: translate(32.5%, 96%);
   }
 }

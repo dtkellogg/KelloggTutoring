@@ -64,7 +64,7 @@
     }
 
     @media (max-width: 450px) {
-      padding-left: 2.5rem;
+      padding-left: 0;
     }
 
     &--text {
@@ -84,6 +84,7 @@
 
         justify-items: center;
         align-items: center;
+        text-align: center;
       }
 
       

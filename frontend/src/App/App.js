@@ -172,12 +172,12 @@ export default function App() {
                   />
                   <Route
                     exact
-                    path="/contact/message-form"
+                    path="/contact/message"
                     component={MessageScreen}
                   />
                   <Route
                     exact
-                    path="/contact/schedule-an-appointment"
+                    path="/contact/schedule"
                     component={() => <Booking type="schedule" />}
                   />
                   <Route

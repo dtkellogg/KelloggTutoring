@@ -33,7 +33,7 @@ export default function Sidebar({ title, list }) {
       <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
       <ul className="sidebar__list text-size-5">
         {list.map((item) => {
-          if (item === 'phone, text & email') {
+          if (item === 'contact info') {
             return (<button key={uuid()} onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: '16.25px', textAlign: 'left'}}>
                       phone, text & email
                     </button>)
