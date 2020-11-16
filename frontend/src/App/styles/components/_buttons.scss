@@ -340,7 +340,8 @@
 
     @media (max-width: 600px) {
       align-items: flex-end;
-      transform: translateX(-37.5%);
+      transform: translateX(-12.5%);
+      padding-bottom: 0;
     }
   }
 
@@ -524,6 +525,6 @@
 
     align-self: start;
     justify-self: start;
-    transform: translateX(20%);
+    transform: translate(20%, 96%);
   }
 }

@@ -1,10 +1,13 @@
 .footer {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
   margin: auto auto 1rem auto;
+
+  @media (max-width: 650px) {
+    margin: auto auto 2rem auto;
+  }
 
   &__contact-items {
     @include hundredPercentHW();
