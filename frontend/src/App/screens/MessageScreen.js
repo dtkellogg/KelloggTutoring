@@ -5,7 +5,8 @@ import { getUserDetails } from "../actions/userActions";
 import Sidebar from "../components/Sidebar";
 
 
-const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+// const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+const contactList = ['message', 'schedule', 'contact info'];
 
 function getFormattedPhoneNum(input) {
   let output = "(";

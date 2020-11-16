@@ -7,8 +7,10 @@ import { getUserDetails } from "../actions/userActions";
 import Sidebar from "../components/Sidebar";
 import { subheader } from "../actions/subheader";
 
-const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
-const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+// const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+const contactList = ['message', 'schedule', 'contact info'];
 
 
 
@@ -64,15 +66,8 @@ export default function UserBookingScreen({ location, history, type}) {
   ]);
 
   React.useEffect(() => {
-    if (loading) {
-      dispatch(subheader("Loading..."));
-    } else {
       dispatch(subheader("Schedule, Manage and Pay"));
-    }
-    if (error) {
-      dispatch(subheader({ error }));
-    }
-  }, [dispatch, loading, error]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

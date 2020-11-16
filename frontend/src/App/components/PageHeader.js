@@ -9,8 +9,10 @@ import Sidebar from "./Sidebar";
 
 
 
-const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
-const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+// const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
+const contactList = ['message', 'schedule', 'contact info'];
+const appointmentsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+// const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
 const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
 

@@ -17,7 +17,8 @@ import { subheader } from "../actions/subheader";
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 
 
-const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
 
 
 export default function ApptsList({ location, type }) {

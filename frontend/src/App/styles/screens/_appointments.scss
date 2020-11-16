@@ -43,8 +43,10 @@ tbody {
 
 .tr {
   display: table-row;
-  // grid-template-rows: 1fr;
-  // grid-template-columns: repeat(9, 1fr);
+  
+  @media (max-width: 450px) {
+    font-size: 1.3rem;
+  }
 }
 
 tbody tr:nth-of-type(odd) {
@@ -91,6 +93,10 @@ tbody tr:nth-of-type(odd) {
   justify-content: center;
   flex-direction: column;
 
+  @media (max-width: 600px) {
+    padding: 2rem 0;
+  }
+
   &__header--container {
     // text-align: center;
     // position: relative;
@@ -103,6 +109,17 @@ tbody tr:nth-of-type(odd) {
 
   &__header {
     grid-column: 2 / span 3;
+
+    @media (max-width: 600px) {
+      margin-top: 10rem;
+      width : 100%;
+    }
+
+    @media (max-width: 450px) {
+      margin: 6rem 0 4.5rem 0;
+      grid-column: 1 / span 5;
+      text-align: center;
+    }
   }
 
   &__list--all {
@@ -253,6 +270,13 @@ tbody tr:nth-of-type(odd) {
       grid-column: 5 / span 1;
     }
   }
+
+  &__list--all {
+
+    @media ( max-width: 600px ) {
+      height: auto;
+    }
+  }
 }
 
 .btns-container__appointments {
@@ -308,9 +332,7 @@ grid-column: 2 / span 2;
   text-align: center;
 }
 
-.appointments__list--all {
-  overflow: scroll;
-}
+
 
 .social-media-icon__trash {
   cursor: pointer;

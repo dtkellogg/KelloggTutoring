@@ -65,6 +65,10 @@
   @media (max-width: 750px) {
     font-size: 5rem;
   }
+  
+  @media (max-width: 450px) {
+    font-size: 4rem;
+  }
 }
 
 .text-size-1 {
@@ -73,6 +77,10 @@
 
   @media (max-width: 750px) {
     font-size: 2.5rem;
+  }
+  
+  @media (max-width: 450px) {
+    font-size: 2.0rem;
   }
 }
 
@@ -84,6 +92,10 @@
   @media (max-width: 750px) {
     font-size: 2.4rem;
   }
+  
+  @media (max-width: 450px) {
+    font-size: 1.9rem;
+  }
 }
 
 .text-size-3 {
@@ -92,6 +104,10 @@
 
   @media (max-width: 750px) {
     font-size: 1.8rem;
+  }
+  
+  @media (max-width: 450px) {
+    font-size: 1.3rem;
   }
 }
 
@@ -102,6 +118,10 @@
   @media (max-width: 750px) {
     font-size: 1.5rem;
   }
+  
+  @media (max-width: 450px) {
+    font-size: 1.0;
+  }
 }
 
 .text-size-5 {
@@ -111,6 +131,10 @@
   @media (max-width: 750px) {
     font-size: 1.3rem;
   }
+  
+  @media (max-width: 450px) {
+    font-size: 0.8;
+  }
 }
 
 .text-size-6 {
@@ -119,6 +143,10 @@
 
   @media (max-width: 750px) {
     font-size: 1.1rem;
+  }
+  
+  @media (max-width: 450px) {
+    font-size: 0.6;
   }
 }
 

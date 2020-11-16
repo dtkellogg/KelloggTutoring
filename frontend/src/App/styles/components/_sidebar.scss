@@ -14,21 +14,21 @@
 
     @media (max-width: 650px ) {
       display: flex;
-      justify-content: space-between;
-      padding-right: 50vw;
+      justify-content: space-around;
+      // padding-right: 50vw;
       margin-top: 0;
     }
 
     @media (max-width: 450px ) {
-      padding-right: 80vw;
+      // padding-right: 80vw;
     }
 
     @media (max-width: 350px ) {
-      padding-right: 110vw;
+      // padding-right: 110vw;
     }
 
      @media (max-width: 300px ) {
-       padding-right: 120vw;
+      //  padding-right: 120vw;
      }
   }
   

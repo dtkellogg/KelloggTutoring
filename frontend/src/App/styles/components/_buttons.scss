@@ -131,6 +131,10 @@
   &:hover {
     color: $black;
   }
+
+  @media (max-width: 450px) {
+    transform: translateY(12.2rem);
+  }
 }
 
 .btn__continue--select-method {

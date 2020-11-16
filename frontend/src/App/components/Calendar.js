@@ -14,8 +14,8 @@ import { useSort } from '../hooks/useSort'
 const { v4: uuid } = require("uuid");
 
 
-
-const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
 
 
 
@@ -41,7 +41,8 @@ export default function Calendar({ type }) {
 
 	const sortedAppts = useSort(appointments, "startTime")
 
-	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	// const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 	function daysInMonth(month, year) {

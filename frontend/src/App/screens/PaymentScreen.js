@@ -27,8 +27,8 @@ import Error from "../components/Error";
 
 // import { subheader } from "../actions/subheader";
 
-
-const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
 
 
 function PaymentScreen({ match, history }) {

@@ -136,12 +136,12 @@ export default function App() {
 
                   <Route
                     exact
-                    path="/appointments/appointments-list"
+                    path="/appointments/appts-list"
                     component={() => <ApptsList type="all" />}
                   />
                   <Route
                     exact
-                    path="/appointments/appointments-calendar"
+                    path="/appointments/appts-calendar"
                     component={Calendar}
                   />
                   <Route exact path="/appointments/payment-method" component={PaymentMethod} />

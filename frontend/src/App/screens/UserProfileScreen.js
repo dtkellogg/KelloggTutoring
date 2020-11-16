@@ -56,7 +56,7 @@ export default function Profile({ location, history }) {
         </h2>
 
         {message && <h1>{message}</h1>}
-        {success && <h1>Profile successly updated</h1>}
+        {success && <h1>Profile successfully updated</h1>}
       </div>
       <div className="profileScreen__content">
         <div className="profileScreen__element">
