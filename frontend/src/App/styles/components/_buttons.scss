@@ -382,17 +382,7 @@
     }
 }
 
-.container__btn--screen-nav {
-  position: relative;
-  padding: 20rem 0;
-  height: 100%;
-  z-index: 99999999;
-  @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
 
-  @media (max-width: 800px){
-    padding: 20rem 3rem;
-  }
-}
 
 .btn__highlights--appts-calendar {
   padding: 1rem;

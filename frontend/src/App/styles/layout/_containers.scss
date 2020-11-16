@@ -2,6 +2,7 @@
 
   &__main {
     height: max-content;
+    position: relative;
     width: 100%;
     display: grid;
     grid-template-rows: 8.1rem minmax(6.0vh, 5rem) 83vh 12.5rem;
@@ -108,7 +109,27 @@
       }
     }
   }
+
+  &__btn--screen-nav {
+    
+    padding: 20rem 0;
+    height: 100%;
+    z-index: 99999999;
+    @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
+  
+    @media (max-width: 800px){
+      padding: 20rem 3rem;
+      position: absolute;
+    right: 0;
+    top: 20vh;
+    }
+
+    @media (max-width: 600px){
+      right: 100vw;
+    }
+  }
 }
+
 
 /* --------------------------------------------------------------------- */
 /* container main layout */

@@ -30,7 +30,7 @@ export default function Sidebar({ title, list }) {
 
   return (
     <div className="sidebar">
-      <h4 className="text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
+      <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
       <ul className="sidebar__list text-size-5">
         {list.map((item) => {
           if (item === 'phone, text & email') {

@@ -1,15 +1,48 @@
 .sidebar {
   background: $labor-work;
   padding: 2rem;
-}
 
-.sidebar__list {
-  margin-top: 2rem;
-  color: $white;
-  text-decoration: none;
-  line-height: 2.25rem;
-}
+  @media (max-width: 650px ) {
+      padding: 1.4rem;
+  }
 
-.sidebar__list--item {
+  &__list {
+    margin-top: 2rem;
+    color: $white;
+    text-decoration: none;
+    line-height: 2.25rem;
+
+    @media (max-width: 650px ) {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 50vw;
+      margin-top: 0;
+    }
+
+    @media (max-width: 450px ) {
+      padding-right: 80vw;
+    }
+
+    @media (max-width: 350px ) {
+      padding-right: 110vw;
+    }
+
+     @media (max-width: 300px ) {
+       padding-right: 120vw;
+     }
+  }
+  
+  &__list--item {
     line-height: 2rem;
+
+    @media (max-width: 650px ) {
+      // margin-right: 1.75rem;
+    }
+  }
+
+  &__title {
+    @media (max-width: 650px ) {
+      display: none;
+    }
+  }
 }

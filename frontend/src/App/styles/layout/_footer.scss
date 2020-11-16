@@ -12,6 +12,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
   }
 
   &__contact-item {
@@ -20,8 +24,16 @@
     display: flex;
     align-items: center;
 
+    &:first-child {
+      margin-bottom: 3rem;
+    }
+
     &:first-child::after {
       border: 1px dashed $green;
+    }
+
+    &:last-child {
+      margin-bottom: 2rem;
     }
   }
 
