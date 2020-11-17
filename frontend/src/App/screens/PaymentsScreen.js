@@ -75,11 +75,11 @@ export default function Payments({ match, history }) {
   const addToCartHandler = (e, idx, id) => {
     e.preventDefault();
     setSubmitted(true);
+
     setCart((cart) => cart.concat(id));
     dispatch(addToCart(id));
 
     console.log(cart.includes(id));
-
     console.log(id);
   };
 
@@ -104,38 +104,37 @@ export default function Payments({ match, history }) {
 
   // localStorage.clear()
 
-  // END OF PAYPAL STUFF
 
-  React.useEffect(() => {
-    if (loading) {
-      dispatch(subheader("Loading..."));
-    } else {
-      dispatch(subheader(""));
-    }
-    if (error) {
-      dispatch(subheader({ error }));
-    }
-  }, [dispatch, loading, error]);
+  // React.useEffect(() => {
+  //   if (loading) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [dispatch, loading, error]);
 
   console.log(`userInfo: ${userInfo}`)
   console.log(`sortedAppts: ${sortedAppts}`)
 
-  if(userInfo === null) {
-    return (
-      <div className="pg__appointment">
-        <Sidebar title="Appointments" list={apptsList} />
-        <div className="appointments-2">
-          <span className="text-size-2"> Please&nbsp; </span>
-          <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-            <span className="text-size-2" style={{ color: "blue" }}>
-              login&nbsp;
-            </span>
-          </Link>
-          <span className="text-size-2"> to view your appointments</span>
-        </div>
-      </div>
-      )
-  }
+  // if(userInfo === null) {
+  //   return (
+  //     <div className="pg__appointment">
+  //       <Sidebar title="Appointments" list={apptsList} />
+  //       <div className="appointments-2">
+  //         <span className="text-size-2"> Please&nbsp; </span>
+  //         <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+  //           <span className="text-size-2" style={{ color: "blue" }}>
+  //             login&nbsp;
+  //           </span>
+  //         </Link>
+  //         <span className="text-size-2"> to view your appointments</span>
+  //       </div>
+  //     </div>
+  //     )
+  // }
   
 
   if (
@@ -153,7 +152,7 @@ export default function Payments({ match, history }) {
           </div>
         </div>
       </div>
-    );
+    )
   } else {
     return (
       <div className="pg__appointment">
@@ -182,7 +181,7 @@ export default function Payments({ match, history }) {
               <Link to={`/login`} className="text-size-2 msg__userInfoNull">
                 You have no unpaid appointments
               </Link>
-            ) : userInfo !== undefined && (
+            ) : (
               <>
                 <table className="appointments__list text-size-3">
                   <thead className="thead">
