@@ -117,9 +117,6 @@ export default function Payments({ match, history }) {
 
   if(userInfo === null) {
     return (
-
-    
-    
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments-2">

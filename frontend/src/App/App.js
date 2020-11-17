@@ -14,8 +14,10 @@ import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
 import PageHeader from "./components/PageHeader";
 import Loading from "./components/Loading";
-const ApptsList = React.lazy(() => import("./components/ApptsList"))
-const Calendar = React.lazy(() => import("./components/Calendar"))
+import ApptsList from "./components/ApptsList"
+import Calendar from "./components/Calendar"
+// const ApptsList = React.lazy(() => import("./components/ApptsList"))
+// const Calendar = React.lazy(() => import("./components/Calendar"))
 
 
 // SCREENS
