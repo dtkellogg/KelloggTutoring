@@ -119,12 +119,12 @@ export default function Payments({ match, history }) {
   console.log(`userInfo: ${userInfo}`)
   console.log(`sortedAppts: ${sortedAppts}`)
 
-  return (
+  
 
   
 
-  (userInfo === null) ?
-    (
+  if (userInfo === null) {
+    return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments-2">
@@ -138,13 +138,11 @@ export default function Payments({ match, history }) {
         </div>
       </div>
     )
-    : (
-    
-    sortedAppts
+    } else if (sortedAppts
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => appt.paid === false).length === 0
-  )
-  ? (
+    )
+  { return  (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
@@ -153,7 +151,8 @@ export default function Payments({ match, history }) {
           </Link>
         </div>
       </div>
-  ) : (
+  )} else {
+    return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
@@ -263,5 +262,6 @@ export default function Payments({ match, history }) {
         </div>
         </div>
    )
-            )
-  }
+            }
+  
+}
