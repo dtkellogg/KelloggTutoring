@@ -36,7 +36,7 @@ export default function Sidebar({ title, list }) {
           if (item === 'contact info') {
             return (
               <button key={uuid()} onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: 'var(--text-size-5)', textAlign: 'left'}}>
-                phone, text & email
+                contact info
               </button>)
           } else if (url.split('/').length === 3){
             // console.log(`URL: ${url}`)

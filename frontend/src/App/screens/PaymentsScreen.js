@@ -125,6 +125,8 @@ export default function Payments({ match, history }) {
     <h1>Hello</h1>
   )
 
+  // Something is wrong with whole return statement...
+  
   // if (userInfo === null) {
   //   return (
   //     <div className="pg__appointment">
