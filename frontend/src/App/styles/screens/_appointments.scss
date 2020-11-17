@@ -11,75 +11,6 @@
   }
 }
 
-table {
-  // align: center;
-  border: 5px double $grey-light-6;
-}
-
-// th, td {
-//   width: 20rem;
-//   text-align: center;
-//   // border: 1px solid black;
-// }
-
-th {
-  padding: 1.5rem;
-  font-weight: 500;
-}
-
-tbody {
-  @include hundredPercentHW();
-  background-color: $grey-light-8;
-}
-
-// tr {
-//   // display: table-row-group;
-//   display: grid;
-//   width: 100%;
-//   height: 5rem;
-//   // align-items: center;
-//   // border: 1px solid black;
-// }
-
-.tr {
-  display: table-row;
-  
-  @media (max-width: 450px) {
-    font-size: 1.3rem;
-  }
-}
-
-tbody tr:nth-of-type(odd) {
-  background-color: $grey-light-7;
-}
-
-.thead {
-  @include hundredPercentHW();
-
-  // height: 10rem;
-  height: 5rem;
-  align-items: center;
-  
-  display: table-header-group;
-  border-bottom: 2px solid $grey-light-6;
-  background-color: $grey-light-8;
-}
-
-.tbody {
-  @include hundredPercentHW();
-  // width: 100%;
-  // min-height: 1rem;
-
-  // height: 10rem;
-  // height: 5rem;
-  align-items: center;
-  width : 100%;
-  
-  display: table-row-group;
-  // border-bottom: 2px solid $grey-light-6;
-  // background-color: $grey-light-7;
-}
-
 .appointments {
   grid-row: 1 / span 1;
   grid-column: 2 / span 2;
@@ -88,7 +19,7 @@ tbody tr:nth-of-type(odd) {
   height: 100%;
   overflow: scroll;
 
-  display: flex;
+  // display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -97,18 +28,16 @@ tbody tr:nth-of-type(odd) {
     padding: 2rem 0;
   }
 
-  &__header--container {
-    // text-align: center;
-    // position: relative;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: center;
-    justify-items: center;
-    width : 100%;
-  }
-
   &__header {
     grid-column: 2 / span 3;
+
+    &--container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+    }
 
     @media (max-width: 600px) {
       margin-top: 10rem;
@@ -121,14 +50,6 @@ tbody tr:nth-of-type(odd) {
       text-align: center;
     }
   }
-
-  &__list--all {
-  @include hundredPercentHW();
-    // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
-    line-height: 3.5rem;
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 2;
-}
 
   &__list {
     @include hundredPercentHW();
@@ -143,6 +64,18 @@ tbody tr:nth-of-type(odd) {
       grid-template-columns: repeat(9, 1fr);
 
       width: 100%;
+    }
+
+    &--all {
+      @include hundredPercentHW();
+      // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
+      line-height: 3.5rem;
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 2;
+
+      @media ( max-width: 600px ) {
+        height: auto;
+      }
     }
   }
 
@@ -176,7 +109,6 @@ tbody tr:nth-of-type(odd) {
       grid-column: 7 / span 2;
       text-align: center;
       // @include flexCenterCenter($justify-content: space-between);
-      // padding: 0 6.5rem;
     }
   }
 
@@ -222,7 +154,6 @@ tbody tr:nth-of-type(odd) {
   &__th {
      &--date {
       grid-column: 1 / span 1;  
-      // width : 100%;
     }
 
     &--time {
@@ -237,9 +168,6 @@ tbody tr:nth-of-type(odd) {
       grid-column: 3 / span 1;
     }
 
-    // &--select {
-    //   grid-column: 5 / span 1;
-    // }
 
     &--btns {
       grid-column: 5 / span 1;
@@ -250,7 +178,7 @@ tbody tr:nth-of-type(odd) {
   }
 
   &__th--upcoming {
-     &-date {
+    &-date {
       grid-column: 1 / span 1;  
     }
 
@@ -270,61 +198,53 @@ tbody tr:nth-of-type(odd) {
       grid-column: 5 / span 1;
     }
   }
+}
 
-  &__list--all {
+.msg {
 
-    @media ( max-width: 600px ) {
-      height: auto;
-    }
+  &__userInfoNull {
+    // @include hundredPercentHW();
+    @include flexCenterCenter();
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    text-align: center;
+  }
+
+  &__no-prev-appts {
+    @include hundredPercentHW();
+    @include flexCenterCenter();
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+    text-align: center;
   }
 }
 
-.btns-container__appointments {
-  grid-column: 7 / span 2;
-  // display: flex;
-  // justify-content: space-between;
-  // padding: 0 1.5rem;
-}
+.checkout {
+  &__payment-method {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid $grey-light-6;
+    padding: 1rem;
+  }
 
-.table__apptsList {
-  width : 100%;
-  grid-row: 1 / span 1;
-grid-column: 2 / span 2;
-}
+  &__totals {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid $grey-light-6;
+    padding: 1rem;
+  }
 
-.msg__userInfoNull {
-  // @include hundredPercentHW();
-  @include flexCenterCenter();
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 2;
-  text-align: center;
-}
+  &__appts {
+    width: 100%;
+    height: 100%;
+  }
 
-.msg__no-prev-appts {
-  @include hundredPercentHW();
-  @include flexCenterCenter();
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 2;
-  text-align: center;
-}
-
-.checkout__payment-method {
-  display: flex;
-  align-items: flex-end;
-  
-  border-bottom: 2px solid $grey-light-6;
-  padding: 1rem;
-  
-}
-
-.checkout__totals {
-  margin-top: 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  border-bottom: 2px solid $grey-light-6;
-  padding: 1rem;
+  &__payment-method--text {
+    // height: 100%;
+    // width: 100%;
+  }
 }
 
 .payments__login--msg {
@@ -332,21 +252,15 @@ grid-column: 2 / span 2;
   text-align: center;
 }
 
-
-
-.social-media-icon__trash {
-  cursor: pointer;
-}
-
 .appointments-2 {
-      grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
-    padding: 2rem;
-    height: 100%;
-    overflow: scroll;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+  padding: 2rem;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .appt__checkout {
@@ -363,25 +277,75 @@ grid-column: 2 / span 2;
   // flex-direction: column;
 
 
-      width: 100%;
-      height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // justify-content: space-between;
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
-    padding: 2rem;
-    height: 100%;
-    overflow: scroll;
-}
-
-.checkout__appts {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 2;
+  padding: 2rem;
+  height: 100%;
+  overflow: scroll;
 }
 
-.checkout__payment-method--text {
-  // height: 100%;
+
+// TABLE CLASSES - names given to html elements
+.table {
+  border: 5px double $grey-light-6;
+
+  &__apptsList {
+    width : 100%;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+  }
+}
+
+.th {
+  padding: 1.5rem;
+  font-weight: 500;
+}
+
+.tbody {
+  @include hundredPercentHW();
+  background-color: $grey-light-8;
+}
+
+.tr {
+  display: table-row;
+  
+  @media (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: $grey-light-7;
+}
+
+.thead {
+  @include hundredPercentHW();
+
+  // height: 10rem;
+  height: 5rem;
+  align-items: center;
+  
+  display: table-header-group;
+  border-bottom: 2px solid $grey-light-6;
+  background-color: $grey-light-8;
+}
+
+.tbody {
+  @include hundredPercentHW();
   // width: 100%;
+  // min-height: 1rem;
+
+  // height: 10rem;
+  // height: 5rem;
+  align-items: center;
+  width : 100%;
+  
+  display: table-row-group;
+  // border-bottom: 2px solid $grey-light-6;
+  // background-color: $grey-light-7;
 }

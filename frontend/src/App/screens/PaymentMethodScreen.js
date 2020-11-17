@@ -51,7 +51,7 @@ const PaymentMethodScreen = ({ history }) => {
   return (
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={appointmentsList} />
-    <div className="payment-method__screen">
+    <div className="payment__method--screen">
       <CheckoutSteps step1 step2 step3 />
       {/* <h2 className="appointments__header--container">
         <Link
@@ -64,8 +64,8 @@ const PaymentMethodScreen = ({ history }) => {
           Select a payment method:
         </div>
       </h2> */}
-      <form onSubmit={submitHandler} className="payment-method__screen--form">
-        <div className="payment-method__screen--form-container">
+      <form onSubmit={submitHandler} className="payment__method--screen--form">
+        <div className="payment__method--screen--form-container">
           <div className="appointments__header--container">
             <label as="legend" className="appointments__header text-size-2">
               Select method:
@@ -74,8 +74,8 @@ const PaymentMethodScreen = ({ history }) => {
               Continue
             </button>
           </div>
-          <div className="payment-method__screen--form-inputs">
-            <div className="payment-method__screen--form-element">
+          <div className="payment__method--screen--form-inputs">
+            <div className="payment__method--screen--form-element">
               <input
                 type="radio"
                 // label="PayPal or Credit Card"
@@ -87,7 +87,7 @@ const PaymentMethodScreen = ({ history }) => {
               />
               <label className="text-size-3">PayPal or Credit Card</label>
             </div>
-            {/* <div className="payment-method__screen--form-element">
+            {/* <div className="payment__method--screen--form-element">
               <label className="">Stripe</label>
               <input
                 type="radio"

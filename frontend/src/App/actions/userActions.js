@@ -31,28 +31,29 @@ import {
 
 export const login = (email, password) => async (dispatch) => {
   try {
-      dispatch({
-          type: USER_LOGIN_REQUEST
-      })
+    dispatch({
+      type: USER_LOGIN_REQUEST
+    })
 
-      const config = {
-          headers: {
-              'Content-Type': 'application/json'
-          }
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
       }
+    }
 
-      const { data } = await axios.post(
-          '/api/users/login', 
-          {email, password}, 
-          config
-      )
+    const { data } = await axios.post(
+      '/api/users/login', 
+      {email, password}, 
+      config
+    )
 
-      dispatch({
-          type: USER_LOGIN_SUCCESS,
-          payload: data
-      })
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data
+    })
 
-      localStorage.setItem('userInfo', JSON.stringify(data))
+    localStorage.setItem('userInfo', JSON.stringify(data))
+
   } catch (error) {
       dispatch({
         type: USER_LOGIN_FAIL,
@@ -97,11 +98,12 @@ export const register = (name, email, password) => async (dispatch) => {
     });
 
     dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: data,
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
     });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
+
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,
@@ -114,6 +116,7 @@ export const register = (name, email, password) => async (dispatch) => {
 };
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
+
   try {
 
     dispatch({
@@ -176,6 +179,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       type: USER_UPDATE_PROFILE_SUCCESS,
       payload: data,
     });
+
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
@@ -193,10 +197,7 @@ export const listUsers = () => async (dispatch, getState) => {
       type: USER_LIST_REQUEST,
     });
 
-    // Note: destructuring twice
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo }, } = getState();
 
     const config = {
       headers: {

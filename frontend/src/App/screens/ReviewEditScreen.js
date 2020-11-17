@@ -112,7 +112,7 @@ export default function ReviewEdit({ match, history, location }) {
                   id="Student"
                   name="relation"
                   value="Student"
-                  className="radio-btn__input"
+                  className="btn__radio--input"
                   // checked={review.relation === this.value}
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
@@ -133,7 +133,7 @@ export default function ReviewEdit({ match, history, location }) {
                   id="Parent"
                   name="relation"
                   value="Parent"
-                  className="radio-btn__input"
+                  className="btn__radio--input"
                   // checked={review.relation === this.value}
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
@@ -153,7 +153,7 @@ export default function ReviewEdit({ match, history, location }) {
                   id="Friend"
                   name="relation"
                   value="Friend"
-                  className="radio-btn__input"
+                  className="btn__radio--input"
                   // checked={review.relation === this.value}
                   onChange={(e) => handleRadioBtnChange(e)}
                 />

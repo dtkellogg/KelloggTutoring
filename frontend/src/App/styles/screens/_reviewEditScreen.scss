@@ -15,7 +15,6 @@
     width: 60%;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     justify-content: space-around;
   }
 
@@ -43,9 +42,9 @@
     }
     
     &--contact {
-    border: none;
-    border-bottom: 1px solid black;
-    height: 3rem;
+      border: none;
+      border-bottom: 1px solid black;
+      height: 3rem;
     }
 
     &--contact-message {
@@ -77,15 +76,10 @@
     font-family: 'Roboto', sans-serif;
 
     &:focus {
-    outline: none;
-    border: 1px solid $old-blue-2;
+      outline: none;
+      border: 1px solid $old-blue-2;
     }
   }
-
-//   &__input-container {
-//     margin: 300rem 0;
-//   }
-
 }
 
 label[for="email__messageForm"]::after,

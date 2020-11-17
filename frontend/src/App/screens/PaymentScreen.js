@@ -23,7 +23,7 @@ import {
 // import { removeFromCart } from "../actions/cartActions";
 import { getPaymentDetails, payPayment } from "../actions/paymentActions";
 import Sidebar from "../components/Sidebar";
-import Error from "../components/Error";
+import Loading from "../components/Loading";
 
 // import { subheader } from "../actions/subheader";
 
@@ -133,7 +133,7 @@ function PaymentScreen({ match, history }) {
 
   }
   return  loading ? (
-  <Error /> 
+  <Loading /> 
   ) : error ? (
     <h2 className="text-size-2">{error}</h2>
   ) : (
@@ -269,10 +269,10 @@ function PaymentScreen({ match, history }) {
         {!payment.isPaid && (
           <div>
             {/* {loadingPay && setLoadingDefault(true)} */}
-            {loadingPay && <Error />}
+            {loadingPay && <Loading />}
             {!sdkReady ? (
               // setLoadingDefault(true)
-              <Error />
+              <Loading />
             ) : (
               <p>PAYPAL BTN</p>
               // <PayPalButton

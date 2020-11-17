@@ -228,7 +228,7 @@ export default function Reviews({type}) {
                         id="Student"
                         name="relation"
                         value="Student"
-                        className="radio-btn__input"
+                        className="btn__radio--input"
                         // checked
                         onChange={(e) => handleRadioBtnChange(e)}
                       />
@@ -252,7 +252,7 @@ export default function Reviews({type}) {
                         id="Parent"
                         name="relation"
                         value="Parent"
-                        className="radio-btn__input"
+                        className="btn__radio--input"
                         onChange={(e) => handleRadioBtnChange(e)}
                       />
                       <label
@@ -274,7 +274,7 @@ export default function Reviews({type}) {
                         id="Friend"
                         name="relation"
                         value="Friend"
-                        className="radio-btn__input"
+                        className="btn__radio--input"
                         onChange={(e) => handleRadioBtnChange(e)}
                       />
                       <label
@@ -388,7 +388,7 @@ export default function Reviews({type}) {
                         {review.msg}
                       </div>
 
-                      <div className="reviews__btns">
+                      <div className="btns__reviews">
                         <div
                           className="reviews__card--item-approved text-size-4"
                           style={{
@@ -471,7 +471,7 @@ export default function Reviews({type}) {
                         {review.msg}
                       </div>
 
-                      <div className="reviews__btns">
+                      <div className="btns__reviews">
                         <div
                           className="reviews__card--item-approved text-size-4"
                           style={{

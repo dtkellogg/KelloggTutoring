@@ -1,8 +1,5 @@
 import axios from 'axios'
 import {
-    // CART_ADD_ITEM,
-    // CART_REMOVE_ITEM,
-    // CART_SAVE_PAYMENT_METHOD,
     PAYMENT_CREATE_REQUEST,
     PAYMENT_CREATE_SUCCESS,
     PAYMENT_CREATE_FAIL,
@@ -22,80 +19,86 @@ import {
 import { logout } from './userActions'
 
 export const createPayment = (payment) => async (dispatch, getState) => {
-    try {
-        dispatch({
-            type: PAYMENT_CREATE_REQUEST,
-        })
+	try {
+		dispatch({
+			type: PAYMENT_CREATE_REQUEST,
+		})
 
-        const {
-            userLogin: { userInfo },
-        } = getState()
+		const {
+			userLogin: { userInfo },
+		} = getState()
 
-        const config = {
-            headers: {
-                // 'Content-Type': 'application/json',
-                Authorization: `Bearer ${userInfo.token}`,
-            },
-        }
+		const config = {
+			headers: {
+				// 'Content-Type': 'application/json',
+				Authorization: `Bearer ${userInfo.token}`,
+			},
+		}
 
-        const { data } = await axios.post(`/api/payments`, payment, config)
+		const { data } = await axios.post(`/api/payments`, payment, config)
 
-        dispatch({
-            type: PAYMENT_CREATE_SUCCESS,
-            payload: data,
-        })
-    } catch (error) {
-        const message =
-            error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message
-        if (message === 'Not authorized, token failed') {
-            dispatch(logout())
-        }
-        dispatch({
-            type: PAYMENT_CREATE_FAIL,
-            payload: message,
-        })
-    }
+		dispatch({
+			type: PAYMENT_CREATE_SUCCESS,
+			payload: data,
+		})
+
+	} catch (error) {
+		const message =
+			error.response && error.response.data.message
+				? error.response.data.message
+				: error.message
+
+		if (message === 'Not authorized, token failed') {
+			dispatch(logout())
+		}
+
+		dispatch({
+			type: PAYMENT_CREATE_FAIL,
+			payload: message,
+		})
+	}
 }
 
 export const getPaymentDetails = (id) => async (dispatch, getState) => {
-    try {
-        // console.log(`paymentDETAILSSS`)
-        dispatch({
-            type: PAYMENT_DETAILS_REQUEST,
-        })
+	try {
+		dispatch({
+			type: PAYMENT_DETAILS_REQUEST,
+		})
 
-        const {
-            userLogin: { userInfo },
-        } = getState()
+		const {
+			userLogin: { userInfo },
+		} = getState()
 
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userInfo.token}`,
-          },
-        };
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${userInfo.token}`,
+			},
+		};
 
-        const { data } = await axios.get(`/api/payments/${id}`, config)
+		const { data } = await axios.get(`/api/payments/${id}`, config)
 
-        dispatch({
-            type: PAYMENT_DETAILS_SUCCESS,
-            payload: data,
-        })
-    } catch (error) {
-        const message =
-            error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message
-        if (message === 'Not authorized, token failed') {
-            dispatch(logout())
-        }
-        dispatch({
-            type: PAYMENT_DETAILS_FAIL,
-            payload: message,
-        })
-    }
+		dispatch({
+			type: PAYMENT_DETAILS_SUCCESS,
+			payload: data,
+		})
+		
+	} catch (error) {
+
+		const message =
+			error.response && error.response.data.message
+				? error.response.data.message
+				: error.message
+
+		if (message === 'Not authorized, token failed') {
+			dispatch(logout())
+		}
+
+		dispatch({
+			type: PAYMENT_DETAILS_FAIL,
+			payload: message,
+		})
+	}
 }
 
 export const payPayment = (paymentId, paymentResult) => async (

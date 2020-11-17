@@ -22,7 +22,7 @@ export default function AdminAppointmentCreate({ location, history }) {
 	    // success: successCreate,
 	    // userInfo
 	 } = appointmentCreate;
-	const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split("=")[1] : "/";
 
 
 	React.useEffect(() => {
@@ -47,7 +47,9 @@ export default function AdminAppointmentCreate({ location, history }) {
 
 		// console.log(`sAS: ${subject}, ${student}, ${date}, ${duration}, ${time}`)
 
-		setSubmitted(true)
+    setSubmitted(true)
+    
+    console.log(startTime)
 		
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
 	};

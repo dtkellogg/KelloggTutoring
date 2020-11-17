@@ -32,15 +32,12 @@ export const listAppointments = () => async (dispatch) => {
 				payload: data
 		})
 	} catch (error) {
-		console.log(`error.response: ${error.response}`)
-		console.log(`error: ${error}`)
-		// console.log(`error.response.data.message: ${error.response.data.message}`)
 		dispatch({
-				type: APPOINTMENT_LIST_FAIL,
-				payload: 
-						error.response && error.response.data.message 
-								? error.response.data.message 
-								: error.message
+			type: APPOINTMENT_LIST_FAIL,
+			payload: 
+				error.response && error.response.data.message 
+					? error.response.data.message 
+					: error.message
 		})
 	}
 }
@@ -48,36 +45,37 @@ export const listAppointments = () => async (dispatch) => {
 export const getAppointmentDetails = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({
-				type: APPOINTMENT_DETAILS_REQUEST,
-		});
+			type: APPOINTMENT_DETAILS_REQUEST,
+		})
 
 		// Note: destructuring twice
 		const { userLogin: { userInfo } } = getState();
 
 		const config = {
-				headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${userInfo.token}`
-				},
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${userInfo.token}`
+			},
 		};
 
 		const { data } = await axios.get(
-				`/api/appointments/${id}`,
-				config
+			`/api/appointments/${id}`,
+			config
 		);
 
 		dispatch({
-				type: APPOINTMENT_DETAILS_SUCCESS,
-				payload: data,
+			type: APPOINTMENT_DETAILS_SUCCESS,
+			payload: data,
 		});
 
 	} catch (error) {
+		
 		dispatch({
-				type: APPOINTMENT_DETAILS_FAIL,
-				payload:
-						error.response && error.response.data.message
-								? error.response.data.message
-								: error.message,
+			type: APPOINTMENT_DETAILS_FAIL,
+			payload:
+					error.response && error.response.data.message
+							? error.response.data.message
+							: error.message,
 		});
 	}
 };
@@ -85,41 +83,46 @@ export const getAppointmentDetails = (id) => async (dispatch, getState) => {
 export const deleteAppointment = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({
-				type: APPOINTMENT_DELETE_REQUEST,
+			type: APPOINTMENT_DELETE_REQUEST,
 		})
 
 		const {
-				userLogin: { userInfo },
+			userLogin: { userInfo },
 		} = getState()
 
 		const config = {
-				headers: {
-						Authorization: `Bearer ${userInfo.token}`,
-				},
+			headers: {
+					Authorization: `Bearer ${userInfo.token}`,
+			},
 		}
 
 		await axios.delete(`/api/appointments/${id}`, config)
 
 		dispatch({
-				type: APPOINTMENT_DELETE_SUCCESS,
+			type: APPOINTMENT_DELETE_SUCCESS,
 		})
+
 	} catch (error) {
+
 		const message =
-				error.response && error.response.data.message
-						? error.response.data.message
-						: error.message
+			error.response && error.response.data.message
+				? error.response.data.message
+				: error.message
+
 		if (message === 'Not authorized, token failed') {
-				dispatch(logout())
+			dispatch(logout())
 		}
+
 		dispatch({
-				type: APPOINTMENT_DELETE_FAIL,
-				payload: message,
+			type: APPOINTMENT_DELETE_FAIL,
+			payload: message,
 		})
 	}
 }
 
 export const createAppointment = (subject, student, date, startTime, endTime, paid, user) => async (dispatch, getState) => {
 	try {
+		console.log(startTime)
 		dispatch({
 				type: APPOINTMENT_CREATE_REQUEST,
 		})
@@ -135,6 +138,8 @@ export const createAppointment = (subject, student, date, startTime, endTime, pa
 		}
 
 		const { data } = await axios.post(`/api/appointments`, { subject, student, date, startTime, endTime, paid, user }, config)
+
+		console.log(data.startTime)
 
 		dispatch({
 				type: APPOINTMENT_CREATE_SUCCESS,

@@ -28,10 +28,8 @@
   color: $black;
   cursor: pointer;
   
-  // border: 2px solid $white;
   border: none;
   border: 1px solid $old-blue-2;
-  // color: $old-blue;
   background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%);
   box-shadow: 0 0 20px #eee;
   transition: 0.5s;
@@ -42,7 +40,6 @@
   background-position: right center; /* change the direction of the change here */
   color: $black;
   text-decoration: none;
-  // border: 1px solid $green;
 }
 
 %btn--blue {
@@ -57,478 +54,524 @@
 }
 
 
-// REGULAR CLASSES
-.btn__search {
-  @extend %btn;
-  @include flexCenterCenter($justify-content: space-around);
-  width: 10rem;
-  color: $white;
-  // transition: .2s;
-  outline: none;
+// BTN CLASSES
+.btn {
+  &__search {
+    @extend %btn;
+    @include flexCenterCenter($justify-content: space-around);
+    width: 10rem;
+    color: $white;
+    outline: none;
+    transition: 1s;
+    width: 55%;
 
-  &--hover {
-    @extend %btn--blue;
-  }
-}
+    &--hover {
+      @extend %btn--blue;
+      color: $black;
+    }
 
-.btn__cancel {
-  @extend %btn;
-  background-color: $red;
-  color: $white;
-  border: 2px solid $grey-dark-3;
-  width: 8rem;
+    &:focus {
+      width: 230%;
+    }
 
-  &:hover {
-    background-color: $red-light-1;
-    color: $black;
-  }
-}
-
-.btn__pay {
-  @extend %btn;
-  color: $white;
-  // padding: 1rem;
-  // border-radius: 5rem;
-  // border: 2px solid $white;
-  // background-color: $old-blue-2;
-  // color: $white;
-
-  // &:hover {
-  //   background-color: $green-12;
-  //   color: $black;
-  // }
-}
-
-.btn__edit {
-  // @extend %btn;
-  padding: 0.5rem;
-  border-radius: 5rem;
-  border: 2px solid $white;;
-  background-color: $green-dark;
-  color: $white;
-  margin-bottom: 1rem;
-
-  &:hover {
-    background-color: $green-12;
-    color: $black;
-  }
-}
-
-.btn__continue {
-  @extend %btn;
-  // position: absolute;
-  grid-column: 1 / span 1;
-  transform: translateY(-1rem);
-  align-self: start;
-  justify-self: start;
-  padding: 0.5rem;
-  width: 12rem;
-  text-align: center;
-  border-radius: 5rem;
-  border: 2px solid $white;;
-  color: $white;
-
-  &:hover {
-    color: $black;
+    &:active {
+      width: 130%;
+    }
   }
 
-  @media (max-width: 450px) {
-    transform: translateY(12.2rem);
-  }
-}
 
-.btn__continue--select-method {
-  @extend %btn;
-  // position: absolute;
-  grid-column: 1 / span 1;
-  transform: translateY(-4rem);
-  align-self: start;
-  justify-self: start;
-  padding: 0.5rem;
-  width: 12rem;
-  text-align: center;
-  border-radius: 5rem;
-  // border: 2px solid $white;;
-  color: $white;
-
-  &:hover {
-    color: $black;
-  }
-}
-
-.btn__addToCart {
-  @extend %btn;
-  padding: 0.35rem;
-
-  width: 8rem;
-  // border-radius: 5rem;
-  // border: 2px solid $white;;
-  // background-color: $green-dark;
-  color: $white;
-
-  &:hover {
-    background-color: $green-12;
-    color: $black;
-  }
-}
-
-.btn__pay--header {
-  @extend %btn;
-  color: $white;
-  background-color: skyblue;
-  width: 8rem;
-  margin-right: 1rem;
-
-}
-
-.btn__cancel--header {
-  @extend %btn;
-  color: $white;
-  background-color: $red;
-  width: 8rem;
-}
-
-.btn__messageForm {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-bottom: 5rem;
-  width: 8rem;
-}
-
-.btn__registerScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-bottom: 5rem;
-  width: 8rem;
-}
-
-.btn__apptEditScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-bottom: 5rem;
-  width: 12rem;
-}
-
-
-.btn__loginScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-bottom: 5rem;
-  color: $white;
-  width: 8rem;
-}
-
-.btn__userEditScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-bottom: 5rem;
-  width: 12rem;
-
-  &:hover {
-    background-color: $green-12;
-    border: 1px solid $green-12;
-    color: $black;
-  }
-}
-
-.btn__profileScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-top: 7rem;
-  border: none;
-  width: 8rem;
-
-  &:hover {
-    background-color: $green-12;
-    color: $black;
-  }
-}
-
-.btn__createApptScreen {
-  @extend %btn;
-  @extend %btn--blue;
-  margin-top: 1rem;
-  width: 8rem;
-
-  &:hover {
-    background-color: $green-12;
-    border: 1px solid $green-12;
-    color: $black;
-  }
-}
-
-.btn__adminApptsList {
-  @extend %btn;
-  @extend %btn--blue;
-  grid-column: 1 / span 1;
-  align-self: start;
-  justify-self: start;
-  padding: 0.5rem;
-  // position: absolute;
-  width: 13rem;
-  text-align: center;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transform: translateY(-1.75rem);
-
-  &:hover {
-    background-color: $green-12;
-    border: 1px solid $green-12;
-    color: $black;
-  }
-}
-
-.btn__request-tutoring {
-  @extend %btn;
-  margin-right: 1.25rem;
-  // border: 2px solid $green-dark-2;
-  // background-color: $white;
-  color: $white;
-
-
-}
-
-.hero__thought-clouds {
-  @extend %btn;
-  height: 5rem;
-  width: 5rem;
-
-  &--container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+  &__cancel {
+    @extend %btn;
     background-color: $red;
-    height: 5rem;
-    width: 5rem;
-  }
-}
+    color: $white;
+    border: 2px solid $grey-dark-3;
+    width: 8rem;
 
-.btn__container {
-  @include flexCenterCenter();
-}
-
-
-.btn__highlights--appointments {
-  @extend %btn;
-  transform: translateY(390%);
-  margin: 0.25rem;
-  width: 20rem;
-  color: $white;
-  border: 1px dotted $white;
-
-  @media (max-width: 1050px){
-    transform: none;
-    width: 60rem;
-    padding: 2rem;
-    margin: 0.5rem;
-  }
-
-  @media (max-width: 700px){
-    width: 40rem;
-  }
-
-  @media (max-width: 600px){
-    width: 30rem;
-  }
-
-  &-container {
-    @include flexCenterCenter($justify-content: space-between, $flex-direction: column);
-    width: 100%;
-
-    @media (max-width: 1050px) {
-      padding-bottom: 32rem;
-    }
-
-    @media (max-width: 600px) {
-      align-items: flex-end;
-      transform: translateX(-12.5%);
-      padding-bottom: 0;
+    &:hover {
+      background-color: $red-light-1;
+      color: $black;
     }
   }
 
-  &:hover {
-    background-color: $green-12;
-    border: 1px solid $green-12;
-    color: $black;
+  &__pay {
+    @extend %btn;
+    color: $white;
   }
-}
 
-.btn__trashIcon {
-  border: none;
-  
-}
+  &__edit {
+    // @extend %btn;
+    padding: 0.5rem;
+    border-radius: 5rem;
+    border: 2px solid $white;;
+    background-color: $green-dark;
+    color: $white;
+    margin-bottom: 1rem;
 
-.btn__screen-nav--up {
-  position: fixed;
-  grid-row: 3 / span 1;
-  grid-column: 1 / span 1;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  @media (max-width: 600px) {
-    display: none;
+    &:hover {
+      background-color: $green-12;
+      color: $black;
     }
-}
-
-.btn__screen-nav--down {
-  position: fixed;
-  grid-row: 3 / span 1;
-  grid-column: 1 / span 1;
-  border: none;
-  background-color: transparent;
-  transform: translateY(100%);
-
-  @media (max-width: 600px) {
-    display: none;
-    }
-}
-
-
-
-.btn__highlights--appts-calendar {
-  padding: 1rem;
-  width: 7rem;
-  border-radius: 5rem 0 0 5rem;
-  border: 1px solid $green;
-  color: $green;
-  cursor: pointer;
-
-  @media (max-width: 1050px) {
-    width: 14rem;
-  }
-}
-
-.btn__highlights--appts-list {
-  padding: 1rem;
-  width: 7rem;
-  border-radius:  0 5rem 5rem 0;
-  border: 1px solid $white;
-  color: $white;
-  cursor: pointer;
-
-  @media (max-width: 1050px) {
-    width: 14rem;
-  }
-}
-
-.btn__list {
-  padding: 1rem;
-  border-radius: 5rem;
-  border: 1px solid $green;
-  color: $green;
-}
-
-.btn__confirm-payment {
-  @extend %btn;
-  padding: 1rem;
-  width: 12rem;
-  margin: 1rem 0;
-  color: $white;
-
-  &:hover {
-    color: $black;
-  }
-}
-
-.btn__reviews--new-review {
-  @extend %btn;
-  background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
-  box-shadow: 0 0 20px #eee;
-  
-  padding: 1rem;
-  width: 12rem;
-  margin: 1rem 0;
-  color: $black;
-
-  &:hover {
-    color: $black;
-     background-position: right center; /* change the direction of the change here */
-            color: $old-blue-2;
-            text-decoration: none;
-  }
-}
-
-// .btn__createReview {
-//   // @extend %btn;
-//   // @extend %btn--blue;
-//   align-self: start;
-//   justify-self: start;
-//   padding: 0.5rem;
-//   width: 13rem;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-bottom: 1rem;
-// }
-
-
-         .btn__white, .btn__createReview {background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)}
-         .btn__white, .btn__createReview {
-            margin: 10px;
-            padding: 15px 45px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-          }
-
-          .btn__white:hover, .btn__createReview:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-          }
-         
-.btn__calendar {
-  cursor: pointer;
-}
-
-.btn__go-back {
-  @extend %btn;
-  @extend %btn--blue;
-
-  position: absolute;
-  transform: translateY(2rem);
-}
-
-.btn__payments--add-all {
-  @extend %btn;
-  padding: 0.35rem;
-
-  width: 8rem;
-  color: $white;
-
-  &:hover {
-    background-color: $green-12;
-    color: $black;
-  }
-}
-
-.btns__hero--header {
-  grid-row: 1 / span 2;
-  grid-column: 2 / span 1;
-  align-self: start;
-
-  
-  @media (max-width: 900px) {
-    display: flex;
-    width: 30rem;
   }
 
-  @media (max-width: 600px) {
-    grid-row: 4 / span 1;
-    grid-column: 1 / span 2;
-
+  &__continue {
+    @extend %btn;
+    grid-column: 1 / span 1;
+    transform: translateY(-1rem);
     align-self: start;
     justify-self: start;
-    transform: translate(32.5%, 96%);
+    padding: 0.5rem;
+    width: 12rem;
+    text-align: center;
+    border-radius: 5rem;
+    border: 2px solid $white;;
+    color: $white;
+
+    &:hover {
+      color: $black;
+    }
+
+    @media (max-width: 450px) {
+      transform: translateY(12.2rem);
+    }
+  }
+
+  &__continue--select-method {
+    @extend %btn;
+    // position: absolute;
+    grid-column: 1 / span 1;
+    transform: translateY(-4rem);
+    align-self: start;
+    justify-self: start;
+    padding: 0.5rem;
+    width: 12rem;
+    text-align: center;
+    border-radius: 5rem;
+    color: $white;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &__addToCart {
+    @extend %btn;
+    padding: 0.35rem;
+    width: 8rem;
+    color: $white;
+
+    &:hover {
+      background-color: $green-12;
+      color: $black;
+    }
+  }
+
+  &__pay--header {
+    @extend %btn;
+    color: $white;
+    background-color: skyblue;
+    width: 8rem;
+    margin-right: 1rem;
+
+  }
+
+  &__cancel--header {
+    @extend %btn;
+    color: $white;
+    background-color: $red;
+    width: 8rem;
+  }
+
+  &__messageForm {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 8rem;
+  }
+
+  &__registerScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 8rem;
+  }
+
+  &__apptEditScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 12rem;
+  }
+
+
+  &__loginScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    color: $white;
+    width: 8rem;
+  }
+
+  &__userEditScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 12rem;
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+
+  &__profileScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-top: 7rem;
+    border: none;
+    width: 8rem;
+
+    &:hover {
+      background-color: $green-12;
+      color: $black;
+    }
+  }
+
+  &__createApptScreen {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-top: 1rem;
+    width: 8rem;
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+
+  &__adminApptsList {
+    @extend %btn;
+    @extend %btn--blue;
+    grid-column: 1 / span 1;
+    align-self: start;
+    justify-self: start;
+    padding: 0.5rem;
+    // position: absolute;
+    width: 13rem;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-1.75rem);
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+
+  &__request-tutoring {
+    @extend %btn;
+    margin-right: 1.25rem;
+    color: $white;
+  }
+
+  &__container {
+    @include flexCenterCenter();
+  }
+
+
+  &__highlights--appointments {
+    @extend %btn;
+    transform: translateY(390%);
+    margin: 0.25rem;
+    width: 20rem;
+    color: $white;
+    border: 1px dotted $white;
+
+    @media (max-width: 1050px){
+      transform: none;
+      width: 60rem;
+      padding: 2rem;
+      margin: 0.5rem;
+    }
+
+    @media (max-width: 700px){
+      width: 40rem;
+    }
+
+    @media (max-width: 600px){
+      width: 30rem;
+    }
+
+    &-container {
+      @include flexCenterCenter($justify-content: space-between, $flex-direction: column);
+      width: 100%;
+
+      @media (max-width: 1050px) {
+        padding-bottom: 32rem;
+      }
+
+      @media (max-width: 600px) {
+        align-items: flex-end;
+        transform: translateX(-12.5%);
+        padding-bottom: 0;
+      }
+    }
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+
+  &__trashIcon {
+    border: none;
+    
+  }
+
+  &__screen-nav--up {
+    position: fixed;
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 1;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      display: none;
+      }
+  }
+
+  &__screen-nav--down {
+    position: fixed;
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 1;
+    border: none;
+    background-color: transparent;
+    transform: translateY(100%);
+
+    @media (max-width: 600px) {
+      display: none;
+      }
+  }
+
+
+
+  &__highlights--appts-calendar {
+    padding: 1rem;
+    width: 7rem;
+    border-radius: 5rem 0 0 5rem;
+    border: 1px solid $green;
+    color: $green;
+    cursor: pointer;
+
+    @media (max-width: 1050px) {
+      width: 14rem;
+    }
+  }
+
+  &__highlights--appts-list {
+    padding: 1rem;
+    width: 7rem;
+    border-radius:  0 5rem 5rem 0;
+    border: 1px solid $white;
+    color: $white;
+    cursor: pointer;
+
+    @media (max-width: 1050px) {
+      width: 14rem;
+    }
+  }
+
+  &__list {
+    padding: 1rem;
+    border-radius: 5rem;
+    border: 1px solid $green;
+    color: $green;
+  }
+
+  &__confirm-payment {
+    @extend %btn;
+    padding: 1rem;
+    width: 12rem;
+    margin: 1rem 0;
+    color: $white;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &__reviews--new-review {
+    @extend %btn;
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
+    box-shadow: 0 0 20px #eee;
+    
+    padding: 1rem;
+    width: 12rem;
+    margin: 1rem 0;
+    color: $black;
+
+    &:hover {
+      color: $black;
+      background-position: right center; /* change the direction of the change here */
+              color: $old-blue-2;
+              text-decoration: none;
+    }
+  }
+
+  // &__createReview {
+  //   // @extend %btn;
+  //   // @extend %btn--blue;
+  //   align-self: start;
+  //   justify-self: start;
+  //   padding: 0.5rem;
+  //   width: 13rem;
+  //   text-align: center;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   margin-bottom: 1rem;
+  // }
+
+
+  &__white, &__createReview {background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)}
+  &__white, &__createReview {
+      margin: 10px;
+      padding: 15px 45px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.5s;
+      background-size: 200% auto;
+      color: white;            
+      box-shadow: 0 0 20px #eee;
+      border-radius: 10px;
+      display: block;
+    }
+
+    &__white:hover, &__createReview:hover {
+      background-position: right center; /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+          
+  &__calendar {
+    cursor: pointer;
+  }
+
+  &__go-back {
+    @extend %btn;
+    @extend %btn--blue;
+
+    position: absolute;
+    transform: translateY(2rem);
+  }
+
+  &__payments--add-all {
+    @extend %btn;
+    padding: 0.35rem;
+
+    width: 8rem;
+    color: $white;
+
+    &:hover {
+      background-color: $green-12;
+      color: $black;
+    }
+  }
+
+  
+
+  &__radio {
+    
+    &--input {
+
+    }
+
+    &--input:not(:last-child) {
+      margin-bottom: 0.55rem;
+    }
+  }
+}
+
+// BTNS CLASSES
+.btns {
+  &__hero--header {
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 1;
+    
+    
+    @media (max-width: 900px) {
+      display: flex;
+      width: 30rem;
+    }
+    
+    @media (max-width: 600px) {
+      grid-row: 4 / span 1;
+      grid-column: 1 / span 2;
+      
+      align-self: start;
+      justify-self: start;
+      transform: translate(32.5%, 96%);
+    }
+  }
+
+  &__reviews {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  // The following "&__container" classes hasn't been used in html
+  &__container {
+  
+    &--users {
+      grid-column: 7 / span 2;
+      display: flex;
+    }
+
+    &--appointments {
+      grid-column: 7 / span 2;
+    }
+  }
+}
+
+
+
+// SOCIAL MEDIA icons
+
+.social-media-icon {
+  &__trash {
+    cursor: pointer;
+  }
+
+  &__edit {
+    margin-right: 0.5rem;
+    margin-left: 2.5rem;
+  }
+
+  &__ghost {
+    width: 10rem;
+    height: 10rem;
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 1;
+
+    @media (max-width: 600px) {
+      // grid-row: 2 / span 2;
+      grid-column: 1 / span 1;
+      justify-self: start;
+      transform: translate(166%, 44%);
+    }
   }
 }

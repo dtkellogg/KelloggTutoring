@@ -28,8 +28,6 @@ export const listReviews = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(`error.response: ${error.response}`);
-    // console.log(`error.response.data.message: ${error.response.data.message}`)
     dispatch({
       type: REVIEW_LIST_FAIL,
       payload:
@@ -47,9 +45,7 @@ export const getReviewDetails = (id) => async (dispatch, getState) => {
     });
 
     // Note: destructuring twice
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo }, } = getState();
 
     const config = {
       headers: {

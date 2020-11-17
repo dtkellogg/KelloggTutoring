@@ -131,15 +131,15 @@ export default function ApptsList({ location, type }) {
     return (
       <div className="">
         {/* <Sidebar title="Appointments" list={apptsList} /> */}
-      <table className="text-size-3 appointments__list">
+      <table className="table text-size-3 appointments__list">
         <thead className="thead">
           <tr className="tr">
-            <th className="appointments__th--upcoming-date">date</th>
-            <th className="appointments__th--upcoming-time">time</th>
-            <th className="appointments__th--upcoming-student">student</th>
-            <th className="appointments__th--upcoming-subject">subject</th>
-            <th className="appointments__th--upcoming-btns">paid?</th>
-            <th className="appointments__th--upcoming-btns">cancel</th>
+            <th className="th appointments__th--upcoming-date">date</th>
+            <th className="th appointments__th--upcoming-time">time</th>
+            <th className="th appointments__th--upcoming-student">student</th>
+            <th className="th appointments__th--upcoming-subject">subject</th>
+            <th className="th appointments__th--upcoming-btns">paid?</th>
+            <th className="th appointments__th--upcoming-btns">cancel</th>
           </tr>
         </thead>
         <tbody className="tbody">
@@ -209,15 +209,15 @@ export default function ApptsList({ location, type }) {
         <Sidebar title="Appointments" list={apptsList} />
 
 
-      <table className="text-size-3 appointments__list--all">
+      <table className="table text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
-            <th className="appointments__th--upcoming-date">date</th>
-            <th className="appointments__th--upcoming-time">time</th>
-            <th className="appointments__th--upcoming-student">student</th>
-            <th className="appointments__th--upcoming-subject">subject</th>
-            <th className="appointments__th--upcoming-btns">paid?</th>
-            <th className="appointments__th--upcoming-btns">cancel</th>
+            <th className="th appointments__th--upcoming-date">date</th>
+            <th className="th appointments__th--upcoming-time">time</th>
+            <th className="th appointments__th--upcoming-student">student</th>
+            <th className="th appointments__th--upcoming-subject">subject</th>
+            <th className="th appointments__th--upcoming-btns">paid?</th>
+            <th className="th appointments__th--upcoming-btns">cancel</th>
           </tr>
         </thead>
         <tbody className="tbody">
@@ -284,14 +284,14 @@ export default function ApptsList({ location, type }) {
   if (type === "admin" && userInfo) {
     return (
 
-      <table className="text-size-3 appointments__list--all">
+      <table className="table text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
-            <th className="appointments__th--date">date</th>
-            <th className="appointments__th--time">time</th>
-            <th className="appointments__th--subject">subject</th>
-            <th className="appointments__th--btns">Paid?</th>
-            <th className="appointments__th--cancel">Cancel</th>
+            <th className="th appointments__th--date">date</th>
+            <th className="th appointments__th--time">time</th>
+            <th className="th appointments__th--subject">subject</th>
+            <th className="th appointments__th--btns">Paid?</th>
+            <th className="th appointments__th--cancel">Cancel</th>
           </tr>
         </thead>
         <tbody className="tbody">
@@ -356,15 +356,15 @@ export default function ApptsList({ location, type }) {
   //   return (
   //     <div className="pg__appointment">
   //       <Sidebar title="Appointments" list={apptsList} />
-  //       <table className="text-size-3 appointments__list">
+  //       <table className="table text-size-3 appointments__list">
   //         <thead className="thead">
   //           <tr className="tr">
-  //             <th className="appointments__th--upcoming-date">date</th>
-  //             <th className="appointments__th--upcoming-time">time</th>
-  //             <th className="appointments__th--upcoming-student">student</th>
-  //             <th className="appointments__th--upcoming-subject">subject</th>
-  //             <th className="appointments__th--upcoming-btns">paid?</th>
-  //             <th className="appointments__th--upcoming-btns">cancel</th>
+  //             <th className="th appointments__th--upcoming-date">date</th>
+  //             <th className="th appointments__th--upcoming-time">time</th>
+  //             <th className="th appointments__th--upcoming-student">student</th>
+  //             <th className="th appointments__th--upcoming-subject">subject</th>
+  //             <th className="th appointments__th--upcoming-btns">paid?</th>
+  //             <th className="th appointments__th--upcoming-btns">cancel</th>
   //           </tr>
   //         </thead>
   //         <tbody className="tbody">
@@ -435,15 +435,15 @@ export default function ApptsList({ location, type }) {
   //       <Sidebar title="Appointments" list={apptsList} />
 
 
-  //       <table className="text-size-3 appointments__list--all">
+  //       <table className="table text-size-3 appointments__list--all">
   //         <thead className="thead">
   //           <tr className="tr">
-  //             <th className="appointments__th--upcoming-date">date</th>
-  //             <th className="appointments__th--upcoming-time">time</th>
-  //             <th className="appointments__th--upcoming-student">student</th>
-  //             <th className="appointments__th--upcoming-subject">subject</th>
-  //             <th className="appointments__th--upcoming-btns">paid?</th>
-  //             <th className="appointments__th--upcoming-btns">cancel</th>
+  //             <th className="th appointments__th--upcoming-date">date</th>
+  //             <th className="th appointments__th--upcoming-time">time</th>
+  //             <th className="th appointments__th--upcoming-student">student</th>
+  //             <th className="th appointments__th--upcoming-subject">subject</th>
+  //             <th className="th appointments__th--upcoming-btns">paid?</th>
+  //             <th className="th appointments__th--upcoming-btns">cancel</th>
   //           </tr>
   //         </thead>
   //         <tbody className="tbody">
@@ -510,15 +510,15 @@ export default function ApptsList({ location, type }) {
   if (type === "home" && userInfo) {
     return (
 
-      <table className="text-size-3 appointments__list--all">
+      <table className="table text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
-            <th className="appointments__th--date">date</th>
-            <th className="appointments__th--time">time</th>
-            {/* <th className="appointments__th--student">student</th> */}
-            <th className="appointments__th--subject">subject</th>
-            <th className="appointments__th--btns">Paid?</th>
-            <th className="appointments__th--cancel">Cancel</th>
+            <th className="th appointments__th--date">date</th>
+            <th className="th appointments__th--time">time</th>
+            {/* <th className="th appointments__th--student">student</th> */}
+            <th className="th appointments__th--subject">subject</th>
+            <th className="th appointments__th--btns">Paid?</th>
+            <th className="th appointments__th--cancel">Cancel</th>
           </tr>
         </thead>
         <tbody className="tbody">

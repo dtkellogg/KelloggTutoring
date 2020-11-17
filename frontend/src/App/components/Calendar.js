@@ -194,6 +194,18 @@ export default function Calendar({ type }) {
 
 
 
+  // To format time from 24hr to 12hr
+  function formatAMPM(date) {
+    var hours = date.split(':')[0];
+    var minutes = date.split(':')[1];
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
+
+  console.log(formatAMPM("15:30"));
 
 
 
@@ -255,7 +267,7 @@ export default function Calendar({ type }) {
 
 	if(userInfo === null) {
 		return (
-			<div className={type === 'home' ? "home__calendar" : 'pg__appointment'}>
+			<div className={type === 'home' ? "pg__home--calendar" : 'pg__appointment'}>
 			{/* <div className="pg__appointment"> */}
 				{type !== 'home' && <Sidebar title="Appointments" list={apptsList} />}
       <Link to={`/login`} className="text-size-2 msg__userInfoNull">
@@ -269,7 +281,7 @@ export default function Calendar({ type }) {
     );
 	 } else {
 	 return (
-     <div className={type === "home" ? "home__calendar" : "pg__appointment"}>
+     <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"}>
        {/* <div className="pg__appointment"> */}
        {/* <Sidebar title="Appointments" list={apptsList} /> */}
        {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
@@ -282,7 +294,7 @@ export default function Calendar({ type }) {
              className="btn__calendar"
              onClick={() => handleBackwards()}
            />
-           <div className="home__calendar--header">{`${month} ${day}, ${year}`}</div>
+           <div className="pg__home--calendar--header">{`${month} ${day}, ${year}`}</div>
            <FaCaretRight
              size={30}
              // color="var(--green-dark)"
@@ -330,7 +342,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={appt._id}>
-                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -378,7 +390,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div>
-                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -415,7 +427,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={uuid()}>
-                             {appt.startTime} - {appt.endTime}: {appt.subject}
+                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}

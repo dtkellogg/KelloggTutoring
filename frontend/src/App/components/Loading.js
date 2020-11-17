@@ -12,7 +12,7 @@ const styles = {
     },
 };
 
-export default function Error({ text = "Loading", speed = 300 }) {
+export default function Loading({ text = "Loading", speed = 300 }) {
     const [content, setContent] = React.useState(text);
 
     // React.useEffect(() => {
@@ -37,7 +37,7 @@ export default function Error({ text = "Loading", speed = 300 }) {
     return <p style={styles.content}>{content}</p>;
 }
 
-Error.propTypes = {
+Loading.propTypes = {
     text: PropTypes.string,
     speed: PropTypes.number,
 };

@@ -5,43 +5,41 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import './App.scss';
 
+// ACTIONS
 import { subheader } from "./actions/subheader";
 
-
+// COMPONENTS
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
 import PageHeader from "./components/PageHeader";
-import ApptsList from "./components/ApptsList";
-import Calendar from "./components/Calendar";
-import Error from "./components/Error";
+import Loading from "./components/Loading";
+const ApptsList = React.lazy(() => import("./components/ApptsList"))
+const Calendar = React.lazy(() => import("./components/Calendar"))
 
-const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
-const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
-const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
-const Reviews = React.lazy(() => import("./components/Reviews"));
-const MessageScreen = React.lazy(() => import("./screens/MessageScreen"));
+
+// SCREENS
 const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
 const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
 const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
 const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
 const AdminAppointmentCreate = React.lazy(() => import("./screens/AdminApptCreateScreen"));
-
-const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
-
-
-
-
-const Login = React.lazy(() => import("./screens/UserLoginScreen"));
-const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
-const Profile = React.lazy(() => import("./screens/UserProfileScreen"));
 const Booking = React.lazy(() => import("./screens/UserBookingScreen"));
+const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
+const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
+const Home = React.lazy(() => import("./screens/HomeScreen"));
+const Login = React.lazy(() => import("./screens/UserLoginScreen"));
+const MessageScreen = React.lazy(() => import("./screens/MessageScreen"));
+const Profile = React.lazy(() => import("./screens/UserProfileScreen"));
 const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
 const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
-const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
 const Payment = React.lazy(() => import("./screens/PaymentScreen"));
+const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
 const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
-const Home = React.lazy(() => import("./screens/HomeScreen"));
+const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
+const Reviews = React.lazy(() => import("./components/Reviews"));
+const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
+const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
 
 
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
@@ -114,7 +112,7 @@ export default function App() {
         <div className="container__body">
           <React.Suspense
             //  fallback={() => setLoading(true)}
-            fallback={<Error />}
+            fallback={<Loading />}
           >
             <TransitionGroup>
               <CSSTransition timeout={250} classNames="fade" key={location.key}>

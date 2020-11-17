@@ -15,8 +15,8 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
   const { path } = useRouteMatch();
 
 	return (
-    <nav className="payment-steps__container">
-      <ul className="payment-steps__ul">
+    // <nav className="payment__steps--container">
+      <ul className="payment__steps--ul">
         <li>
           {step1 ? (
             <NavLink
@@ -28,7 +28,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               Sign In
             </NavLink>
           ) : (
-            <div className="payment-steps__li text-size-6 letter-spacing-sm" disabled>Sign In</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Sign In</div>
           )}
         </li>
 
@@ -43,7 +43,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               Appointments
             </NavLink>
           ) : (
-            <div className="payment-steps__li text-size-6 letter-spacing-sm" disabled>Payment</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment</div>
           )}
         </li>
 
@@ -58,7 +58,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               Payment Method
             </NavLink>
           ) : (
-            <div className="payment-steps__li text-size-6 letter-spacing-sm" disabled>Payment</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment</div>
           )}
         </li>
 
@@ -73,11 +73,11 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               Checkout
             </NavLink>
           ) : (
-            <div className="payment-steps__li text-size-6 letter-spacing-sm" disabled>Submit Payment</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Submit Payment</div>
           )}
         </li>
       </ul>
-    </nav>
+    // </nav>
   );
 }
 

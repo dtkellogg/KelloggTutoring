@@ -23,7 +23,7 @@ export default function Sidebar({ title, list }) {
   const location = useLocation();
   
   const handleScroll = () => window.scrollTo({
-    top: 150,
+    top: 350,
     left: 100,
     behavior: 'smooth'
   });
@@ -34,9 +34,10 @@ export default function Sidebar({ title, list }) {
       <ul className="sidebar__list text-size-5">
         {list.map((item) => {
           if (item === 'contact info') {
-            return (<button key={uuid()} onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: '16.25px', textAlign: 'left'}}>
-                      phone, text & email
-                    </button>)
+            return (
+              <button key={uuid()} onClick={handleScroll} style={{ textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: 'var(--text-size-5)', textAlign: 'left'}}>
+                phone, text & email
+              </button>)
           } else if (url.split('/').length === 3){
             // console.log(`URL: ${url}`)
             // console.log(url.split('/').length)

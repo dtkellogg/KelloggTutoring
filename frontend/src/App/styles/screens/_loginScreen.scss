@@ -14,7 +14,6 @@
     height: 50vh;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     justify-content: space-around;
   }
 
@@ -22,7 +21,6 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-
   }
 
   &__label {
@@ -42,9 +40,9 @@
     }
     
     &--contact {
-    border: none;
-    border-bottom: 1px solid black;
-    height: 3rem;
+      border: none;
+      border-bottom: 1px solid black;
+      height: 3rem;
     }
 
     &--contact-message {

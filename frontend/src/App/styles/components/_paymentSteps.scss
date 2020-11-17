@@ -1,54 +1,61 @@
-.payment-steps__container {
-    
-    height: 3rem;
-    width: 100%;
-    margin-bottom: 2rem;
-}
+.payment {
 
-.payment-steps__ul {
-    @include hundredPercentHW();
-    @include flexCenterCenter();
-}
+	// PAYMENT STEPS - SIGN IN, APPTS, METHOD, PAYMENT, SUBMIT PAYMENT
+	&__steps {
 
-.payment-steps__li {
-    cursor: pointer;
-}
+		&--container {
+			// height: 3rem;
+			width: 100%;
+			margin-bottom: 2rem;
+		}
 
-.payment-method__screen {
-    @include hundredPercentHW();
-    @include flexCenterCenter($flex-direction: column);
+		&--ul {
+			@include flexCenterCenter($justify-content: space-between);
+			margin-bottom: 2rem;
 
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
-    padding: 2rem;
-    height: 100%;
-    overflow: scroll;
+			@media ( max-width: 600px ) {
+				margin-bottom: 0;
+			}
+		}
 
+		&__li {
+    		cursor: pointer;
+		}
+	}
 
-    &--form {
-    @include hundredPercentHW();
-    @include flexCenterCenter($align-items: flex-start);
+	&__method {
+		&--screen {
+			@include hundredPercentHW();
+			@include flexCenterCenter($flex-direction: column);
+
+			grid-row: 1 / span 1;
+			grid-column: 2 / span 2;
+			padding: 2rem;
+			height: 100%;
+			overflow: scroll;
+		}
+
+		&--screen--form {
+			@include hundredPercentHW();
+			@include flexCenterCenter($align-items: flex-start);
+		}
+
+		&--screen--form-inputs {
+			@include hundredPercentHW();
+			@include flexCenterCenter($flex-direction: column);
     }
 
-    &--form-inputs {
-    @include hundredPercentHW();
-    @include flexCenterCenter($flex-direction: column);
+    &--screen--form-element {
+			// @include hundredPercentHW();
+			@include flexCenterCenter($justify-content: space-around);
+			width: 25rem;
     }
 
-    &--form-element {
-    // @include hundredPercentHW();
-    @include flexCenterCenter($justify-content: space-around);
-    width: 25rem;
+    &--screen--form-container {
+			width: 100%;
+			height: 30vh;
+			@include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
+			padding: auto 0 10rem 0;
     }
-
-    &--form-container {
-    width: 100%;
-    height: 30vh;
-    @include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
-    padding: auto 0 10rem 0;
-    }
-}
-
-.payments__btn--txt {
-    color: #fff;
+	}
 }
