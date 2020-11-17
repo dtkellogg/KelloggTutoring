@@ -125,7 +125,7 @@
     &--btn {
       outline: none;
       border: none;
-      transform: translate(-3rem);
+      transform: translate(-3rem, 0.25rem);
       background: transparent;
     }
   }
@@ -166,10 +166,22 @@
   }
 
   &__wrapper {
-    width: 20rem;
+    width: 15rem;
     text-align: right;
     display: flex;
     align-items: center;
+    transition: 1s;
+
+    @media ( max-width: 600px) {
+      width: 10rem;
+
+      &:hover, &:active, &:visited {
+        width: 110rem;
+        // transform: translateX(-5rem);
+      }
+
+    }
+
 
     @media ( max-width: 450px ) {
       width: 10rem;
