@@ -153,17 +153,17 @@ export default function Payments({ match, history }) {
         </div>
       </div>
     )
-  } else {
+  }
+  
+  
+  
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
         <PaymentSteps step1 step2 />
         <div className="appointments__header--container">
-          <Link
-            to={`/appointments/payment-method`}
-            className="btn__continue text-size-5"
-          >
+          <Link to={`/appointments/payment-method`} className="btn__continue text-size-5">
             Continue
           </Link>
           <div className="appointments__header text-size-2">
@@ -234,10 +234,7 @@ export default function Payments({ match, history }) {
                       .map((appt, idx) => {
                         const date = appt.date.split("T")[0].split("-");
                         return (
-                          <tr
-                            key={appt._id}
-                            className="appointments__list--item"
-                          >
+                          <tr key={appt._id} className="appointments__list--item">
                             <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
                             <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
                             <td className="text-size-3 appointments__item--student">
@@ -277,18 +274,15 @@ export default function Payments({ match, history }) {
                               }
                             </td>
                           </tr>
-                        );
+                        )
                       })}
                   </tbody>
                 </table>
               </React.Fragment>
             )
           }
-          
-
         </div>
       </div>
     );
-          
-}
+  
 }
