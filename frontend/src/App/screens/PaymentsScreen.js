@@ -70,7 +70,7 @@ export default function Payments({ match, history }) {
     });
   }, [dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const sortedAppts = useSortMultiple(appointments, "date", "startTime");
+  const sortedAppts = useSortMultiple(appointments, "date", "startTime") || []
 
   const addToCartHandler = (e, idx, id) => {
     e.preventDefault();
