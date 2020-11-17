@@ -181,13 +181,12 @@ export default function Payments({ match, history }) {
               <th className="appointments__th--student">student</th>
               <th className="appointments__th--subject">subject</th>
               <th className="appointments__th--select">
-                <button
+                {/* <button
                   className="btn__payments--add-all"
                   disabled={
                     sortedAppts
                       .filter((appt) => appt.student === userInfo.name)
-                      .filter((appt) => appt.paid === false).length ===
-                    cart.length
+                      .filter((appt) => appt.paid === false).length === cart.length
                   }
                   style={{
                     backgroundImage:
@@ -215,7 +214,7 @@ export default function Payments({ match, history }) {
                   cart.length
                     ? "Add All"
                     : "Added"}
-                </button>
+                </button> */}
               </th>
             </tr>
           </thead>
