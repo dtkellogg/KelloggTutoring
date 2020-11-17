@@ -138,49 +138,47 @@ export default function Payments({ match, history }) {
   
 
   if (
-    userInfo !== null &&
+    userInfo !== undefined &&
     sortedAppts
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => appt.paid === false).length === 0
-  ) 
-  return (
-    <div className="pg__appointment">
-      <Sidebar title="Appointments" list={apptsList} />
-      <div className="appointments">
-        <div className="text-size-2 msg__userInfoNull">
-          You have no unpaid appointments
-        </div>
-      </div>
-    </div>
-  )
-   else 
+  ) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          <PaymentSteps step1 step2 />
-          <div className="appointments__header--container">
-            <Link
-              to={`/appointments/payment-method`}
-              className="btn__continue text-size-5"
-            >
-              Continue
-            </Link>
-            <div className="appointments__header text-size-2">
-              Please select appointments to pay for:
-            </div>
+          <div className="text-size-2 msg__userInfoNull">
+            You have no unpaid appointments
           </div>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div className="pg__appointment">
+        <Sidebar title="Appointments" list={apptsList} />
+        <div className="appointments">
+        <PaymentSteps step1 step2 />
+        <div className="appointments__header--container">
+          <Link
+            to={`/appointments/payment-method`}
+            className="btn__continue text-size-5"
+          >
+            Continue
+          </Link>
+          <div className="appointments__header text-size-2">
+            Please select appointments to pay for:
+          </div>
+        </div>
 
-          {
-            error ? (
-              <h2 className="text-size-2">{error}</h2>
-            ) : userInfo &&
-              sortedAppts
-                .filter((appt) => appt.student === userInfo.name)
-                .filter((appt) => appt.paid === false).length === 0 ? (
-              <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-                You have no unpaid appointments
-              </Link>
+        {userInfo &&
+        sortedAppts
+          .filter((appt) => appt.student === userInfo.name)
+          .filter((appt) => appt.paid === false).length === 0
+            ? (
+            <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+              You have no unpaid appointments
+            </Link>
             ) : (
               <React.Fragment>
                 <table className="appointments__list text-size-3">
@@ -286,10 +284,11 @@ export default function Payments({ match, history }) {
               </React.Fragment>
             )
           }
+          
 
         </div>
       </div>
     );
           
-
+}
 }
