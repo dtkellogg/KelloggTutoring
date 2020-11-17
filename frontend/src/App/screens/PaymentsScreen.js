@@ -119,41 +119,41 @@ export default function Payments({ match, history }) {
   console.log(`userInfo: ${userInfo}`)
   console.log(`sortedAppts: ${sortedAppts}`)
 
-  // if(userInfo === null) {
-  //   return (
-  //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
-  //       <div className="appointments-2">
-  //         <span className="text-size-2"> Please&nbsp; </span>
-  //         <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-  //           <span className="text-size-2" style={{ color: "blue" }}>
-  //             login&nbsp;
-  //           </span>
-  //         </Link>
-  //         <span className="text-size-2"> to view your appointments</span>
-  //       </div>
-  //     </div>
-  //     )
-  // }
-  
-
-  if (
-    userInfo !== undefined &&
-    sortedAppts
-      .filter((appt) => appt.student === userInfo.name)
-      .filter((appt) => appt.paid === false).length === 0
-  ) {
+  if(userInfo === null) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
-        <div className="appointments">
-          <div className="text-size-2 msg__userInfoNull">
-            You have no unpaid appointments
-          </div>
+        <div className="appointments-2">
+          <span className="text-size-2"> Please&nbsp; </span>
+          <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+            <span className="text-size-2" style={{ color: "blue" }}>
+              login&nbsp;
+            </span>
+          </Link>
+          <span className="text-size-2"> to view your appointments</span>
         </div>
       </div>
-    )
-  } else {
+      )
+  }
+  
+
+  if (
+    userInfo !== null &&
+    sortedAppts
+      .filter((appt) => appt.student === userInfo.name)
+      .filter((appt) => appt.paid === false).length === 0
+  ) 
+  return (
+    <div className="pg__appointment">
+      <Sidebar title="Appointments" list={apptsList} />
+      <div className="appointments">
+        <div className="text-size-2 msg__userInfoNull">
+          You have no unpaid appointments
+        </div>
+      </div>
+    </div>
+  )
+   else 
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
@@ -182,7 +182,7 @@ export default function Payments({ match, history }) {
                 You have no unpaid appointments
               </Link>
             ) : (
-              <>
+              <React.Fragment>
                 <table className="appointments__list text-size-3">
                   <thead className="thead">
                     <tr className="tr">
@@ -283,7 +283,7 @@ export default function Payments({ match, history }) {
                       })}
                   </tbody>
                 </table>
-              </>
+              </React.Fragment>
             )
           }
 
@@ -291,5 +291,5 @@ export default function Payments({ match, history }) {
       </div>
     );
           
-}
+
 }
