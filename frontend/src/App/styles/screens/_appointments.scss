@@ -19,7 +19,6 @@
   height: 100%;
   overflow: scroll;
 
-  // display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -309,6 +308,19 @@
 .tbody {
   @include hundredPercentHW();
   background-color: $grey-light-8;
+
+  @include hundredPercentHW();
+  // width: 100%;
+  // min-height: 1rem;
+
+  // height: 10rem;
+  // height: 5rem;
+  align-items: center;
+  width : 100%;
+  
+  display: table-row-group;
+  // border-bottom: 2px solid $grey-light-6;
+  // background-color: $grey-light-7;
 }
 
 .tr {
@@ -333,19 +345,4 @@ tbody tr:nth-of-type(odd) {
   display: table-header-group;
   border-bottom: 2px solid $grey-light-6;
   background-color: $grey-light-8;
-}
-
-.tbody {
-  @include hundredPercentHW();
-  // width: 100%;
-  // min-height: 1rem;
-
-  // height: 10rem;
-  // height: 5rem;
-  align-items: center;
-  width : 100%;
-  
-  display: table-row-group;
-  // border-bottom: 2px solid $grey-light-6;
-  // background-color: $grey-light-7;
 }

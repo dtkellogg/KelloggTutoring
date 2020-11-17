@@ -119,8 +119,12 @@ export default function Payments({ match, history }) {
   console.log(`userInfo: ${userInfo}`)
   console.log(`sortedAppts: ${sortedAppts}`)
 
-  if(userInfo === null) {
-    return (
+  return (
+
+  
+
+  (userInfo === null) ?
+    (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments-2">
@@ -133,34 +137,23 @@ export default function Payments({ match, history }) {
           <span className="text-size-2"> to view your appointments</span>
         </div>
       </div>
-      )
-  }
-  
-
-  if (
-    userInfo !== undefined &&
+    )
+    : (
+    
     sortedAppts
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => appt.paid === false).length === 0
-  ) {
-    return (
+  )
+  ? (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          {/* <div className="text-size-2 msg__userInfoNull">
-            You have no unpaid appointments
-          </div> */}
           <Link to={`/login`} className="text-size-2 msg__userInfoNull">
             You have no unpaid appointments
           </Link>
         </div>
       </div>
-    )
-  } else {
-  
-  
-  
-    return (
+  ) : (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
@@ -269,6 +262,6 @@ export default function Payments({ match, history }) {
         </table>
         </div>
         </div>
+   )
             )
   }
-}
