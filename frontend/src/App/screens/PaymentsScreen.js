@@ -152,11 +152,11 @@ export default function Payments({ match, history }) {
           </div> */}
           <Link to={`/login`} className="text-size-2 msg__userInfoNull">
             You have no unpaid appointments
-            </Link>
+          </Link>
         </div>
       </div>
     )
-  }
+  } else {
   
   
   
@@ -181,7 +181,7 @@ export default function Payments({ match, history }) {
               <th className="appointments__th--student">student</th>
               <th className="appointments__th--subject">subject</th>
               <th className="appointments__th--select">
-                {/* <button
+                <button
                   className="btn__payments--add-all"
                   disabled={
                     sortedAppts
@@ -191,9 +191,7 @@ export default function Payments({ match, history }) {
                   style={{
                     backgroundImage:
                       sortedAppts
-                        .filter(
-                          (appt) => appt.student === userInfo.name
-                        )
+                        .filter((appt) => appt.student === userInfo.name)
                         .filter((appt) => appt.paid === false)
                         .length === cart.length && "none",
                     color:
@@ -214,7 +212,7 @@ export default function Payments({ match, history }) {
                   cart.length
                     ? "Add All"
                     : "Added"}
-                </button> */}
+                </button>
               </th>
             </tr>
           </thead>
@@ -272,4 +270,5 @@ export default function Payments({ match, history }) {
         </div>
         </div>
             )
+  }
 }
