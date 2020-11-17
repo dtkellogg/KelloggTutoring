@@ -31,8 +31,9 @@
     grid-column: 2 / span 3;
     background: $white;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       // margin-right: 7rem;
+      grid-column: 2 / span 4;
     }
 
     @media (max-width: 600px) {

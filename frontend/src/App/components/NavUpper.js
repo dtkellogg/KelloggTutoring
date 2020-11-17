@@ -11,7 +11,8 @@ import { logout } from '../actions/userActions'
 
 const activeStyle = {
   // color: "var(--old-blue-2)",
-  // backgroundColor: "var(--old-blue-2-opacity-2)",
+  backgroundColor: "var(--old-blue-2-opacity-2)",
+  border: "1px dashed var(--old-blue-2)",
   fontWeight: 900,
 };
 

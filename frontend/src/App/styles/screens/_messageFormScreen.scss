@@ -10,8 +10,14 @@
     width: 50rem;
   }
 
+  @media (max-width: 1000px) {
+    width: 40rem;
+  }
+
   @media (max-width: 600px) {
-    width: 80vw;
+    width: 35rem;
+    height: 100%;
+    // overflow: visible;
   }
 
   &__header {
