@@ -115,6 +115,8 @@ export default function Payments({ match, history }) {
     }
   }, [dispatch, loading, error]);
 
+  console.log(`userInfo: ${userInfo}`)
+
   if(userInfo === null) {
     return (
       <div className="pg__appointment">
