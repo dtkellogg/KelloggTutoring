@@ -137,23 +137,26 @@ export default function Payments({ match, history }) {
   }
   
 
-  // if (
-  //   userInfo !== undefined &&
-  //   sortedAppts
-  //     .filter((appt) => appt.student === userInfo.name)
-  //     .filter((appt) => appt.paid === false).length === 0
-  // ) {
-  //   return (
-  //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
-  //       <div className="appointments">
-  //         <div className="text-size-2 msg__userInfoNull">
-  //           You have no unpaid appointments
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  if (
+    userInfo !== undefined &&
+    sortedAppts
+      .filter((appt) => appt.student === userInfo.name)
+      .filter((appt) => appt.paid === false).length === 0
+  ) {
+    return (
+      <div className="pg__appointment">
+        <Sidebar title="Appointments" list={apptsList} />
+        <div className="appointments">
+          {/* <div className="text-size-2 msg__userInfoNull">
+            You have no unpaid appointments
+          </div> */}
+          <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+            You have no unpaid appointments
+            </Link>
+        </div>
+      </div>
+    )
+  }
   
   
   
@@ -170,119 +173,104 @@ export default function Payments({ match, history }) {
             Please select appointments to pay for:
           </div>
         </div>
-
-        {userInfo &&
-        sortedAppts
-          .filter((appt) => appt.student === userInfo.name)
-          .filter((appt) => appt.paid === false).length === 0
-            ? (
-            <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-              You have no unpaid appointments
-            </Link>
-            ) : (
-              <React.Fragment>
-                <table className="appointments__list text-size-3">
-                  <thead className="thead">
-                    <tr className="tr">
-                      <th className="appointments__th--date">date</th>
-                      <th className="appointments__th--time">time</th>
-                      <th className="appointments__th--student">student</th>
-                      <th className="appointments__th--subject">subject</th>
-                      <th className="appointments__th--select">
-                        <button
-                          className="btn__payments--add-all"
-                          disabled={
-                            sortedAppts
-                              .filter((appt) => appt.student === userInfo.name)
-                              .filter((appt) => appt.paid === false).length ===
-                            cart.length
-                          }
-                          style={{
-                            backgroundImage:
-                              sortedAppts
-                                .filter(
-                                  (appt) => appt.student === userInfo.name
-                                )
-                                .filter((appt) => appt.paid === false)
-                                .length === cart.length && "none",
-                            color:
-                              sortedAppts
-                                .filter(
-                                  (appt) => appt.student === userInfo.name
-                                )
-                                .filter((appt) => appt.paid === false)
-                                .length !== cart.length
-                                ? "white"
-                                : "var(--old-blue-2)",
-                          }}
-                          onClick={(e) => addAllHandler(e)}
-                        >
-                          {sortedAppts
-                            .filter((appt) => appt.student === userInfo.name)
-                            .filter((appt) => appt.paid === false).length !==
-                          cart.length
-                            ? "Add All"
-                            : "Added"}
-                        </button>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="tbody">
-                    {sortedAppts
+        <table className="appointments__list text-size-3">
+          <thead className="thead">
+            <tr className="tr">
+              <th className="appointments__th--date">date</th>
+              <th className="appointments__th--time">time</th>
+              <th className="appointments__th--student">student</th>
+              <th className="appointments__th--subject">subject</th>
+              <th className="appointments__th--select">
+                <button
+                  className="btn__payments--add-all"
+                  disabled={
+                    sortedAppts
                       .filter((appt) => appt.student === userInfo.name)
-                      .filter((appt) => appt.paid === false)
-                      .map((appt, idx) => {
-                        const date = appt.date.split("T")[0].split("-");
-                        return (
-                          <tr key={appt._id} className="appointments__list--item">
-                            <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                            <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                            <td className="text-size-3 appointments__item--student">
-                              {appt.student}
-                            </td>
-                            <td className="text-size-3 appointments__item--subject">
-                              {appt.subject}
-                            </td>
-                            <td className="appointments__item--btns">
-                              {
-                                !appt.paid && (
-                                  <button
-                                    key={appt._id}
-                                    className="btn__addToCart"
-                                    disabled={cart.includes(appt._id)}
-                                    style={{
-                                      backgroundImage:
-                                        cart.includes(appt._id) && "none",
-                                      color: "var(--old-blue-2)",
-                                    }}
-                                    onClick={(e) =>
-                                      addToCartHandler(e, idx, appt._id)
-                                    }
-                                  >
-                                    <span
-                                      style={{
-                                        color:
-                                          !cart.includes(appt._id) && "white",
-                                      }}
-                                    >
-                                      {!cart.includes(appt._id)
-                                        ? "Add to cart"
-                                        : "Added"}
-                                    </span>
-                                  </button>
-                                )
-                              }
-                            </td>
-                          </tr>
+                      .filter((appt) => appt.paid === false).length ===
+                    cart.length
+                  }
+                  style={{
+                    backgroundImage:
+                      sortedAppts
+                        .filter(
+                          (appt) => appt.student === userInfo.name
                         )
-                      })}
-                  </tbody>
-                </table>
-              </React.Fragment>
-            )
-          }
+                        .filter((appt) => appt.paid === false)
+                        .length === cart.length && "none",
+                    color:
+                      sortedAppts
+                        .filter(
+                          (appt) => appt.student === userInfo.name
+                        )
+                        .filter((appt) => appt.paid === false)
+                        .length !== cart.length
+                        ? "white"
+                        : "var(--old-blue-2)",
+                  }}
+                  onClick={(e) => addAllHandler(e)}
+                >
+                  {sortedAppts
+                    .filter((appt) => appt.student === userInfo.name)
+                    .filter((appt) => appt.paid === false).length !==
+                  cart.length
+                    ? "Add All"
+                    : "Added"}
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody className="tbody">
+            {sortedAppts
+              .filter((appt) => appt.student === userInfo.name)
+              .filter((appt) => appt.paid === false)
+              .map((appt, idx) => {
+                const date = appt.date.split("T")[0].split("-");
+                return (
+                  <tr key={appt._id} className="appointments__list--item">
+                    <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                    <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                    <td className="text-size-3 appointments__item--student">
+                      {appt.student}
+                    </td>
+                    <td className="text-size-3 appointments__item--subject">
+                      {appt.subject}
+                    </td>
+                    <td className="appointments__item--btns">
+                      {
+                        !appt.paid && (
+                          <button
+                            key={appt._id}
+                            className="btn__addToCart"
+                            disabled={cart.includes(appt._id)}
+                            style={{
+                              backgroundImage:
+                                cart.includes(appt._id) && "none",
+                              color: "var(--old-blue-2)",
+                            }}
+                            onClick={(e) =>
+                              addToCartHandler(e, idx, appt._id)
+                            }
+                          >
+                            <span
+                              style={{
+                                color:
+                                  !cart.includes(appt._id) && "white",
+                              }}
+                            >
+                              {!cart.includes(appt._id)
+                                ? "Add to cart"
+                                : "Added"}
+                            </span>
+                          </button>
+                        )
+                      }
+                    </td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </table>
         </div>
-      </div>
-    );
-  
+        </div>
+            )
 }
