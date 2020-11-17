@@ -50,7 +50,7 @@ export default function Payments({ match, history }) {
   const cart2 = useSelector((state) => state.cart);
 
 
-  const sortedAppts = useSortMultiple(appointments, "date", "startTime");
+ 
 
   React.useEffect(() => {
     const fetchAppts = async () => {
@@ -69,6 +69,8 @@ export default function Payments({ match, history }) {
       setCart((cart) => cart.concat(appt.appointment));
     });
   }, [dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const sortedAppts = useSortMultiple(appointments, "date", "startTime");
 
   const addToCartHandler = (e, idx, id) => {
     e.preventDefault();
@@ -116,6 +118,7 @@ export default function Payments({ match, history }) {
   }, [dispatch, loading, error]);
 
   console.log(`userInfo: ${userInfo}`)
+  console.log(`sortedAppts: ${sortedAppts}`)
 
   if(userInfo === null) {
     return (
