@@ -65,4 +65,44 @@
 			padding: auto 0 10rem 0;
     }
 	}
+
+	&__subgroups {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+
+		&--name {
+
+		}
+
+		&--email {
+
+		}
+
+		&--paid {
+
+		}
+
+		&--not-paid {
+			color: $red;
+			background-color: $red-light-2;
+			border: 1px solid $red;
+			padding: 0.6rem;
+			border-radius: 0.5rem;
+		}
+
+		&--paid-on {
+			color: $green;
+			background-color: $green-light-1;
+			border: 1px solid $green;
+			padding: 0.6rem;
+			border-radius: 0.5rem;
+		}
+	}
+
+	&__header {
+		display: block;
+		padding: 1rem;
+	}
 }

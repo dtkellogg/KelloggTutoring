@@ -126,7 +126,7 @@ export default function NavLower() {
         <input
           value={searchInput}
           type="text"
-          placeholder="Search Kellogg Tutoring"
+          placeholder="Search Kellogg Tutoring..."
           style={searchInput ? {width: "100%"} : {width: "inherit"}}
           className="btn__search"
           onChange={(e) => handleSearchChange(e.target.value)}

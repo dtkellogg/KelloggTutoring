@@ -122,18 +122,9 @@ function PaymentScreen({ match, history }) {
     dispatch(payPayment(paymentId, paymentResult));
   };
 
-  // END OF PAYPAL STUFF
 
-  // return loading ? (
-  //   setLoadingDefault(true)
-  // ) : 
-
-  if(payment) {
-    console.log(payment.totalPrice);
-
-  }
-  return  loading ? (
-  <Loading /> 
+  return loading ? (
+    <Loading />
   ) : error ? (
     <h2 className="text-size-2">{error}</h2>
   ) : (
@@ -141,21 +132,21 @@ function PaymentScreen({ match, history }) {
       <Sidebar title="Appointments" list={apptsList} />
       <div className="appointments">
         {/* <PaymentSteps step1 step2 step3 step4 /> */}
-        <div className="appointments__header--container">
-          <h2 className="text-size-2 appointments__header">
+          <h2 className="text-size-2 payment__header">
             Payment {payment._id}
           </h2>
-          <div>
+        <div className="payment__subgroups">
+          <div className="payment__subgroups--paid">
             {payment.isPaid ? (
-              <h2 className="">Paid on {payment.paidAt}</h2>
+              <h2 className="payment__subgroups--paid-on">Paid on {payment.paidAt}</h2>
             ) : (
-              <h2 className="">Not Paid</h2>
+              <h2 className="payment__subgroups--not-paid">Not Paid</h2>
             )}
           </div>
-          <div>
+          <div className="text-size-4 payment__subgroups--name">
             <strong> Name: </strong> {payment.user.name}
           </div>
-          <div>
+          <div className="text-size-4 payment__subgroups--email">
             <strong> Email: </strong>
             <a href={`mailto:${payment.user.email}`}>{payment.user.email}</a>
           </div>
@@ -274,17 +265,17 @@ function PaymentScreen({ match, history }) {
               // setLoadingDefault(true)
               <Loading />
             ) : (
-              <p>PAYPAL BTN</p>
-              // <PayPalButton
-              //   amount={payment.totalPrice}
-              //   onSuccess={successPaymentHandler}
-              // />
+              // <p>PAYPAL BTN</p>
+              <PayPalButton
+                amount={payment.totalPrice}
+                onSuccess={successPaymentHandler}
+              />
             )}
           </div>
         )}
       </div>
     </div>
-  )
+  );
   // )
 }
 
