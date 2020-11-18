@@ -15,7 +15,6 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
   const { path } = useRouteMatch();
 
 	return (
-    // <nav className="payment__steps--container">
       <ul className="payment__steps--ul">
         <li>
           {step1 ? (
@@ -77,7 +76,6 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
           )}
         </li>
       </ul>
-    // </nav>
   );
 }
 
