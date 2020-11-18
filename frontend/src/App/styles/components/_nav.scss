@@ -167,24 +167,24 @@
   }
 
   &__wrapper {
-    width: 15rem;
+    width: 20.5rem;
     text-align: right;
     display: flex;
     align-items: center;
     transition: 1s;
 
     @media ( max-width: 600px) {
-      width: 10rem;
+      // width: 20.5rem;
 
       &:hover, &:active, &:visited {
-        width: 30rem;
+        // width: 30rem;
       }
 
     }
 
 
     @media ( max-width: 450px ) {
-      width: 10rem;
+      // width: 20.5rem;
     }
   }
 }

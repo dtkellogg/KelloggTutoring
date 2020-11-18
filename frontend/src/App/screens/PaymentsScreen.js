@@ -132,7 +132,9 @@ export default function Payments({ match, history }) {
       <div className="appointments">
         <PaymentSteps step1 step2 />
 
-        {!userInfo ? (
+        <h1>HELLLOGGG</h1>
+
+        {/* {!userInfo ? (
 
           <div className="">
             <span className="text-size-2"> Please&nbsp; </span>
@@ -165,8 +167,8 @@ export default function Payments({ match, history }) {
               Please select appointments to pay for:
             </div>
           </div>
-        )}
-        
+        )} */}
+
       </div>
     </div>
   );
