@@ -9,6 +9,8 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 
 import { subheader } from "../actions/subheader";
 
+import Notecard from '../../Notecard.jpg'
+
 
 const toshiList = [
   "About",

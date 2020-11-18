@@ -39,6 +39,10 @@
     &:last-child {
       margin-bottom: 2rem;
     }
+
+    @media (max-width: 350px ) {
+      padding: 0 4rem;
+    }
   }
 
   &__emoji {

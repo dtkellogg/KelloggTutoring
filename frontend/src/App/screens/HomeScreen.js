@@ -92,7 +92,7 @@ export default function HomePage() {
                 </button>
               </Link>
               <Link to={`/appointments/payments`} className="">
-                <button className="btn__pay width-12rem">Payments</button>
+                <button className="btn__pay">Payments</button>
               </Link>
             </div>
 

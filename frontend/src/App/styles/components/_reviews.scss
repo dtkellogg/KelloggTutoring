@@ -15,9 +15,9 @@
 		overflow-y: scroll;
 		cursor: ns-resize;
 
-		@media (max-width: 1050px) {
-			margin-bottom: 13rem;
-		}
+		// @media (max-width: 1050px) {
+		// 	margin-bottom: 13rem;
+		// }
 
 		@media (max-width: 600px) {
 			justify-content: flex-start;
@@ -27,8 +27,9 @@
 	&__card {
 		position: relative;
 		min-height: 20rem;
-		max-width: 50rem;
+		
 		min-width: 50rem;
+			max-width: 50rem;
 		background-color: $white;
 		margin: 1rem;
 		transition: .2s;
@@ -37,6 +38,15 @@
 										0.3em 0.3em 1em rgba(0,0,0,0.3);
 
 
+		@media (max-width: 1050px ) {
+			// max-width: 50rem;
+		min-width: 78rem;
+		}
+
+		@media (max-width: 1000px ) {
+			min-width: 50rem;
+			max-width: 50rem;
+		}
 		@media (max-width: 900px) {
 			// width: 100%;
 			min-width: 44rem;

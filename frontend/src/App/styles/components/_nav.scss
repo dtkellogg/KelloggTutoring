@@ -30,10 +30,31 @@
       // padding-right: 2rem;
     }
 
-    &--house-icon {
+    &--title-text {
+      display: inline-block;
+
+      @media ( max-width: 400px ) {
+        display: none;
+      }
+    }
+
+    &--title-line {
+      display: inline-block;
 
       @media ( max-width: 650px ) {
         display: none;
+      }
+    }
+
+    &--house-icon {
+      display: inline-block;
+
+      @media ( max-width: 650px ) {
+        display: none;
+      }
+
+      @media ( max-width: 400px ) {
+        display: inline-block;
       }
       // display: none;
     }

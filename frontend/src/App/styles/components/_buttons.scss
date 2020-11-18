@@ -96,6 +96,7 @@
   &__pay {
     @extend %btn;
     color: $white;
+    width: 12rem;
 
     @media(max-width: 600px ) {
       width: 12rem;
@@ -304,6 +305,7 @@
     @extend %btn;
     margin-right: 1.25rem;
     color: $white;
+    width: 12rem;
 
 
     @media(max-width: 600px ) {

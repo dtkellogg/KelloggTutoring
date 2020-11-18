@@ -41,10 +41,11 @@ function NavUpper({ history }) {
       <div className="logo">
         <a href="/">
           <h1 className="text-size-1 nav__upper-header">
-            Kellogg Tutoring
+            <span className="nav__upper--title-text">
+              Kellogg Tutoring&nbsp;
+            </span>
+            <span className="nav__upper--title-line">|&nbsp;</span>
             <span className="nav__upper--house-icon">
-              {" "}
-              |{" "}
               <span role="img" aria-label="email emoji">
                 🏠
               </span>

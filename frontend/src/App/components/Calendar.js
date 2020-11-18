@@ -340,7 +340,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={appt._id}>
-                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -388,7 +388,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div>
-                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -425,7 +425,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={uuid()}>
-                             &bull;&nbsp;{formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
