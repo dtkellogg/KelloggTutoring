@@ -28,7 +28,7 @@ import Sidebar from "../components/Sidebar";
 
 
 
-const appointmentsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+const appointmentsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
 
 
 function PaymentCheckout({ match, history }) {
@@ -88,139 +88,151 @@ function PaymentCheckout({ match, history }) {
     );
   };
 
+  function formatAMPM(date) {
+    var hours = date.split(":")[0];
+    var minutes = date.split(":")[1];
+    var ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
+  }
+
 
 
 
   return (
     <div className="pg__appointment">
-    <Sidebar title="Appointments" list={appointmentsList} />
-    <div className="appt__checkout">
-      <PaymentSteps step1 step2 step3 step4 />
-      <div className="appointments__header--container">
-        <h2 className="text-size-2 appointments__header">Checkout</h2>
-      </div>
+      <Sidebar title="Appointments" list={appointmentsList} />
+      <div className="appt__checkout">
+        <PaymentSteps step1 step2 step3 step4 />
+        <div className="appointments__header--container-checkout">
+          <h2 className="text-size-2 appointments__header">Checkout</h2>
+        </div>
 
-      {/* <div className="">
+        {/* <div className="">
         <h2 className="text-size-2">Payment Method</h2>
         <strong>Method:</strong>
         {cart.paymentMethod}
         <div className=""></div>
       </div> */}
-      <div className="checkout__payment-method">
-        <h2 className="text-size-2">Payment Method:&nbsp;</h2>
-        {/* <strong>Method:</strong> */}
+        <div className="checkout__payment-method">
+          <h2 className="text-size-4">Payment Method:&nbsp;</h2>
+          {/* <strong>Method:</strong> */}
 
-        <div className="text-size-2 checkout__payment-method--text">
-          <strong>{cart.paymentMethod}</strong>
+          <div className="text-size-1 checkout__payment-method--text">
+            <strong style={{ fontSize: "var(--text-size-5)" }}>
+              &nbsp;{cart.paymentMethod}
+            </strong>
+          </div>
         </div>
-      </div>
 
-      {error && <h2 className="text-size-2">{error}</h2>}
+        {error && <h2 className="text-size-2">{error}</h2>}
 
-      <div
-        className="checkout__appts"
-        style={{
-          padding: "1rem 0",
-        }}
-      >
-        <h2 className="text-size-2" style={{ padding: "1rem" }}>
-          Paying for the following (<strong>{cart.cartItems.length}</strong>){" "}
-          appointments:
-        </h2>
-        {cart.cartItems.length === 0 ? (
-          <h2
-            className="text-size-3"
-            style={{
-              padding: "1rem",
-              borderBottom: "2px solid var(--grey-light-6)",
-            }}
-          >
-            Your cart is <span style={{ color: "red" }}>empty</span>
+        <div
+          className="checkout__appts"
+          style={{
+            padding: "1rem 0",
+          }}
+        >
+          <h2 className="text-size-4" style={{ padding: "1rem" }}>
+            Paying for the following (<strong>{cart.cartItems.length}</strong>){" "}
+            appointments:
           </h2>
-        ) : (
-          <table className="text-size-3 appointments__list">
-            <thead className="thead">
-              <tr className="tr">
-                <th className="appointments__th--date">date</th>
-                <th className="appointments__th--time">time</th>
-                <th className="appointments__th--student">price</th>
-                <th className="appointments__th--subject">subject</th>
-                <th className="appointments__th--btns">remove</th>
-              </tr>
-            </thead>
-            <tbody className="tbody">
-              {cart.cartItems.map((appt, idx) => {
-                const date = appt.date.split("T")[0].split("-");
-                const id = appt.appointment;
-               
-                return (
+          {cart.cartItems.length === 0 ? (
+            <h2
+              className="text-size-3"
+              style={{
+                padding: "1rem",
+                borderBottom: "2px solid var(--grey-light-6)",
+              }}
+            >
+              Your cart is <span style={{ color: "red" }}>empty</span>
+            </h2>
+          ) : (
+            <table className="text-size-3 appointments__list">
+              <thead className="thead">
+                <tr className="tr">
+                  <th className="appointments__th--date">date</th>
+                  <th className="appointments__th--time">time</th>
+                  <th className="appointments__th--student">price</th>
+                  <th className="appointments__th--subject">subject</th>
+                  <th className="appointments__th--btns">remove</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                {cart.cartItems.map((appt, idx) => {
+                  const date = appt.date.split("T")[0].split("-");
+                  const id = appt.appointment;
 
-                  <tr key={id} className="appointments__list--item">
-                    <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                    <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                    <td className="text-size-3 appointments__item--student">
-                      $50.00
-                    </td>
-                    <td className="text-size-3 appointments__item--subject">
-                      {appt.subject}
-                    </td>
+                  return (
+                    <tr key={id} className="appointments__list--item">
+                      <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                      <td className="text-size-3 appointments__item--time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
+                      <td className="text-size-3 appointments__item--student">
+                        $50.00
+                      </td>
+                      <td className="text-size-3 appointments__item--subject">
+                        {appt.subject}
+                      </td>
 
-                    <td className="appointments__item--btns">
-                      <FaTrash
-                        size={20}
-                        color="var(--green-dark)"
-                        fill="var(--red)"
-                        className="social-media-icon grey-light-7"
-                        type="button"
-                        onClick={() => deleteHandler(appt.appointment)}
-                      />
-                    </td>
+                      <td className="appointments__item--btns">
+                        <FaTrash
+                          size={15}
+                          color="var(--green-dark)"
+                          fill="var(--red)"
+                          className="social-media-icon grey-light-7"
+                          type="button"
+                          onClick={() => deleteHandler(appt.appointment)}
+                        />
+                      </td>
 
-                    {/* <button className="btn__cancel">Cancel</button> */}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )}
+                      {/* <button className="btn__cancel">Cancel</button> */}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+        </div>
+
+        <div className="checkout__totals">
+          <div className="text-size-3">
+            <strong>
+              Subtotal:
+              <br />
+            </strong>
+            {cart.cartItems.length} &times; $50.00 = $
+            {cart.cartItems.length * 50}
+          </div>
+          <div className="text-size-3">
+            <strong className="">
+              Tax:
+              <br />
+            </strong>
+            ${cart.cartItems.length * 50}.00 &times; 0.08 = $
+            {cart.cartItems.length * 50 * 0.08}.00
+          </div>
+          <div className="text-size-3">
+            <strong className="">
+              Total:
+              <br />
+            </strong>
+            ${cart.cartItems.length * 50 * 0.08}.00 + $
+            {cart.cartItems.length * 50}
+            .00 = $
+            {cart.cartItems.length * 50 * 0.08 + cart.cartItems.length * 50}.00
+          </div>
+        </div>
+
+        <button
+          disabled={cart.cartItems.length === 0}
+          onClick={submitPaymentHandler}
+          className="btn__confirm-payment"
+        >
+          Confirm Payment
+        </button>
       </div>
-
-      <div className="checkout__totals">
-        <div className="text-size-3">
-          <strong>
-            Subtotal:
-            <br />
-          </strong>
-          {cart.cartItems.length} &times; $50.00 = ${cart.cartItems.length * 50}
-        </div>
-        <div className="text-size-3">
-          <strong className="">
-            Tax:
-            <br />
-          </strong>
-          ${cart.cartItems.length * 50}.00 &times; 0.08 = $
-          {cart.cartItems.length * 50 * 0.08}.00
-        </div>
-        <div className="text-size-3">
-          <strong className="">
-            Total:
-            <br />
-          </strong>
-          ${cart.cartItems.length * 50 * 0.08}.00 + $
-          {cart.cartItems.length * 50}
-          .00 = $
-          {cart.cartItems.length * 50 * 0.08 + cart.cartItems.length * 50}.00
-        </div>
-      </div>
-
-      <button
-        disabled={cart.cartItems.length === 0}
-        onClick={submitPaymentHandler}
-        className="btn__confirm-payment"
-      >
-        Confirm Payment
-      </button>
-    </div>
     </div>
   );
 }
