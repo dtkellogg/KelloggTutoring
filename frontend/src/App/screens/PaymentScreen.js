@@ -197,14 +197,13 @@ function PaymentScreen({ match, history }) {
                   <th className="appointments__th--time">time</th>
                   <th className="appointments__th--student">price</th>
                   <th className="appointments__th--subject">subject</th>
-                  <th className="appointments__th--btns">remove</th>
                 </tr>
               </thead>
               <tbody className="tbody">
                 {payment.paymentItems.map((appt, idx) => {
                   const date = appt.date.split("T")[0].split("-");
                   const id = appt.appointment;
-                  // console.log(`appt.date: ${appt.date.prototype.getUTCHours()}`)
+                  console.log(appt)
                   return (
                     <tr key={id} className="appointments__list--item">
                       <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
@@ -215,8 +214,6 @@ function PaymentScreen({ match, history }) {
                       <td className="text-size-3 appointments__item--subject">
                         {appt.subject}
                       </td>
-
-                      {/* <button className="btn__cancel">Cancel</button> */}
                     </tr>
                   );
                 })}

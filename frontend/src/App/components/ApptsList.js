@@ -12,6 +12,8 @@ import Sidebar from "../components/Sidebar";
 
 import {useSortMultiple} from '../hooks/useSort'
 
+import PleaseLoginScreen from "../screens/UserPleaseLoginScreen.js"
+
 
 import { subheader } from "../actions/subheader";
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
@@ -56,31 +58,29 @@ export default function ApptsList({ location, type }) {
     }
   };
 
-  if (userInfo === null && type === "upcoming") {
-    return (
-      <div className="pg__appointment">
-        <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-          Please&nbsp;
-          <span className="text-size-2" style={{ color: "blue" }}>
-            login&nbsp;
-          </span>
-          <span className="text-size-2"> to view your appointments</span>
-        </Link>
-      </div>
-    );
+  function formatAMPM(date) {
+    var hours = date.split(":")[0];
+    var minutes = date.split(":")[1];
+    var ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
   }
+
+  // if (userInfo === null && type === "upcoming") {
+  //   return (
+  //     <div className="pg__appointment">
+  //       <PleaseLoginScreen />
+  //     </div>
+  //   );
+  // }
 
   if (userInfo === null) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
-        <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-        Please&nbsp;
-        <span className="text-size-2" style={{ color: "blue" }}>
-          login&nbsp;
-        </span>
-        <span className="text-size-2"> to view your appointments</span>
-      </Link>
+        <PleaseLoginScreen />
       </div>
     );
   }
@@ -154,7 +154,7 @@ export default function ApptsList({ location, type }) {
 
                 <tr key={appt._id} className="tr">
                   <td className="text-size-3 appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
-                  <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                  <td className="text-size-3 appointments__td--upcoming-time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
                   <td className="text-size-3 appointments__td--upcoming-student">
                     {appt.student}
                   </td>
@@ -229,7 +229,7 @@ export default function ApptsList({ location, type }) {
               return (
                 <tr key={appt._id} className="tr">
                   <td className="text-size-3 appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
-                  <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                  <td className="text-size-3 appointments__td--upcoming-time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
                   <td className="text-size-3 appointments__td--upcoming-student">
                     {appt.student}
                   </td>
@@ -300,7 +300,7 @@ export default function ApptsList({ location, type }) {
             return (
               <tr key={appt._id} className="appointments__list--item">
                 <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                <td className="text-size-3 appointments__item--time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
                 {/* <td className="text-size-3 appointments__item--student">{appt.student}</td> */}
                 <td className="text-size-3 appointments__item--subject">
                   {appt.subject}
@@ -378,7 +378,7 @@ export default function ApptsList({ location, type }) {
 
   //                 <tr key={appt._id} className="tr">
   //                   <td className="text-size-3 appointments__td--upcoming-date">${date[1]}-${date[2]}</td>
-  //                   <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
+  //                   <td className="text-size-3 appointments__td--upcoming-time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
   //                   <td className="text-size-3 appointments__td--upcoming-student">
   //                     {appt.student}
   //                   </td>
@@ -455,7 +455,7 @@ export default function ApptsList({ location, type }) {
   //               return (
   //                 <tr key={appt._id} className="tr">
   //                   <td className="text-size-3 appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
-  //                   <td className="text-size-3 appointments__td--upcoming-time">{`${appt.startTime} - ${appt.endTime}`}</td>
+  //                   <td className="text-size-3 appointments__td--upcoming-time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
   //                   <td className="text-size-3 appointments__td--upcoming-student">
   //                     {appt.student}
   //                   </td>
@@ -527,7 +527,7 @@ export default function ApptsList({ location, type }) {
             return (
               <tr key={appt._id} className="appointments__list--item">
                 <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                <td className="text-size-3 appointments__item--time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
                 {/* <td className="text-size-3 appointments__item--student">{appt.student}</td> */}
                 <td className="text-size-3 appointments__item--subject">
                   {appt.subject}

@@ -46,7 +46,7 @@
     border-bottom: 1px solid $grey-light-6;
     padding: 1rem 1rem 1rem 12rem;
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   &__link {
@@ -146,8 +146,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid $grey-light-6;
+    // border-bottom: 1px solid $grey-light-6;
     overflow: hidden;
+    border-bottom: 2px solid var(--black)
   }
 
   &__item {

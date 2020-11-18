@@ -10,6 +10,10 @@
 
   &__header {
     text-align: center;
+
+    @media (max-width: 600px) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__content {

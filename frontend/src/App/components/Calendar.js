@@ -7,7 +7,9 @@ import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { listAppointments } from "../actions/appointmentActions"
 // import { subheader } from "../actions/subheader";
 
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar";
+
+import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
 
 import { useSort } from '../hooks/useSort'
 
@@ -267,17 +269,13 @@ export default function Calendar({ type }) {
 
 	if(userInfo === null) {
 		return (
-			<div className={type === 'home' ? "pg__home--calendar" : 'pg__appointment'}>
-			{/* <div className="pg__appointment"> */}
-				{type !== 'home' && <Sidebar title="Appointments" list={apptsList} />}
-      <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-        Please&nbsp;
-        <span className="text-size-2" style={{ color: "blue" }}>
-          login&nbsp;
-        </span>
-        <span className="text-size-2"> to view your appointments</span>
-      </Link>
-	  </div>
+      <div
+        className={type === "home" ? "pg__home--calendar" : "pg__appointment"}
+      >
+        {/* <div className="pg__appointment"> */}
+        {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
+        <PleaseLoginScreen />
+      </div>
     );
 	 } else {
 	 return (

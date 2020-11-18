@@ -85,7 +85,7 @@ const PaymentMethodScreen = ({ history }) => {
         </div>
       </form>
 
-      <button onClick={handleDelete}>jhbadjbhbhda</button>
+      {/* <button onClick={handleDelete}>jhbadjbhbhda</button> */}
     </div>
     </div>
   );

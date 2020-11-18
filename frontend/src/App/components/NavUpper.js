@@ -12,7 +12,7 @@ import { logout } from '../actions/userActions'
 const activeStyle = {
   // color: "var(--old-blue-2)",
   backgroundColor: "var(--old-blue-2-opacity-2)",
-  border: "1px dashed var(--old-blue-2)",
+  border: "1px dotted var(--old-blue-2)",
   fontWeight: 900,
 };
 
@@ -158,7 +158,7 @@ function NavUpper({ history }) {
                 </NavLink>
 
                 <NavLink
-                  to="/studentResources"
+                  to="/resources"
                   activeStyle={activeStyle}
                   className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
                 >
@@ -202,7 +202,7 @@ function NavUpper({ history }) {
                 </NavLink>
 
                 <NavLink
-                  to="/studentResources"
+                  to="/resources"
                   activeStyle={activeStyle}
                   className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
                 >

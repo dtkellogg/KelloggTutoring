@@ -93,36 +93,18 @@ export default function NavLower() {
       }
     })
 
-    // if(e !== "") {
-      let newList = []
+    let newList = []
 
-      setSearchInput(e);
+    setSearchInput(e);
 
-      newList = oldList.filter((item) => item.name.includes(searchInput.toLowerCase()))
-      setFilterDisplay(newList)
-    // } 
-    // else 
-    // {
-    //   setFilterDisplay(oldList)
-    // }
-    // if(e === '') {
-    //   setFilterDisplay(names)
-    // }
+    newList = oldList.filter((item) => item.name.includes(searchInput.toLowerCase()))
+    setFilterDisplay(newList)
   }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   console.log('success')
-    // console.log(`HERE: ${searchBar.name.includes(searchInput.toLowerCase())}`)
-    // console.log(searchBar.name.includes('home'))
-  // }
-
 
   return (
     <nav className="nav__lower">
       <h3 className="text-size-3">{subheader.error}</h3>
       <div className="search__wrapper">
-        {/* <form onSubmit={handleSubmit} className="nav__search--form"> */}
         <input
           value={searchInput}
           type="text"
@@ -139,53 +121,28 @@ export default function NavLower() {
             onChange={handleSearchChange}
           />
         </button>
-        {/* </form> */}
       </div>
 
-      <ul
-        className="search__results"
-        style={
-          searchInput ? {display: "none"} : {display: "block"},
-          !filterDisplay ? { border: "none" } : {border: "2px solid var(--black)"}
-        }
-      >
-        {filterDisplay.map((item) => {
-          const linkKey = uuid();
-          
-          return (
-            <Link key={linkKey} to={item.link} className="search__item text-size-5" onClick={handleClick}>
-              {item.name}
-            </Link>
-          );
-        })}
-      </ul>
+      {searchInput && (
+
+        <ul
+          className="search__results"
+          style={
+            searchInput ? { display: "none" } : { display: "block" },
+            !filterDisplay ? { border: "none" } : { border: "2px solid var(--black)" }
+          }
+        >
+          {filterDisplay.map((item) => {
+            const linkKey = uuid();
+            
+            return (
+              <Link key={linkKey} to={item.link} className="search__item text-size-5" onClick={handleClick}>
+                {item.name}
+              </Link>
+            );
+          })}
+        </ul>
+      )}
     </nav>
   );
-
-  // return (
-  //   <nav className="nav__lower">
-  //     <h3 className="text-size-3">{subheader}</h3>
-  //       {hovering ? (
-  //         <button className="btn__search btn__search--hover" {...attrs}>
-  //           <FaSearch
-  //             size={12.5}
-  //             fill="var(--white)"
-  //             className="nav__search-icon grey-light-7"
-  //           />
-  //           <span>Search</span>
-  //         </button>
-  //        ) : (
-  //         <button className="btn__search" {...attrs}>
-  //           <FaSearch
-  //             size={12.5}
-  //             fill="var(--black)"
-  //             className="nav__search-icon grey-light-7"
-  //             onChange={handleSearchChange}
-  //           />
-  //           <span>Search</span>
-  //         </button>
-  //        )
-  //       }
-  //   </nav>
-  // );
 }

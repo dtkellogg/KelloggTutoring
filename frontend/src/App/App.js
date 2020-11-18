@@ -31,13 +31,16 @@ const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
 const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
 const Home = React.lazy(() => import("./screens/HomeScreen"));
 const Login = React.lazy(() => import("./screens/UserLoginScreen"));
+const Zoom = React.lazy(() => import("./screens/ComingSoonScreen"));
+const Resources = React.lazy(() => import("./screens/ComingSoonScreen"));
+const Settings = React.lazy(() => import("./screens/ComingSoonScreen"));
 const MessageScreen = React.lazy(() => import("./screens/MessageScreen"));
 const Profile = React.lazy(() => import("./screens/UserProfileScreen"));
 const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
 const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
 const Payment = React.lazy(() => import("./screens/PaymentScreen"));
 const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
-const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
+// const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
 const Reviews = React.lazy(() => import("./components/Reviews"));
 const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
@@ -221,6 +224,9 @@ export default function App() {
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/resources" component={Resources} />
+                  <Route exact path="/zoom" component={Zoom} />
+                  <Route exact path="/resources" component={Resources} />
+                  <Route exact path="/settings" component={Settings} />
                   {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
                   {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
                   <Route exact path="/payment/:id/edit" component={Payment} />

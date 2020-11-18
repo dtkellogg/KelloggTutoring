@@ -139,7 +139,7 @@ export default function MessageScreen({ history }) {
         <form className="messageForm" onSubmit={handleSubmit}>
           <div className="messageForm__header">
             <h2 className="text-size-2 letter-spacing-sm">
-              Any questions? Leave a message here.
+              Any questions?
             </h2>
           </div>
           <div className="messageForm__content">

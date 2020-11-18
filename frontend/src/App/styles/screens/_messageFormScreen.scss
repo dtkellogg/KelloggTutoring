@@ -16,13 +16,18 @@
 
   @media (max-width: 600px) {
     width: 35rem;
-    height: 100%;
-    // overflow: visible;
+    height: min-content;
+    overflow: visible;
+    padding: 1rem 0;
   }
 
   &__header {
     text-align: center;
     margin-bottom: 9rem;
+
+    @media (max-width: 600px) {
+      margin-bottom: 7rem;
+    }
   }
 
   &__content {

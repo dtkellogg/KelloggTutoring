@@ -23,7 +23,7 @@ export default function Sidebar({ title, list }) {
   const location = useLocation();
   
   const handleScroll = () => window.scrollTo({
-    top: 350,
+    top: 550,
     left: 100,
     behavior: 'smooth'
   });

@@ -96,9 +96,10 @@
   &__pay {
     @extend %btn;
     color: $white;
-@media(max-width: 600px ) {
-      width: 10rem;
-      height: 5rem;
+
+    @media(max-width: 600px ) {
+      width: 12rem;
+      height: 4.5rem;
     }
   }
 
@@ -250,7 +251,7 @@
     @extend %btn--blue;
     margin-top: 7rem;
     border: none;
-    width: 8rem;
+    width: 17rem;
 
     &:hover {
       background-color: $green-12;
@@ -268,6 +269,10 @@
       background-color: $green-12;
       border: 1px solid $green-12;
       color: $black;
+    }
+
+    @media ( max-width: 600px ) {
+      margin-top: 4rem;
     }
   }
 
@@ -302,8 +307,8 @@
 
 
     @media(max-width: 600px ) {
-      width: 10rem;
-      height: 5rem;
+      width: 12rem;
+      height: 4.5rem;
     }
   }
 
@@ -548,7 +553,7 @@
       grid-column: 1 / span 2;
       
       align-self: start;
-      width: 20rem;
+      width: 27.5rem;
       display: flex;
       justify-content: space-between;
     }

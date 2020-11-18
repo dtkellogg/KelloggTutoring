@@ -20,9 +20,12 @@ import { addToCart } from '../actions/cartActions'
 import PaymentSteps from '../components/PaymentSteps'
 import Sidebar from "../components/Sidebar";
 
+import PleaseLogin from './UserPleaseLoginScreen'
+
 // import Checkout from './PaymentCheckoutScreen'
 // import PaymentMethod from './PaymentMethodScreen'
 import { subheader } from "../actions/subheader";
+import PleaseLoginScreen from './UserPleaseLoginScreen';
 
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
 // const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
@@ -141,13 +144,7 @@ export default function Payments({ match, history }) {
       <div className="appointments">
         {!userInfo ? (
           <div className="">
-            <span className="text-size-2"> Please&nbsp; </span>
-            <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-              <span className="text-size-2" style={{ color: "blue" }}>
-                login&nbsp;
-              </span>
-            </Link>
-            <span className="text-size-2"> to view your appointments</span>
+            <PleaseLogin />
           </div>
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
