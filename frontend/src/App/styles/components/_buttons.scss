@@ -513,9 +513,11 @@
   &__payments--add-all {
     @extend %btn;
     padding: 0.35rem;
+    background-image: linear-gradient(to right, $yellow 0%, yellow  51%, $yellow  100%);
 
     width: 8rem;
-    color: $white;
+    color: $black;
+
 
     &:hover {
       background-color: $green-12;
