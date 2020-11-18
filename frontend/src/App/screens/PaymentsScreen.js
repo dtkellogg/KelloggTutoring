@@ -129,7 +129,6 @@ export default function Payments({ match, history }) {
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={apptsList} />
       <div className="appointments">
-        <PaymentSteps step1 step2 />
         <div>Hellllllo</div>
       </div>
     </div>
