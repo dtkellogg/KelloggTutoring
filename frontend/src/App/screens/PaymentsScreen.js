@@ -160,7 +160,7 @@ export default function Payments({ match, history }) {
             </Link>
 
         ) : (
-
+          <div className="">
           <div className="appointments__header--container">
             <Link
               to={`/appointments/payment-method`}
@@ -172,6 +172,101 @@ export default function Payments({ match, history }) {
               Please select appointments to pay for:
             </div>
           </div>
+          <table className="appointments__list text-size-3">
+           <thead className="thead">
+             <tr className="tr">
+               <th className="appointments__th--date">date</th>
+               <th className="appointments__th--time">time</th>
+               <th className="appointments__th--student">student</th>
+               <th className="appointments__th--subject">subject</th>
+               <th className="appointments__th--select">
+                 <button
+                  className="btn__payments--add-all"
+                  disabled={
+                    sortedAppts
+                      .filter((appt) => appt.student === userInfo.name)
+                      .filter((appt) => appt.paid === false).length === cart.length
+                  }
+                  style={{
+                    backgroundImage:
+                      sortedAppts
+                        .filter((appt) => appt.student === userInfo.name)
+                        .filter((appt) => appt.paid === false)
+                        .length === cart.length && "none",
+                    color:
+                      sortedAppts
+                        .filter(
+                          (appt) => appt.student === userInfo.name
+                        )
+                        .filter((appt) => appt.paid === false)
+                        .length !== cart.length
+                        ? "white"
+                        : "var(--old-blue-2)",
+                  }}
+                  onClick={(e) => addAllHandler(e)}
+                >
+                  {sortedAppts
+                    .filter((appt) => appt.student === userInfo.name)
+                    .filter((appt) => appt.paid === false).length !==
+                  cart.length
+                    ? "Add All"
+                    : "Added"}
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody className="tbody">
+            {sortedAppts
+              .filter((appt) => appt.student === userInfo.name)
+              .filter((appt) => appt.paid === false)
+              .map((appt, idx) => {
+                const date = appt.date.split("T")[0].split("-");
+                return (
+                  <tr key={appt._id} className="appointments__list--item">
+                    <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                    <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                    <td className="text-size-3 appointments__item--student">
+                      {appt.student}
+                    </td>
+                    <td className="text-size-3 appointments__item--subject">
+                      {appt.subject}
+                    </td>
+                    <td className="appointments__item--btns">
+                      {
+                        !appt.paid && (
+                          <button
+                            key={appt._id}
+                            className="btn__addToCart"
+                            disabled={cart.includes(appt._id)}
+                            style={{
+                              backgroundImage:
+                                cart.includes(appt._id) && "none",
+                              color: "var(--old-blue-2)",
+                            }}
+                            onClick={(e) =>
+                              addToCartHandler(e, idx, appt._id)
+                            }
+                          >
+                            <span
+                              style={{
+                                color:
+                                  !cart.includes(appt._id) && "white",
+                              }}
+                            >
+                              {!cart.includes(appt._id)
+                                ? "Add to cart"
+                                : "Added"}
+                            </span>
+                          </button>
+                        )
+                      }
+                    </td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </table>
+        </div>
         )}
 
       </div>
