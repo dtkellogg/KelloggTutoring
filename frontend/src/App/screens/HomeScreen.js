@@ -127,7 +127,7 @@ export default function HomePage() {
             </Link>
             <Link to={`/appointments/payments`} className="">
               <button className="btn__highlights--appointments">
-                Pay for appointments
+                Make a payment
               </button>
             </Link>
             <div className="highlights__appointments--btns-container">

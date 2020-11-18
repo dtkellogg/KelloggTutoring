@@ -74,15 +74,16 @@ export default function NavLower() {
 
   // const [hovering, attrs] = useHover()
 
-  // console.log(`searchInput: ${searchInput}`)
+  console.log(`filterDisplay: ${filterDisplay}`)
 
-  // console.log(subheader)
+  console.log(`searchInput: ${searchInput}`)
 
   const handleClick = () => {
     setSearchInput('')
   }
 
   const handleSearchChange = (e) => {
+    console.log(`e: ${e}`)
     
 
     let oldList = searchBar.map((item) => {
@@ -143,10 +144,10 @@ export default function NavLower() {
 
       <ul
         className="search__results"
-        style={{
-          display: searchInput === "" ? "none" : "block",
-          border: filterDisplay.length === 0 ? "none" : "2px solid var(--black)",
-        }}
+        style={
+          searchInput ? {display: "none"} : {display: "block"},
+          !filterDisplay ? { border: "none" } : {border: "2px solid var(--black)"}
+        }
       >
         {filterDisplay.map((item) => {
           const linkKey = uuid();
