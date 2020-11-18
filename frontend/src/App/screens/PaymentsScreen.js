@@ -203,7 +203,7 @@ export default function Payments({ match, history }) {
                         .filter((appt) => appt.paid === false).length !==
                       cart.length
                         ? "Add All"
-                        : "Added"}
+                        : "All Added"}
                     </button>
                   </th>
                 </tr>

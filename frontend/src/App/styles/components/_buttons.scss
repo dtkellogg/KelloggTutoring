@@ -121,7 +121,7 @@
   &__continue {
     @extend %btn;
     grid-column: 1 / span 1;
-    transform: translateY(-1rem);
+    // transform: translateY(-1rem);
     align-self: start;
     justify-self: start;
     padding: 0.5rem;
@@ -136,7 +136,7 @@
     }
 
     @media (max-width: 450px) {
-      transform: translateY(0.2rem);
+      transform: translateY(1rem);
       margin: 1rem 0;
     }
   }
