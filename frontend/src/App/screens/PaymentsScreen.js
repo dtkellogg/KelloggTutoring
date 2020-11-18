@@ -166,7 +166,7 @@ export default function Payments({ match, history }) {
                 Continue
               </Link>
               <div className="appointments__header text-size-2">
-                Please select appointments to pay for:
+                Select appointments to pay for:
               </div>
             </div>
             <table className="appointments__list text-size-3">
