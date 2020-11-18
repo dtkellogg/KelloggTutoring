@@ -125,53 +125,63 @@ export default function Payments({ match, history }) {
   //   <h1>Hello</h1>
   // )
 
-
   return (
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={apptsList} />
       <div className="appointments">
         <PaymentSteps step1 step2 />
-
         <h1>HELLLOGGG</h1>
-
-        {/* {!userInfo ? (
-
-          <div className="">
-            <span className="text-size-2"> Please&nbsp; </span>
-            <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-              <span className="text-size-2" style={{ color: "blue" }}>
-                login&nbsp;
-              </span>
-            </Link>
-            <span className="text-size-2"> to view your appointments</span>
-          </div>
-
-        ) : sortedAppts
-            .filter((appt) => appt.student === userInfo.name)
-            .filter((appt) => appt.paid === false).length === 0 ? (
-
-            <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-              You have no unpaid appointments
-            </Link>
-
-        ) : (
-
-          <div className="appointments__header--container">
-            <Link
-              to={`/appointments/payment-method`}
-              className="btn__continue text-size-5"
-            >
-              Continue
-            </Link>
-            <div className="appointments__header text-size-2">
-              Please select appointments to pay for:
-            </div>
-          </div>
-        )} */}
-
       </div>
     </div>
-  );
+  )
+
+
+  // return (
+  //   <div className="pg__appointment">
+  //     <Sidebar title="Appointments" list={apptsList} />
+  //     <div className="appointments">
+  //       <PaymentSteps step1 step2 />
+
+  //       <h1>HELLLOGGG</h1>
+
+        //  {!userInfo ? (
+
+        //   <div className="">
+        //     <span className="text-size-2"> Please&nbsp; </span>
+        //     <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+        //       <span className="text-size-2" style={{ color: "blue" }}>
+        //         login&nbsp;
+        //       </span>
+        //     </Link>
+        //     <span className="text-size-2"> to view your appointments</span>
+        //   </div>
+
+        // ) : sortedAppts
+        //     .filter((appt) => appt.student === userInfo.name)
+        //     .filter((appt) => appt.paid === false).length === 0 ? (
+
+        //     <Link to={`/login`} className="text-size-2 msg__userInfoNull">
+        //       You have no unpaid appointments
+        //     </Link>
+
+        // ) : (
+
+        //   <div className="appointments__header--container">
+        //     <Link
+        //       to={`/appointments/payment-method`}
+        //       className="btn__continue text-size-5"
+        //     >
+        //       Continue
+        //     </Link>
+        //     <div className="appointments__header text-size-2">
+        //       Please select appointments to pay for:
+        //     </div>
+        //   </div>
+        // )}
+
+  //     </div>
+  //   </div>
+  // );
 
 
 
