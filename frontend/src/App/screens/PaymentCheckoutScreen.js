@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 // import { PayPalButton } from "react-paypal-button-v2";
 import { listAppointments } from "../actions/appointmentActions";
+import useFormatAMPM from "../hooks/useFormatAMPM";
 // import { addToCart } from "../actions/cartActions";
 // import { payPayment } from "../actions/paymentActions";
 // import { PAYMENT_PAY_RESET } from "../constants/paymentConstants";
@@ -88,14 +89,9 @@ function PaymentCheckout({ match, history }) {
     );
   };
 
-  function formatAMPM(date) {
-    var hours = date.split(":")[0];
-    var minutes = date.split(":")[1];
-    var ampm = hours >= 12 ? "pm" : "am";
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    var strTime = hours + ":" + minutes + " " + ampm;
-    return strTime;
+  
+  function AMPMTime(time) {
+    return useFormatAMPM(time);
   }
 
 
@@ -168,7 +164,7 @@ function PaymentCheckout({ match, history }) {
                   return (
                     <tr key={id} className="appointments__list--item">
                       <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="text-size-3 appointments__item--time">{`${formatAMPM(appt.startTime)} - ${formatAMPM(appt.endTime)}`}</td>
+                      <td className="text-size-3 appointments__item--time">{`${AMPMTime(appt.startTime)} - ${AMPMTime(appt.endTime)}`}</td>
                       <td className="text-size-3 appointments__item--student">
                         $50.00
                       </td>

@@ -193,7 +193,7 @@ export default function Payments({ match, history }) {
                             .filter((appt) => appt.student === userInfo.name)
                             .filter((appt) => appt.paid === false).length !==
                           cart.length
-                            ? "black"
+                            ? "white"
                             : "var(--old-blue-2)",
                       }}
                       onClick={(e) => addAllHandler(e)}

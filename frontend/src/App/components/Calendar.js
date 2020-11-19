@@ -13,6 +13,9 @@ import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
 
 import { useSort } from '../hooks/useSort'
 
+import useFormatAMPM from "../hooks/useFormatAMPM";
+
+
 const { v4: uuid } = require("uuid");
 
 
@@ -193,22 +196,9 @@ export default function Calendar({ type }) {
   //   getAppts();
   // }, [dispatch]);
 
-
-
-
-  // To format time from 24hr to 12hr
-  function formatAMPM(date) {
-    var hours = date.split(':')[0];
-    var minutes = date.split(':')[1];
-    var ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    var strTime = hours + ':' + minutes + ' ' + ampm;
-    return strTime;
+  function AMPMTime(time) {
+    return useFormatAMPM(time);
   }
-
-  console.log(formatAMPM("15:30"));
-
 
 
 
@@ -340,7 +330,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={appt._id}>
-                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -388,7 +378,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div>
-                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}
@@ -425,7 +415,7 @@ export default function Calendar({ type }) {
                        {numDay.appts.map((appt) => {
                          return (
                            <div key={uuid()}>
-                             {formatAMPM(appt.startTime)} - {formatAMPM(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
                            </div>
                          );
                        })}

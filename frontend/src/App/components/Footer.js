@@ -10,7 +10,9 @@ export default function Footer() {
             <span role="img" aria-label="email emoji" className="footer__emoji">
               ✉️
             </span>
-            &nbsp; kelloggtutoring@gmail.com
+            <a href="mailto:kelloggtutoring@gmail.com">
+              &nbsp; kelloggtutoring@gmail.com
+            </a>
           </div>
           <div className="footer__contact-item text-size-3">
             <span role="img" aria-label="phone emoji" className="footer__emoji">
@@ -18,7 +20,7 @@ export default function Footer() {
             </span>
             {/* &nbsp;(please ask) */}
             <Link
-              to={`/contact/message-form`}
+              to={`/contact/message`}
               className="text-size-3 msg__userInfoNull"
             >
               (Please&nbsp;

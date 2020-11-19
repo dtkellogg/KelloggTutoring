@@ -188,6 +188,10 @@
 
 		&--radio-btn {
 			margin-right: 1.5rem;
+			display: flex;
+			align-items: center;
+			// justify-content: center;
+			transform: translateY(0.5rem);
 		}
 
 		&--radio-btns {

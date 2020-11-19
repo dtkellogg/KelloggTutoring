@@ -513,10 +513,10 @@
   &__payments--add-all {
     @extend %btn;
     padding: 0.35rem;
-    background-image: linear-gradient(to right, $yellow 0%, yellow  51%, $yellow  100%);
+    background-image: $labor-work;
 
     width: 8rem;
-    color: $black;
+    color: $white;
 
 
     &:hover {
@@ -531,6 +531,8 @@
     margin-right: 0.5rem;
     
     &--input {
+      margin-right: 0.5rem;
+      transform: translateY(0.2rem);
 
     }
 
