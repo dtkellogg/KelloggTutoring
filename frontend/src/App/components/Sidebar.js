@@ -35,7 +35,7 @@ export default function Sidebar({ title, list }) {
         {list.map((item) => {
           if (item === 'contact info') {
             return (
-              <button key={uuid()} onClick={handleScroll} style={{ WebkitOverflowScrolling: "touch", textTransform: 'uppercase', fontWeight: '400', border: 'none', background: 'none', color: 'var(--white)', fontSize: 'var(--text-size-5)', textAlign: 'left'}}>
+              <button className="btn__contact-info text-size-5" key={uuid()} onClick={handleScroll} >
                 contact info
               </button>)
           } else if (url.split('/').length === 3){
