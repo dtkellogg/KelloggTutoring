@@ -9,6 +9,11 @@
     flex-direction: column;
     height: min-content;
   }
+
+  @media (max-width: 950px) and (max-height: 450px) {
+    grid-template-columns: none;
+    min-height: 148vh;
+  }
 }
 
 .appointments {
@@ -40,6 +45,7 @@
       align-items: center;
       justify-items: center;
       width : 100%;
+      margin-bottom: 1rem;
     }
 
     @media (max-width: 600px) {

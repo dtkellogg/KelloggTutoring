@@ -264,7 +264,8 @@
     @extend %btn;
     @extend %btn--blue;
     margin-top: 1rem;
-    width: 8rem;
+    // width: 8rem;
+    width: 35rem;
 
     &:hover {
       background-color: $green-12;
