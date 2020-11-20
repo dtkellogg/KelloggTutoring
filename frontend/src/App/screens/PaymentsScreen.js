@@ -41,7 +41,7 @@ export default function Payments({ match, history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const cart2 = useSelector((state) => state.cart);
+  const reduxCart = useSelector((state) => state.cart);
 
 
   console.log(useWindowDimensions().height)
@@ -62,7 +62,7 @@ export default function Payments({ match, history }) {
 
     fetchAppts();
 
-    cart2.cartItems.forEach((appt) => {
+    reduxCart.cartItems.forEach((appt) => {
       setCart((cart) => cart.concat(appt.appointment));
     });
   }, [dispatch]); // eslint-disable-line react-hooks/exhaustive-deps

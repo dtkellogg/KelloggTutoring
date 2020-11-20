@@ -25,6 +25,7 @@ import PaymentSteps from "../components/PaymentSteps";
 import { removeFromCart } from "../actions/cartActions"
 import { createPayment } from "../actions/paymentActions";
 import Sidebar from "../components/Sidebar";
+import { CART_RESET } from "../constants/cartConstants";
 // import { subheader } from "../actions/subheader";
 
 
@@ -71,6 +72,7 @@ function PaymentCheckout({ match, history }) {
 
   React.useEffect(() => {
     if (success) {
+      dispatch({ type: CART_RESET });
       history.push(`/payment/${payment._id}/edit`);
       // history.push(`/home`);
     }

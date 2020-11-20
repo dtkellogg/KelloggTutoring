@@ -515,10 +515,10 @@
   &__payments--add-all {
     @extend %btn;
     padding: 0.35rem;
-    background-image: $labor-work;
+    // background-image: $labor-work;
 
     width: 8rem;
-    color: $white;
+    color: $gold;
 
 
     &:hover {
