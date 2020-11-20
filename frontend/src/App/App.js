@@ -16,6 +16,7 @@ import PageHeader from "./components/PageHeader";
 import Loading from "./components/Loading";
 import ApptsList from "./components/ApptsList"
 import Calendar from "./components/Calendar"
+import ReviewsList from "./components/ReviewsList"
 // const ApptsList = React.lazy(() => import("./components/ApptsList"))
 // const Calendar = React.lazy(() => import("./components/Calendar"))
 
@@ -42,6 +43,7 @@ const Payment = React.lazy(() => import("./screens/PaymentScreen"));
 const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
 // const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
+const ReviewCreate = React.lazy(() => import("./screens/ReviewCreateScreen"))
 const Reviews = React.lazy(() => import("./components/Reviews"));
 const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
 const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
@@ -220,6 +222,7 @@ export default function App() {
                   />
                  
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
+                  <Route exact path="/review/create-review" component={ReviewCreate} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/register" component={Register} />

@@ -262,11 +262,13 @@ export default function Calendar({ type }) {
       <div
         className={type === "home" ? "pg__home--calendar" : "pg__appointment"}
       >
-        {/* <div className="pg__appointment"> */}
-        {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
-        <PleaseLoginScreen />
+        {/* {type !== "home" && <Sidebar title="Appointments" list={apptsList} />} */}
+        <Sidebar title="Appointments" list={apptsList} />
+        <div className="appointments">
+          <PleaseLoginScreen />
+        </div>
       </div>
-    );
+    )
 	 } else {
 	 return (
      <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"}>

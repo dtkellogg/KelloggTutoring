@@ -49,8 +49,8 @@
 		}
 		@media (max-width: 900px) {
 			// width: 100%;
-			min-width: 44rem;
-			max-width: 44rem;
+			min-width: 50rem;
+			max-width: 50rem;
 		}
 
 		@media (max-width: 750px) {
@@ -110,8 +110,12 @@
 		justify-content: space-between;
 		height: 100%;
 
-		width: 50%;
+		width: 73%;
 		padding: 8rem 2rem;
+
+		grid-row: 1 / span 1;
+		grid-column: 2 / span 2;
+		padding: 4rem 2rem;
 
 		@media (max-width: 1050px) {
 			width: 100%;
@@ -208,6 +212,10 @@
 			@media (max-width: 1000px) {
 				margin-bottom: 1rem;
 			}
+		}
+
+		&--container {
+			display: flex;
 		}
 	}
 

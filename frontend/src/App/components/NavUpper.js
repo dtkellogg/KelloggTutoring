@@ -90,7 +90,7 @@ function NavUpper({ history }) {
 
           <li className="nav__user-icons nav__list-item">
             {userInfo ? (
-              <h1 className="nav__user-name text-size-3">{userInfo.name}</h1>
+              <h1 className="nav__user-name text-size-3">{userInfo.name.split(" ")[0]}</h1>
             ) : (
               <FaUserCircle
                 size={30}

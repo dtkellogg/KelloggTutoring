@@ -65,7 +65,7 @@
     @include flexCenterCenter($justify-content: space-between);
     background-color: $grey-light-9;
     border-bottom: 1px solid $grey-light-6;
-    padding: 1rem 1rem 1rem 12rem;
+    padding: 1rem 1rem 1rem 2rem;
     position: relative;
     // overflow: hidden;
   }
@@ -189,7 +189,7 @@
   }
 
   &__wrapper {
-    width: 20.5rem;
+    width: 23rem;
     text-align: right;
     display: flex;
     align-items: center;
@@ -217,5 +217,5 @@ input[type="text"]::placeholder {
 }
 
 input[type="text"] {
-  color: $black;
+  // color: $black;
 }

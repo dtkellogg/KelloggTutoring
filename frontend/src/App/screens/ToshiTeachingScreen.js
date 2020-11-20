@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { subheader } from "../actions/subheader";
 import Sidebar from "../components/Sidebar";
 
 const toshiList = [
@@ -9,6 +12,13 @@ const toshiList = [
 ];
 
 export default function ToshiTeaching() {
+
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch(subheader("Schedule, Manage and Pay"));
+  }, []);
+
   return (
     <div className="pg__meetToshi">
       <Sidebar title="Toshi" list={toshiList} />

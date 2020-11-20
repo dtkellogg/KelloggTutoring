@@ -175,11 +175,8 @@ export default function HomePage() {
             <ApptsList type="upcoming"/>
             </div>
           ) : userInfo ? (
-            <div className="highlights__appointments--appointments__list-container">
             <Calendar type="home"/>
-              </div>
           ) : (
-             <div className="highlights__appointments--appointments__list-container">
             <Link to={`/login`} className="text-size-2 msg__userInfoNull">
               Please&nbsp;
               <span className="text-size-2" style={{ color: "blue" }}>
@@ -187,7 +184,6 @@ export default function HomePage() {
               </span>
               <span className="text-size-2"> to view your appointments</span>
             </Link>
-            </div>
           )}
         </div>
       </div>
@@ -201,3 +197,4 @@ export default function HomePage() {
     </div>
   );
 }
+

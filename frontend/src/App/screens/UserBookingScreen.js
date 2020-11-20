@@ -66,7 +66,7 @@ export default function UserBookingScreen({ location, history, type}) {
   ]);
 
   React.useEffect(() => {
-      dispatch(subheader("Schedule, Manage and Pay"));
+    dispatch(subheader("Schedule, Manage and Pay"));
   }, []);
 
   const handleSubmit = async (e) => {

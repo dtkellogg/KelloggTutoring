@@ -64,6 +64,7 @@
     outline: none;
     transition: 1s;
     width: 55%;
+    padding-left: 2rem;
 
     &--hover {
       @extend %btn--blue;
@@ -96,7 +97,7 @@
   &__pay {
     @extend %btn;
     color: $white;
-    width: 12rem;
+    width: 13rem;
 
     @media(max-width: 600px ) {
       width: 12rem;
@@ -293,7 +294,7 @@
     align-items: center;
     justify-content: center;
 
-    transform: translateY(-1.75rem);
+    transform: translateY(1rem);
 
     &:hover {
       background-color: $green-12;
@@ -306,7 +307,7 @@
     @extend %btn;
     margin-right: 1.25rem;
     color: $white;
-    width: 12rem;
+    width: 13rem;
 
 
     @media(max-width: 600px ) {
@@ -561,7 +562,7 @@
     grid-column: 2 / span 1;
     
     
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       // display: flex;
       // width: 30rem;
     }

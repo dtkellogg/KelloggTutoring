@@ -103,7 +103,7 @@ export default function NavLower() {
 
   return (
     <nav className="nav__lower">
-      <h3 className="text-size-3">{subheader.error}</h3>
+      <h3 className="text-size-3">{subheader}</h3>
       <div className="search__wrapper">
         <input
           value={searchInput}

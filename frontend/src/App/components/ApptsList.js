@@ -68,7 +68,9 @@ export default function ApptsList({ location, type }) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
-        <PleaseLoginScreen />
+        <div className="appointments">
+          <PleaseLoginScreen />
+        </div>
       </div>
     );
   }
