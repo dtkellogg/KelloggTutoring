@@ -13,8 +13,8 @@
 			@include flexCenterCenter($justify-content: space-between);
 			margin-bottom: 2rem;
 
-			@media ( max-width: 600px ) {
-				margin-bottom: 0;
+			@media ( max-width: 900px ) {
+				// margin-bottom: 0;
 				width: 100%;
 			}
 		}
