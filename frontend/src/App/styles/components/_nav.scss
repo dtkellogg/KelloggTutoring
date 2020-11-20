@@ -24,6 +24,13 @@
     padding-left: 2rem;
     color: $black;
 
+    &--text {
+      // background-color: $red;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
     &--right-container {
       @include flexCenterCenter($justify-content: space-between);
       height: 100%;

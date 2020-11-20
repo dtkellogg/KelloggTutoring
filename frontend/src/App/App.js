@@ -17,6 +17,7 @@ import Loading from "./components/Loading";
 import ApptsList from "./components/ApptsList"
 import Calendar from "./components/Calendar"
 import ReviewsList from "./components/ReviewsList"
+import LoadingSpinner from "./components/LoadingSpinner"
 // const ApptsList = React.lazy(() => import("./components/ApptsList"))
 // const Calendar = React.lazy(() => import("./components/Calendar"))
 
@@ -119,7 +120,7 @@ export default function App() {
         <div className="container__body">
           <React.Suspense
             //  fallback={() => setLoading(true)}
-            fallback={<Loading />}
+            fallback={<LoadingSpinner />}
           >
             <TransitionGroup>
               <CSSTransition timeout={250} classNames="fade" key={location.key}>

@@ -19,7 +19,7 @@ import { subheader } from "../actions/subheader";
 import PleaseLoginScreen from './UserPleaseLoginScreen';
 
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
-// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"]
 
 
 
@@ -42,6 +42,8 @@ export default function Payments({ match, history }) {
   const { userInfo } = userLogin;
 
   const reduxCart = useSelector((state) => state.cart);
+
+  const { width, height } = useWindowDimensions()
 
 
   console.log(useWindowDimensions().height)
@@ -134,7 +136,7 @@ export default function Payments({ match, history }) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar title="Appointments" list={apptsList} />
+      <Sidebar title="Appointments" list={width < 400 ? appointmentsList : apptsList} />
       <div className="appointments">
         {!userInfo ? (
           <div className="">

@@ -37,6 +37,7 @@
 
   &__body {
     background-color: $white;
+    position: relative;
     display: inline-grid;
     height: min-content;
     // scroll-snap-type: y mandatory;

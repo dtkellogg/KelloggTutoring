@@ -8,6 +8,8 @@ import {
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { logout } from '../actions/userActions'
 
+import useWindowDimensions from '../hooks/useWindowDimensions'
+
 
 const activeStyle = {
   // color: "var(--old-blue-2)",
@@ -20,6 +22,12 @@ function NavUpper({ history }) {
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
+
+  // console.log(useWindowDimensions()
+
+  const { width, height } = useWindowDimensions()
+
+  console.log(width, height)
 
   const handleLogout = (e) => {
     e.preventDefault()
@@ -38,7 +46,7 @@ function NavUpper({ history }) {
 
   return (
     <nav className="nav__upper">
-      <div className="logo">
+      <div className="nav__upper--text">
         <a href="/">
           <h1 className="text-size-1 nav__upper-header">
             <span className="nav__upper--title-text">
@@ -62,6 +70,7 @@ function NavUpper({ history }) {
               activeStyle={activeStyle}
               className="nav__link text-size-5 letter-spacing-sm"
             >
+              {/* {width > 600 ? "Appointments" : "Appts"} */}
               {/* Apptments */}
               Appts
             </NavLink>
