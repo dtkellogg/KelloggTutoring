@@ -175,23 +175,22 @@ export default function Reviews({type}) {
               : "pg__home--review-container"
           }
         >
-          
-
           <div
             className="reviews"
             style={
               type === "meetToshi" ? { display: "block" } : { display: "flex" }
             }
           >
-            
-             
-              <Link to={`/review/create-review`} className="btn__adminApptsList">
+            {type === "meetToshi" && (
+              <Link
+                to={`/review/create-review`}
+                className="btn__adminApptsList"
+              >
                 <span className="text-size-6" style={{ textAlign: "center" }}>
                   Create Review
                 </span>
               </Link>
-            
-            
+            )}
 
             <ReviewsList type={type} />
           </div>

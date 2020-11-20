@@ -13,15 +13,9 @@ const toshiList = [
 
 export default function ToshiTeaching() {
 
-  const dispatch = useDispatch()
-
-  React.useEffect(() => {
-    dispatch(subheader("Schedule, Manage and Pay"));
-  }, []);
-
   return (
     <div className="pg__meetToshi">
-      <Sidebar title="Toshi" list={toshiList} />
+    <Sidebar title="Toshi" list={toshiList} />
     <div className="pg__meetToshi--card__meetToshi">
       <h2 className="text-size-2 pg__meetToshi--card__meetToshi--header  letter-spacing-sm">
         {/* How will I prepare you for your upcoming academic endevours? */}

@@ -28,17 +28,6 @@ const randomHand = hands[Math.floor(Math.random() * hands.length)];
 export default function PageHeader({ location, history, page }) {
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    page === "appts" 
-      ? dispatch(subheader("Schedule, Manage and Pay"))
-    : page === "meetToshi" 
-      ? dispatch(subheader("Teaching, Background and Reviews"))
-    : page === "contact" 
-      ? dispatch(subheader("Message, Schedule and Contact"))
-    : dispatch(subheader("Admin"));
-  }
-  , [location, dispatch, page])
-
     return (
       <div className="pg__appointment">
         <Sidebar

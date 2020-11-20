@@ -3,12 +3,13 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetails } from "../actions/userActions";
 import Sidebar from "../components/Sidebar";
+import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 
 
 // const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
 const contactList = ['message', 'schedule', 'contact info'];
 
-function getFormattedPhoneNum(input) {
+function FormattedPhoneNum(input) {
   let output = "(";
   input.replace(/^\D*(\d{0,3})\D*(\d{0,3})\D*(\d{0,4})/, function (match, g1, g2, g3) {
     if (g1.length) {
@@ -180,7 +181,7 @@ export default function MessageScreen({ history }) {
                 // format="(###) ###-####"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="(xxx) xxx - xxxx"
-                value={phone ? getFormattedPhoneNum(phone) : phone}
+                value={phone ? FormattedPhoneNum(phone) : phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>

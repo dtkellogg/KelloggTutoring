@@ -1,29 +1,20 @@
 import React from 'react'
-// import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import {
     Link, 
-    // Route,
-    // Switch,
-    // useRouteMatch, 
     useLocation} from 'react-router-dom'
+
 import { useSortMultiple } from "../hooks/useSort";
-// import {PayPalButton} from 'react-paypal-button-v2'
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import { listAppointments } from '../actions/appointmentActions'
 import { addToCart } from '../actions/cartActions'
-// import { payPayment } from '../actions/paymentActions'
 
-// import { PAYMENT_PAY_RESET } from '../constants/paymentConstants'
-
-// import Message from '../components/Message'
 import PaymentSteps from '../components/PaymentSteps'
 import Sidebar from "../components/Sidebar";
 
 import PleaseLogin from './UserPleaseLoginScreen'
 
-// import Checkout from './PaymentCheckoutScreen'
-// import PaymentMethod from './PaymentMethodScreen'
 import { subheader } from "../actions/subheader";
 import PleaseLoginScreen from './UserPleaseLoginScreen';
 
@@ -51,6 +42,9 @@ export default function Payments({ match, history }) {
   const { userInfo } = userLogin;
 
   const cart2 = useSelector((state) => state.cart);
+
+
+  console.log(useWindowDimensions().height)
 
 
  
@@ -149,9 +143,11 @@ export default function Payments({ match, history }) {
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
             .filter((appt) => appt.paid === false).length === 0 ? (
-          <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-            You have no unpaid appointments
-          </Link>
+            <div className="container__no-appts">
+              <div className="text-size-2 msg__userInfoNull">
+                You have no unpaid appointments
+              </div>
+            </div>
         ) : (
           <div className="">
             <PaymentSteps step1 step2 />

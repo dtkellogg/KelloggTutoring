@@ -65,9 +65,18 @@ export default function UserBookingScreen({ location, history, type}) {
     submitted,
   ]);
 
-  React.useEffect(() => {
-    dispatch(subheader("Schedule, Manage and Pay"));
-  }, []);
+  // React.useEffect(() => {
+  //   if (loading ) {
+  //     dispatch(subheader("Loading..."));
+  //   } else {
+  //     dispatch(subheader(""));
+  //   }
+
+  //   if (error) {
+  //     dispatch(subheader({ error }));
+  //   }
+  // }, [loading, error]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

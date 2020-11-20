@@ -77,7 +77,7 @@ export default function HomePage() {
             <span className="hero__thought-clouds text-size-2">O</span>
           </div> */}
           <div className="container__hero--text">
-            <h1 className="text-size-0 letter-spacing-lg">Welcome</h1>
+            <h1 className="text-size-0 letter-spacing-lg container__hero--welcome">Welcome</h1>
             <h3 className="text-size-2">Tutoring Simplified.</h3>
             <h4 className="text-size-3">
               Math, Science, English, Spanish, SAT & ACT

@@ -102,9 +102,13 @@ export default function ApptsList({ location, type }) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
-      <h2 className="text-size-2 msg__no-prev-appts">
-        You have no appointment history
-      </h2>
+        <div className="appointments">
+          <div className="container__no-appts">
+            <h2 className="text-size-2 msg__no-prev-appts">
+              You have no appointment history
+            </h2>
+          </div>
+        </div>
       </div>
     );
   }

@@ -9,6 +9,7 @@
 	border: 1px solid $black;
 	background-color: $grey-light-7;
 	overflow: hidden;
+	min-height: 57vh;
 
 	@media (max-width: 650px) {
 			// display: none;
