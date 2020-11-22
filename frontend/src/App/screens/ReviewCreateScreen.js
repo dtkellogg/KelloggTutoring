@@ -1,9 +1,15 @@
+// react
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
+
+// actions
 import { createReview } from "../actions/reviewActions";
 import { getUserDetails } from "../actions/userActions";
+
+// components
 import Sidebar from "../components/Sidebar";
 
+// data
 const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
 export default function ReviewCreateScreen() {

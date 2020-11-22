@@ -1,21 +1,17 @@
+// react
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+// actions
 import { subheader } from "../actions/subheader";
 import { getReviewDetails, updateReview } from "../actions/reviewActions";
-// import { USER_UPDATE_RESET } from "../constants/userConstants";
-// import Sidebar from "../components/Sidebar";
+
+// constants
 import { REVIEW_UPDATE_RESET } from "../constants/reviewConstants";
 
-// const adminList = [
-//   "User List",
-//   "Appointments",
-  // "Reviews",
-  // "Blog",
-// ];
 
 export default function ReviewEdit({ match, history, location }) {
-//   console.log(`match: ${match}`);
   const reviewId = match.params.id;
 
   const [name, setName] = React.useState("");
@@ -69,7 +65,6 @@ export default function ReviewEdit({ match, history, location }) {
   };
 
     const handleRadioBtnChange = (e) => {
-      // e.preventDefault();
       setRelation(e.target.value);
     };
 
@@ -81,11 +76,9 @@ export default function ReviewEdit({ match, history, location }) {
       <form onSubmit={handleSubmit} className="reviewEditScreen user__page">
         <div className="reviewEditScreen__header">
           <h2 className="text-size-2 letter-spacing-sm">
-            {/* Any Questions? */}
             Edit Review
           </h2>
 
-          {/* {message && <h1>{message}</h1>} */}
         </div>
         <div className="reviewEditScreen__content">
           <div className="reviewEditScreen__element">

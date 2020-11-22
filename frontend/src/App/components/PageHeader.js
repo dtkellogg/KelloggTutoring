@@ -5,6 +5,8 @@ import { subheader } from "../actions/subheader";
 
 import Sidebar from "./Sidebar";
 
+import PropTypes from "prop-types";
+
 
 
 
@@ -22,6 +24,7 @@ const adminList = [ "User List", "Appointments", "Reviews", "Blog"];
 
 const hands = ["👈🏻","👈🏼","👈🏽","👈🏾","👈🏿","👈"]
 const randomHand = hands[Math.floor(Math.random() * hands.length)];
+
 
 
 
@@ -63,4 +66,8 @@ export default function PageHeader({ location, history, page }) {
         </div>
       </div>
     );
+}
+
+PageHeader.propTypes = {
+  page: PropTypes.string
 }

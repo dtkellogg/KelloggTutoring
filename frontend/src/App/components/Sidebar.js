@@ -18,7 +18,6 @@ function CustomLink({ to, children }) {
 
 
 export default function Sidebar({ title, list }) {
-  // console.log(`title: ${title}. List: ${list}`);
   const { url } = useRouteMatch();
   const location = useLocation();
   
@@ -39,8 +38,6 @@ export default function Sidebar({ title, list }) {
                 contact info
               </button>)
           } else if (url.split('/').length === 3){
-            // console.log(`URL: ${url}`)
-            // console.log(url.split('/').length)
             return (
               <CustomLink
                 key={item}
@@ -54,22 +51,20 @@ export default function Sidebar({ title, list }) {
             )
           }
           else {
-            // console.log(`URL: ${url}`)
-            // console.log(url.split('/').length)
 
-          return (
-            
-          <CustomLink
-            key={item}
-            to={{
-              pathname: `${url}/${slug(item)}`,
-              search: location.search,
-            }}
-          >
-            {item.toUpperCase()}
-          </CustomLink>
-          )}
-})}
+            return (
+              <CustomLink
+                key={item}
+                to={{
+                  pathname: `${url}/${slug(item)}`,
+                  search: location.search,
+                }}
+              >
+                {item.toUpperCase()}
+              </CustomLink>
+            )
+          }
+        })}
       </ul>
     </div>
   );

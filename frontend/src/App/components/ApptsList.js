@@ -18,6 +18,7 @@ import PleaseLoginScreen from "../screens/UserPleaseLoginScreen.js"
 
 import { subheader } from "../actions/subheader";
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
+import PropTypes from "prop-types";
 
 
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
@@ -561,7 +562,7 @@ export default function ApptsList({ location, type }) {
                 </td>
                 {/* <button className="btn__cancel">Cancel</button> */}
               </tr>
-            );
+            ); 
           })}
         </tbody>
       </table>
@@ -570,3 +571,7 @@ export default function ApptsList({ location, type }) {
 
   return null
 }
+
+ApptsList.propTypes = {
+  type: PropTypes.string,
+};

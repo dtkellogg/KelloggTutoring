@@ -22,7 +22,7 @@ export default function ToshiTeaching() {
         Style & Expertise
       </h2>
 
-      <p className="text-size-3 pg__meetToshi--card__meetToshi--p">
+      {/* <p className="text-size-3 pg__meetToshi--card__meetToshi--p">
         My philosophy is simple and focuses on reinforcing what I have found to
         be the most fundamental pillars of learning: <span style={{ color: 'var(--old-blue-2)'}}>confidence</span>, <span style={{ color: 'var(--old-blue-2)'}}>calmness</span > and
         <span style={{ color: 'var(--old-blue-2)'}}> making you the teacher.</span >
@@ -47,7 +47,7 @@ export default function ToshiTeaching() {
         For many years, I have watched how people learn new things. Everyone is different. However, the one thing that's shared 
         is that getting somewhere is never easy. Everyone who succeeds has to esentially work so hard that they are outcompeting
         their peers.
-      </p>
+      </p> */}
       
     </div>
     </div>

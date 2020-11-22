@@ -65,23 +65,22 @@ export default function UserBookingScreen({ location, history, type}) {
     submitted,
   ]);
 
-  // React.useEffect(() => {
-  //   if (loading ) {
-  //     dispatch(subheader("Loading..."));
-  //   } else {
-  //     dispatch(subheader(""));
-  //   }
+  React.useEffect(() => {
+    if (loading ) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
+    }
 
-  //   if (error) {
-  //     dispatch(subheader({ error }));
-  //   }
-  // }, [loading, error]);
+    if (error) {
+      dispatch(subheader({ error }));
+    }
+  }, [loading, error]);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // console.log(`sAS: ${subject}, ${student}, ${date}, ${duration}, ${time}`)
 
     setSubmitted(true);
 
@@ -90,7 +89,6 @@ export default function UserBookingScreen({ location, history, type}) {
     );
   };
 
-  // console.log(`TYPE: ${type}`);
 
   return (
     <div className="pg__appointment">

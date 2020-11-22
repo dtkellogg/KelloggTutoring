@@ -29,18 +29,6 @@ const PaymentMethodScreen = ({ history }) => {
     dispatch({type: CART_RESET})
   }
 
-  // React.useEffect(() => {
-  //   if (loading) {
-  //     dispatch(subheader("Loading..."));
-  //   } else {
-  //     dispatch(subheader(""));
-  //   }
-  //   if (error) {
-  //     dispatch(subheader({ error }));
-  //   }
-  // }, [loading, error])
-
-
   return (
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={appointmentsList} />
@@ -85,7 +73,7 @@ const PaymentMethodScreen = ({ history }) => {
         </div>
       </form>
 
-      {/* <button onClick={handleDelete}>jhbadjbhbhda</button> */}
+      <button onClick={handleDelete}>RESET CART</button>
     </div>
     </div>
   );

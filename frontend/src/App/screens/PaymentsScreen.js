@@ -1,23 +1,25 @@
+// react
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-    Link, 
-    useLocation} from 'react-router-dom'
+import { Link,  useLocation} from 'react-router-dom'
 
+// hooks
 import { useSortMultiple } from "../hooks/useSort";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
+// actions
 import { listAppointments } from '../actions/appointmentActions'
 import { addToCart } from '../actions/cartActions'
+import { subheader } from "../actions/subheader";
 
+// components
 import PaymentSteps from '../components/PaymentSteps'
 import Sidebar from "../components/Sidebar";
 
+// screens
 import PleaseLogin from './UserPleaseLoginScreen'
 
-import { subheader } from "../actions/subheader";
-import PleaseLoginScreen from './UserPleaseLoginScreen';
-
+// data
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
 const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"]
 
@@ -32,7 +34,6 @@ export default function Payments({ match, history }) {
   // const { url, path } = useRouteMatch()
   const [disabledBtns, setDisabledBtns] = React.useState([]); // eslint-disable-line no-unused-vars
 
-  // const cart = []
 
   const appointmentList = useSelector((state) => state.appointmentList);
   const { loading, error, appointments } = appointmentList;
@@ -43,11 +44,7 @@ export default function Payments({ match, history }) {
 
   const reduxCart = useSelector((state) => state.cart);
 
-  const { width, height } = useWindowDimensions()
-
-
-  console.log(useWindowDimensions().height)
-
+  const { width, height } = useWindowDimensions() // eslint-disable-line no-unused-vars
 
  
 
@@ -98,40 +95,25 @@ export default function Payments({ match, history }) {
   };
 
   
+
   ////////////////////////////////
   // The line below is just for testing purposes
 
   // localStorage.clear()
+  ////////////////////////////////
 
 
-  // React.useEffect(() => {
-  //   if (loading) {
-  //     dispatch(subheader("Loading..."));
-  //   } else {
-  //     dispatch(subheader(""));
-  //   }
-  //   if (error) {
-  //     dispatch(subheader({ error }));
-  //   }
-  // }, [dispatch, loading, error]);
+  React.useEffect(() => {
+    if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
+    }
+    if (error) {
+      dispatch(subheader({ error }));
+    }
+  }, [dispatch, loading, error]);
 
-  console.log(`userInfo: ${userInfo}`)
-  console.log(`sortedAppts: ${sortedAppts}`)
-
-  
-
-  // return(
-  //   <h1>Hello</h1>
-  // )
-
-  // return (
-  //   <div className="pg__appointment">
-  //     <Sidebar title="Appointments" list={apptsList} />
-  //     <div className="appointments">
-  //       <div>Hellllllo</div>
-  //     </div>
-  //   </div>
-  // )
 
 
   return (
@@ -259,156 +241,4 @@ export default function Payments({ match, history }) {
       </div>
     </div>
   );
-
-
-
-
-
-
-
-
-
-  // Something is wrong with whole return statement...
-  
-  // if (userInfo === null) {
-  //   return (
-  //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
-  //       <div className="appointments-2">
-  //         <span className="text-size-2"> Please&nbsp; </span>
-  //         <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-  //           <span className="text-size-2" style={{ color: "blue" }}>
-  //             login&nbsp;
-  //           </span>
-  //         </Link>
-  //         <span className="text-size-2"> to view your appointments</span>
-  //       </div>
-  //     </div>
-  //   )
-  //   } else if (sortedAppts
-  //     .filter((appt) => appt.student === userInfo.name)
-  //     .filter((appt) => appt.paid === false).length === 0
-  //   )
-  // { return  (
-  //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
-  //       <div className="appointments">
-  //         <Link to={`/login`} className="text-size-2 msg__userInfoNull">
-  //           You have no unpaid appointments
-  //         </Link>
-  //       </div>
-  //     </div>
-  // )} else {
-  //   return (
-  //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
-  //       <div className="appointments">
-  //       <PaymentSteps step1 step2 />
-  //       <div className="appointments__header--container">
-  //         <Link to={`/appointments/payment-method`} className="btn__continue text-size-5">
-  //           Continue
-  //         </Link>
-  //         <div className="appointments__header text-size-2">
-  //           Please select appointments to pay for:
-  //         </div>
-  //       </div>
-  //       <table className="appointments__list text-size-3">
-  //         <thead className="thead">
-  //           <tr className="tr">
-  //             <th className="appointments__th--date">date</th>
-  //             <th className="appointments__th--time">time</th>
-  //             <th className="appointments__th--student">student</th>
-  //             <th className="appointments__th--subject">subject</th>
-  //             <th className="appointments__th--select">
-  //               <button
-  //                 className="btn__payments--add-all"
-  //                 disabled={
-  //                   sortedAppts
-  //                     .filter((appt) => appt.student === userInfo.name)
-  //                     .filter((appt) => appt.paid === false).length === cart.length
-  //                 }
-  //                 style={{
-  //                   backgroundImage:
-  //                     sortedAppts
-  //                       .filter((appt) => appt.student === userInfo.name)
-  //                       .filter((appt) => appt.paid === false)
-  //                       .length === cart.length && "none",
-  //                   color:
-  //                     sortedAppts
-  //                       .filter(
-  //                         (appt) => appt.student === userInfo.name
-  //                       )
-  //                       .filter((appt) => appt.paid === false)
-  //                       .length !== cart.length
-  //                       ? "white"
-  //                       : "var(--old-blue-2)",
-  //                 }}
-  //                 onClick={(e) => addAllHandler(e)}
-  //               >
-  //                 {sortedAppts
-  //                   .filter((appt) => appt.student === userInfo.name)
-  //                   .filter((appt) => appt.paid === false).length !==
-  //                 cart.length
-  //                   ? "Add All"
-  //                   : "Added"}
-  //               </button>
-  //             </th>
-  //           </tr>
-  //         </thead>
-  //         <tbody className="tbody">
-  //           {sortedAppts
-  //             .filter((appt) => appt.student === userInfo.name)
-  //             .filter((appt) => appt.paid === false)
-  //             .map((appt, idx) => {
-  //               const date = appt.date.split("T")[0].split("-");
-  //               return (
-  //                 <tr key={appt._id} className="appointments__list--item">
-  //                   <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-  //                   <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-  //                   <td className="text-size-3 appointments__item--student">
-  //                     {appt.student}
-  //                   </td>
-  //                   <td className="text-size-3 appointments__item--subject">
-  //                     {appt.subject}
-  //                   </td>
-  //                   <td className="appointments__item--btns">
-  //                     {
-  //                       !appt.paid && (
-  //                         <button
-  //                           key={appt._id}
-  //                           className="btn__addToCart"
-  //                           disabled={cart.includes(appt._id)}
-  //                           style={{
-  //                             backgroundImage:
-  //                               cart.includes(appt._id) && "none",
-  //                             color: "var(--old-blue-2)",
-  //                           }}
-  //                           onClick={(e) =>
-  //                             addToCartHandler(e, idx, appt._id)
-  //                           }
-  //                         >
-  //                           <span
-  //                             style={{
-  //                               color:
-  //                                 !cart.includes(appt._id) && "white",
-  //                             }}
-  //                           >
-  //                             {!cart.includes(appt._id)
-  //                               ? "Add to cart"
-  //                               : "Added"}
-  //                           </span>
-  //                         </button>
-  //                       )
-  //                     }
-  //                   </td>
-  //                 </tr>
-  //               )
-  //             })}
-  //         </tbody>
-  //       </table>
-  //       </div>
-  //       </div>
-  //  )
-  //           }
-  
 }

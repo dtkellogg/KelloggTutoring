@@ -1,19 +1,18 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
 
 import { listAppointments } from "../actions/appointmentActions"
-// import { subheader } from "../actions/subheader";
+
 
 import Sidebar from "./Sidebar";
 
 import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
 
 import { useSort } from '../hooks/useSort'
-
 import useFormatAMPM from "../hooks/useFormatAMPM";
+import PropTypes from "prop-types";
 
 
 const { v4: uuid } = require("uuid");
@@ -55,10 +54,6 @@ export default function Calendar({ type }) {
 	}
 
 
-	
-
-  // console.log(`DATE: ${date}`)
-	
 
 	
 	const getCalendarDays = (date) => {
@@ -66,12 +61,10 @@ export default function Calendar({ type }) {
 		var monthStr = months[monthIdx]
 		var nextMonthStr = months[monthIdx + 1]
 		var lastMonthStr = months[monthIdx - 1]
-		// console.log(`WDLKBASD ${date.getFullYear()}`)
 		var year = date.getFullYear();
 
 		setDay(date.getDate())
 		setMonth(monthStr)
-		// setYear(date.getFullYear())
 
 		let firstDayOfCurrentMonth = days[date.getDay() + 1];
 		let numDaysOfPreviousMonth = days.indexOf(firstDayOfCurrentMonth)
@@ -128,12 +121,7 @@ export default function Calendar({ type }) {
       return setCalendarDays(arrayAllDays);
     }
     
-    // console.log(`ALLDAYSWITHAPPS: ${allDaysWithAppts}`)
-    // console.log(`ARRAYALLDAYS: ${arrayAllDays}`)
-    // console.log(arrayAllDays[0])
-
 		setCalendarDays(allDaysWithAppts)
-		// setCalendarDays(arrayAllDays)
 	}
 
 
@@ -156,21 +144,51 @@ export default function Calendar({ type }) {
 			setMonth(newMonth)
 			getCalendarDays(date)
 
-	} else {
-		let indexOfLastMonth = 11
+    } else {
+      let indexOfLastMonth = 11
+      date.setMonth(indexOfLastMonth)
 
-		date.setMonth(indexOfLastMonth)
+      let newMonth = months[11]
 
-		let newMonth = months[11]
+      setYear((year) => year - 1)
 
-			setYear((year) => year - 1)
-
-		setMonth(newMonth)
-		setDate(date)
-		getCalendarDays(date)
-	}
+      setMonth(newMonth)
+      setDate(date)
+      getCalendarDays(date)
+    }
   }
   
+
+  
+
+
+	const handleForwards = () => {
+		if (months.indexOf(month) < 11) {
+		
+			let indexOfCurrentMonth = months.indexOf(month)
+			let indexOfNextMonth = indexOfCurrentMonth + 1
+			date.setMonth(indexOfNextMonth)
+      
+			let newMonth = months[months.indexOf(month) + 1]
+
+
+			setMonth(newMonth)
+			setDate(date)
+			getCalendarDays(date)
+
+		} else {
+			let indexOfNextMonth = 0
+			let newMonth = months[0]
+
+			date.setMonth(indexOfNextMonth)
+
+
+			setYear((year) => year + 1)
+			setMonth(newMonth)
+			setDate(date)
+			getCalendarDays(date)
+		}
+  }
 
   React.useEffect(() => {
     if (sortedAppts) {
@@ -185,84 +203,15 @@ export default function Calendar({ type }) {
   }, [dispatch]);
 
 
-  // React.useEffect(() => {
-  //   async function getAppts() {
-  //     await dispatch(listAppointments()).then((data) => {
-  //       console.log(data);
-  //       getCalendarDays(date);
-  //     });
-  //   }
-
-  //   getAppts();
-  // }, [dispatch]);
 
   function AMPMTime(time) {
     return useFormatAMPM(time);
   }
 
 
-
-
-
-
-	const handleForwards = () => {
-		// console.log(`MONTH: ${month}`)
-		// console.log(`YEAR: ${year}`)
-		if (months.indexOf(month) < 11) {
-		
-			let indexOfCurrentMonth = months.indexOf(month)
-			let indexOfNextMonth = indexOfCurrentMonth + 1
-
-			date.setMonth(indexOfNextMonth)
-
-			let newMonth = months[months.indexOf(month) + 1]
-
-			// if (month === 'January') {
-			// 	setYear(year + 1)
-			// }
-
-			setMonth(newMonth)
-			setDate(date)
-			getCalendarDays(date)
-
-		} else {
-			let indexOfNextMonth = 0
-
-			date.setMonth(indexOfNextMonth)
-
-			let newMonth = months[0]
-
-			// if (month === 'December') {
-				// setYear(year + 1)
-			// }
-			setYear((year) => year + 1)
-			setMonth(newMonth)
-			setDate(date)
-			getCalendarDays(date)
-		}
-  }
-
-  
-
-  // React.useEffect(() => {
-  //   if (loading) {
-  //     dispatch(subheader("Loading..."));
-  //   } else {
-  //     dispatch(subheader(""));
-  //   }
-  //   if (error) {
-  //     dispatch(subheader({ error }));
-  //   }
-  // }, [dispatch, loading, error])
-
-
-
 	if(userInfo === null) {
 		return (
-      <div
-        className={type === "home" ? "pg__home--calendar" : "pg__appointment"}
-      >
-        {/* {type !== "home" && <Sidebar title="Appointments" list={apptsList} />} */}
+      <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"} >
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
           <PleaseLoginScreen />
@@ -272,14 +221,11 @@ export default function Calendar({ type }) {
 	 } else {
 	 return (
      <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"}>
-       {/* <div className="pg__appointment"> */}
-       {/* <Sidebar title="Appointments" list={apptsList} /> */}
        {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
        <div className="calendar">
          <div className="calendar__row--header text-size-2">
            <FaCaretLeft
              size={30}
-             // color="var(--green-dark)"
              fill="var(--old-blue-2)"
              className="btn__calendar"
              onClick={() => handleBackwards()}
@@ -287,7 +233,6 @@ export default function Calendar({ type }) {
            <div className="pg__home--calendar--header">{`${month} ${day}, ${year}`}</div>
            <FaCaretRight
              size={30}
-             // color="var(--green-dark)"
              fill="var(--old-blue-2)"
              className="btn__calendar"
              onClick={() => handleForwards()}
@@ -301,145 +246,147 @@ export default function Calendar({ type }) {
            ))}
          </ul>
          <ul className="calendar__row--numDays">
-           {calendarDays.map((numDay) => {
-             const dayKey = uuid();
-             // console.log(`numDay.year: ${numDay.year}. year: ${year}`)
-             // console.log(`num ${new Date().getMonth()}`)
-             if (numDay.month !== month) {
-               if (numDay.appts.length !== 0) {
-                 return (
-                   <li
-                     className="calendar__row--element-with-appts"
-                     style={{ color: "var(grey-light-5)" }}
-                   >
-                     <div
-                       style={{
-                         display: "block",
-                         color: "var(--grey-light-5)",
-                         alignSelf: "flex-end",
-                       }}
-                     >
-                       {numDay.num}
-                     </div>
-                     <br />
-                     <div
-                       style={{
-                         color: "var(--old-blue-2)",
-                         paddingLeft: "0.5rem",
-                         //   alignSelf: 'flex-end'
-                       }}
-                     >
-                       {numDay.appts.map((appt) => {
-                         return (
-                           <div key={appt._id}>
-                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
-                           </div>
-                         );
-                       })}
-                     </div>
-                   </li>
-                 );
-               } else
-                 return (
-                   <li
-                     key={numDay.num}
-                     className="calendar__row--element"
-                     style={{ color: "var(--grey-light-5)" }}
-                   >
-                     {numDay.num}
-                   </li>
-                 );
-               // return <li className="calendar__row--element" style={{color: 'var(--grey-light-5)'}} >{numDay.num}</li>
-             } else if (
-               numDay.num === day &&
-               numDay.month === months[new Date().getMonth()] &&
-               numDay.year === year
-             ) {
-               if (numDay.appts.length !== 0) {
-                 return (
-                   <li
-                     className="calendar__row--element-with-appts"
-                     style={{ color: "var(--old-blue-2)" }}
-                   >
-                     <div
-                       style={{
-                         display: "block",
-                         fontWeight: "bold",
-                         alignSelf: "flex-end",
-                       }}
-                     >
-                       {numDay.num}
-                     </div>
-                     <br />
-                     <div
-                       style={{
-                         color: "var(--old-blue-2)",
-                         paddingLeft: "0.5rem",
-                       }}
-                     >
-                       {numDay.appts.map((appt) => {
-                         return (
-                           <div>
-                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
-                           </div>
-                         );
-                       })}
-                     </div>
-                   </li>
-                 );
-               } else
-                 return (
-                   <li
-                   key={dayKey}
-                     className="calendar__row--element"
-                     style={{ color: "var(--old-blue-2)" }}
-                   >
-                     {numDay.num}
-                   </li>
-                 );
-             } else {
-               if (numDay.appts.length !== 0) {
-                 return (
-                   <li
-                     key={uuid()}
+            {calendarDays.map((numDay) => {
+              const dayKey = uuid();
+              
+              if (numDay.month !== month) {
+                if (numDay.appts.length !== 0) {
+                  return (
+                    <li
+                      className="calendar__row--element-with-appts"
+                      style={{ color: "var(grey-light-5)" }}
+                    >
+                      <div
+                        style={{
+                          display: "block",
+                          color: "var(--grey-light-5)",
+                          alignSelf: "flex-end",
+                        }}
+                      >
+                        {numDay.num}
+                      </div>
+                      <br />
+                      <div
+                        style={{
+                          color: "var(--old-blue-2)",
+                          paddingLeft: "0.5rem",
+                          //   alignSelf: 'flex-end'
+                        }}
+                      >
+                        {numDay.appts.map((appt) => {
+                          return (
+                            <div key={appt._id}>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                } else
+                  return (
+                    <li
+                      key={numDay.num}
+                      className="calendar__row--element"
+                      style={{ color: "var(--grey-light-5)" }}
+                    >
+                      {numDay.num}
+                    </li>
+                  );
+              } else if (
+                numDay.num === day &&
+                numDay.month === months[new Date().getMonth()] &&
+                numDay.year === year
+              ) {
+                if (numDay.appts.length !== 0) {
+                  return (
+                    <li
+                      className="calendar__row--element-with-appts"
+                      style={{ color: "var(--old-blue-2)" }}
+                    >
+                      <div
+                        style={{
+                          display: "block",
+                          fontWeight: "bold",
+                          alignSelf: "flex-end",
+                        }}
+                      >
+                        {numDay.num}
+                      </div>
+                      <br />
+                      <div
+                        style={{
+                          color: "var(--old-blue-2)",
+                          paddingLeft: "0.5rem",
+                        }}
+                      >
+                        {numDay.appts.map((appt) => {
+                          return (
+                            <div>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                } else
+                  return (
+                    <li
+                    key={dayKey}
+                      className="calendar__row--element"
+                      style={{ color: "var(--old-blue-2)" }}
+                    >
+                      {numDay.num}
+                    </li>
+                  );
+              } else {
+                if (numDay.appts.length !== 0) {
+                  return (
+                    <li
+                      key={uuid()}
                     className="calendar__row--element-with-appts"
-                   >
-                     <div style={{ display: "block", alignSelf: "flex-end" }}>
-                       {numDay.num}
-                     </div>
-                     <br />
-                     <div
-                       style={{
-                         color: "var(--old-blue-2)",
-                         paddingLeft: "0.5rem",
-                       }}
-                     >
-                       {numDay.appts.map((appt) => {
-                         return (
-                           <div key={uuid()}>
-                             {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
-                           </div>
-                         );
-                       })}
-                     </div>
-                   </li>
-                 );
-               } else
-               
+                    >
+                      <div style={{ display: "block", alignSelf: "flex-end" }}>
+                        {numDay.num}
+                      </div>
+                      <br />
+                      <div
+                        style={{
+                          color: "var(--old-blue-2)",
+                          paddingLeft: "0.5rem",
+                        }}
+                      >
+                        {numDay.appts.map((appt) => {
+                          return (
+                            <div key={uuid()}>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                } else
+                
 
-                 return (
-                   <li
-                     key={dayKey}
-                     className="calendar__row--element"
-                     style={{ color: "var(--black)" }}
-                   >
-                     {numDay.num}
-                   </li>
-                 );
-             }
+                  return (
+                    <li
+                      key={dayKey}
+                      className="calendar__row--element"
+                      style={{ color: "var(--black)" }}
+                    >
+                      {numDay.num}
+                    </li>
+                  );
+              }
            })}
          </ul>
        </div>
      </div>
    );}
+}
+
+Calendar.propTypes = {
+  type: PropTypes.string
 }

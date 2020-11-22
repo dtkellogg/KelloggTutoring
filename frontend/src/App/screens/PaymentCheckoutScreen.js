@@ -1,35 +1,25 @@
+// react
 import React from "react";
-// import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  // Link,
-  // Route,
-  // Switch,
-  // useRouteMatch,
-  withRouter,
-  // useLocation,
-} from "react-router-dom";
-import { 
-  // FaCheckSquare, 
-  FaTrash, 
-  // FaTimes 
-} from "react-icons/fa";
-// import { PayPalButton } from "react-paypal-button-v2";
-import { listAppointments } from "../actions/appointmentActions";
-import useFormatAMPM from "../hooks/useFormatAMPM";
-// import { addToCart } from "../actions/cartActions";
-// import { payPayment } from "../actions/paymentActions";
-// import { PAYMENT_PAY_RESET } from "../constants/paymentConstants";
+import { withRouter } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+
+//components
 import PaymentSteps from "../components/PaymentSteps";
-// import PaymentMethod from "./PaymentMethodScreen";
+import Sidebar from "../components/Sidebar";
+
+//actions
+import { listAppointments } from "../actions/appointmentActions";
 import { removeFromCart } from "../actions/cartActions"
 import { createPayment } from "../actions/paymentActions";
-import Sidebar from "../components/Sidebar";
+
+//hooks
+import useFormatAMPM from "../hooks/useFormatAMPM";
+
+//constants
 import { CART_RESET } from "../constants/cartConstants";
-// import { subheader } from "../actions/subheader";
 
-
-
+// data
 const appointmentsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
 
 
@@ -60,8 +50,6 @@ function PaymentCheckout({ match, history }) {
   // }, [loading, error])
 
   const deleteHandler = (id) => {
-    console.log(id)
-  
     if (window.confirm("Are you sure you want to remove this appointment?")) {
       dispatch(removeFromCart(id));
     }
@@ -101,22 +89,18 @@ function PaymentCheckout({ match, history }) {
 
   return (
     <div className="pg__appointment">
+
       <Sidebar title="Appointments" list={appointmentsList} />
       <div className="appt__checkout">
+
         <PaymentSteps step1 step2 step3 step4 />
+
         <div className="appointments__header--container-checkout">
           <h2 className="text-size-2 appointments__header">Checkout</h2>
         </div>
 
-        {/* <div className="">
-        <h2 className="text-size-2">Payment Method</h2>
-        <strong>Method:</strong>
-        {cart.paymentMethod}
-        <div className=""></div>
-      </div> */}
         <div className="checkout__payment-method">
           <h2 className="text-size-4">Payment Method:&nbsp;</h2>
-          {/* <strong>Method:</strong> */}
 
           <div className="text-size-1 checkout__payment-method--text">
             <strong style={{ fontSize: "var(--text-size-5)" }}>

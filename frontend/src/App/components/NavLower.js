@@ -1,7 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-// import useHover from '../hooks/useHover'
 import { Link } from "react-router-dom"
 const { v4: uuid } = require("uuid");
 
@@ -72,19 +71,11 @@ export default function NavLower() {
   const [searchInput, setSearchInput] = React.useState('')
   const [filterDisplay, setFilterDisplay] = React.useState(searchBar)
 
-  // const [hovering, attrs] = useHover()
-
-  console.log(`filterDisplay: ${filterDisplay}`)
-
-  console.log(`searchInput: ${searchInput}`)
-
   const handleClick = () => {
     setSearchInput('')
   }
 
   const handleSearchChange = (e) => {
-    console.log(`e: ${e}`)
-    
 
     let oldList = searchBar.map((item) => {
       return {

@@ -18,7 +18,7 @@ export default function ToshiAbout() {
           Hello! I'm looking forward to teaching you.
         </h2>
 
-        <p className="text-size-3 pg__meetToshi--card__meetToshi--p">
+        {/* <p className="text-size-3 pg__meetToshi--card__meetToshi--p">
           My name is Damian Kellogg, but you probably know we by my middle name,
           <span style={{ color: "var(--old-blue-2)" }}> Toshi</span>.
         </p>
@@ -57,7 +57,7 @@ export default function ToshiAbout() {
           taking the time to consider me. If you so choose to try working with
           me, I have a strong feeling that you will consider it to be one of the
           best decisions you've made in your academic career.
-        </p>
+        </p> */}
       </div>
       </div>
     );
