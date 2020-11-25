@@ -1,15 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
+import { useDispatch, useSelector } from "react-redux"
+
+// actions
+import { getUserDetails, updateUserProfile } from "../actions/userActions"
+
+
 
 export default function Profile({ location, history }) {
+  const dispatch = useDispatch();
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [message, setMessage] = React.useState(null);
 
-  const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
@@ -25,16 +30,16 @@ export default function Profile({ location, history }) {
 
   React.useEffect(() => {
     if (user) {
-    if (!userInfo) {
-      history.push('/login');
-    } else {
+      if (!userInfo) {
+        history.push('/login');
+      } else {
         if(!user.name) {
             dispatch(getUserDetails('profile'))
         } else {
             setName(user.name)
             setEmail(user.email)
         }
-    }
+      }
     }
   }, [dispatch, history, userInfo, user]);
 
@@ -47,11 +52,12 @@ export default function Profile({ location, history }) {
     }
   };
 
+
+
   return (
     <form onSubmit={handleSubmit} className="profileScreen">
       <div className="profileScreen__header">
         <h2 className="profileScreen__title text-size-2 letter-spacing-sm">
-          {/* Any Questions? */}
           Update your profile
         </h2>
 

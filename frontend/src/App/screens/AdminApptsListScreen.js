@@ -1,22 +1,20 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { 
-	listAppointments, 
-	// deleteAppointment, 
-} from '../actions/appointmentActions'
-import { APPOINTMENT_CREATE_RESET } from '../constants/appointmentConstants'
-import ApptsList from '../components/ApptsList'
 import { Link, useRouteMatch } from 'react-router-dom'
-import Sidebar from "../components/Sidebar";
+import { useSelector, useDispatch } from 'react-redux'
 
+// actions
+import { listAppointments } from '../actions/appointmentActions'
 import { subheader } from "../actions/subheader";
 
-const adminList = [
-	"User List",
-	"Appointments",
-	// "Reviews",
-	// "Blog",
-];
+// components
+import Sidebar from "../components/Sidebar";
+import ApptsList from '../components/ApptsList'
+
+// constants
+import { APPOINTMENT_CREATE_RESET } from '../constants/appointmentConstants'
+
+
+const adminList = ["User List", "Appointments", "Reviews", "Blog"]
 
 
 export default function AdminAppointmentsList({ location, history }) {
@@ -30,8 +28,8 @@ export default function AdminAppointmentsList({ location, history }) {
 
 	const appointmentDelete = useSelector((state) => state.appointmentDelete);
 	const {
-		// loading:loadingDelete,
-		// error:errorDelete,
+		loading:loadingDelete,
+		error:errorDelete,
 		success:successDelete
 	} = appointmentDelete;
 
@@ -41,7 +39,8 @@ export default function AdminAppointmentsList({ location, history }) {
 		loading: loadingCreate, 
 		error: errorCreate, 
 		success: successCreate, 
-		product: createdProduct } = appointmentCreate;
+		appt: createdAppt
+	} = appointmentCreate;
 
 
 	React.useEffect(() => {
@@ -50,23 +49,23 @@ export default function AdminAppointmentsList({ location, history }) {
 		// ADD CHECK FOR ADMIN
 		
 		if(successCreate) {
-			// history.push(`/admin/appointment/${createdAppt._id}/edit}`)
-			console.log(`successCreate: ${successCreate}`)
+			history.push(`/admin/appointment/${createdAppt._id}/edit}`)
 		} else {
 			dispatch(listAppointments())
 		}
-	}, [dispatch, successDelete, successCreate, createdProduct])
+	}, [dispatch, loadingDelete, errorDelete, successDelete, successCreate, createdAppt])
 
 	React.useEffect(() => {
-		if (loadingCreate) {
+		if (loadingCreate || loadingDelete) {
 			dispatch(subheader("Loading..."));
 		} else {
 			dispatch(subheader(""));
 		}
-		if (errorCreate) {
+
+		if (errorCreate || errorDelete) {
 			dispatch(subheader({ errorCreate }));
 		}
-	}, [dispatch, loadingCreate, errorCreate])
+	}, [dispatch, loadingDelete, errorDelete, loadingCreate, errorCreate])
 
 
 	return (

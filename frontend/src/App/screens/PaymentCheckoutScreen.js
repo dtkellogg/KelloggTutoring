@@ -33,10 +33,8 @@ function PaymentCheckout({ match, history }) {
     // console.log(`cart: ${cart}`)
   }
 
-  React.useEffect(() => {
-    dispatch(listAppointments());
-  }, [dispatch]);
-  // console.log(`PAYMENT METHOD: ${cart.paymentMethod}`)
+  
+
 
   // React.useEffect(() => {
   //   if (loading) {
@@ -55,8 +53,10 @@ function PaymentCheckout({ match, history }) {
     }
   };
 
+
   const paymentCreate = useSelector((state) => state.paymentCreate);
   const { payment, success, error } = paymentCreate;
+
 
   React.useEffect(() => {
     if (success) {
@@ -66,6 +66,9 @@ function PaymentCheckout({ match, history }) {
     }
     // eslint-disable-next-line
   }, [history, success]);
+
+  console.log(cart.cartItems)
+
 
   const submitPaymentHandler = () => {
     dispatch(
@@ -83,7 +86,6 @@ function PaymentCheckout({ match, history }) {
   function AMPMTime(time) {
     return useFormatAMPM(time);
   }
-
 
 
 

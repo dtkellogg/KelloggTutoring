@@ -1,38 +1,38 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { 
-	// createAppointment,
-	updateAppointment,
-	getAppointmentDetails } from "../actions/appointmentActions";
-import { APPOINTMENT_UPDATE_RESET } from '../constants/appointmentConstants'
-import Sidebar from "../components/Sidebar";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-const adminList = [
-	"User List",
-	"Appointments",
-	// "Reviews",
-	// "Blog",
-];
+// components
+import Sidebar from "../components/Sidebar"
+
+// actions
+import { updateAppointment, getAppointmentDetails } from "../actions/appointmentActions"
+
+// constants
+import { APPOINTMENT_UPDATE_RESET } from '../constants/appointmentConstants'
+
+
+// data
+const adminList = [ "User List", "Appointments", "Reviews", "Blog" ]
 
 export default function AdminAppointmentEdit({ match, location, history }) {
+	const dispatch = useDispatch()
 	const appointmentId = match.params.id
 
-	const [student, setStudent] = React.useState("");
-	const [subject, setSubject] = React.useState("");
-	const [email, setEmail] = React.useState("");
-	const [date, setDate] = React.useState("");
-	const [duration, setDuration] = React.useState("");
-	const [time, setTime] = React.useState("");
-	const [paid, setPaid] = React.useState(null);
+	const [student, setStudent] = React.useState("")
+	const [subject, setSubject] = React.useState("")
+	const [email, setEmail] = React.useState("")
+	const [date, setDate] = React.useState("")
+	const [duration, setDuration] = React.useState("")
+	const [time, setTime] = React.useState("")
+	const [paid, setPaid] = React.useState(null)
 	const [user, setUser] = React.useState("")
 
-	const dispatch = useDispatch();
 
 	const appointmentDetails = useSelector((state) => state.appointmentDetails)
 	const {
-			// loading, 
-			// error, 
-			appointment } = appointmentDetails
+		// loading, 
+		// error, 
+		appointment } = appointmentDetails
 
 	// const userDetails = useSelector((state) => state.userDetails)
 	// const {
@@ -40,14 +40,14 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 	//     // error, 
 	//     user } = userDetails
 
-	const appointmentUpdate = useSelector((state) => state.appointmentUpdate);
+	const appointmentUpdate = useSelector((state) => state.appointmentUpdate)
 	const {
 		// loading, 
 		// error, 
-		success: successUpdate } = appointmentUpdate;
+		success: successUpdate } = appointmentUpdate
 
 			
-	// const redirect = location.search ? location.search.split("=")[1] : "/";
+	// const redirect = location.search ? location.search.split("=")[1] : "/"
 
 	React.useEffect(() => {
 		if (successUpdate) {
@@ -70,17 +70,16 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 	}, [dispatch, history, appointmentId, appointment, successUpdate])
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
+		e.preventDefault()
 		dispatch(updateAppointment({ _id: appointmentId, subject, student, email, date, duration, time, paid, user }))
-	};
+	}
 
 	return (
 		<div className="pg__meetToshi">
-			<Sidebar title="Toshi" list={adminList} />
+		<Sidebar title="Toshi" list={adminList} />
 		<form onSubmit={handleSubmit} className="apptEditScreen user__page">
 			<div className="apptEditScreen__header">
 				<h2 className="text-size-2 letter-spacing-sm">
-					{/* Any Questions? */}
 					Edit Appointment
 				</h2>
 			</div>
@@ -106,7 +105,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					<div className="apptEditScreen__element">
 						<label
 								className="text-size-4 letter-spacing-md apptEditScreen__label"
-								for="subject"
+								htmlFor="subject"
 						>
 								subject
 						</label>
@@ -170,5 +169,5 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 				</div>
 		</form>
 		</div>
-	);
+	)
 }

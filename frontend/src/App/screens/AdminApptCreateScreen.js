@@ -1,65 +1,53 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createAppointment } from "../actions/appointmentActions";
-import { subheader } from "../actions/subheader";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { createAppointment } from "../actions/appointmentActions"
+import { subheader } from "../actions/subheader"
 
 
 export default function AdminAppointmentCreate({ location, history }) {
-	const [student, setStudent] = React.useState("");
-	const [subject, setSubject] = React.useState("");
-	const [date, setDate] = React.useState("");
-	const [startTime, setStartTime] = React.useState("");
-	const [endTime, setEndTime] = React.useState("");
-	const [submitted, setSubmitted] = React.useState(false);
-	const [paid, setPaid] = React.useState(false);
-
-	const dispatch = useDispatch();
-
-	const appointmentCreate = useSelector((state) => state.appointmentCreate);
-	const { 
-	    loading, 
-	    error,
-	    // success: successCreate,
-	    // userInfo
-	 } = appointmentCreate;
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const dispatch = useDispatch()
+  
+	const [student, setStudent] = React.useState("")
+	const [subject, setSubject] = React.useState("")
+	const [date, setDate] = React.useState("")
+	const [startTime, setStartTime] = React.useState("")
+	const [endTime, setEndTime] = React.useState("")
+	const [submitted, setSubmitted] = React.useState(false)
+	const [paid, setPaid] = React.useState(false)
 
 
-	React.useEffect(() => {
-	if (submitted) {
-		history.push('/admin/appointments');
-	}
-  }, [history, redirect, submitted]);
+	const appointmentCreate = useSelector((state) => state.appointmentCreate)
+  const { loading, error, success: successCreate } = appointmentCreate
+  
+  const redirect = location.search ? location.search.split("=")[1] : "/"
+
   
   React.useEffect(() => {
     if (loading) {
-      dispatch(subheader("Loading..."));
+      dispatch(subheader("Loading..."))
     } else {
-      dispatch(subheader(""));
+      dispatch(subheader(""))
     }
     if (error) {
-      dispatch(subheader({ error }));
+      dispatch(subheader({ error }))
     }
-  }, [dispatch, loading, error])
+    if (submitted) {
+      history.push('/admin/appointments')
+    }
+  }, [dispatch, loading, error, submitted, successCreate])
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		// console.log(`sAS: ${subject}, ${student}, ${date}, ${duration}, ${time}`)
+		e.preventDefault()
 
     setSubmitted(true)
-    
-    console.log(startTime)
-		
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
-	};
+	}
 
 	return (
     <div className="user__page">
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
         <div className="createApptScreen__header">
           <h2 className="text-size-2 letter-spacing-sm">
-            {/* Any Questions? */}
             Create new appointment
           </h2>
         </div>
@@ -159,5 +147,5 @@ export default function AdminAppointmentCreate({ location, history }) {
         </div>
       </form>
     </div>
-  );
+  )
 }

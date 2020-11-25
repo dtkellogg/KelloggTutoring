@@ -1,25 +1,25 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import { createReview, listReviews, deleteReview } from "../actions/reviewActions";
-import { getUserDetails } from "../actions/userActions";
-import {useSortMultiple} from '../hooks/useSort'
-import Sidebar from "./Sidebar";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
+// components
+import Sidebar from "./Sidebar";
 import ReviewsList from "./ReviewsList";
 
+// actions
+import { createReview, listReviews, deleteReview } from "../actions/reviewActions";
+import { getUserDetails } from "../actions/userActions";
 import { subheader } from "../actions/subheader";
 
+// hooks
+import {useSortMultiple} from '../hooks/useSort'
+
+// flashcard picture .... Consider coming back at the end and making each review a notecard
 import Notecard from '../../Notecard.jpg'
 
-
-const toshiList = [
-  "About",
-  "Teaching",
-  "Reviews",
-  "Blog",
-];
+// data
+const toshiList = [ "About", "Teaching", "Reviews", "Blog" ]
 
 
 

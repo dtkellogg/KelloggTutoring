@@ -2,8 +2,11 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
+
+// uuid
 const { v4: uuid } = require("uuid");
 
+// data
 const searchBar = [
   {
     name: "home",

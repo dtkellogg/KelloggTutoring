@@ -1,13 +1,22 @@
 import React from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetails } from "../actions/userActions";
+
+// axios
+import axios from "axios";
+
+// components
 import Sidebar from "../components/Sidebar";
+
+// actions
+import { getUserDetails } from "../actions/userActions";
+
+// hooks
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 
 
-// const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
 const contactList = ['message', 'schedule', 'contact info'];
+
+
 
 function FormattedPhoneNum(input) {
   let output = "(";
@@ -33,10 +42,8 @@ function FormattedPhoneNum(input) {
 }
 
 
+
 export default function MessageScreen({ history }) {
-
-  // console.log(`history: ${history}`)
-
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
@@ -56,7 +63,6 @@ export default function MessageScreen({ history }) {
     user,
   } = userDetails;
 
-  // console.log(`user: ${user}`)
 
 
   React.useEffect(() => {
@@ -118,18 +124,18 @@ export default function MessageScreen({ history }) {
       };
 
 
-        await axios
-          .post("/api/messages", dataToSubmit)
-          .then((response) => {
-            console.log(`axios response: ${response.data}`);
-          })
-          .then(() => {
-            setName("");
-            setEmail("");
-            setPhone("");
-            setSubject("");
-            setMessage("");
-          });
+      await axios
+        .post("/api/messages", dataToSubmit)
+        .then((response) => {
+          console.log(`axios response: ${response.data}`);
+        })
+        .then(() => {
+          setName("");
+          setEmail("");
+          setPhone("");
+          setSubject("");
+          setMessage("");
+        });
     }
   };
 

@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
 const path = require('path')
+const compression = require('compression')
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 const connectDB = require('./config/db.js')
@@ -24,6 +25,8 @@ const app = express()
 app.use(express.json())
 
 app.use(cors())
+
+app.use(compression())
 
 app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)

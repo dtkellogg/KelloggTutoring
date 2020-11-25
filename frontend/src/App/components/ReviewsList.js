@@ -2,7 +2,11 @@ import React from 'react'
 import { Link, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash, FaEdit } from "react-icons/fa";
+
+// hooks
 import { useSortMultiple } from "../hooks/useSort";
+
+// actions
 import { listReviews, deleteReview } from "../actions/reviewActions";
 
 

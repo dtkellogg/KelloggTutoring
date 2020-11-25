@@ -1,4 +1,3 @@
-// react
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,14 +10,15 @@ import { getReviewDetails, updateReview } from "../actions/reviewActions";
 import { REVIEW_UPDATE_RESET } from "../constants/reviewConstants";
 
 
+
 export default function ReviewEdit({ match, history, location }) {
   const reviewId = match.params.id;
+  const dispatch = useDispatch();
 
   const [name, setName] = React.useState("");
   const [relation, setRelation] = React.useState("");
   const [msg, setMsg] = React.useState("");
 
-  const dispatch = useDispatch();
 
   const reviewDetails = useSelector((state) => state.reviewDetails);
   const { loading, error, review } = reviewDetails;
@@ -29,6 +29,7 @@ export default function ReviewEdit({ match, history, location }) {
     error: errorUpdate,
     success: successUpdate,
   } = reviewUpdate;
+
 
   React.useEffect(() => {
     if (loading || loadingUpdate) {
@@ -45,7 +46,6 @@ export default function ReviewEdit({ match, history, location }) {
     if (successUpdate) {
       dispatch({ type: REVIEW_UPDATE_RESET });
       history.push("/");
-    console.log(review)
     } else {
       if (!review.name || review._id !== reviewId) {
         dispatch(getReviewDetails(reviewId));
@@ -53,20 +53,20 @@ export default function ReviewEdit({ match, history, location }) {
         setName(review.name);
         setRelation(review.relation);
         setMsg(review.msg);
-
-        console.log(`msg: ${review.relation}`)
       }
     }
   }, [dispatch, history, reviewId, review, successUpdate]);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateReview({ _id: reviewId, name, relation, msg}));
-  };
+  }
 
-    const handleRadioBtnChange = (e) => {
-      setRelation(e.target.value);
-    };
+
+  const handleRadioBtnChange = (e) => {
+    setRelation(e.target.value);
+  }
 
   return (
     <div className="pg__meetToshi">

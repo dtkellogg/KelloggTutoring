@@ -1,7 +1,12 @@
-import * as React from "react";
+import React from 'react'
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
+
+// slug
 import slug from "slug";
+
+// uuid
 const { v4: uuid } = require("uuid");
+
 
 
 function CustomLink({ to, children }) {

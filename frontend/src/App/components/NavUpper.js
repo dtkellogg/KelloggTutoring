@@ -1,4 +1,3 @@
-// react
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, withRouter } from "react-router-dom";

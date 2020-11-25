@@ -12,14 +12,15 @@ import Sidebar from "../components/Sidebar";
 // data
 const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
+
+
 export default function ReviewCreateScreen() {
   const dispatch = useDispatch();
 
   const [name, setName] = React.useState("");
   const [relation, setRelation] = React.useState("Student");
   const [msg, setMsg] = React.useState("");
-  // eslint-disable-next-line no-unused-vars
-  const [date, setDate] = React.useState(Date.now());
+  const [date, setDate] = React.useState(Date.now()); // eslint-disable no-unused-vars
   const [submitted, setSubmitted] = React.useState(false);
   const [failed, setFailed] = React.useState("");
   const [sent, setSent] = React.useState(false);
@@ -68,16 +69,12 @@ export default function ReviewCreateScreen() {
     setRelation(e.target.value);
   };
 
-  React.useEffect(() => {
-    dispatch(getUserDetails("profile"));
-  }, [dispatch, sent]);
 
   React.useEffect(() => {
     if (user === undefined) {
       dispatch(getUserDetails("profile"));
     } else {
       setName(user.name);
-      // setEmail(user.email);
     }
   }, [dispatch, user]);
 
@@ -186,5 +183,5 @@ export default function ReviewCreateScreen() {
       </button>
     </form>
   </div>
-  );
+  )
 }

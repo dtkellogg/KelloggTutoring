@@ -2,36 +2,39 @@ import React from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
-
-import { listAppointments } from "../actions/appointmentActions"
-
-
-import Sidebar from "./Sidebar";
-
-import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
-
-import { useSort } from '../hooks/useSort'
-import useFormatAMPM from "../hooks/useFormatAMPM";
+// prop-types
 import PropTypes from "prop-types";
 
+// components
+import Sidebar from "./Sidebar";
 
+// screens
+import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
+
+// actions
+import { listAppointments } from "../actions/appointmentActions"
+
+// hooks
+import { useSort } from '../hooks/useSort'
+import useFormatAMPM from "../hooks/useFormatAMPM";
+
+// uuid
 const { v4: uuid } = require("uuid");
 
-
+// data
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
-// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
-
 
 
 
 export default function Calendar({ type }) {
+  const dispatch = useDispatch()
+  
 	const [date, setDate] = React.useState(new Date())
 	const [day, setDay] = React.useState('')
 	const [month, setMonth] = React.useState('')
 	const [year, setYear] = React.useState(date.getFullYear())
 	const [calendarDays, setCalendarDays] = React.useState([])
 	
-	const dispatch = useDispatch()
 	
 	const appointmentList = useSelector((state) => state.appointmentList);
 	const { 
@@ -45,15 +48,13 @@ export default function Calendar({ type }) {
 
 	const sortedAppts = useSort(appointments, "startTime")
 
-	// const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 	const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 
 	function daysInMonth(month, year) {
 		return new Date(year, month, 0).getDate()
 	}
-
-
 
 	
 	const getCalendarDays = (date) => {
@@ -157,8 +158,6 @@ export default function Calendar({ type }) {
       getCalendarDays(date)
     }
   }
-  
-
   
 
 

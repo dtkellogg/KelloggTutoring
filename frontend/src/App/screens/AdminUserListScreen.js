@@ -1,53 +1,48 @@
 import React from "react";
-import { Link,Switch, Route, useRouteMatch } from "react-router-dom";
-import AdminUserEdit from "./AdminUserEditScreen"
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listUsers, deleteUser } from "../actions/userActions";
-import {
-	FaCheckSquare,
-	FaTrash,
-	FaTimes
-} from 'react-icons/fa'
+import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
+
+// components
 import Sidebar from "../components/Sidebar";
 
+// screens
+import AdminUserEdit from "./AdminUserEditScreen"
+
+// actions
+import { listUsers, deleteUser } from "../actions/userActions";
 import { subheader } from "../actions/subheader";
 
 
-const adminList = [
-	"User List",
-	"Appointments",
-	// "Reviews",
-	// "Blog",
-];
+const adminList = [ "User List", "Appointments", "Reviews", "Blog" ]
+
+
 
 export default function AdminUserList ({ location, history }) {
 	const dispatch = useDispatch()
 
 	const { path } = useRouteMatch()
 
+
 	const userList = useSelector((state) => state.userList)
 	const {
 		loading, 
 		error, 
-		users } = userList
+    users
+  } = userList
 
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
-	// // console.log(`users: ${users}`)
-	// console.log(`userInfo: ${userInfo}`)
-	// console.log(`userInfo: ${userInfo}`)
-
-
-	// renaming success to successDelete below
 	const userDelete = useSelector((state) => state.userDelete)
-	const { success: successDelete } = userDelete
+  const { success: successDelete } = userDelete
+
 
 	React.useEffect(() => {
 		if (userInfo && userInfo.isAdmin) {
 			dispatch(listUsers())
 		} else {
-			// Note: come back and implement the redirect below once useHistory is defined in the right pace
+			// Note: come back and implement the redirect below once useHistory is defined in the right place
 			history.push('/login')
 		}
 	}, [dispatch, history, successDelete, userInfo])
@@ -61,13 +56,15 @@ export default function AdminUserList ({ location, history }) {
 		if (error) {
 			dispatch(subheader({ error }));
 		}
-	}, [dispatch, loading, error])
+  }, [dispatch, loading, error])
+  
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure you want to delete this user?')) {
 				dispatch(deleteUser(id))
 		}
-	}
+  }
+  
 
 	if(users) {
     return (
@@ -142,72 +139,14 @@ export default function AdminUserList ({ location, history }) {
                         type="button"
                         onClick={() => deleteHandler(user._id)}
                       />
-                      {/* </button> */}
                     </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
-
-          <Switch location={location}>
-            {/* <Route exact path="/" component={Loading} /> */}
-            <Route exact path={`${path}/edit-user`} component={AdminUserEdit} />
-            {/* <Route exact path={`${path}/delete-user`} component={UsertEdit} /> */}
-          </Switch>
         </div>
       </div>
-    );
+    )
   } else return null
 }
-
-
-
-// {
-//     users.map(user => (
-//         <div key={user._id}>
-//             <div>{user._id}</div>
-//             <div>{user.student}</div>
-//             <div><a href={`mailto:${user.email}`}>{user.email}</a></div>
-//             {/* <div>
-//                     {user.isAdmin 
-//                         ? (<FaCheck />)
-//                         : (<FaCheck />)
-//                         }
-//                 </div> */}
-//             <div>
-//                 <button className="btn">Edit</button>
-//                 <button className="btn" onClick={() => deleteHandler(user._id)}>
-//                     {/* <FaTrash /> */}
-//                     Delete
-//                         </button>
-//             </div>
-//         </div>
-//     ))
-// }
-
-
-//     <div className="appointments">
-			//   <h2 className="text-size-2 appointments__header">
-			//     Here are your upcoming appointments:
-			//   </h2>
-
-			//   {loading ? (
-			//     <Loading />
-			//   ) : error ? (
-			//     <h2 className="text-size-2">{error}</h2>
-			//   ) : (
-			//     <ul className="appointments__list text-size-3">
-			//       {users.map((user) => {
-			//         console.log(`USER: ${user}`)
-			//         return (
-			//           // <li key={user._id}>{user.subject}</li>
-			//           <li key={user.student} className="appointments__list--item">
-			//               <span className="text-size-3 appointments__item--time">{user.student}</span>{' '}
-			//               {/* <span className="text-size-3 appointments__item--subject">{user.subject}</span> */}
-			//           </li>
-			//         );
-			//       })}
-			//     </ul>
-			//   )}
-			// </div>

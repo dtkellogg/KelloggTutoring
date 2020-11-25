@@ -1,32 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "../actions/userActions";
+import React from "react"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+
+// actions
+import { register } from "../actions/userActions"
+
+
 
 export default function Register({ location, history }) {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [message, setMessage] = React.useState(null);
-
   const dispatch = useDispatch();
+  const redirect = location.search ? location.search.split("=")[1] : "/"
 
-  const userRegister = useSelector((state) => state.userRegister);
+  const [name, setName] = React.useState("")
+  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("")
+  const [confirmPassword, setConfirmPassword] = React.useState("")
+  const [message, setMessage] = React.useState(null)
+
+
+  const userRegister = useSelector((state) => state.userRegister)
   const { 
-    // loading, 
-    // error, 
-    userInfo } = userRegister;
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+    loading, 
+    error, 
+    userInfo 
+  } = userRegister
 
   React.useEffect(() => {
     if (userInfo) {
-      history.push(redirect);
+        history.push(redirect);
     }
   }, [history, userInfo, redirect]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if(password !== confirmPassword) {
         setMessage('Passwords don\'t match')
     } else {
@@ -35,11 +42,9 @@ export default function Register({ location, history }) {
   };
 
   return (
-    <React.Fragment>
       <form onSubmit={handleSubmit} className="registerScreen user__page">
         <div className="registerScreen__header">
           <h2 className="text-size-2 letter-spacing-sm">
-            {/* Any Questions? */}
             Sign up.
           </h2>
 
@@ -51,7 +56,7 @@ export default function Register({ location, history }) {
             <div className="registerScreen__element">
               <label
                 className="text-size-5 letter-spacing-md registerScreen__label"
-                for="name"
+                htmlFor="name"
               >
                 Full name
               </label>
@@ -67,7 +72,7 @@ export default function Register({ location, history }) {
             <div className="registerScreen__element">
               <label
                 className="text-size-5 letter-spacing-md registerScreen__label"
-                for="email"
+                htmlFor="email"
               >
                 email
               </label>
@@ -125,6 +130,5 @@ export default function Register({ location, history }) {
           </div>
         </div>
       </form>
-    </React.Fragment>
-  );
+  )
 }

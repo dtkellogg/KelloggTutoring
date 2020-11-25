@@ -1,12 +1,7 @@
 import React from 'react'
 import Sidebar from "../components/Sidebar";
 
-const toshiList = [
-  "About",
-  "Teaching",
-  "Reviews",
-  "Blog",
-];
+const toshiList = [ "About", "Teaching", "Reviews", "Blog" ];
 
 
 export default function ToshiAbout() {

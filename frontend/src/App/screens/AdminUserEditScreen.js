@@ -1,24 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+
+// actions
 import { subheader } from "../actions/subheader";
 import { getUserDetails, updateUser } from '../actions/userActions'
+
+// constants
 import { USER_UPDATE_RESET } from '../constants/userConstants'
+
+// components
 import Sidebar from "../components/Sidebar";
 
 
 
-
-const adminList = [
-	"User List",
-	"Appointments",
-	// "Reviews",
-	// "Blog",
-];
+const adminList = [ "User List", "Appointments", "Reviews", "Blog" ]
 
 
 export default function AdminUserEdit ({ match, history, location }) {
-	console.log(`match: ${match}`)
 	const userId = match.params.id
 
 	const [name, setName] = React.useState('')
@@ -40,9 +39,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 		success: successUpdate,
 	} = userUpdate
 
-	React.useEffect(() => {
-		dispatch(subheader("Admin"));
-	}, [location, dispatch]);
+
 
 	React.useEffect(() => {
 		if (loading || loadingUpdate) {
@@ -54,22 +51,22 @@ export default function AdminUserEdit ({ match, history, location }) {
 		if (error || errorUpdate) {
 			dispatch(subheader({ error }));
 		}
-	}, [dispatch, loading, error, loadingUpdate, errorUpdate])
 
-	React.useEffect(() => {
 		if (successUpdate) {
-				dispatch({ type: USER_UPDATE_RESET })
-				history.push('/admin/userlist')
+			dispatch({ type: USER_UPDATE_RESET })
+			history.push('/admin/user-list')
 		} else {
-				if (!user.name || user._id !== userId) {
-					dispatch(getUserDetails(userId))
-				} else {
-					setName(user.name)
-					setEmail(user.email)
-					setIsAdmin(user.isAdmin)
-				}
+			if (!user.name || user._id !== userId) {
+				dispatch(getUserDetails(userId))
+			} else {
+				setName(user.name)
+				setEmail(user.email)
+				setIsAdmin(user.isAdmin)
+			}
 		}
-	}, [dispatch, history, userId, user, successUpdate])
+	}, [dispatch, loading, error, loadingUpdate, errorUpdate, history, userId, user, successUpdate])
+
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -78,17 +75,15 @@ export default function AdminUserEdit ({ match, history, location }) {
 
 	return (
 			<div className="pg__meetToshi">
-				<Sidebar title="Toshi" list={adminList} />
-			<Link to='/admin/userList' className="btn" >Go Back</Link>
+			<Sidebar title="Toshi" list={adminList} />
+			<Link to='/admin/user-list' className="btn" >Go Back</Link>
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
 				<div className="userEditScreen__header">
 					<h2 className="text-size-2 letter-spacing-sm">
-							{/* Any Questions? */}
 							Edit User
 					</h2>
-
-					{/* {message && <h1>{message}</h1>} */}
 				</div>
+
 				<div className="userEditScreen__content">
 					<div className="userEditScreen__element">
 						<label
@@ -146,5 +141,5 @@ export default function AdminUserEdit ({ match, history, location }) {
 				</div>
 			</form>
 		</div>
-	);
+	)
 }

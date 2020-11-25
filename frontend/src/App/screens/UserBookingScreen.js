@@ -1,37 +1,34 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { requestAppointment } from "../actions/appointmentActions";
-import { getUserDetails } from "../actions/userActions";
-
+// components
 import Sidebar from "../components/Sidebar";
 import { subheader } from "../actions/subheader";
 
+// actions
+import { requestAppointment } from "../actions/appointmentActions";
+import { getUserDetails } from "../actions/userActions";
+
+
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
-// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
-// const contactList = ['message form', 'schedule an appointment', 'phone, text & email'];
 const contactList = ['message', 'schedule', 'contact info'];
 
 
 
-
 export default function UserBookingScreen({ location, history, type}) {
-  const [student, setStudent] = React.useState("");
-  const [subject, setSubject] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [startTime, setStartTime] = React.useState("");
-  const [endTime, setEndTime] = React.useState("");
-  const [submitted, setSubmitted] = React.useState(false);
-
-  // eslint-disable-next-line no-unused-vars
-  const [paid, setPaid] = React.useState(false);
+  const [student, setStudent] = React.useState("")
+  const [subject, setSubject] = React.useState("")
+  const [date, setDate] = React.useState("")
+  const [startTime, setStartTime] = React.useState("")
+  const [endTime, setEndTime] = React.useState("")
+  const [submitted, setSubmitted] = React.useState(false)
+  const [paid, setPaid] = React.useState(false) // eslint-disable no-unused-vars
 
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
-  // console.log(`location: ${location}`);
 
   // const appointmentCreate = useSelector((state) => state.appointmentCreate);
   // const {
@@ -101,7 +98,6 @@ export default function UserBookingScreen({ location, history, type}) {
         <form onSubmit={handleSubmit} className="createApptScreen">
           <div className="createApptScreen__header">
             <h2 className="text-size-2 letter-spacing-sm">
-              {/* Any Questions? */}
               Request a new appointment
             </h2>
           </div>

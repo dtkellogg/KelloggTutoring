@@ -11,8 +11,12 @@
 	overflow: hidden;
 	min-height: 57vh;
 
+	@media (max-width: 950px) and (max-height: 450px) {
+		height: 153vh;
+	}
+
 	@media (max-width: 650px) {
-			// display: none;
+		// display: none;
 	}
 
 	&__row {
@@ -34,11 +38,15 @@
 			}
 
 			@media (max-width: 1250px) {
-				padding: 0 5rem;
+				padding: 0 6rem;
 			}
 
-			@media (max-width: 1150px) {
-				padding: 0 1rem;
+			@media (max-width: 950px) and (max-height: 450px) {
+				padding: 0 10rem;
+			}
+
+			@media (max-width: 400px) {
+				padding: 0 3rem;
 			}
 		}
 
@@ -81,6 +89,10 @@
 			border: 0.5px solid $black;
 			padding: 0.5rem 0.5rem 1rem 0.5rem;
 			background-color: $white;
+
+			@media (max-width: 470px) {
+				padding: 0;
+			}
 		}
 
 		&--numDays {

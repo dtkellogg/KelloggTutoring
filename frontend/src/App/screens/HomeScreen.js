@@ -1,26 +1,24 @@
 import React from "react";
-import {
-  useLocation,
-  Link
-} from "react-router-dom";
-import { listAppointments } from '../actions/appointmentActions'
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, Link } from "react-router-dom";
+import { FaGhost } from "react-icons/fa";
+
+// components
 import ApptsList from '../components/ApptsList'
 import Calendar from '../components/Calendar'
 import Reviews from '../components/Reviews'
 
+// actions
+import { listAppointments } from '../actions/appointmentActions'
 import { subheader } from "../actions/subheader";
 
-import { useDispatch, useSelector } from "react-redux";
-import { FaGhost } from "react-icons/fa";
 
-// const activeStyle = {
-//   color: "rgb(73, 165, 73)",
-//   fontWeight: 900,
-// };
+
 
 export default function HomePage() {
   const [displayAppts, setDisplayAppts] = React.useState('calendar')
-  let location = useLocation();
+
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -58,14 +56,6 @@ export default function HomePage() {
     // dispatch(subheader("Home"));
   }, [dispatch])
 
-  // React.useEffect(() => {
-    
-  //     if (appointments) {
-  //       dispatch(subheader("Home"));
-  //     }
-
-    
-  // }, [dispatch, appointments]);
 
 
   return (
@@ -76,6 +66,7 @@ export default function HomePage() {
             <span className="hero__thought-clouds text-size-2">O</span>
             <span className="hero__thought-clouds text-size-2">O</span>
           </div> */}
+
           <div className="container__hero--text">
             <h1 className="text-size-0 letter-spacing-lg container__hero--welcome">Welcome</h1>
             <h3 className="text-size-2">Tutoring Simplified.</h3>
@@ -84,53 +75,55 @@ export default function HomePage() {
             </h4>
           </div>
 
-          {/* <div className="hero__right-container"> */}
-            <div className="btns__hero--header">
-              <Link to={`/appointments/booking`} className="">
-                <button className="btn__request-tutoring">
-                  Request Tutoring
-                </button>
-              </Link>
-              <Link to={`/appointments/payments`} className="">
-                <button className="btn__pay">Payments</button>
-              </Link>
-            </div>
+          <div className="btns__hero--header">
+            <Link to={`/appointments/booking`} className="">
+              <button className="btn__request-tutoring">
+                Request Tutoring
+              </button>
+            </Link>
+            <Link to={`/appointments/payments`} className="">
+              <button className="btn__pay">Payments</button>
+            </Link>
+          </div>
 
-            <FaGhost
-              size={130}
-              color="var(--black)"
-              fill="var(--black)"
-              className="social-media-icon__ghost grey-light-7"
-            />
+          <FaGhost
+            size={130}
+            color="var(--black)"
+            fill="var(--black)"
+            className="social-media-icon__ghost grey-light-7"
+          />
 
-            {/* <div className="ghost__eye--2"></div> */}
-            {/* <div className="ghost__eye--1">.</div> */}
-          {/* </div> */}
-        {/* </div> */}
       </div>
 
       <div className="highlights__appointments">
         <div className="highlights__appointments--text">
+
           <h3 className="text-size-2 highlights__appointments--header">
             Here are your <b>upcoming appointments:</b>
           </h3>
+
           <div className="btn__highlights--appointments-container">
+
             <Link to={`/appointments/booking`} className="">
               <button className="btn__highlights--appointments">
                 Request a new appointment
               </button>
             </Link>
+
             <Link to={`/appointments/appts-list`} className="">
               <button className="btn__highlights--appointments">
                 View all appointments
               </button>
             </Link>
+
             <Link to={`/appointments/payments`} className="">
               <button className="btn__highlights--appointments">
                 Make a payment
               </button>
             </Link>
+
             <div className="highlights__appointments--btns-container">
+
               <button
                 className="btn__highlights--appts-calendar"
                 onClick={() => setDisplayAppts("calendar")}
@@ -149,6 +142,7 @@ export default function HomePage() {
               >
                 Calendar
               </button>
+
               <button
                 className="btn__highlights--appts-list"
                 onClick={() => setDisplayAppts("list")}
@@ -165,6 +159,7 @@ export default function HomePage() {
               >
                 List
               </button>
+
             </div>
           </div>
         </div>
@@ -189,7 +184,6 @@ export default function HomePage() {
       </div>
 
       <div className="highlights__meetToshi">
-        {/* <h2 className="text-size-2 highlights__header">Meet Toshi</h2> */}
         <div className="highlights__meetToshi--container">
           <Reviews type="home"/>
         </div>

@@ -1,40 +1,41 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  FaCheckSquare,
-  FaTrash,
-  FaTimes
-} from 'react-icons/fa'
+import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
+
+// prop-types
+import PropTypes from "prop-types"
+
+// moment
 import moment from 'moment'
+import Sidebar from "../components/Sidebar"
 
-import Sidebar from "../components/Sidebar";
-
-import {useSortMultiple} from '../hooks/useSort'
-import useFormatAMPM from "../hooks/useFormatAMPM";
-
+// screens
 import PleaseLoginScreen from "../screens/UserPleaseLoginScreen.js"
 
+// hooks
+import {useSortMultiple} from '../hooks/useSort'
+import useFormatAMPM from "../hooks/useFormatAMPM"
 
-import { subheader } from "../actions/subheader";
+// actions
+import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
-import PropTypes from "prop-types";
 
-
+// data
 const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
-// const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
+
+
 
 
 export default function ApptsList({ location, type }) {
-  var now = moment();
+  var now = moment()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const appointmentList = useSelector((state) => state.appointmentList);
-  const { loading, error, appointments } = appointmentList;
+  const appointmentList = useSelector((state) => state.appointmentList)
+  const { loading, error, appointments } = appointmentList
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime")
   
@@ -45,25 +46,29 @@ export default function ApptsList({ location, type }) {
 
   React.useEffect(() => {
     if (loading) {
-      dispatch(subheader("Loading..."));
+      dispatch(subheader("Loading..."))
     } else {
-      dispatch(subheader(""));
+      dispatch(subheader(""))
     }
     if (error) {
-      dispatch(subheader({ error }));
+      dispatch(subheader({ error }))
     }
   }, [dispatch, loading, error])
 
 
   React.useEffect(() => {
-    dispatch(listAppointments());
-  }, [dispatch, userInfo]);
+    dispatch(listAppointments())
+  }, [dispatch, userInfo])
+
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete this appointment?")) {
-      dispatch(deleteAppointment(id));
+      dispatch(deleteAppointment(id))
     }
-  };
+  }
+
+
+  
 
   if (userInfo === null) {
     return (
@@ -73,7 +78,7 @@ export default function ApptsList({ location, type }) {
           <PleaseLoginScreen />
         </div>
       </div>
-    );
+    )
   }
 
 
@@ -84,13 +89,13 @@ export default function ApptsList({ location, type }) {
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => moment(appt.date).isAfter(now)).length === 0
   ) {
-    console.log(`userInfo: ${userInfo}; sortedAppts: ${sortedAppts}`)
+    console.log(`userInfo: ${userInfo} sortedAppts: ${sortedAppts}`)
     console.log(userInfo)
     return (
       <h2 className="text-size-2" style={{ textAlign: "center" }}>
         You have no upcoming sessions
       </h2>
-    );
+    )
   }
 
 
@@ -111,7 +116,7 @@ export default function ApptsList({ location, type }) {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
 
@@ -143,7 +148,7 @@ export default function ApptsList({ location, type }) {
 
             .map((appt) => {
               
-              const date = appt.date.split("T")[0].split("-");
+              const date = appt.date.split("T")[0].split("-")
               return (
 
                 <tr key={appt._id} className="tr">
@@ -284,8 +289,9 @@ export default function ApptsList({ location, type }) {
             <th className="th appointments__th--date">date</th>
             <th className="th appointments__th--time">time</th>
             <th className="th appointments__th--subject">subject</th>
-            <th className="th appointments__th--btns">Paid?</th>
-            <th className="th appointments__th--cancel">Cancel</th>
+            <th className="th appointments__th--subject">student</th>
+            <th className="th appointments__th--btns">paid?</th>
+            <th className="th appointments__th--cancel">cancel</th>
           </tr>
         </thead>
         <tbody className="tbody">
@@ -295,10 +301,9 @@ export default function ApptsList({ location, type }) {
               <tr key={appt._id} className="appointments__list--item">
                 <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
                 <td className="text-size-3 appointments__item--time">{`${AMPMTime(appt.startTime)} - ${AMPMTime(appt.endTime)}`}</td>
-                {/* <td className="text-size-3 appointments__item--student">{appt.student}</td> */}
-                <td className="text-size-3 appointments__item--subject">
-                  {appt.subject}
-                </td>
+                <td className="text-size-3 appointments__item--subject"> {appt.subject}</td>
+                <td className="text-size-3 appointments__item--student">{appt.student}</td>
+                 
                 <td className="appointments__item--btns">
                   {appt.paid ? (
                     <>
@@ -337,7 +342,7 @@ export default function ApptsList({ location, type }) {
           })}
         </tbody>
       </table>
-    );
+    )
   }
 
   // if (
@@ -495,7 +500,7 @@ export default function ApptsList({ location, type }) {
   //         </tbody>
   //       </table>
   //     </div>
-  //   );
+  //   )
   // }
 
   // this is the default return...
@@ -517,7 +522,7 @@ export default function ApptsList({ location, type }) {
         </thead>
         <tbody className="tbody">
           {appointments.map((appt) => {
-            const date = appt.date.split("T")[0].split("-");
+            const date = appt.date.split("T")[0].split("-")
             return (
               <tr key={appt._id} className="appointments__list--item">
                 <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
@@ -562,11 +567,11 @@ export default function ApptsList({ location, type }) {
                 </td>
                 {/* <button className="btn__cancel">Cancel</button> */}
               </tr>
-            ); 
+            ) 
           })}
         </tbody>
       </table>
-    );
+    )
   }
 
   return null
@@ -574,4 +579,4 @@ export default function ApptsList({ location, type }) {
 
 ApptsList.propTypes = {
   type: PropTypes.string,
-};
+}

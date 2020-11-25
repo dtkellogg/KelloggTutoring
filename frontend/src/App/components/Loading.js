@@ -1,6 +1,9 @@
-import React from "react";
+import React from "react"
+
+// prop-types
 import PropTypes from "prop-types";
 
+// styles
 const styles = {
     content: {
         fontSize: "15px",
@@ -11,6 +14,7 @@ const styles = {
         textAlign: "center",
     },
 };
+
 
 export default function Loading({ text = "Loading", speed = 300 }) {
     const [content, setContent] = React.useState(text);
