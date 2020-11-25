@@ -2,3 +2,7 @@
 
 .env
 backend/node_modules
+
+server.key
+
+kelloggtutoring_com.crt
