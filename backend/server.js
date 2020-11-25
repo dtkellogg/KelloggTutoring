@@ -1,19 +1,25 @@
 const express = require('express')
+const path = require('path')
 const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
-const path = require('path')
-const compression = require('compression')
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
+
+// database
 const connectDB = require('./config/db.js')
+
+// middleware
+const cors = require("cors")
+const compression = require('compression')
+
+// routes
 const appointmentRoutes = require('./routes/appointmentRoutes')
 const appointmentRequestRoutes = require('./routes/appointmentRequestRoutes')
 const userRoutes = require('./routes/userRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
 const reviewRoutes = require('./routes/reviewRoutes')
 const msgRoutes = require('./routes/msgRoutes')
-const cors = require("cors")
 
 dotenv.config()
 
@@ -26,7 +32,8 @@ app.use(express.json())
 
 app.use(cors())
 
-app.use(compression())
+// compress responses
+app.use(compression({ threshold: 0 }));
 
 app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
