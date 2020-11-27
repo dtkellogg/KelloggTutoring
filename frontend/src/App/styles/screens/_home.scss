@@ -1,7 +1,7 @@
 // GRID LAYOUT FOR HOME SCREEN
 .pg__home {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 86vh 105vh 103vh 20vh;
   height: min-content;
   width: 100%;

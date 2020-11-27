@@ -2,10 +2,10 @@
 	@include hundredPercentHW();
 
 	display: grid;
+	grid-column: 2 / span 4;
 	grid-template-rows: 5rem 3rem repeat(6, 1fr);
 	grid-template-columns: repeat(7, 1fr);
 	
-	grid-column: 2 / span 2;
 	border: 1px solid $black;
 	background-color: $grey-light-7;
 	overflow: hidden;

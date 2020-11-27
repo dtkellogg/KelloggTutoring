@@ -23,7 +23,7 @@ const toshiList = [ "About", "Teaching", "Reviews", "Blog" ]
 
 
 
-export default function Reviews({type}) {
+export default function Reviews({history, type}) {
   const {
     // path,
     url,
@@ -112,11 +112,12 @@ export default function Reviews({type}) {
   };
 
   React.useEffect(() => {
-    // if (userInfo && userInfo.isAdmin) {
+    // if ( userInfo ) {
     dispatch(listReviews());
     dispatch(getUserDetails("profile"));
     // } else {
-    // Note: come back and implement the redirect below once useHistory is defined in the right pace
+    // // Note: come back and implement the redirect below once useHistory is defined in the right pace
+    // console.log(history)
     // history.push("/login");
     // }
   }, [dispatch, sent]);
