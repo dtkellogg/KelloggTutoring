@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function useFormatAMPM(date) {
   var hours = date.split(":")[0];
   var minutes = date.split(":")[1];

@@ -12,12 +12,14 @@ import { subheader } from "./actions/subheader";
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
-import PageHeader from "./components/PageHeader";
 import Loading from "./components/Loading";
-import ApptsList from "./components/ApptsList"
 import Calendar from "./components/Calendar"
-import ReviewsList from "./components/ReviewsList"
 import LoadingSpinner from "./components/LoadingSpinner"
+
+// these don't have to be loaded immediately
+const ReviewsList = React.lazy(() => import("./components/ReviewsList"));  // This doesn't have to be loaded immediately on mobile, but it does on desktop. Testing this out.
+const ApptsList = React.lazy(() => import("./components/ApptsList"));
+const PageHeader = React.lazy(() => import("./components/PageHeader"));
 // const ApptsList = React.lazy(() => import("./components/ApptsList"))
 // const Calendar = React.lazy(() => import("./components/Calendar"))
 

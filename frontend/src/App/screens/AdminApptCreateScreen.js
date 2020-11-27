@@ -1,5 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
+
+// actions
 import { createAppointment } from "../actions/appointmentActions"
 import { subheader } from "../actions/subheader"
 
@@ -19,8 +21,6 @@ export default function AdminAppointmentCreate({ location, history }) {
 	const appointmentCreate = useSelector((state) => state.appointmentCreate)
   const { loading, error, success: successCreate } = appointmentCreate
   
-  const redirect = location.search ? location.search.split("=")[1] : "/"
-
   
   React.useEffect(() => {
     if (loading) {

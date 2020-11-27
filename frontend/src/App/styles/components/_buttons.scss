@@ -100,7 +100,7 @@
     width: 13rem;
 
     @media(max-width: 600px ) {
-      width: 12rem;
+      // width: 12rem;
       height: 4.5rem;
     }
   }
@@ -210,6 +210,10 @@
     @extend %btn--blue;
     margin-bottom: 5rem;
     width: 8rem;
+
+    @media ( max-width: 600px ) {
+      width: 35rem;
+    }
   }
 
   &__registerScreen {
@@ -311,7 +315,7 @@
 
 
     @media(max-width: 600px ) {
-      width: 12rem;
+      // width: 12rem;
       height: 4.5rem;
     }
   }
@@ -444,6 +448,11 @@
 
     &:hover {
       color: $black;
+    }
+
+    @media (max-width: 600px) {
+      width: 31rem;
+      margin: 3rem 0 1rem 0;
     }
   }
 

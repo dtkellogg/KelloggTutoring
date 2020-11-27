@@ -36,7 +36,7 @@ export default function PageHeader({ location, history, page }) {
           page === "appts"
             ? "Appointments"
             : page === "meetToshi"
-            ? "Meet Toshi"
+            ? "Toshi"
             : page === "contact"
             ? "Contact"
             : "Admin"

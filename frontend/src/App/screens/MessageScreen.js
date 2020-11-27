@@ -17,27 +17,10 @@ import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 const contactList = ['message', 'schedule', 'contact info'];
 
 
-
+// can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
-  let output = "(";
-  input.replace(/^\D*(\d{0,3})\D*(\d{0,3})\D*(\d{0,4})/, function (match, g1, g2, g3) {
-    if (g1.length) {
-      output += g1;
-      if (g1.length === 3) {
-        output += ")";
-        if (g2.length) {
-          output += " " + g2;
-          if (g2.length === 3) {
-            output += " - ";
-            if (g3.length) {
-              output += g3;
-            }
-          }
-        }
-      }
-    }
-  }
-  );
+  let output = ''
+  output += useFormatedPhoneNumber(input)
   return output;
 }
 
@@ -52,7 +35,7 @@ export default function MessageScreen({ history }) {
   const [submitted, setSubmitted] = React.useState(false);
   const [failed, setFailed] = React.useState("");
 
-  // console.log(`FORMATED-NAME: ${getFormattedPhoneNum(phone)}`)
+  console.log(`FORMATED-NAME: ${useFormatedPhoneNumber(phone)}`)
 
   const dispatch = useDispatch();
 
@@ -187,6 +170,7 @@ export default function MessageScreen({ history }) {
                 // format="(###) ###-####"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="(xxx) xxx - xxxx"
+                // value={phone ? useFormatedPhoneNumber(phone) : phone}
                 value={phone ? FormattedPhoneNum(phone) : phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
