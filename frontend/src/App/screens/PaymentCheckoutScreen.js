@@ -20,7 +20,7 @@ import useFormatAMPM from "../hooks/useFormatAMPM";
 import { CART_RESET } from "../constants/cartConstants";
 
 // data
-const appointmentsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
 
 
 function PaymentCheckout({ match, history }) {
@@ -152,7 +152,9 @@ function PaymentCheckout({ match, history }) {
                   return (
                     <tr key={id} className="appointments__list--item">
                       <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="text-size-3 appointments__item--time">{`${AMPMTime(appt.startTime)} - ${AMPMTime(appt.endTime)}`}</td>
+                      <td className="text-size-3 appointments__item--time">{`${AMPMTime(
+                        appt.startTime
+                      )} - ${AMPMTime(appt.endTime)}`}</td>
                       <td className="text-size-3 appointments__item--student">
                         $50.00
                       </td>

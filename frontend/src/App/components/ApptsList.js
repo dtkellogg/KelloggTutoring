@@ -21,7 +21,7 @@ import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 
 // data
-const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 
 
 
@@ -176,7 +176,7 @@ export default function ApptsList({ location, type }) {
                       <FaTimes
                         size={20}
                         color="var(--green-dark)"
-                        fill="var(--red)"
+                        fill="var(--grey-light-5)"
                         className="social-media-icon grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
@@ -228,7 +228,9 @@ export default function ApptsList({ location, type }) {
               return (
                 <tr key={appt._id} className="tr">
                   <td className="text-size-3 appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
-                  <td className="text-size-3 appointments__td--upcoming-time">{`${AMPMTime(appt.startTime)} - ${AMPMTime(appt.endTime)}`}</td>
+                  <td className="text-size-3 appointments__td--upcoming-time">{`${AMPMTime(
+                    appt.startTime
+                  )} - ${AMPMTime(appt.endTime)}`}</td>
                   <td className="text-size-3 appointments__td--upcoming-student">
                     {appt.student}
                   </td>
@@ -251,7 +253,7 @@ export default function ApptsList({ location, type }) {
                       <FaTimes
                         size={20}
                         color="var(--green-dark)"
-                        fill="var(--red)"
+                        fill="var(--grey-light-5)"
                         className="social-media-icon grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
@@ -526,7 +528,9 @@ export default function ApptsList({ location, type }) {
             return (
               <tr key={appt._id} className="appointments__list--item">
                 <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                <td className="text-size-3 appointments__item--time">{`${AMPMTime(appt.startTime)} - ${AMPMTime(appt.endTime)}`}</td>
+                <td className="text-size-3 appointments__item--time">{`${AMPMTime(
+                  appt.startTime
+                )} - ${AMPMTime(appt.endTime)}`}</td>
                 {/* <td className="text-size-3 appointments__item--student">{appt.student}</td> */}
                 <td className="text-size-3 appointments__item--subject">
                   {appt.subject}
@@ -542,18 +546,18 @@ export default function ApptsList({ location, type }) {
                         fill="var(--green)"
                         className="social-media-icon grey-light-7"
                         type="button"
-                      // onClick={() => deleteHandler(appt._id)}
+                        // onClick={() => deleteHandler(appt._id)}
                       />
                     </>
                   ) : (
-                      <FaTimes
-                        size={20}
-                        color="var(--green-dark)"
-                        fill="var(--red)"
-                        className="social-media-icon grey-light-7"
-                        type="button"
-                      />
-                    )}
+                    <FaTimes
+                      size={20}
+                      color="var(--green-dark)"
+                      fill="var(--grey-light-5)"
+                      className="social-media-icon grey-light-7"
+                      type="button"
+                    />
+                  )}
                 </td>
                 <td className="text-size-3 appointments__item--subject">
                   <FaTrash
@@ -567,7 +571,7 @@ export default function ApptsList({ location, type }) {
                 </td>
                 {/* <button className="btn__cancel">Cancel</button> */}
               </tr>
-            ) 
+            ); 
           })}
         </tbody>
       </table>

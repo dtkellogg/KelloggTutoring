@@ -13,7 +13,7 @@ import { subheader } from "../actions/subheader";
 
 
 const contactList = ['message', 'schedule', 'contact info'];
-const appointmentsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
 const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
 

@@ -60,7 +60,7 @@
     @extend %btn;
     @include flexCenterCenter($justify-content: space-around);
     width: 10rem;
-    color: $white;
+    color: $grey-light-5;
     outline: none;
     transition: 1s;
     width: 55%;

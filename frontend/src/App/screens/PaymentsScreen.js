@@ -20,8 +20,7 @@ import Sidebar from "../components/Sidebar";
 import PleaseLogin from './UserPleaseLoginScreen'
 
 // data
-const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
-const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"]
+const apptsList = ["Booking", "Payments", "Appts", "Calendar"]
 
 
 
@@ -118,7 +117,7 @@ export default function Payments({ match, history }) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar title="Appointments" list={width < 400 ? appointmentsList : apptsList} />
+      <Sidebar title="Appointments" list={ apptsList } />
       <div className="appointments">
         {!userInfo ? (
           <div className="">

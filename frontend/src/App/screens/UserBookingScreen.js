@@ -10,7 +10,7 @@ import { requestAppointment } from "../actions/appointmentActions";
 import { getUserDetails } from "../actions/userActions";
 
 
-const apptsList = ["Booking", "Payments", "Appts List", "Appts Calendar"]
+const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 const contactList = ['message', 'schedule', 'contact info'];
 
 

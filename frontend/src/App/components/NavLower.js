@@ -70,10 +70,11 @@ const searchBar = [
 
 
 export default function NavLower() {
-  const subheader = useSelector((state) => state.subheader);
   const [searchInput, setSearchInput] = React.useState('')
   const [filterDisplay, setFilterDisplay] = React.useState(searchBar)
-
+  
+  const subheader = useSelector((state) => state.subheader);
+  
   const handleClick = () => {
     setSearchInput('')
   }
