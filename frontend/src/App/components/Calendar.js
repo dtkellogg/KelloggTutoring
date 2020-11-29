@@ -275,7 +275,7 @@ export default function Calendar({ type }) {
                         {numDay.appts.map((appt) => {
                           return (
                             <div key={appt._id}>
-                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <br /><span className="calendar__element--subject">{appt.subject}</span>
                             </div>
                           );
                         })}
@@ -322,7 +322,7 @@ export default function Calendar({ type }) {
                         {numDay.appts.map((appt) => {
                           return (
                             <div>
-                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <br /><span className="calendar__element--subject">{appt.subject}</span>
                             </div>
                           );
                         })}
@@ -359,7 +359,7 @@ export default function Calendar({ type }) {
                         {numDay.appts.map((appt) => {
                           return (
                             <div key={uuid()}>
-                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <span className="calendar__element--subject">&nbsp;&nbsp;{appt.subject}</span>
+                              {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <br /><span className="calendar__element--subject">{appt.subject}</span>
                             </div>
                           );
                         })}
