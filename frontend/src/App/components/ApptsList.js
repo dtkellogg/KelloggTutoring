@@ -70,7 +70,7 @@ export default function ApptsList({ location, type }) {
 
   
 
-  if (userInfo === null) {
+  if (!userInfo) {
     return (
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
