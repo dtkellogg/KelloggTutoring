@@ -12,7 +12,6 @@ import { subheader } from "./actions/subheader";
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
-import Loading from "./components/Loading";
 import Calendar from "./components/Calendar"
 import LoadingSpinner from "./components/LoadingSpinner"
 
@@ -120,10 +119,7 @@ export default function App() {
         </div>
 
         <div className="container__body">
-          <React.Suspense
-            //  fallback={() => setLoading(true)}
-            fallback={<LoadingSpinner />}
-          >
+          <React.Suspense fallback={ <LoadingSpinner /> }>
             <TransitionGroup>
               <CSSTransition timeout={250} classNames="fade" key={location.key}>
                 <Switch location={location}>
