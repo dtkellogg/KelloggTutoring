@@ -49,9 +49,11 @@ export default function MessageScreen({ history }) {
 
 
   React.useEffect(() => {
-      if (user === undefined || !user.name) {
+      if (!user) {
         dispatch(getUserDetails("profile"));
       } else {
+        console.log(user.name)
+        console.log(user.email)
         setName(user.name);
         setEmail(user.email);
       }
@@ -138,7 +140,7 @@ export default function MessageScreen({ history }) {
                 name
               </label>
               <input
-                type="text"
+                type="name"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="name"
                 value={name}
@@ -180,7 +182,7 @@ export default function MessageScreen({ history }) {
                 subject
               </label>
               <input
-                type="text"
+                type="subject"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="subject"
                 value={subject}

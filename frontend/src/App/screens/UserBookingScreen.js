@@ -9,6 +9,9 @@ import { subheader } from "../actions/subheader";
 import { requestAppointment } from "../actions/appointmentActions";
 import { getUserDetails } from "../actions/userActions";
 
+// screens
+import PleaseLogin from './UserPleaseLoginScreen'
+
 
 const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 const contactList = ['message', 'schedule', 'contact info'];
@@ -28,6 +31,9 @@ export default function UserBookingScreen({ location, history, type}) {
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
 
   // const appointmentCreate = useSelector((state) => state.appointmentCreate);
@@ -69,9 +75,10 @@ export default function UserBookingScreen({ location, history, type}) {
       dispatch(subheader(""));
     }
 
-    if (error) {
-      dispatch(subheader({ error }));
-    }
+    // need to think of better way to handle error below. Right now, it's an object.
+    // if (error) {
+    //   dispatch(subheader({ error }));
+    // }
   }, [loading, error]);
 
 
@@ -94,7 +101,12 @@ export default function UserBookingScreen({ location, history, type}) {
         list={type === "schedule" ? contactList : apptsList}
       />
 
-      <div className="user__page">
+      <div className="appointments">
+        {!userInfo ? (
+          <div className="">
+            <PleaseLogin />
+          </div>
+        ) :
         <form onSubmit={handleSubmit} className="createApptScreen">
           <div className="createApptScreen__header">
             <h2 className="text-size-2 letter-spacing-sm">
@@ -113,7 +125,7 @@ export default function UserBookingScreen({ location, history, type}) {
               <input
                 type="name"
                 className="createApptScreen__input text-size-4"
-                placeholder="student name"
+                placeholder="student"
                 style={{ color: "var(--old-blue-2)" }}
                 value={student}
                 onChange={(e) => setStudent(e.target.value)}
@@ -128,7 +140,7 @@ export default function UserBookingScreen({ location, history, type}) {
                 subject
               </label>
               <input
-                type="text"
+                type="subject"
                 className="createApptScreen__input text-size-4"
                 placeholder="subject"
                 style={{ color: "var(--old-blue-2)" }}
@@ -185,6 +197,7 @@ export default function UserBookingScreen({ location, history, type}) {
             Submit
           </button>
         </form>
+      }
       </div>
     </div>
   );

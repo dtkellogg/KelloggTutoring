@@ -110,7 +110,7 @@ export default function HomePage() {
               </button>
             </Link>
 
-            <Link to={`/appointments/appts-list`} className="">
+            <Link to={`/appointments/appts`} className="">
               <button className="btn__highlights--appointments">
                 View all appointments
               </button>
