@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
 const sslRedirect = require('heroku-ssl-redirect');
+const enforce = require("express-sslify");
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 
@@ -37,7 +38,8 @@ app.use(cors())
 app.use(compression({ threshold: 0 }));
 
 // redirect all url requests to https
-app.use(sslRedirect());
+// app.use(sslRedirect());
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.use('/api/appointments', appointmentRoutes)
 app.use('/api/users', userRoutes)
