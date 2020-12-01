@@ -101,8 +101,8 @@ const PORT = process.env.PORT || 5000;
 // const PORT = process.env.PORT || 443
 
 const options = {
-  key: fs.readFileSync("server.key", "utf8"),
-  cert: fs.readFileSync("kelloggtutoring_com.crt", "utf8"),
+  key: fs.readFileSync("/server.key", "utf8"),
+  cert: fs.readFileSync("/kelloggtutoring_com.crt", "utf8"),
 };
 
 https.createServer(options, app).listen(PORT, () => {
