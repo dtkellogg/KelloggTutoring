@@ -78,6 +78,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
+
+// To run in production:
 //////////////
 
 // const PORT = process.env.PORT || 5000
@@ -91,14 +93,14 @@ if (process.env.NODE_ENV === "production") {
 
 /////////////
 
-// https.createServer(options, app);
 
-// app.listen(PORT, function () {
-//   console.log(`Listening on port ${PORT}...`);
-// })
+
+
+
+
+// To run in development:
 
 const PORT = process.env.PORT || 5000;
-// const PORT = process.env.PORT || 443
 
 const options = {
   key: fs.readFileSync("/server.key", "utf8"),
