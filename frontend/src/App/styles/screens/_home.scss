@@ -33,6 +33,15 @@
     min-height: 148vh;
   }
 
+  @media (max-width: 950px) and (max-height: 450px) {
+    grid-template-columns: none;
+    min-height: 148vh;
+  }
+
+  @media (max-width: 400px) and (max-height: 500px) {
+    grid-template-rows: 121vh 80vh 0vh 20vh;
+  }
+
   
   
   &--review-container {

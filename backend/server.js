@@ -4,6 +4,8 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const bcrypt = require('bcryptjs')
 const enforce = require("express-sslify");
+const https = require('https')
+const fs = require('fs')
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 
@@ -36,6 +38,17 @@ app.use(cors())
 // compress responses
 app.use(compression({ threshold: 0 }));
 
+//CORS middleware
+var corsMiddleware = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'kelloggtutoring.com'); //replace localhost with actual host
+    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Authorization');
+
+    next();
+}
+
+app.use(corsMiddleware);
+
 // redirect all url requests to https
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
@@ -65,8 +78,18 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const PORT = process.env.PORT || 5000
+// const PORT = process.env.PORT || 443
 
-app.listen(
-	PORT,
-	console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
-);
+
+
+
+const options = {
+  key: fs.readFileSync("server.key", "utf8"),
+  cert: fs.readFileSync("kelloggtutoring_com.crt", "utf8"),
+};
+
+https.createServer(options, app).listen(PORT, () => {
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  );
+})

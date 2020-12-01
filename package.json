@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend",
+    "client": "set HTTPS=true --prefix frontend && npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d",
@@ -34,6 +34,8 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "express-sslify": "^1.2.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mongoose": "^5.10.7",

@@ -33,6 +33,8 @@ export default function Reviews({history, type}) {
   const { loading, error, reviews } = reviewList;
 
 
+  if(error) console.error(error);
+
   const sortedReviews = useSortMultiple(reviews, "date", "name");
 
   const dispatch = useDispatch();

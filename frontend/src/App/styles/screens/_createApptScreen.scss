@@ -3,7 +3,7 @@
 .createApptScreen {
   @include hundredPercentHW();
   padding: 1rem 0;
-  width: 35rem;
+  // width: 35rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,13 +11,14 @@
   &__header {
     text-align: center;
 
+    @media (max-width: 900px) {
+      margin-bottom: 3rem;
+    }
+    
     @media (max-width: 950px) and (max-height: 450px) {
       margin-bottom: 4rem;
     }
 
-    @media (max-width: 600px) {
-      margin-bottom: 3rem;
-    }
   }
 
   &__content {

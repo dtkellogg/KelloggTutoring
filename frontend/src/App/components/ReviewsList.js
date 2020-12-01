@@ -25,6 +25,8 @@ export default function ReviewsList({type}) {
 
     const sortedReviews = useSortMultiple(reviews, "date", "name");
 
+    if(error) console.error(error);
+
     const deleteHandler = async (id) => {
       if (window.confirm("Are you sure you want to delete this user?")) {
         await dispatch(deleteReview(id)).then(() => dispatch(listReviews()));
