@@ -103,8 +103,8 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 5000;
 
 const options = {
-  key: fs.readFileSync("/server.key", "utf8"),
-  cert: fs.readFileSync("/kelloggtutoring_com.crt", "utf8"),
+  key: fs.readFileSync("../server.key", "utf8"),
+  cert: fs.readFileSync("../kelloggtutoring_com.crt", "utf8"),
 };
 
 https.createServer(options, app).listen(PORT, () => {
