@@ -37,7 +37,7 @@
   }
 
   &__content {
-    height: 70vh;
+    height: min-content;
     display: flex;
     flex-direction: column;
     width: 100%;
