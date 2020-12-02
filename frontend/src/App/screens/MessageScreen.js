@@ -207,7 +207,7 @@ export default function MessageScreen({ history }) {
             
             {submitted && (
               <p className="messageForm__success-message--contact text-size-3">
-                Email has been sent.
+                Message has been sent.
               </p>
             )}
             {failed.length > 0 && (
@@ -216,6 +216,7 @@ export default function MessageScreen({ history }) {
               </p>
             )}
 
+          </div>
             <button
               className="btn__messageForm"
               onClick={handleSubmit}
@@ -223,7 +224,6 @@ export default function MessageScreen({ history }) {
             >
               Submit
             </button>
-          </div>
         </form>
       </div>
     </div>

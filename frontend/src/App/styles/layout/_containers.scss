@@ -8,7 +8,7 @@
     display: grid;
     grid-template-rows: 8.1rem minmax(6.0vh, 5rem) 83vh 12.5rem;
     grid-template-rows: 9.5rem 5.5rem 83vh 12.5rem;
-    grid-template-columns: 10rem repeat(3, 1fr) 10rem;
+    grid-template-columns: 5vw repeat(3, 1fr) 5vw;
 
     @media (max-width: 1000px) {
       grid-template-columns: 0.001rem repeat(3, 1fr) 0.001rem;

@@ -12,6 +12,7 @@
 		&--ul {
 			@include flexCenterCenter($justify-content: space-between);
 			margin-bottom: 2rem;
+			width: 100%;
 
 			@media ( max-width: 900px ) {
 				// margin-bottom: 0;
@@ -31,7 +32,7 @@
 			@include flexCenterCenter($flex-direction: column);
 
 			grid-row: 1 / span 1;
-			grid-column: 2 / span 2;
+			grid-column: 2 / span 4;
 			padding: 2rem;
 			height: 100%;
 			overflow: scroll;

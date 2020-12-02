@@ -78,48 +78,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
+// NEED TO COME BACK AND REIMPLEMENT THE CODE BELOW (once I figure out what is required...):
+// note: the code below has two set ups (dev && prod). dev server requires certificates for ssl && https
+
+
 //////////////
-
-// const PORT = process.env.PORT || 5000
-// // const PORT = process.env.PORT || 443
-
-// app.listen(
-// 	PORT,
-// 	console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
-// );
-
-
-/////////////
-
-// https.createServer(options, app);
-
-// app.listen(PORT, function () {
-//   console.log(`Listening on port ${PORT}...`);
-// })
-
-
-
-
-
-// const PORT = process.env.PORT || 5000;
-
-// const options = {
-//   key: fs.readFileSync("/server.key", "utf8"),
-//   cert: fs.readFileSync("/kelloggtutoring_com.crt", "utf8"),
-// };
-
-// https.createServer(options, app).listen(PORT, () => {
-//   console.log(
-//     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-//   );
-// });
-
-
 // To run in production:
-//////////////
 
 const PORT = process.env.PORT || 5000
-// const PORT = process.env.PORT || 443
 
 app.listen(
 	PORT,
@@ -131,11 +97,7 @@ app.listen(
 
 
 
-
-
-
-
-
+//////////////
 // To run in development:
 
 // const PORT = process.env.PORT || 5000;
@@ -150,3 +112,5 @@ app.listen(
 //     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
 //   );
 // });
+
+//////////////

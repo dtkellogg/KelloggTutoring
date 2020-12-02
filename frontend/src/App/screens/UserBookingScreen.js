@@ -26,6 +26,7 @@ export default function UserBookingScreen({ location, history, type}) {
   const [endTime, setEndTime] = React.useState("")
   const [submitted, setSubmitted] = React.useState(false)
   const [paid, setPaid] = React.useState(false) // eslint-disable no-unused-vars
+  const [failed, setFailed] = React.useState("");
 
   const dispatch = useDispatch();
 
@@ -85,12 +86,24 @@ export default function UserBookingScreen({ location, history, type}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (subject && student && date && startTime && endTime) {
 
     setSubmitted(true);
 
+    window.setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+
     dispatch(
       requestAppointment(subject, student, date, startTime, endTime, paid)
-    );
+    )
+    } else {
+      setFailed("Please fill out all fields above.")
+
+      window.setTimeout(() => {
+        setFailed("");
+      }, 4000);
+    }
   };
 
 
@@ -189,6 +202,19 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
           </div>
+
+          {submitted && (
+              <p className="messageForm__success-message--contact text-size-3">
+                Message has been sent.
+              </p>
+            )}
+            {failed.length > 0 && (
+              <p className="messageForm__fail-message--contact text-size-3">
+                {failed}
+              </p>
+            )}
+
+
           <button
             className="btn__createApptScreen"
             type="submit"
