@@ -96,11 +96,11 @@ function NavUpper({ history }) {
                 className="social-media-icon grey-light-7"
               />
             )}
-            <FaCaretDown
+            { width > 350 && <FaCaretDown
               size={15}
               fill="var(--old-blue-2)"
               className="social-media-icon grey-light-7 user__dropdown-menu--icon"
-            />
+            />}
             {!userInfo ? (
               <ul className="user__dropdown-menu--not-logged-in">
                 <NavLink
