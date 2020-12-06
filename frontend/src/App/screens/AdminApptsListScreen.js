@@ -49,7 +49,7 @@ export default function AdminAppointmentsList({ location, history }) {
 		// ADD CHECK FOR ADMIN
 		
 		if(successCreate) {
-			history.push(`/admin/appointment/${createdAppt._id}/edit}`)
+			history.push(`/admin/appointments`)
 		} else {
 			dispatch(listAppointments())
 		}

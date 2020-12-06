@@ -40,8 +40,11 @@ export default function AdminAppointmentCreate({ location, history }) {
 		e.preventDefault()
 
     setSubmitted(true)
+    console.log(`paid: ${paid}`)
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
-	}
+  }
+  
+  console.log(`paid: ${paid}`)
 
 	return (
     <div className="user__page">
@@ -128,12 +131,16 @@ export default function AdminAppointmentCreate({ location, history }) {
               paid?
             </label>
             <input
-              type="radio"
+              type="checkbox"
               className="createApptScreen__input createApptScreen__input-contact text-size-3"
               style={{ alignSelf: "flex-start" }}
               placeholder="paid"
               value={paid}
-              onChange={(e) => setPaid(e.target.value)}
+              onChange={(e) => {
+                paid ?
+                setPaid(false)
+              : setPaid(true)}
+              }
             />
           </div>
 

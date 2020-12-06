@@ -398,6 +398,8 @@
 
 .tr {
   display: table-row;
+
+  height: 5rem;
   
   @media (max-width: 450px) {
     font-size: 1.3rem;
@@ -406,6 +408,10 @@
 
 tbody tr:nth-of-type(odd) {
   background-color: $grey-light-7;
+}
+
+tbody tr {
+  line-height: 1rem;
 }
 
 .thead {

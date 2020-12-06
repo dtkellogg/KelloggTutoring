@@ -266,9 +266,10 @@ export default function Calendar({ type }) {
                       </div>
                       <br />
                       <div
+                        className="calendar__row--appt"
                         style={{
                           color: "var(--old-blue-2)",
-                          paddingLeft: "0.5rem",
+                          // paddingLeft: "0.5rem",
                           //   alignSelf: 'flex-end'
                         }}
                       >
@@ -314,9 +315,10 @@ export default function Calendar({ type }) {
                       </div>
                       <br />
                       <div
+                        className="calendar__row--appt"
                         style={{
                           color: "var(--old-blue-2)",
-                          paddingLeft: "0.5rem",
+                          // paddingLeft: "0.5rem",
                         }}
                       >
                         {numDay.appts.map((appt) => {
@@ -351,9 +353,10 @@ export default function Calendar({ type }) {
                       </div>
                       <br />
                       <div
+                        className="calendar__row--appt"
                         style={{
                           color: "var(--old-blue-2)",
-                          paddingLeft: "0.5rem",
+                          // paddingLeft: "0.5rem",
                         }}
                       >
                         {numDay.appts.map((appt) => {

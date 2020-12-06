@@ -50,7 +50,7 @@ const deleteAppointment = asyncHandler(async (req, res) => {
 // @route   POST /api/appointments
 // @access  Private/Admin
 const createAppointment = asyncHandler(async (req, res) => {
-  const { student, subject, date, startTime, endTime } = req.body
+  const { student, subject, date, startTime, endTime, paid } = req.body
 
   console.log(`req.body: ${req.body.subject}`)
 
@@ -60,7 +60,8 @@ const createAppointment = asyncHandler(async (req, res) => {
     subject,
     date, 
     startTime, 
-    endTime, 
+    endTime,
+    paid 
   })
 
   if (appointment) {
