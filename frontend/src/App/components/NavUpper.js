@@ -36,7 +36,7 @@ function NavUpper({ history }) {
     <nav className="nav__upper">
       {/* <div className="nav__upper--text"> */}
         <NavLink to="/" className="nav__upper--title-text">
-        <span className="text-size-1 nav__upper--text"> Kellogg Tutoring&nbsp; </span>
+          <span className="text-size-1 nav__upper--text"> Kellogg Tutoring&nbsp; </span>
           <span className="text-size-1 nav__upper--title-line"> |&nbsp; </span>
           <span className="text-size-1 nav__upper--house-icon" role="img" aria-label="email emoji"> 🏠 </span>
         </NavLink>
@@ -96,7 +96,8 @@ function NavUpper({ history }) {
                 className="social-media-icon grey-light-7"
               />
             )}
-            { width > 350 && <FaCaretDown
+            {/* { width > 350 && <FaCaretDown */}
+            {<FaCaretDown
               size={15}
               fill="var(--old-blue-2)"
               className="social-media-icon grey-light-7 user__dropdown-menu--icon"

@@ -1,85 +1,92 @@
-.user__page {
-    @include hundredPercentHW();
-    height: 100%;
+.user {
+   &__dropdown-menu {
 
-    padding: 2rem;
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: scroll;
-}
+    &--icon {
 
-.user__dropdown-menu {
-  @include flexCenterCenter($flex-direction: column);
-  width: 100%;
-  display: none;
-  position: absolute;
-  // transform: translate(-17%, 72.5%);
-  background-color: $white;
-  border: 2px solid $black;
-  width: 15rem;
-  max-height: 27rem;
-  z-index: 9999;
-  // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
+      @media (max-width: 350px) {
+        // display: none;
+      }
 
-  &--logged-in {
+    }
+
+   }
+
+   &__page {
+       @include hundredPercentHW();
+       height: 100%;
+   
+       padding: 2rem;
+       grid-row: 1 / span 1;
+       grid-column: 2 / span 4;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: flex-start;
+       overflow: scroll;
+   }
+
+   &__dropdown-menu {
+    @include flexCenterCenter($flex-direction: column);
+    width: 100%;
     display: none;
     position: absolute;
-    top: 100%;
-    right: 0;
-    // transform: translate(-17%, 15.25rem);
+    // transform: translate(-17%, 72.5%);
     background-color: $white;
     border: 2px solid $black;
     width: 15rem;
     max-height: 27rem;
     z-index: 9999;
-      // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
+    // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
 
+    &--logged-in {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      // transform: translate(-17%, 15.25rem);
+      background-color: $white;
+      border: 2px solid $black;
+      width: 15rem;
+      max-height: 27rem;
+      z-index: 9999;
+        // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
+
+    }
+    &--logged-in--not-admin {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      // transform: translate(-17%, 13.35rem);
+      background-color: $white;
+      border: 2px solid $black;
+      width: 15rem;
+      max-height: 27rem;
+      z-index: 9999;
+        // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
+
+    }
+
+    &--not-logged-in {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      // transform: translate(-4rem, 7.85rem);
+      background-color: $white;
+      border: 2px solid $black;
+      width: 15rem;
+      max-height: 15rem;
+      z-index: 9999;
+        // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
+
+    }
+
+    &--link {
+      @include hundredPercentHW();
+      @include flexCenterCenter();
+      padding: 1rem;
+      border-bottom: 1px solid $grey-light-4;
+    }
   }
-  &--logged-in--not-admin {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    // transform: translate(-17%, 13.35rem);
-    background-color: $white;
-    border: 2px solid $black;
-    width: 15rem;
-    max-height: 27rem;
-    z-index: 9999;
-      // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
-
-  }
-
-  &--not-logged-in {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    // transform: translate(-4rem, 7.85rem);
-    background-color: $white;
-    border: 2px solid $black;
-    width: 15rem;
-    max-height: 15rem;
-    z-index: 9999;
-      // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
-
-  }
-
-  &--link {
-    @include hundredPercentHW();
-    @include flexCenterCenter();
-    padding: 1rem;
-    border-bottom: 1px solid $grey-light-4;
-  }
-}
-
-.form__content {
-    // height: 27rem;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
 }
