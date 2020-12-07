@@ -84,7 +84,7 @@ export default function Login({ location, history }) {
             Login
           </button>
 
-          <div className="text-size-5">
+          <div className="text-size-5 loginScreen__register">
               New User?{' '}
               <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                 <span style={{color: 'blue'}}>Register</span>

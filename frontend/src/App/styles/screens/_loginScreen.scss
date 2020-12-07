@@ -12,9 +12,14 @@
 
   &__content {
     height: 50vh;
+    width: 29rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    @media (max-width: 450rem) {
+      width: 60vw;
+    }
   }
 
   &__element {
@@ -72,6 +77,10 @@
       outline: none;
       border: 1px solid $old-blue-2;
     }
+  }
+
+  &__register {
+    text-align: center;
   }
 
 }

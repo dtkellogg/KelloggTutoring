@@ -101,6 +101,7 @@ function NavUpper({ history }) {
               size={15}
               fill="var(--old-blue-2)"
               className="social-media-icon grey-light-7 user__dropdown-menu--icon"
+              style={{display: width > 450 || userInfo? 'block' : 'none'}} 
             />}
             {!userInfo ? (
               <ul className="user__dropdown-menu--not-logged-in">

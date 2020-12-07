@@ -55,4 +55,8 @@
   text-align: center;
   margin: auto;
   color: $grey-light-4;
+
+  @media (max-width: 320px) {
+    padding: 0 1rem;
+  }
 }
