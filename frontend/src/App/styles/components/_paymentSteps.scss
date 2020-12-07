@@ -22,6 +22,10 @@
 			@media ( max-width: 900px ) {
 				padding: 0 3rem;
 			}
+
+			@media ( max-width: 375px ) {
+				padding: 0 1rem;
+			}
 		}
 
 		&__li {
@@ -41,7 +45,7 @@
 			overflow: scroll;
 
 			@media (max-width: 600px ) {
-				padding: 2rem 0;
+				padding: 2rem 1rem;
 			}
 		}
 

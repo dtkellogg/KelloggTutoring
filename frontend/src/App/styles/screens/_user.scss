@@ -11,19 +11,19 @@
 
    }
 
-   &__page {
-       @include hundredPercentHW();
-       height: 100%;
-   
-       padding: 2rem;
-       grid-row: 1 / span 1;
-       grid-column: 2 / span 4;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: flex-start;
-       overflow: scroll;
-   }
+  &__page {
+    @include hundredPercentHW();
+    height: 100%;
+  
+    padding: 2rem;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: scroll;
+  }
 
    &__dropdown-menu {
     @include flexCenterCenter($flex-direction: column);

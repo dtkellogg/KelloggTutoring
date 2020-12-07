@@ -104,10 +104,10 @@ function PaymentCheckout({ match, history }) {
         <div className="checkout__payment-method">
           <h2 className="text-size-4">Payment Method:&nbsp;</h2>
 
-          <div className="text-size-1 checkout__payment-method--text">
-            <strong style={{ fontSize: "var(--text-size-5)" }}>
+          <div className="text-size-2 checkout__payment-method--text">
+            {/* <strong className="text-size-3"> */}
               &nbsp;{cart.paymentMethod}
-            </strong>
+            {/* </strong> */}
           </div>
         </div>
 
@@ -189,7 +189,7 @@ function PaymentCheckout({ match, history }) {
               <br />
             </strong>
             {cart.cartItems.length} &times; $50.00 = $
-            {cart.cartItems.length * 50}
+            {cart.cartItems.length * 50}.00
           </div>
           <div className="text-size-3">
             <strong className="">

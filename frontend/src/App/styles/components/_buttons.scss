@@ -123,7 +123,6 @@
   &__continue {
     @extend %btn;
     grid-column: 1 / span 1;
-    // transform: translateY(-1rem);
     align-self: start;
     justify-self: start;
     padding: 0.5rem;
@@ -138,7 +137,6 @@
     }
 
     @media (max-width: 450px) {
-      transform: translateY(1rem);
       margin: 1rem 0;
     }
   }
@@ -161,7 +159,7 @@
     }
 
     @media (max-width: 900px) {
-      transform: translateY(-1rem);
+      transform: translateY(0rem);
       margin: 1rem 0;
 
       grid-column: 1 / span 1;
@@ -198,7 +196,7 @@
     }
 
     @media (max-width: 450px) {
-      transform: translateY(1rem);
+      // transform: translateY(1rem);
       margin: 1rem 0;
     }
     }
@@ -213,6 +211,10 @@
     &:hover {
       background-color: $green-12;
       color: $black;
+    }
+
+    @media ( max-width: 550px ) {
+      width: 7.4rem;
     }
   }
 
@@ -568,6 +570,10 @@
     &:hover {
       background-color: $green-12;
       color: $black;
+    }
+
+    @media ( max-width: 550px ) {
+      width: 7.4rem;
     }
   }
 

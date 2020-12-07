@@ -8,12 +8,8 @@ import Sidebar from "../components/Sidebar";
 
 // actions
 import { savePaymentMethod } from "../actions/cartActions";
-// import { subheader } from "../actions/subheader";
 
-// constants
-import { CART_RESET } from "../constants/cartConstants";
-
-
+// data
 const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
 
 
@@ -28,10 +24,6 @@ const PaymentMethodScreen = ({ history }) => {
     history.push("/appointments/checkout");
   };
 
-  const handleDelete = () => {
-    dispatch({type: CART_RESET})
-  }
-
 
   return (
     <div className="pg__appointment">
@@ -45,7 +37,7 @@ const PaymentMethodScreen = ({ history }) => {
                 Select payment method:
               </label>
               <button type="submit" className="btn__continue--select-method text-size-5">
-                Continue
+                continue
               </button>
             </div>
             <div className="payment__method--screen--form-inputs">
@@ -75,8 +67,6 @@ const PaymentMethodScreen = ({ history }) => {
             </div>
           </div>
         </form>
-
-        <button onClick={handleDelete}>RESET CART</button>
       </div>
     </div>
   )

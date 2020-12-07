@@ -4,15 +4,11 @@
     @include flexCenterCenter();
     height: 100%;
 
-    @media ( max-width: 500px ) {
+    @media ( max-width: 510px ) {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: 1fr;
-    }
-    
-    @media ( max-width: 450px ) {
-      padding-left: 1.45rem;
     }
 
     @media ( max-width: 350px ) {
@@ -46,7 +42,7 @@
     border-bottom: 1px solid $grey-light-6;
     color: $black;
 
-    @media ( max-width: 500px ) {
+    @media ( max-width: 510px ) {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 1fr;
@@ -60,7 +56,11 @@
       height: 100%;
       display: flex;
       align-items: center;
-      padding-left: 2rem;
+      padding: 0 2rem;
+
+      @media ( max-width: 450px ) {
+        // padding: 0 0rem 0 2rem;
+      }
 
 
       @media ( max-width: 400px ) {
@@ -72,7 +72,7 @@
       @include flexCenterCenter($justify-content: space-between);
       height: 100%;
 
-      @media ( max-width: 500px ) {
+      @media ( max-width: 510px ) {
         grid-column: 2 / span 4;
       }
     }
@@ -84,7 +84,7 @@
       justify-content: center;
       align-items: center;
 
-      @media ( max-width: 500px ) {
+      @media ( max-width: 510px ) {
         grid-column: 1 / span 1;
       }
 
@@ -185,7 +185,7 @@
   }
 
   &__user-name {
-    @media (max-width: 425px) {
+    @media (max-width: 440px) {
       display: none;
     }
   }

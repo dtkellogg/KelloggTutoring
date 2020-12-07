@@ -210,7 +210,7 @@
       grid-column: 2 / span 1;
 
       @media (max-width: 600px) {
-        width: 29vw;
+        // width: 29vw;
       }
     }
 
@@ -297,6 +297,15 @@
       width: 100%;
       justify-content: flex-start;
     }
+
+    &--text {
+      display: inline-block;
+      line-height: 2rem;
+
+      @media (max-width: 550px) {
+        // line-height: 0rem;
+      }
+    }
   }
 
   &__totals {
@@ -306,6 +315,7 @@
     justify-content: space-between;
     border-bottom: 2px solid $grey-light-6;
     padding: 1rem;
+    width: 100%;
 
     @media (max-width: 600px) {
       margin-top: 0rem;
@@ -321,10 +331,7 @@
     }
   }
 
-  &__payment-method--text {
-    // height: 100%;
-    // width: 100%;
-  }
+  
 }
 
 .payments__login--msg {

@@ -57,7 +57,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               Payment Method
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment Method</div>
           )}
         </li>
 
@@ -69,10 +69,10 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
               className="nav__link text-size-6 letter-spacing-sm"
               style={{ color: "var(--old-blue-2)"}}
             >
-              Checkout
+              Submit
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Submit Payment</div>
+            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Submit</div>
           )}
         </li>
       </ul>

@@ -152,9 +152,9 @@ export default function Payments({ match, history }) {
                 to={`/appointments/payment-method`}
                 className="btn__continue text-size-5"
               >
-                Continue
+                continue
               </Link>
-              <button className="btn__cart--reset" onClick={handleReset}>RESET CART</button>
+              <button className="btn__cart--reset" onClick={handleReset}>reset cart</button>
               <div className="appointments__header text-size-2">
                 Select appointments to pay for:
               </div>
