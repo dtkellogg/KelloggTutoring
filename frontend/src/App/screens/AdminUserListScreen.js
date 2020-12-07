@@ -71,13 +71,9 @@ export default function AdminUserList ({ location, history }) {
       <div className="pg__meetToshi">
         <Sidebar title="Toshi" list={adminList} />
         <div className="users">
-          {/* {loading && <Loading />} */}
           <div className="text-size-2 users__header--container">
-            <div
-              className="text-size-2 users__header"
-              style={{ marginBottom: "1rem" }}
-            >
-              Here are all active users:
+            <div className="text-size-2 users__header">
+              All active users:
             </div>
           </div>
 
@@ -103,7 +99,7 @@ export default function AdminUserList ({ location, history }) {
 
                     <td className="users__td--edit">
                       <Link to={`/admin/user/${user._id}/edit`}>
-                        <button className="btn__edit">Edit</button>
+                        <button className="btn__edit">edit</button>
                       </Link>
                     </td>
 

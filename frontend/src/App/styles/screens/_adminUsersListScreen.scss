@@ -2,7 +2,7 @@
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
 
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   height: 100%;
   overflow: scroll;
 
@@ -76,7 +76,7 @@
       // margin: 6rem 0 4.5rem 0;
       grid-column: 1 / span 5;
       text-align: center;
-      margin: 2rem 0;
+      margin-bottom: 3rem;
     }
 
     @media (max-width: 450px) {
@@ -222,12 +222,11 @@
       width: 20rem;
 
       @media (max-width: 650px) {
-        width: 22rem;
+        width: min-content;
       }
 
       @media (max-width: 450px) {
         padding-left: 1rem;
-        width: 18rem;
       }
     }
 
@@ -235,19 +234,14 @@
       grid-column: 2 / span 1;
       text-align: left;
       padding-left: 2rem;
-      width: 35rem;
+      width: auto;
 
       @media (max-width: 750px) {
-        width: 30rem;
-      }
-
-      @media (max-width: 550px) {
-        width: 20rem;
+        width: auto;
       }
 
       @media (max-width: 450px) {
-        padding-left: 1rem;
-        width: 18rem;
+        padding-left: 0rem;
       }
     }
 
@@ -259,18 +253,14 @@
     &--edit {
       grid-column: 4 / span 1;
       text-align: center;
+      width: 5rem;
     }
 
     &--delete {
       grid-column: 5 / span 2;
+      @include flexCenterCenter($flex-direction: column);
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       height: 100%;
-      // @include flexCenterCenter($justify-content: space-between);
-      // padding: 1rem 0;
     }
   }
 
@@ -311,6 +301,7 @@
     &--delete {
       grid-column: 6 / span 1;
       text-align: center;
+      width: 5rem;
       // @include flexCenterCenter($justify-content: space-between);
 
       @media (max-width: 600px) {
