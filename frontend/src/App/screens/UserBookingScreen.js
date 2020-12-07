@@ -163,7 +163,7 @@ export default function UserBookingScreen({ location, history, type}) {
             </div>
 
             <div className="createApptScreen__element">
-              <label className="text-size-5 letter-spacing-md createApptScreen__label">
+                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="date">
                 date
               </label>
               <input
@@ -177,7 +177,7 @@ export default function UserBookingScreen({ location, history, type}) {
             </div>
 
             <div className="createApptScreen__element">
-              <label className="text-size-5 letter-spacing-md createApptScreen__label">
+                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="time">
                 start time
               </label>
               <input
@@ -185,18 +185,20 @@ export default function UserBookingScreen({ location, history, type}) {
                 className="createApptScreen__input text-size-4"
                 placeholder="start time"
                 value={startTime}
+                
                 onChange={(e) => setStartTime(e.target.value)}
               />
             </div>
 
             <div className="createApptScreen__element">
-              <label className="text-size-5 letter-spacing-md createApptScreen__label">
+                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="time">
                 end time
               </label>
               <input
                 type="time"
                 className="createApptScreen__input text-size-4"
                 placeholder="end time"
+                
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
               />

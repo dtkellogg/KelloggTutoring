@@ -1,8 +1,6 @@
 .messageForm {
   @include hundredPercentHW();
   padding: 1rem 2rem;
-  width: 100%;
-  height: 100%;
   overflow: scroll;
   cursor: ns-resize;
 
@@ -23,7 +21,7 @@
     // width: 35rem;
     height: min-content;
     overflow: visible;
-    padding: 1rem 0;
+    padding: 1rem;
   }
 
   &__header {

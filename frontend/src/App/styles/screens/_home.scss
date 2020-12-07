@@ -257,6 +257,23 @@
   }
 }
 
+.hero__tutoring-simplified {
+  transform: translate(0rem,0.5rem);
+}
+
+.hero__subjects-text {
+  transform: translate(0.15rem,-1rem);
+  width: 38rem;
+
+  @media (max-width: 750px) {
+    width: 36rem;
+  }
+
+  @media (max-width: 400px) {
+    width: 25rem;
+  }
+}
+
 
 .hero__right-container{
   @include flexCenterCenter($flex-direction: column);

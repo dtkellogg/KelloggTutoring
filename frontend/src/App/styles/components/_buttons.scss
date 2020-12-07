@@ -236,10 +236,11 @@
     @extend %btn;
     @extend %btn--blue;
     margin-bottom: 5rem;
-    width: 35rem;
+    width: 100%;
+    transform: translateY(4rem);
 
     @media ( max-width: 400px ) {
-      width: 80vw;
+      // width: 80vw;
     }
   }
 
@@ -308,8 +309,8 @@
     }
 
     @media ( max-width: 900px ) {
-      margin-top: 4rem;
-      transform: translateY(0);
+      margin-top: 0rem;
+      transform: translateY(6rem);
     }
 
 
@@ -613,7 +614,7 @@
     @media (max-width: 1050px){
       transform: translateY(200%);
       width: 60vw;
-      padding: 2rem;
+      padding: 1rem;
       margin: 0.5rem;
     }
 
@@ -666,11 +667,15 @@
   &__hero--header {
     grid-row: 1 / span 2;
     grid-column: 2 / span 1;
+    width: max-content;
     
     
-    @media (max-width: 600px) {
-      // display: flex;
-      // width: 30rem;
+    @media (max-width: 690px) {
+      transform: translateX(-1rem);
+    }
+
+    @media (max-width: 650px) {
+      transform: translateX(-2rem);
     }
     
     @media (max-width: 600px) {
@@ -678,6 +683,7 @@
       grid-column: 1 / span 2;
       
       align-self: start;
+      transform: translateX(0rem);
       width: 27.5rem;
       display: flex;
       justify-content: space-between;

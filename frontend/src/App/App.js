@@ -216,6 +216,16 @@ export default function App() {
                   />
                   <Route
                     exact
+                    path="/admin/reviews"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/blog"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
                     path="/admin/user/:id/edit"
                     component={AdminUserEdit}
                   />

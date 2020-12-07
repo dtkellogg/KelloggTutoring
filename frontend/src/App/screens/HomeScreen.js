@@ -69,8 +69,8 @@ export default function HomePage() {
 
           <div className="container__hero--text">
             <h1 className="text-size-0 letter-spacing-lg container__hero--welcome">Welcome</h1>
-            <h3 className="text-size-2">Tutoring Simplified.</h3>
-            <h4 className="text-size-3">
+            <h3 className="text-size-2 hero__tutoring-simplified">Tutoring Simplified.</h3>
+          <h4 className="text-size-3 hero__subjects-text">
               Math, Science, English, Spanish, SAT & ACT
             </h4>
           </div>
