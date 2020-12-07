@@ -121,7 +121,7 @@
       text-align: center;
 
       @media (max-width: 600px) {
-        width: 9rem;
+        width: auto;
       }
     }
 
@@ -165,6 +165,10 @@
       @media (max-width: 600px) {
         width: 8rem;
       }
+
+      @media (max-width: 600px) {
+        width: 4rem;
+      }
     }
 
     &--btns {
@@ -181,7 +185,7 @@
       }
 
       @media (max-width: 600px) {
-        width: auto;
+        width: 4rem;
         // width: 6rem;
       }
     }
@@ -264,6 +268,18 @@
 
       @media (max-width: 600px) {
         padding: 0;
+      }
+    }x
+
+    &--cancel {
+      grid-column: 6 / span 1;
+      text-align: center;
+      // @include flexCenterCenter($justify-content: space-between);
+      padding: 0 6.5rem;
+      width: 3rem;
+
+      @media (max-width: 600px) {
+        width: 3rem;
       }
     }
   }

@@ -291,9 +291,9 @@ export default function ApptsList({ location, type }) {
             <th className="th appointments__th--date">date</th>
             <th className="th appointments__th--time">time</th>
             <th className="th appointments__th--subject">subject</th>
-            <th className="th appointments__th--subject">student</th>
+            <th className="th appointments__th--student">student</th>
             <th className="th appointments__th--btns">paid?</th>
-            <th className="th appointments__th--cancel">cancel</th>
+            <th className="th appointments__th--cancel"></th>
           </tr>
         </thead>
         <tbody className="tbody">
