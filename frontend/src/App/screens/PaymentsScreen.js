@@ -12,6 +12,9 @@ import { listAppointments } from '../actions/appointmentActions'
 import { addToCart } from '../actions/cartActions'
 import { subheader } from "../actions/subheader";
 
+// constants
+import { CART_RESET } from "../constants/cartConstants";
+
 // components
 import PaymentSteps from '../components/PaymentSteps'
 import Sidebar from "../components/Sidebar";
@@ -44,6 +47,8 @@ export default function Payments({ match, history }) {
   const reduxCart = useSelector((state) => state.cart);
 
   const { width, height } = useWindowDimensions() // eslint-disable-line no-unused-vars
+
+  console.log(`cart: ${cart}`)
 
  
 
@@ -114,6 +119,14 @@ export default function Payments({ match, history }) {
   }, [dispatch, loading, error]);
 
 
+  // ability to reset cart
+  const handleReset = async () => {
+    await dispatch({ type: CART_RESET })
+    setCart([])
+    dispatch(listAppointments())
+  }
+
+
 
   return (
     <div className="pg__appointment">
@@ -141,6 +154,7 @@ export default function Payments({ match, history }) {
               >
                 Continue
               </Link>
+              <button className="btn__cart--reset" onClick={handleReset}>RESET CART</button>
               <div className="appointments__header text-size-2">
                 Select appointments to pay for:
               </div>

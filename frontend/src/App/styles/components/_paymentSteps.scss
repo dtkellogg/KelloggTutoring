@@ -13,10 +13,13 @@
 			@include flexCenterCenter($justify-content: space-between);
 			margin-bottom: 2rem;
 			width: 100%;
+			padding: 0 14vw;
+
+			@media ( max-width: 1150px ) {
+				padding: 0 12vw;
+			}
 
 			@media ( max-width: 900px ) {
-				// margin-bottom: 0;
-				width: 100%;
 				padding: 0 3rem;
 			}
 		}

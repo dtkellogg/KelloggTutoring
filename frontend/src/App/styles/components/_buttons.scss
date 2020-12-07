@@ -160,8 +160,8 @@
       color: $black;
     }
 
-    @media (max-width: 600px) {
-      transform: translateY(0.2rem);
+    @media (max-width: 900px) {
+      transform: translateY(-1rem);
       margin: 1rem 0;
 
       grid-column: 1 / span 1;
@@ -174,6 +174,33 @@
     border-radius: 5rem;
     border: 2px solid #fff;
     color: #fff;
+    }
+  }
+
+  &__cart {
+    &--reset {
+    @extend %btn;
+    background-image: none;
+    background: $grey-light-5;
+    grid-column: 5 / span 1;
+    align-self: start;
+    justify-self: start;
+    padding: 0.5rem;
+    width: 12rem;
+    text-align: center;
+    border-radius: 5rem;
+    border: 2px solid $white;;
+    color: $white;
+
+
+    &:hover {
+      color: $black;
+    }
+
+    @media (max-width: 450px) {
+      transform: translateY(1rem);
+      margin: 1rem 0;
+    }
     }
   }
 

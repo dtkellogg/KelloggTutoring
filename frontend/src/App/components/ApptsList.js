@@ -130,7 +130,7 @@ export default function ApptsList({ location, type }) {
     return (
       <div className="">
         {/* <Sidebar title="Appointments" list={apptsList} /> */}
-      <table className="table text-size-3 appointments__list">
+      <table className="text-size-3 appointments__list">
         <thead className="thead">
           <tr className="tr">
             <th className="th appointments__th--upcoming-date">date</th>
@@ -208,7 +208,7 @@ export default function ApptsList({ location, type }) {
         <Sidebar title="Appointments" list={apptsList} />
 
 
-      <table className="table text-size-3 appointments__list--all">
+      <table className="text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
             <th className="th appointments__th--upcoming-date">date</th>
@@ -285,7 +285,7 @@ export default function ApptsList({ location, type }) {
   if (type === "admin" && userInfo) {
     return (
 
-      <table className="table text-size-3 appointments__list--all">
+      <table className="text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
             <th className="th appointments__th--date">date</th>
@@ -357,7 +357,7 @@ export default function ApptsList({ location, type }) {
   //   return (
   //     <div className="pg__appointment">
   //       <Sidebar title="Appointments" list={apptsList} />
-  //       <table className="table text-size-3 appointments__list">
+  //       <table className="text-size-3 appointments__list">
   //         <thead className="thead">
   //           <tr className="tr">
   //             <th className="th appointments__th--upcoming-date">date</th>
@@ -436,7 +436,7 @@ export default function ApptsList({ location, type }) {
   //       <Sidebar title="Appointments" list={apptsList} />
 
 
-  //       <table className="table text-size-3 appointments__list--all">
+  //       <table className="text-size-3 appointments__list--all">
   //         <thead className="thead">
   //           <tr className="tr">
   //             <th className="th appointments__th--upcoming-date">date</th>
@@ -511,7 +511,7 @@ export default function ApptsList({ location, type }) {
   if (type === "home" && userInfo) {
     return (
 
-      <table className="table text-size-3 appointments__list--all">
+      <table className="text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
             <th className="th appointments__th--date">date</th>
