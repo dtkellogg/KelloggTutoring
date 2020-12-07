@@ -183,7 +183,7 @@ export default function ApptsList({ location, type }) {
                       />
                     )}
                   </td>
-                  <td className="text-size-3 appointments__item--subject">
+                  <td className="text-size-3 appointments__item--cancel">
                     <FaTrash
                       size={20}
                       color="var(--green-dark)"
@@ -216,7 +216,7 @@ export default function ApptsList({ location, type }) {
             <th className="th appointments__th--upcoming-student">student</th>
             <th className="th appointments__th--upcoming-subject">subject</th>
             <th className="th appointments__th--upcoming-btns">paid?</th>
-            <th className="th appointments__th--upcoming-btns">cancel</th>
+            {/* <th className="th appointments__th--upcoming-btns">cancel</th> */}
           </tr>
         </thead>
         <tbody className="tbody">
@@ -260,16 +260,16 @@ export default function ApptsList({ location, type }) {
                       />
                     )}
                   </td>
-                  <td className="text-size-3 appointments__item--subject">
+                  {/* <td className="text-size-3 appointments__item--subject">
                     <FaTrash
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--red)"
                       className="social-media-icon__trash grey-light-7"
                       type="button"
-                      // onClick={() => deleteHandler(appt._id)}
+                      onClick={() => deleteHandler(appt._id)}
                     />
-                  </td>
+                  </td> */}
                 </tr>
               );
             })}
@@ -322,13 +322,14 @@ export default function ApptsList({ location, type }) {
                     <FaTimes
                       size={20}
                       color="var(--green-dark)"
-                      fill="var(--red)"
-                      className="social-media-icon grey-light-7"
+                      fill="var(--grey-light-5)"
+                      className="social-media-icon"
                       type="button"
                     />
                   )}
                 </td>
-                <td className="text-size-3 appointments__item--subject">
+
+                <td className="text-size-3 appointments__item--cancel">
                   <FaTrash
                     size={20}
                     color="var(--green-dark)"
@@ -338,6 +339,7 @@ export default function ApptsList({ location, type }) {
                     onClick={() => deleteHandler(appt._id)}
                   />
                 </td>
+                
                 {/* <button className="btn__cancel">Cancel</button> */}
               </tr>
             );

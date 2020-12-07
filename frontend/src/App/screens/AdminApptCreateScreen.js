@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 // actions
 import { createAppointment } from "../actions/appointmentActions"
 import { subheader } from "../actions/subheader"
+import { listUsers } from "../actions/userActions"
 
 
 export default function AdminAppointmentCreate({ location, history }) {
@@ -20,6 +21,17 @@ export default function AdminAppointmentCreate({ location, history }) {
 
 	const appointmentCreate = useSelector((state) => state.appointmentCreate)
   const { loading, error, success: successCreate } = appointmentCreate
+
+  React.useEffect(() => {
+    dispatch(listUsers())
+  }, [])
+
+  const userList = useSelector((state) => state.userList);
+  const {
+    // loading,
+    // error,
+    users,
+  } = userList;
   
   
   React.useEffect(() => {
@@ -40,18 +52,38 @@ export default function AdminAppointmentCreate({ location, history }) {
 		e.preventDefault()
 
     setSubmitted(true)
-    console.log(`paid: ${paid}`)
+    console.log(`student2: ${student}`)
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
   }
   
-  console.log(`paid: ${paid}`)
+  console.log(`student: ${student}`)
 
+  
+
+  console.log(`userList: ${userList}`)
+  // console.log(`users: ${users[0]}`)
+  // console.log(users[0])
+  console.log(userList)
+
+  const userNames = users.map(user => user.name)
+  // if (userNames !== undefined) {
+    const sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
+    console.log(sortedUsers)
+  // }
+
+  console.log(userNames)
+
+  console.log(`student: ${student}`)
+
+  
+
+  
 	return (
     <div className="user__page">
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
         <div className="createApptScreen__header">
           <h2 className="text-size-2 letter-spacing-sm">
-            Create new appointment
+            Create a new appointment
           </h2>
         </div>
         <div className="createApptScreen__content">
@@ -62,13 +94,25 @@ export default function AdminAppointmentCreate({ location, history }) {
             >
               student
             </label>
-            <input
+            {/* <input
               type="name"
               className="createApptScreen__input createApptScreen__input-contact text-size-3"
               placeholder="student name"
               value={student}
               onChange={(e) => setStudent(e.target.value)}
-            />
+            /> */}
+            <select 
+              type="name" 
+              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              placeholder="student name"
+              value={student}
+              onChange={(e) => setStudent(e.target.value)}
+              >
+                { sortedUsers && sortedUsers.map((user) => (
+                  <option>{user}</option>
+
+                ))}
+            </select>
           </div>
 
           <div className="createApptScreen__element">

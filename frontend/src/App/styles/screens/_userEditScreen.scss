@@ -1,9 +1,14 @@
 .userEditScreen {
   grid-row: 1 / span 1;
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 4;
   padding: 10rem 2rem 10rem 2rem;
   height: 100%;
   overflow: scroll;
+  position: relative;
+
+  @media (max-width: 480px) {
+    padding: 10rem 2rem 0rem 2rem;
+  }
 
   &__header {
     text-align: center;

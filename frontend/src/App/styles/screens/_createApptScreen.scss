@@ -2,12 +2,16 @@
 
 .createApptScreen {
   @include hundredPercentHW();
-  padding: 1rem 2rem;
+  padding: 1rem 35rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 900px) {
+    padding: 1rem 2rem;
+  }
 
   &__header {
     text-align: center;

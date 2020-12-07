@@ -85,12 +85,12 @@ if (process.env.NODE_ENV === "production") {
 //////////////
 // To run in production:
 
-const PORT = process.env.PORT || 5000
+// const PORT = process.env.PORT || 5000
 
-app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
-);
+// app.listen(
+//   PORT,
+//   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
+// );
 
 /////////////
 
@@ -99,17 +99,17 @@ app.listen(
 //////////////
 // To run in development:
 
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-// const options = {
-//   key: fs.readFileSync("./server.key", "utf8"),
-//   cert: fs.readFileSync("./kelloggtutoring_com.crt", "utf8"),
-// };
+const options = {
+  key: fs.readFileSync("./server.key", "utf8"),
+  cert: fs.readFileSync("./kelloggtutoring_com.crt", "utf8"),
+};
 
-// https.createServer(options, app).listen(PORT, () => {
-//   console.log(
-//     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-//   );
-// });
+https.createServer(options, app).listen(PORT, () => {
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  );
+});
 
 //////////////

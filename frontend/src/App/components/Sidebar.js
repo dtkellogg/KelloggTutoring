@@ -32,6 +32,8 @@ export default function Sidebar({ title, list }) {
     behavior: 'smooth'
   });
 
+  console.log(url.split('/'))
+
   return (
     <div className="sidebar">
       <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
@@ -48,6 +50,18 @@ export default function Sidebar({ title, list }) {
                 key={item}
                 to={{
                   pathname: `${slug(item)}`,
+                  search: location.search,
+                }}
+              >
+                {item.toUpperCase()}
+              </CustomLink>
+            )
+          } else if (url.split('/').length > 3) {
+            return (
+              <CustomLink
+                key={item}
+                to={{
+                  pathname: `/${url.split('/')[1]}/${slug(item)}`,
                   search: location.search,
                 }}
               >
