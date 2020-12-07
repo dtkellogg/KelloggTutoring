@@ -186,7 +186,7 @@ export default function HomePage() {
       <div className="highlights__meetToshi">
         <div className="highlights__meetToshi--container">
           <Reviews type="home"/>
-          <Link to={`/meetToshi/reviews`} className="btn__to-reviews--container">
+          <Link to={`/review/create-review`} className="btn__to-reviews--container">
               <button className="btn__to-reviews">
                 Write a review
               </button>

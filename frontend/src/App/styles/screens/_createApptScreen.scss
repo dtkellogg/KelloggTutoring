@@ -2,7 +2,7 @@
 
 .createApptScreen {
   @include hundredPercentHW();
-  padding: 1rem 35rem;
+  padding: 1rem 18vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
     flex-direction: column;
     width: 100%;
 
-    // transform: translateY(-9rem);
+    transform: translateY(-2rem);
 
     @media (max-width: 900px) {
       transform: translateY(0);

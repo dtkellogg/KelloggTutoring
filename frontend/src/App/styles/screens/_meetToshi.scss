@@ -1,5 +1,6 @@
 .pg__meetToshi {
-  height: 85vh;
+  height: min-content;
+  // height: 85vh;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(5, 1fr);
