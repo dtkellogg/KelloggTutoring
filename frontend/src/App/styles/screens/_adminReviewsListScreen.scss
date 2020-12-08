@@ -10,7 +10,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  height: 75vh;
+  height: 83vh;
   overflow: scroll;
 
   
@@ -206,7 +206,11 @@
   padding: 1.5rem;
   font-weight: 500;
 
-  @media ( max-width: 400px ) {
-      padding: 1.5rem 1rem;
+  @media ( max-width: 450px ) {
+      padding: 1.25rem 1rem;
   }
+
+  // @media ( max-width: 400px ) {
+  //     padding: 1.5rem 1rem;
+  // }
 }
