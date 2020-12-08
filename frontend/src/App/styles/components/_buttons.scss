@@ -760,13 +760,18 @@
 .loader {
   position: absolute;
   top: 50%;
-  left: 46%;
+  left: 50%;
   z-index: 999999999;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   animation: spinner 0.7s linear infinite;
+
+  @media (max-width:900px) {
+    top: 36%;
+    left: 47%;
+  }
 }
 
 @keyframes spinner {

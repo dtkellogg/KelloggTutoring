@@ -27,6 +27,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+
+  @media (max-width: 900px) {
+    height: 75vh;
+  }
 
   @media (max-width: 600px) {
     padding: 2rem 1rem;

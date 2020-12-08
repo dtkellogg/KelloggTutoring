@@ -20,6 +20,8 @@ import useFormatAMPM from "../hooks/useFormatAMPM"
 import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 
+import LoadingSpinner from '../components/LoadingSpinner'
+
 // data
 const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 
@@ -75,7 +77,8 @@ export default function ApptsList({ location, type }) {
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          <PleaseLoginScreen />
+          <LoadingSpinner />
+          {/* <PleaseLoginScreen /> */}
         </div>
       </div>
     )
