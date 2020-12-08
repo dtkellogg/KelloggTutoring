@@ -20,6 +20,7 @@ import useFormatAMPM from "../hooks/useFormatAMPM"
 import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
 
+// components --- this is for testing purposes. Delete when satisfaction is acheive in regards to the Loading Spinner positioning.
 import LoadingSpinner from '../components/LoadingSpinner'
 
 // data
@@ -77,8 +78,8 @@ export default function ApptsList({ location, type }) {
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          <LoadingSpinner />
-          {/* <PleaseLoginScreen /> */}
+          <PleaseLoginScreen />
+          {/* <LoadingSpinner /> */}
         </div>
       </div>
     )

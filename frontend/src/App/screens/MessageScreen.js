@@ -13,7 +13,7 @@ import { getUserDetails } from "../actions/userActions";
 // hooks
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 
-
+// data
 const contactList = ['message', 'schedule', 'contact info'];
 
 

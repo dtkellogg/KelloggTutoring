@@ -86,7 +86,7 @@ export default function AdminUserList ({ location, history }) {
                 <th className="users__th--delete">delete</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tbody">
               {users.map((user) => {
                 return (
                   <tr key={user._id} className="tr">

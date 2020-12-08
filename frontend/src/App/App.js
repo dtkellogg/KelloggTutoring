@@ -26,6 +26,7 @@ const PageHeader = React.lazy(() => import("./components/PageHeader"));
 // SCREENS
 const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
 const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
+const AdminReviewsList = React.lazy(() => import("./screens/AdminReviewsListScreen"));
 const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
 const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
 const AdminAppointmentCreate = React.lazy(() => import("./screens/AdminApptCreateScreen"));
@@ -216,11 +217,6 @@ export default function App() {
                   />
                   <Route
                     exact
-                    path="/admin/reviews"
-                    component={AdminAppointmentsList}
-                  />
-                  <Route
-                    exact
                     path="/admin/blog"
                     component={AdminAppointmentsList}
                   />
@@ -228,6 +224,11 @@ export default function App() {
                     exact
                     path="/admin/user/:id/edit"
                     component={AdminUserEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/reviews"
+                    component={AdminReviewsList}
                   />
                  
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
@@ -247,8 +248,8 @@ export default function App() {
               </CSSTransition>
             </TransitionGroup>
           </React.Suspense>
-          <Footer />
         </div>
+          <Footer />
       </div>
     </React.Fragment>
   );
