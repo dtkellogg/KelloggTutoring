@@ -192,7 +192,7 @@ export default function App() {
                   />
                   <Route
                     exact
-                    path="/admin/user-list"
+                    path="/admin/users"
                     component={AdminUserList}
                   />
                   <Route

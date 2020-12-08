@@ -14,7 +14,7 @@ import ApptsList from '../components/ApptsList'
 import { APPOINTMENT_CREATE_RESET } from '../constants/appointmentConstants'
 
 
-const adminList = ["User List", "Appointments", "Reviews", "Blog"]
+const adminList = ["Users", "Appointments", "Reviews", "Blog"]
 
 
 export default function AdminAppointmentsList({ location, history }) {
@@ -74,7 +74,7 @@ export default function AdminAppointmentsList({ location, history }) {
 			<div className="appointments">
 				<div className="text-size-2 appointments__header--container">
 					<div className="text-size-2 appointments__header">
-						Here are your upcoming appointments:
+						All appointments:
 					</div>
 					<Link to={`${url}/create-appointment`} className="btn__adminApptsList">
 						<span className="text-size-6" style={{ textAlign: "center" }}>

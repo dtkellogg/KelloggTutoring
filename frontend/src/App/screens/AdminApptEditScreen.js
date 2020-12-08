@@ -12,7 +12,7 @@ import { APPOINTMENT_UPDATE_RESET } from '../constants/appointmentConstants'
 
 
 // data
-const adminList = [ "User List", "Appointments", "Reviews", "Blog" ]
+const adminList = [ "Users", "Appointments", "Reviews", "Blog" ]
 
 export default function AdminAppointmentEdit({ match, location, history }) {
 	const dispatch = useDispatch()

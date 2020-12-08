@@ -14,6 +14,6 @@ router
   .route("/:id")
   .get(getReviewById)
   .delete(protect, admin, deleteReview)
-  .put(protect, updateReview);
+  .put(protect, admin, updateReview);
 
 module.exports = router;

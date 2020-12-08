@@ -2,8 +2,8 @@ const asyncHandler = require("express-async-handler");
 const Review = require("../models/reviewModel");
 const mongoose = require("mongoose");
 
-// @desc    Fetch all appointments
-// @router  GET /api/appointments
+// @desc    Fetch all reviews
+// @router  GET /api/reviews
 // @access  Public
 const getReviews = asyncHandler(async (req, res) => {
   const reviews = await Review.find({});
@@ -30,7 +30,7 @@ const getReviewById = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Delete an review
+// @desc    Delete a review
 // @route   DELETE /api/reviews/:id
 // @access  Private/Admin
 const deleteReview = asyncHandler(async (req, res) => {
@@ -45,7 +45,7 @@ const deleteReview = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Create an review
+// @desc    Create a review
 // @route   POST /api/reviews
 // @access  Private/Admin
 const createReview = asyncHandler(async (req, res) => {
@@ -78,19 +78,37 @@ const createReview = asyncHandler(async (req, res) => {
   
 });
 
-// @desc    Update an review
+// @desc    Update a review
 // @route   PUT /api/reviews/:id
 // @access  Private/Admin
 const updateReview = asyncHandler(async (req, res) => {
-  const { user, name, relation, msg } = req.body;
-
+  console.log(req.params.id)
   const review = await Review.findById(req.params.id);
+
+  // console.log('Inside Reviews controller')
+  const { user, name, relation, msg, approved } = req.body;
+
+  console.log(user, name, relation, msg, approved)
+
+
+  // if (review) {
+  //     console.log('Review')
+  //     const updatedReview = await review.save();
+  //     res.json(updatedReview);
+  //   } else {
+  //     res.status(404);
+  //   throw new Error("Review not found");
+  //   }
+  
+
+
 
   if (review) {
     review.user = user;
     review.name = name;
     review.relation = relation;
     review.msg = msg;
+    review.approved = approved;
 
     const updatedReview = await review.save();
     res.json(updatedReview);

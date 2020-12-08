@@ -10,9 +10,12 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
+  height: 75vh;
+  overflow: scroll;
 
+  
   @media (max-width: 900px) {
-    height: 75vh;
+    overflow: visible;
   }
 
   @media (max-width: 600px) {
@@ -29,6 +32,7 @@
 
   &__header {
     grid-column: 2 / span 3;
+    text-align: center;
 
 
     

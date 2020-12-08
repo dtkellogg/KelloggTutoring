@@ -14,7 +14,7 @@ import Sidebar from "../components/Sidebar";
 
 
 
-const adminList = [ "User List", "Appointments", "Reviews", "Blog" ]
+const adminList = [ "Users", "Appointments", "Reviews", "Blog" ]
 
 
 export default function AdminUserEdit ({ match, history, location }) {

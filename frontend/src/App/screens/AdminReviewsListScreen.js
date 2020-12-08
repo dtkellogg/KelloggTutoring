@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 
 // actions
-import { listReviews, deleteReview } from "../actions/reviewActions";
+import { listReviews, deleteReview, updateReview } from "../actions/reviewActions";
 import { subheader } from "../actions/subheader";
 
 // components
@@ -12,11 +12,10 @@ import Sidebar from "../components/Sidebar";
 import ReviewsList from '../components/ReviewsList'
 
 // hooks
-import useFormatAMPM from "../hooks/useFormatAMPM"
 import { useSortMultiple } from "../hooks/useSort";
 
 // data
-const adminList = ["User List", "Appointments", "Reviews", "Blog"]
+const adminList = ["Users", "Appointments", "Reviews", "Blog"]
 
 
 export default function AdminReviewsList({ location, history }) {
@@ -25,6 +24,8 @@ export default function AdminReviewsList({ location, history }) {
         // path,
         url
     } = useRouteMatch()
+
+    // const [approved]
 
     const reviewList = useSelector((state) => state.reviewList);
     const { loading, error, reviews } = reviewList;
@@ -36,11 +37,15 @@ export default function AdminReviewsList({ location, history }) {
         success: successDelete
     } = reviewDelete;
 
+    const reviewUpdate = useSelector((state) => state.reviewUpdate);
+    const {
+        loading: loadingUpdate,
+        error: errorUpdate,
+        success: successUpdate
+    } = reviewUpdate;
+
     const sortedReviews = useSortMultiple(reviews, "date", "name");
 
-    function AMPMTime(time) {
-        return useFormatAMPM(time)
-    }
 
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete this review?")) {
@@ -48,9 +53,24 @@ export default function AdminReviewsList({ location, history }) {
         }
     }
 
+    const approvedHandler = (id) => {
+        
+        const selectedReview = reviews.find(x => x._id === id)
+        const { approved, name, relation, msg } = selectedReview
+
+        console.log(approved)
+        if (window.confirm("Are you sure you want to approve this review?")) {
+            dispatch(updateReview({ _id: id, approved: !approved, name, relation, msg }))
+            // dispatch(updateReview({_id: id, approved: !approved}))
+        }
+        // console.log(review)
+        // e.preventDefault()
+        // dispatch(updateReview({ _id: review.id, name: review.name, relation: review.relation, msg: review.msg }))
+    }
+
     React.useEffect(() => {
-            dispatch(listReviews())
-    }, [dispatch, loadingDelete, errorDelete, successDelete])
+        dispatch(listReviews())
+    }, [dispatch, loadingDelete, errorDelete, successDelete, successUpdate])
 
     React.useEffect(() => {
         if (loadingDelete) {
@@ -61,8 +81,8 @@ export default function AdminReviewsList({ location, history }) {
 
     }, [dispatch, loadingDelete, errorDelete])
 
-    console.log(sortedReviews[0])
-    console.log(`reviews: ${reviews[0]}`)
+    // console.log(sortedReviews[0])
+    // console.log(`reviews: ${reviews[0]}`)
 
 
     return (
@@ -71,7 +91,7 @@ export default function AdminReviewsList({ location, history }) {
             <div className="reviewsAdmin">
                 <div className="text-size-2 reviewsAdmin__header--container">
                     <div className="text-size-2 reviewsAdmin__header">
-                        Pending & Posted Reviews:
+                        All Reviews:
 					</div>
                 </div>
                 <table className="text-size-3 reviewsAdmin__list--all">
@@ -79,7 +99,7 @@ export default function AdminReviewsList({ location, history }) {
                         <tr className="tr">
                             <th className="th__reviews-list reviewsAdmin__th--posted">date</th>
                             <th className="th__reviews-list reviewsAdmin__th--by">by</th>
-                            <th className="th__reviews-list reviewsAdmin__th--msg">msg</th>
+                            <th className="th__reviews-list reviewsAdmin__th--msg">message</th>
                             <th className="th__reviews-list reviewsAdmin__th--approved">ok?</th>
                             <th className="th__reviews-list reviewsAdmin__th--delete"></th>
                         </tr>
@@ -87,7 +107,8 @@ export default function AdminReviewsList({ location, history }) {
                     <tbody className="tbody">
                         {sortedReviews.map((review) => {
                             const date = review.date.split("T")[0].split("-");
-                            console.log(`review.approved: ${review.approved}`)
+                            const approved = review.approved
+                            // console.log(`review.approved: ${review.approved}`)
                             return (
                                 <tr key={review._id} className="reviewsAdmin__list--item">
                                     <td className="text-size-3 reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
@@ -101,7 +122,7 @@ export default function AdminReviewsList({ location, history }) {
                                             fill="var(--green)"
                                             className="social-media-icon grey-light-7"
                                             type="button"
-                                        // onClick={() => deleteHandler(review._id)}
+                                            onClick={() => approvedHandler(review._id)}
                                         />
                                            ) : (
                                                 <FaTimes
@@ -110,6 +131,7 @@ export default function AdminReviewsList({ location, history }) {
                                                     fill="var(--grey-light-5)"
                                                     className="social-media-icon"
                                                     type="button"
+                                                    onClick={() => approvedHandler(review._id)}
                                                 />
                                             )
                                         }
