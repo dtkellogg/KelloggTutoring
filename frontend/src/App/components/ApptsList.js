@@ -289,6 +289,8 @@ export default function ApptsList({ location, type }) {
   if (type === "admin" && userInfo) {
     return (
 
+      <div className="admin__table--container">
+
       <table className="text-size-3 appointments__list--all">
         <thead className="thead">
           <tr className="tr">
@@ -350,6 +352,7 @@ export default function ApptsList({ location, type }) {
           })}
         </tbody>
       </table>
+      </div>
     )
   }
 

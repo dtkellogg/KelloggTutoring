@@ -94,67 +94,70 @@ export default function AdminReviewsList({ location, history }) {
                         All Reviews:
 					</div>
                 </div>
-                <table className="text-size-3 reviewsAdmin__list--all">
-                    <thead className="thead">
-                        <tr className="tr">
-                            <th className="th__reviews-list reviewsAdmin__th--posted">date</th>
-                            <th className="th__reviews-list reviewsAdmin__th--by">by</th>
-                            <th className="th__reviews-list reviewsAdmin__th--msg">message</th>
-                            <th className="th__reviews-list reviewsAdmin__th--approved">ok?</th>
-                            <th className="th__reviews-list reviewsAdmin__th--delete"></th>
-                        </tr>
-                    </thead>
-                    <tbody className="tbody">
-                        {sortedReviews.map((review) => {
-                            const date = review.date.split("T")[0].split("-");
-                            const approved = review.approved
-                            // console.log(`review.approved: ${review.approved}`)
-                            return (
-                                <tr key={review._id} className="reviewsAdmin__list--item">
-                                    <td className="text-size-3 reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
-                                    <td className="text-size-3 reviewsAdmin__item--by"> {review.name}</td>
-                                    <td className="text-size-3 reviewsAdmin__item--msg">{review.msg}</td>
-                                    <td className="text-size-3 reviewsAdmin__item--approved">
-                                        {review.approved ? (
-                                        <FaCheckSquare
-                                            size={20}
-                                            color="var(--green-dark)"
-                                            fill="var(--green)"
-                                            className="social-media-icon grey-light-7"
-                                            type="button"
-                                            onClick={() => approvedHandler(review._id)}
-                                        />
-                                           ) : (
-                                                <FaTimes
-                                                    size={20}
-                                                    color="var(--green-dark)"
-                                                    fill="var(--grey-light-5)"
-                                                    className="social-media-icon"
-                                                    type="button"
-                                                    onClick={() => approvedHandler(review._id)}
-                                                />
-                                            )
-                                        }
-                                    </td>
+                
+                <div className="admin__table--container">
+                    <table className="text-size-3 reviewsAdmin__list--all">
+                        <thead className="thead">
+                            <tr className="tr">
+                                <th className="th__reviews-list reviewsAdmin__th--posted">date</th>
+                                <th className="th__reviews-list reviewsAdmin__th--by">by</th>
+                                <th className="th__reviews-list reviewsAdmin__th--msg">message</th>
+                                <th className="th__reviews-list reviewsAdmin__th--approved">ok?</th>
+                                <th className="th__reviews-list reviewsAdmin__th--delete"></th>
+                            </tr>
+                        </thead>
+                        <tbody className="tbody">
+                            {sortedReviews.map((review) => {
+                                const date = review.date.split("T")[0].split("-");
+                                const approved = review.approved
+                                // console.log(`review.approved: ${review.approved}`)
+                                return (
+                                    <tr key={review._id} className="reviewsAdmin__list--item">
+                                        <td className="text-size-3 reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
+                                        <td className="text-size-3 reviewsAdmin__item--by"> {review.name}</td>
+                                        <td className="text-size-3 reviewsAdmin__item--msg">{review.msg}</td>
+                                        <td className="text-size-3 reviewsAdmin__item--approved">
+                                            {review.approved ? (
+                                            <FaCheckSquare
+                                                size={20}
+                                                color="var(--green-dark)"
+                                                fill="var(--green)"
+                                                className="social-media-icon grey-light-7"
+                                                type="button"
+                                                onClick={() => approvedHandler(review._id)}
+                                            />
+                                            ) : (
+                                                    <FaTimes
+                                                        size={20}
+                                                        color="var(--green-dark)"
+                                                        fill="var(--grey-light-5)"
+                                                        className="social-media-icon"
+                                                        type="button"
+                                                        onClick={() => approvedHandler(review._id)}
+                                                    />
+                                                )
+                                            }
+                                        </td>
 
 
-                                    <td className="text-size-3 reviewsAdmin__item--delete">
-                                        <FaTrash
-                                            size={20}
-                                            color="var(--green-dark)"
-                                            fill="var(--red)"
-                                            className="social-media-icon__trash grey-light-7"
-                                            type="button"
-                                            onClick={() => deleteHandler(review._id)}
-                                        />
-                                    </td>
+                                        <td className="text-size-3 reviewsAdmin__item--delete">
+                                            <FaTrash
+                                                size={20}
+                                                color="var(--green-dark)"
+                                                fill="var(--red)"
+                                                className="social-media-icon__trash grey-light-7"
+                                                type="button"
+                                                onClick={() => deleteHandler(review._id)}
+                                            />
+                                        </td>
 
-                                    {/* <button className="btn__cancel">Cancel</button> */}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                                        {/* <button className="btn__cancel">Cancel</button> */}
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

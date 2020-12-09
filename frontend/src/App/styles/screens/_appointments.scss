@@ -31,7 +31,7 @@
   overflow: scroll;
 
   @media (max-width: 900px) {
-    overflow: visible;
+    // overflow: visible;
     height: 75vh;
   }
 
@@ -41,14 +41,12 @@
 
   &__header {
     grid-column: 2 / span 3;
-
-
+    grid-row: 2 / span 1;
+    text-align: center;
     
     @media (max-width: 1080px) {
       width: 110%;
-      justify-self: start;
     }
-    
 
     @media (max-width: 900px) {
       // margin-top: 1.5rem;
@@ -62,7 +60,7 @@
       // margin: 6rem 0 4.5rem 0;
       grid-column: 1 / span 5;
       text-align: center;
-      margin: 2rem 0;
+      margin-bottom: 1rem;
     }
 
     @media (max-width: 450px) {
@@ -74,10 +72,12 @@
     &--container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 4vh 3vh;
       align-items: center;
       justify-items: center;
       width : 100%;
       margin-bottom: 1rem;
+      position: relative;
     }
 
     &--container-checkout {

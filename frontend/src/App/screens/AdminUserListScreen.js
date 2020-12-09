@@ -77,47 +77,49 @@ export default function AdminUserList ({ location, history }) {
             </div>
           </div>
 
-          <table className="users__list text-size-3">
-            <thead className="thead">
-              <tr className="tr">
-                <th className="users__th--name">name</th>
-                <th className="users__th--email">email</th>
-                <th className="users__th--edit">edit</th>
-                <th className="users__th--delete">delete</th>
-              </tr>
-            </thead>
-            <tbody className="tbody">
-              {users.map((user) => {
-                return (
-                  <tr key={user._id} className="tr">
-                    <td className="text-size-3 users__td--name">
-                      {user.name}
-                    </td>
-                    <td className="text-size-3 users__td--email">
-                      <a href={`mailto:${user.email}`}>{user.email}</a>
-                    </td>
+          <div className="admin__table--container">
+            <table className="users__list text-size-3">
+              <thead className="thead">
+                <tr className="tr">
+                  <th className="users__th--name">name</th>
+                  <th className="users__th--email">email</th>
+                  <th className="users__th--edit">edit</th>
+                  <th className="users__th--delete">delete</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                {users.map((user) => {
+                  return (
+                    <tr key={user._id} className="tr">
+                      <td className="text-size-3 users__td--name">
+                        {user.name}
+                      </td>
+                      <td className="text-size-3 users__td--email">
+                        <a href={`mailto:${user.email}`}>{user.email}</a>
+                      </td>
 
-                    <td className="users__td--edit">
-                      <Link to={`/admin/user/${user._id}/edit`}>
-                        <button className="btn__edit">edit</button>
-                      </Link>
-                    </td>
+                      <td className="users__td--edit">
+                        <Link to={`/admin/user/${user._id}/edit`}>
+                          <button className="btn__edit">edit</button>
+                        </Link>
+                      </td>
 
-                    <td className="users__td--delete">
-                      <FaTrash
-                        size={20}
-                        color="var(--green-dark)"
-                        fill="var(--red)"
-                        className="social-media-icon grey-light-7"
-                        type="button"
-                        onClick={() => deleteHandler(user._id)}
-                      />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                      <td className="users__td--delete">
+                        <FaTrash
+                          size={20}
+                          color="var(--green-dark)"
+                          fill="var(--red)"
+                          className="social-media-icon grey-light-7"
+                          type="button"
+                          onClick={() => deleteHandler(user._id)}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     )
