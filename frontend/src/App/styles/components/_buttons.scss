@@ -303,7 +303,7 @@
     align-self: start;
     justify-self: start;
     padding: 0.5rem;
-    // position: absolute;
+    position: absolute;
     width: 13rem;
     text-align: center;
 
@@ -311,7 +311,13 @@
     align-items: center;
     justify-content: center;
 
-    // transform: translateY(-1rem);
+    transform: translateY(-3rem);
+
+    @media ( max-width: 900px ) {
+      right: 1rem;
+      width: 6rem;
+      transform: translateY(-3.5rem);
+    }
 
     &:hover {
       background-color: $green-12;

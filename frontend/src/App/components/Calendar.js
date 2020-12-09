@@ -67,7 +67,7 @@ export default function Calendar({ type }) {
 		setDay(date.getDate())
 		setMonth(monthStr)
 
-		let firstDayOfCurrentMonth = days[date.getDay() + 2];
+		let firstDayOfCurrentMonth = days[date.getDay()];
 		let numDaysOfPreviousMonth = days.indexOf(firstDayOfCurrentMonth)
 		
 		let totalNumOfDaysInCurrentMonth = daysInMonth(date.getMonth() + 1, year)

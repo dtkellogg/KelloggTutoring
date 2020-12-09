@@ -13,11 +13,17 @@ import ApptsList from '../components/ApptsList'
 // constants
 import { APPOINTMENT_CREATE_RESET } from '../constants/appointmentConstants'
 
+// hooks
+import useWindowDimensions from '../hooks/useWindowDimensions'
+
+
 
 const adminList = ["Users", "Appointments", "Reviews", "Blog"]
 
 
 export default function AdminAppointmentsList({ location, history }) {
+	const { width, height } = useWindowDimensions()
+
 	const dispatch = useDispatch()
 	const { 
 		// path,
@@ -78,7 +84,7 @@ export default function AdminAppointmentsList({ location, history }) {
 					</div>
 					<Link to={`${url}/create-appointment`} className="btn__adminApptsList">
 						<span className="text-size-6" style={{ textAlign: "center" }}>
-							Create appointment
+							{width > 900 ? "Create appointment" : "Create"}
 						</span>
 					</Link>
 				</div>

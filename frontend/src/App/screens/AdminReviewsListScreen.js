@@ -89,10 +89,8 @@ export default function AdminReviewsList({ location, history }) {
         <div className="pg__meetToshi">
             <Sidebar title="Toshi" list={adminList} />
             <div className="reviewsAdmin">
-                <div className="text-size-2 reviewsAdmin__header--container">
-                    <div className="text-size-2 reviewsAdmin__header">
-                        All Reviews:
-					</div>
+                <div className="text-size-2 reviewsAdmin__header">
+                    All reviews:
                 </div>
                 
                 <div className="admin__table--container">

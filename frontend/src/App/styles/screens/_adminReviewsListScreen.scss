@@ -25,10 +25,6 @@
     height: 75vh;
   }
 
-//   @media (max-width: 600px) {
-//     padding: 2rem 1rem;
-//   }
-
   &__header {
     grid-column: 2 / span 3;
     text-align: center;
@@ -43,21 +39,16 @@
     
 
     @media (max-width: 900px) {
-      // margin-top: 1.5rem;
       grid-row: 2 / span 1;
       width : 100%;
-      display: flex;
-      flex-direction: column;
     }
 
     @media (max-width: 900px) {
-      // margin: 6rem 0 4.5rem 0;
       grid-column: 1 / span 5;
       text-align: center;
     }
 
     @media (max-width: 450px) {
-      // margin: 6rem 0 4.5rem 0;
       grid-column: 1 / span 5;
       text-align: center;
     }

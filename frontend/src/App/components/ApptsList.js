@@ -41,6 +41,7 @@ export default function ApptsList({ location, type }) {
   const { userInfo } = userLogin
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime")
+
   
 
   function AMPMTime(time) {

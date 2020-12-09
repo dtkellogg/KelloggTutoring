@@ -66,8 +66,6 @@
       grid-row: 2 / span 1;
       grid-column: 1 / span 5;
       width : 100%;
-      display: flex;
-      flex-direction: column;
     }
 
     @media (max-width: 450px) {
@@ -207,7 +205,9 @@
     &--name {
       grid-column: 1 / span 1;
       text-align: left;
-      padding-left: 2rem;
+      padding: 0 1rem;
+      // padding-left: 1.5rem;
+      text-align: start;
 
       width: 20rem;
 
@@ -216,14 +216,14 @@
       }
 
       @media (max-width: 450px) {
-        padding-left: 1rem;
+        // padding-left: 1rem;
       }
     }
 
     &--email {
       grid-column: 2 / span 1;
       text-align: left;
-      padding-left: 2rem;
+      padding: 1rem;
       width: auto;
 
       @media (max-width: 750px) {
@@ -231,7 +231,7 @@
       }
 
       @media (max-width: 450px) {
-        padding-left: 0rem;
+        // padding-left: 0rem;
       }
     }
 
