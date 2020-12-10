@@ -32,6 +32,7 @@
 html {
   /* This defines 1 rem. */
   font-size: 62.5%; /* 1rem = 16px; 10px/16px = 62.5% */
+  scroll-behavior: smooth;
 }
 
 body {
