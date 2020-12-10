@@ -684,7 +684,7 @@
     grid-column: 2 / span 1;
     width: max-content;
     // transform: translateY(-3rem);
-    transform: translateY(2rem);
+    transform: translateY(-2rem);
     
     
     @media (max-width: 750px) {
@@ -692,7 +692,7 @@
       // flex-direction: column;
       // height: 8rem;
       // justify-content: space-between;
-      transform: translateY(-1rem);
+      // transform: translateY(-1rem);
       // position: absolute;
       // right: 10rem;
       // top: 50%;
