@@ -363,6 +363,11 @@
     width: 13rem;
 
 
+    @media ( max-width: 750px ) {
+      // margin-right: 0rem;
+    }
+
+
     @media(max-width: 600px ) {
       // width: 12rem;
       height: 4.5rem;
@@ -678,11 +683,19 @@
     grid-row: 1 / span 3;
     grid-column: 2 / span 1;
     width: max-content;
-    transform: translateY(-3rem);
+    // transform: translateY(-3rem);
+    transform: translateY(2rem);
     
     
-    @media (max-width: 690px) {
-      // transform: translateX(-1rem);
+    @media (max-width: 750px) {
+      // display: flex;
+      // flex-direction: column;
+      // height: 8rem;
+      // justify-content: space-between;
+      transform: translateY(-1rem);
+      // position: absolute;
+      // right: 10rem;
+      // top: 50%;
     }
 
     @media (max-width: 650px) {
@@ -749,6 +762,9 @@
     height: 10rem;
     grid-row: 2 / span 2;
     grid-column: 2 / span 1;
+
+    // Getting rid of ghost for now. Will either get a logo eventually or animate an svg.
+    // display: none;
 
     @media (max-width: 950px) and (max-height: 450px) {
 			grid-row: 2 / span 3;

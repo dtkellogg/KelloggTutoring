@@ -71,6 +71,7 @@
     justify-items: center;
     align-items: center;
     // scroll-snap-align: start;
+    position: relative;
 
     @media (max-width: 600px) {
       grid-template-columns: 1fr;
