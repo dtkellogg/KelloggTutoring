@@ -123,7 +123,7 @@ export default function UserBookingScreen({ location, history, type}) {
         <form onSubmit={handleSubmit} className="createApptScreen">
           <div className="createApptScreen__header">
             <h2 className="text-size-2 letter-spacing-sm">
-              Request a new appointment
+              Request an appointment
             </h2>
           </div>
 

@@ -620,9 +620,8 @@
     @extend %btn;
     transform: translateY(250%);
     margin: 0.25rem;
-    width: 20rem;
+    width: 45rem;
     color: $white;
-    border: 1px dotted $white;
 
     @media (max-width: 1050px){
       transform: translateY(200%);

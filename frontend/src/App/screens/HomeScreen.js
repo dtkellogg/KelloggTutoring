@@ -106,7 +106,7 @@ export default function HomePage() {
 
             <Link to={`/appointments/booking`} className="">
               <button className="btn__highlights--appointments">
-                Request a new appointment
+                Request an appointment
               </button>
             </Link>
 
