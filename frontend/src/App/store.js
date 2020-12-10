@@ -4,13 +4,14 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { appointmentListReducer, appointmentDetailsReducer,appointmentDeleteReducer, appointmentCreateReducer, appointmentUpdateReducer  } from './reducers/appointmentReducers'
 import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer, userListReducer, userDeleteReducer, userUpdateReducer} from './reducers/userReducers'
 import subheader from './reducers/subheader'
-import { appointmentRequestCreateReducer } from './reducers/appointmentRequestReducer'
+import { appointmentRequestCreateReducer, appointmentRequestDeleteReducer, appointmentRequestDetailsReducer, appointmentRequestListReducer } from './reducers/appointmentRequestReducer'
 import { cartReducer } from './reducers/cartReducers'
-import { paymentCreateReducer,
+import { 
     paymentDetailsReducer,
     paymentPayReducer,
     paymentListMyReducer,
-    paymentListReducer
+    paymentListReducer,
+    paymentCreateReducer
  } from './reducers/paymentReducers'
 import { 
     reviewDetailsReducer, 
@@ -20,6 +21,11 @@ import {
     reviewCreateReducer
 } from './reducers/reviewReducer'
 
+
+
+
+
+// combined reducer
 const reducer = combineReducers({
     appointmentList: appointmentListReducer,
     appointmentDetails: appointmentDetailsReducer,
@@ -27,6 +33,9 @@ const reducer = combineReducers({
     appointmentCreate: appointmentCreateReducer,
     appointmentUpdate: appointmentUpdateReducer,
     appointmentRequestCreate: appointmentRequestCreateReducer,
+    appointmentRequestList: appointmentRequestListReducer,
+    appointmentRequestDetails: appointmentRequestDetailsReducer,
+    appointmentRequestDelete: appointmentRequestDeleteReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,

@@ -1,0 +1,311 @@
+.appointment-requests {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 4;
+
+  padding: 2.5rem 1rem;
+  height: 100%;
+
+
+  &__list {
+    @include hundredPercentHW();
+    @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
+    line-height: 3.5rem;
+
+    &--item {
+      @include flexCenterCenter($justify-content: space-around);
+
+      width: 100%;
+    }
+  }
+
+  &__item {
+    
+    &--date {
+      grid-column: 2 / span 2;        
+    }
+
+    &--student {
+      grid-column: 1 / span 1;
+    }
+
+    &--appts {
+      grid-column: 4 / span 2;
+    }
+
+    &--subject {
+      grid-column: 4 / span 2;
+    }
+
+    &--btns {
+      grid-column: 4 / span 2;
+      @include flexCenterCenter();
+    }
+  }
+
+  
+
+  // @media (max-width: 600px) {
+  //   padding: 2rem 1rem;
+  // }
+
+  &__header {
+    grid-column: 2 / span 3;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+
+
+    
+    @media (max-width: 1080px) {
+      width: 110%;
+      justify-self: start;
+    }
+    
+
+    @media (max-width: 900px) {
+      grid-row: 2 / span 1;
+      grid-column: 1 / span 5;
+      width : 100%;
+    }
+
+    @media (max-width: 450px) {
+      // margin: 6rem 0 4.5rem 0;
+      grid-column: 1 / span 5;
+      text-align: center;
+    }
+
+    &--container {
+      // display: grid;
+      // grid-template-columns: repeat(5, 1fr);
+      // align-items: center;
+      // justify-items: center;
+      width : 100%;
+    }
+
+    &--container-checkout {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+    }
+  }
+
+  &__list {
+    @include hundredPercentHW();
+    // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
+    line-height: 3.5rem;
+    display: table;
+
+    &--item {
+      // @include flexCenterCenter($justify-content: space-between);
+      display: table-row;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(6, 1fr);
+
+      width: 100%;
+    }
+
+    &--all {
+      @include hundredPercentHW();
+      // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
+      line-height: 3.5rem;
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 4;
+
+      @media ( max-width: 600px ) {
+        height: auto;
+      }
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+
+    &--time {
+      grid-column: 2 / span 1;
+      text-align: center;
+
+      @media (max-width: 600px) {
+        width: 9rem;
+      }
+    }
+
+    &--date {
+      grid-column: 1 / span 1;
+      text-align: center;
+
+      @media (max-width: 600px) {
+        width: 6rem;
+      }
+    }
+
+    &--subject {
+      grid-column: 3 / span 1;
+      text-align: center;
+      height: 3rem;
+
+      @media (max-width: 600px) {
+        width: 8rem;
+      }
+    }
+
+    &--student {
+      grid-column: 4 / span 1;
+      text-align: center;
+
+      @media (max-width: 600px) {
+        width: 5rem;
+      }
+    }
+
+    &--cancel {
+      grid-column: 6 / span 1;
+      text-align: center;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5rem;
+
+      @media (max-width: 600px) {
+        width: 8rem;
+      }
+    }
+
+    &--btns {
+      grid-column: 5 / span 1;
+      text-align: center;
+      // @include flexCenterCenter($justify-content: space-between);
+      
+      
+      @media (max-width: 900px) {
+        // display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+      }
+
+      @media (max-width: 600px) {
+        width: auto;
+        // width: 6rem;
+      }
+    }
+  }
+
+  &__td {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+
+    &--date {
+      grid-column: 1 / span 1;
+      text-align: left;
+      padding: 0 1rem;
+      text-align: center;
+
+      width: 8rem;
+
+     
+    }
+
+    &--student {
+      grid-column: 2 / span 1;
+      text-align: center;
+      padding: 1rem 2rem;
+      width: auto;
+    }
+
+    &--subject {
+      grid-column: 3 / span 1;
+      text-align: center;
+      width: 20rem;
+    }
+
+    &--time {
+      grid-column: 4 / span 1;
+      text-align: center;
+      width: 20rem;
+    }
+
+    &--delete {
+      grid-column: 5 / span 2;
+      @include flexCenterCenter($flex-direction: column);
+      text-align: center;
+      height: 100%;
+    }
+  }
+
+  &__th {
+     &--date {
+      grid-column: 1 / span 1;
+      // width: 20rem;
+    }
+
+    &--student {
+      grid-column: 2 / span 1;
+
+      @media (max-width: 600px) {
+        // width: 29vw;
+      }
+    }
+
+
+    &--subject {
+      grid-column: 3 / span 1;
+
+      @media (max-width: 600px) {
+        width: 25vw;
+      }
+    }
+
+
+    &--time {
+      grid-column: 5 / span 1;
+      text-align: center;
+      // @include flexCenterCenter($justify-content: space-between);
+
+      @media (max-width: 600px) {
+        padding: 0;
+      }
+    }
+
+    &--delete {
+      grid-column: 6 / span 1;
+      text-align: center;
+      width: 5rem;
+      padding: 1rem;
+      // @include flexCenterCenter($justify-content: space-between);
+
+      @media (max-width: 600px) {
+        padding: 0;
+      }
+    }
+  }
+
+  // &__th--upcoming {
+  //   &-date {
+  //     grid-column: 1 / span 1;  
+  //   }
+
+  //   &-time {
+  //     grid-column: 2 / span 1;
+  //   }
+
+  //   &-student {
+  //     grid-column: 4 / span 1;
+  //   }
+
+  //   &-subject {
+  //     grid-column: 3 / span 1;
+  //   }
+
+  //   &-btns {
+  //     grid-column: 5 / span 1;
+  //   }
+  // }
+}

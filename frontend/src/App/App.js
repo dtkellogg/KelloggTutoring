@@ -26,6 +26,7 @@ const PageHeader = React.lazy(() => import("./components/PageHeader"));
 // SCREENS
 const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
 const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
+const AdminApptRequests = React.lazy(() => import("./screens/AdminApptRequestsScreen"));
 const AdminReviewsList = React.lazy(() => import("./screens/AdminReviewsListScreen"));
 const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
 const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
@@ -202,17 +203,17 @@ export default function App() {
                   />
                   <Route
                     exact
-                    path="/admin/appointments"
+                    path="/admin/appts"
                     component={AdminAppointmentsList}
                   />
                   <Route
                     exact
-                    path="/admin/appointment/:id/edit"
+                    path="/admin/appt/:id/edit"
                     component={AdminAppointmentEdit}
                   />
                   <Route
                     exact
-                    path="/admin/appointments/create-appointment"
+                    path="/admin/appts/create-appointment"
                     component={AdminAppointmentCreate}
                   />
                   <Route
@@ -229,6 +230,11 @@ export default function App() {
                     exact
                     path="/admin/reviews"
                     component={AdminReviewsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/requests"
+                    component={AdminApptRequests}
                   />
                  
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
