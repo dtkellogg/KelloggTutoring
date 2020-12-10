@@ -72,10 +72,11 @@
     align-items: center;
     justify-content: center;
 
-    transform: translateY(-3rem);
+    transform: translateY(-2rem);
 
     @media ( max-width: 900px ) {
       right: 8vw;
+      
     }
 
     &:hover {
@@ -289,7 +290,7 @@
   &__profileScreen {
     @extend %btn;
     @extend %btn--blue;
-    margin-top: 7rem;
+    margin-top: 11rem;
     border: none;
     width: 100%;
 
