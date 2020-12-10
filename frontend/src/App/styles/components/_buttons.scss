@@ -57,6 +57,35 @@
     }
   }
 
+  &__reviews {
+    @extend %btn;
+    @extend %btn--blue;
+    grid-column: 1 / span 1;
+    align-self: start;
+    justify-self: start;
+    padding: 0.5rem;
+    position: absolute;
+    width: 13rem;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-3rem);
+
+    @media ( max-width: 900px ) {
+      right: 8vw;
+    }
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+  
+
 
   &__cancel {
     @extend %btn;

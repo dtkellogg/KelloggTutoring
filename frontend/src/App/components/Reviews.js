@@ -187,7 +187,7 @@ export default function Reviews({history, type}) {
             {type === "meetToshi" && (
               <Link
                 to={`/review/create-review`}
-                className="btn__adminApptsList"
+                className="btn__reviews"
               >
                 <span className="text-size-6" style={{ textAlign: "center" }}>
                   Create Review

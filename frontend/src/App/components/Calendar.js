@@ -13,6 +13,7 @@ import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
 
 // actions
 import { listAppointments } from "../actions/appointmentActions"
+import { subheader } from "../actions/subheader"
 
 // hooks
 import { useSort } from '../hooks/useSort'
@@ -38,8 +39,8 @@ export default function Calendar({ type }) {
 	
 	const appointmentList = useSelector((state) => state.appointmentList);
 	const { 
-    // loading,
-    // error,
+    loading,
+    error,
     appointments
      } = appointmentList;
 
@@ -201,6 +202,16 @@ export default function Calendar({ type }) {
     dispatch(listAppointments());
   }, [dispatch]);
 
+  React.useEffect(() => {
+    if (loading) {
+      dispatch(subheader("Loading..."))
+    } else {
+      dispatch(subheader(""))
+    }
+    if (error) {
+      dispatch(subheader({ error }))
+    }
+  }, [dispatch, loading, error])
 
 
   function AMPMTime(time) {

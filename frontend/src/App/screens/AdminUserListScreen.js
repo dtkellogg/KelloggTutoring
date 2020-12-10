@@ -14,7 +14,7 @@ import { listUsers, deleteUser } from "../actions/userActions";
 import { subheader } from "../actions/subheader";
 
 
-const adminList = [ "Users", "Appointments", "Reviews", "Blog" ]
+const adminList = [ "Users", "Appts", "Reviews", "Requests" ]
 
 
 

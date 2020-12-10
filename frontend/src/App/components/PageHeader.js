@@ -18,7 +18,7 @@ const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
 
 // Careful below - Haven't even built components for admin reviews and admin blog below
-const adminList = [ "Users", "Appointments", "Reviews", "Blog"];
+const adminList = [ "Users", "Appointments", "Reviews", "Requests"];
 
 // random hands showing user to pick a link to the left...
 const hands = ["👈🏻","👈🏼","👈🏽","👈🏾","👈🏿","👈"]

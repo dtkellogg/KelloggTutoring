@@ -18,7 +18,7 @@ import useWindowDimensions from '../hooks/useWindowDimensions'
 
 
 
-const adminList = ["Users", "Appointments", "Reviews", "Blog"]
+const adminList = ["Users", "Appts", "Reviews", "Requests"]
 
 
 export default function AdminAppointmentsList({ location, history }) {

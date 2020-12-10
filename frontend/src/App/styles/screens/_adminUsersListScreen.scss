@@ -292,6 +292,7 @@
       grid-column: 6 / span 1;
       text-align: center;
       width: 5rem;
+      padding: 1rem;
       // @include flexCenterCenter($justify-content: space-between);
 
       @media (max-width: 600px) {

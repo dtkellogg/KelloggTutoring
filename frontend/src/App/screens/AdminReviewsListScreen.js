@@ -15,7 +15,7 @@ import ReviewsList from '../components/ReviewsList'
 import { useSortMultiple } from "../hooks/useSort";
 
 // data
-const adminList = ["Users", "Appointments", "Reviews", "Blog"]
+const adminList = ["Users", "Appts", "Reviews", "Requests"]
 
 
 export default function AdminReviewsList({ location, history }) {
