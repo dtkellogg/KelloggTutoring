@@ -655,12 +655,10 @@
   &__user-edit {
     @extend %btn;
     margin: 2rem 0.25rem;
-    width: 15rem;
+    width: 6rem;
     height: 3.5rem;
     color: $white;
-    border: 1px dotted $white;
     padding: 1rem;
-    // width: 7rem;
     cursor: pointer;
     text-align: center;
 

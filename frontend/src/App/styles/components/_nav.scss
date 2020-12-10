@@ -80,12 +80,12 @@
     &--title-text {
       display: inline-block;
       height: 100%;
-      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
 
       @media ( max-width: 510px ) {
+        width: 100%;
         grid-column: 1 / span 1;
       }
     }

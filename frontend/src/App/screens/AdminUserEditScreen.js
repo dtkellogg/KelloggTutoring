@@ -85,50 +85,52 @@ export default function AdminUserEdit ({ match, history, location }) {
 				</div>
 
 				<div className="userEditScreen__content">
-					<div className="userEditScreen__element">
-						<label
-							className="text-size-4 letter-spacing-md userEditScreen__label"
-							for="name"
-						>
-							name
-						</label>
-						<input
-							type="text"
-							className="userEditScreen__input userEditScreen__input-contact text-size-3"
-							placeholder="Your name address"
-							value={name}
-							onChange={(e) => setName(e.target.value)}
-						/>
-					</div>
+					<div className="userEditScreen__element--container">
+						<div className="userEditScreen__element">
+							<label
+								className="text-size-4 letter-spacing-md userEditScreen__label"
+								for="name"
+							>
+								name
+							</label>
+							<input
+								type="text"
+								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								placeholder="Your name address"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+						</div>
 
-					<div className="userEditScreen__element">
-						<label
-							className="text-size-4 letter-spacing-md userEditScreen__label"
-							for="email"
-						>
-							email
-						</label>
-						<input
-							type="email"
-							className="userEditScreen__input userEditScreen__input-contact text-size-3"
-							placeholder="Your email address"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-						/>
-					</div>
+						<div className="userEditScreen__element">
+							<label
+								className="text-size-4 letter-spacing-md userEditScreen__label"
+								for="email"
+							>
+								email
+							</label>
+							<input
+								type="email"
+								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								placeholder="Your email address"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</div>
 
-					<div className="userEditScreen__element">
-						<label className="text-size-4 letter-spacing-md userEditScreen__label">
-							Is Admin
-						</label>
-						<input
-							type="radio"
-							checked={isAdmin}
-							className="userEditScreen__input userEditScreen__input-contact text-size-3"
-							placeholder="Admin?"
-							value={isAdmin}
-							onChange={(isAdmin) => setIsAdmin(!isAdmin)}
-						/>
+						<div className="userEditScreen__element">
+							<label className="text-size-4 letter-spacing-md userEditScreen__label">
+								Is Admin
+							</label>
+							<input
+								type="radio"
+								checked={isAdmin}
+								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								placeholder="Admin?"
+								value={isAdmin}
+								onChange={(isAdmin) => setIsAdmin(!isAdmin)}
+							/>
+						</div>
 					</div>
 
 					<button
