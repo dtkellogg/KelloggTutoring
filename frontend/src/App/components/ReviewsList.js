@@ -3,6 +3,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
+// screens
+import PleaseLoginScreen from '../screens/UserPleaseLoginScreen'
+
 // hooks
 import { useSortMultiple } from "../hooks/useSort";
 
@@ -23,6 +26,9 @@ export default function ReviewsList({type}) {
       user,
     } = userDetails;
 
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
     const sortedReviews = useSortMultiple(reviews, "date", "name");
 
     if(error) console.error(error);
@@ -34,6 +40,11 @@ export default function ReviewsList({type}) {
     };
 
 
+  if (!userInfo) {
+    return (
+      <PleaseLoginScreen />
+    )
+  } else {
     return (
       <ul className="reviews__list">
         {sortedReviews.map((review) => {
@@ -199,4 +210,5 @@ export default function ReviewsList({type}) {
         })}
       </ul>
     );
+  }
 }

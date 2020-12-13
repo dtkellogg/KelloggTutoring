@@ -34,22 +34,23 @@ exports.sendMessageToDb = async (req, res, next) => {
 };
 
 exports.sendMessageToNodeMailer = async (req, res, next) => {
+    console.log(`in node mailer`)
     try {
 
         console.log("Inside the nodemail server.js post request");
 
         const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
-    <ul>
-      <li>Name: ${req.body.name}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Phone: ${req.body.phone}</li>
-      <li>Company: ${req.body.subject}</li>
-    </ul>
-    <h3>Message</h3>
-    <p>${req.body.message}</p>
-  `;
+            <p>You have a new contact request</p>
+            <h3>Contact Details</h3>
+            <ul>
+            <li>Name: ${req.body.name}</li>
+            <li>Email: ${req.body.email}</li>
+            <li>Phone: ${req.body.phone}</li>
+            <li>Company: ${req.body.subject}</li>
+            </ul>
+            <h3>Message</h3>
+            <p>${req.body.message}</p>
+        `;
 
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
@@ -80,7 +81,7 @@ exports.sendMessageToNodeMailer = async (req, res, next) => {
             request(mailOptions, (err, response, body) => {
                 if (err) {
                     // res.redirect("/components/404");
-                    console.log(err)
+                    console.log(`errNodeMailer: ${err}`)
                 } else {
                     if (response.statusCode === 200) {
                     } else {

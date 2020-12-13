@@ -23,7 +23,7 @@
 
   &__header {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 
     
     @media (max-width: 950px) and (max-height: 450px) {
@@ -37,12 +37,6 @@
     flex-direction: column;
     width: 100%;
 
-    transform: translateY(-4.25rem);
-
-
-    @media (max-width: 900px) {
-      // transform: translateY(0rem);
-    }
   }
 
   &__element {

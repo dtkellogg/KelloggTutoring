@@ -120,24 +120,24 @@ export default function UserBookingScreen({ location, history, type}) {
             <PleaseLogin />
           </div>
         ) :
-        <form onSubmit={handleSubmit} className="createApptScreen">
-          <div className="createApptScreen__header">
+        <form onSubmit={handleSubmit} className="user-booking">
+          <div className="user-booking__header">
             <h2 className="text-size-2 letter-spacing-sm">
               Request an appointment
             </h2>
           </div>
 
-          <div className="createApptScreen__content">
-            <div className="createApptScreen__element">
+          <div className="user-booking__content">
+            <div className="user-booking__element">
               <label
-                className="text-size-5 letter-spacing-md createApptScreen__label"
+                className="text-size-5 letter-spacing-md user-booking__label"
                 htmlFor="student"
               >
                 student
               </label>
               <input
                 type="name"
-                className="createApptScreen__input text-size-4"
+                className="user-booking__input text-size-4"
                 placeholder="student"
                 style={{ color: "var(--old-blue-2)" }}
                 value={student}
@@ -145,16 +145,16 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="createApptScreen__element">
+            <div className="user-booking__element">
               <label
-                className="text-size-5 letter-spacing-md createApptScreen__label"
+                className="text-size-5 letter-spacing-md user-booking__label"
                 htmlFor="subject"
               >
                 subject
               </label>
               <input
                 type="subject"
-                className="createApptScreen__input text-size-4"
+                className="user-booking__input text-size-4"
                 placeholder="subject"
                 style={{ color: "var(--old-blue-2)" }}
                 value={subject}
@@ -162,13 +162,13 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="createApptScreen__element">
-                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="date">
+            <div className="user-booking__element">
+                <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="date">
                 date
               </label>
               <input
                 type="date"
-                className="createApptScreen__input text-size-4"
+                className="user-booking__input text-size-4"
                 placeholder="date"
                 style={{ fontWeight: "lighter", color: "var(--old-blue-2)" }}
                 value={date}
@@ -176,13 +176,13 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="createApptScreen__element">
-                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="time">
+            <div className="user-booking__element">
+                <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 start time
               </label>
               <input
                 type="time"
-                className="createApptScreen__input text-size-4"
+                className="user-booking__input text-size-4"
                 placeholder="start time"
                 value={startTime}
                 
@@ -190,13 +190,13 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="createApptScreen__element">
-                <label className="text-size-5 letter-spacing-md createApptScreen__label" htmlFor="time">
+            <div className="user-booking__element">
+                <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 end time
               </label>
               <input
                 type="time"
-                className="createApptScreen__input text-size-4"
+                className="user-booking__input text-size-4"
                 placeholder="end time"
                 
                 value={endTime}
@@ -218,7 +218,7 @@ export default function UserBookingScreen({ location, history, type}) {
 
 
           <button
-            className="btn__createApptScreen"
+            className="btn__user-booking"
             type="submit"
             onClick={handleSubmit}
           >

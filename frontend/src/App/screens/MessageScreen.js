@@ -35,8 +35,6 @@ export default function MessageScreen({ history }) {
   const [submitted, setSubmitted] = React.useState(false);
   const [failed, setFailed] = React.useState("");
 
-  console.log(`FORMATED-NAME: ${useFormatedPhoneNumber(phone)}`)
-
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
@@ -52,8 +50,6 @@ export default function MessageScreen({ history }) {
       if (!user) {
         dispatch(getUserDetails("profile"));
       } else {
-        console.log(user.name)
-        console.log(user.email)
         setName(user.name);
         setEmail(user.email);
       }
@@ -107,6 +103,15 @@ export default function MessageScreen({ history }) {
         phone,
         message,
       };
+
+      // await dispatch(createReview(name, relation, msg, date)).then(() => {
+      //   // setSubmitted(false);
+      //   setSent(true);
+
+      //   setName("");
+      //   setRelation("Student");
+      //   setMsg("");
+      // });
 
 
       await axios

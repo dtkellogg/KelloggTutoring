@@ -90,3 +90,106 @@
     }
   }
 }
+
+.user-booking {
+  @include hundredPercentHW();
+  // padding: 1rem 18vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 1rem 2rem;
+  width: 40rem;
+  
+
+  @media (max-width: 900px) {
+    // padding: 1rem 2rem;
+    // width: 90vw;
+    width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 1rem;
+
+    
+    @media (max-width: 950px) and (max-height: 450px) {
+      margin-bottom: 1rem;
+    }
+    
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    transform: translateY(-4.25rem);
+
+
+    @media (max-width: 900px) {
+      // transform: translateY(0rem);
+    }
+  }
+
+  &__element {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  &__label {
+    color: $grey-light-5;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid black;
+    height: 4rem;
+    color: $old-blue-2;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $old-blue-2;
+    }
+    
+    &--contact {
+      border: none;
+      border-bottom: 1px solid black;
+      height: 3rem;
+    }
+
+    &--contact-message {
+      height: 30rem;
+    }
+  }
+
+  &__success-message--contact {
+    color: $green;
+    margin-top: 1rem;
+  }
+
+  &__fail-message--contact {
+    color: $red;
+    margin-top: 1rem;
+  }
+
+  &__textarea {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px dashed $green;
+    height: 20rem;
+    color: $old-blue-2;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $green;
+    }
+  }
+}

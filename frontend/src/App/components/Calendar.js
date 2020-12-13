@@ -38,11 +38,7 @@ export default function Calendar({ type }) {
 	
 	
 	const appointmentList = useSelector((state) => state.appointmentList);
-	const { 
-    loading,
-    error,
-    appointments
-     } = appointmentList;
+	const { loading, error, appointments } = appointmentList;
 
 	const userLogin = useSelector(state => state.userLogin)
 	const { userInfo } = userLogin
@@ -66,13 +62,18 @@ export default function Calendar({ type }) {
 		var year = date.getFullYear();
 
 		setDay(date.getDate())
-		setMonth(monthStr)
+    setMonth(monthStr)
 
-		let firstDayOfCurrentMonth = days[date.getDay()];
+		let firstDayOfCurrentMonth = days[date.getUTCDay() - 3];
 		let numDaysOfPreviousMonth = days.indexOf(firstDayOfCurrentMonth)
 		
 		let totalNumOfDaysInCurrentMonth = daysInMonth(date.getMonth() + 1, year)
-		let totalNumOfDaysInLastMonth = daysInMonth(date.getMonth(), year)
+    let totalNumOfDaysInLastMonth = daysInMonth(date.getMonth(), year)
+    
+    console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
+    console.log(`date.getDay(): ${date.getDay()}`)
+    console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
+    console.log(`date: ${date}`)
 
 		let arrayDaysCurrentMonth = []
 		let arrayDaysLastMonth = []
@@ -195,8 +196,8 @@ export default function Calendar({ type }) {
       getCalendarDays(date);
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortedAppts]);
+    
+  }, [sortedAppts]) // eslint-disable react-hooks/exhaustive-deps
 
   React.useEffect(() => {
     dispatch(listAppointments());
@@ -217,6 +218,12 @@ export default function Calendar({ type }) {
   function AMPMTime(time) {
     return useFormatAMPM(time);
   }
+
+  console.log(`date: ${date}`)
+
+  console.log(`date.getMonth: ${date.getMonth()}`)
+  console.log(`date.getDate: ${date.getDate()}`)
+  console.log(`day: ${day}`)
 
 
 	if(userInfo === null) {

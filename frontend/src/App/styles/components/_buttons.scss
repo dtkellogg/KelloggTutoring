@@ -308,6 +308,7 @@
     width: 100%;
     // width: 35rem;
     // transform: translateY(-9rem);
+    transform: translateY(2rem);
 
     &:hover {
       background-color: $green-12;
@@ -324,6 +325,34 @@
     @media ( max-width: 400px ) {
       width: 80vw;
     }
+  }
+
+  &__user-booking {
+    @extend %btn;
+    @extend %btn--blue;
+    margin: 1rem;
+
+    width: 100%;
+    // width: 35rem;
+    // transform: translateY(-9rem);
+    // transform: translateY(2rem);
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+
+    @media ( max-width: 900px ) {
+      margin-top: 0rem;
+      // transform: translateY(2rem);
+    }
+
+
+    @media ( max-width: 400px ) {
+      width: 80vw;
+    }
+
   }
 
   &__adminApptsList {

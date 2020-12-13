@@ -47,6 +47,8 @@ var corsMiddleware = function(req, res, next) {
     next();
 }
 
+console.log("in backend")
+
 app.use(corsMiddleware);
 
 // redirect all url requests to https

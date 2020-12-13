@@ -10,11 +10,8 @@ console.log("In the router")
 
 router
     .route("/")
-    // .get(getTeam)
     .post(
-        sendMessageToDb,
-        // sendMessageToNodeMailer,
-        // response
+        sendMessageToNodeMailer
         )
 
 module.exports = router;
