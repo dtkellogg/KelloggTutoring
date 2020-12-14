@@ -13,7 +13,7 @@ import { useSortMultiple } from "../hooks/useSort";
 import { listReviews, deleteReview } from "../actions/reviewActions";
 
 
-export default function ReviewsList({type}) {
+export default function ReviewsList({ type }) {
     const dispatch = useDispatch();
 
     const reviewList = useSelector((state) => state.reviewList);
@@ -40,11 +40,6 @@ export default function ReviewsList({type}) {
     };
 
 
-  if (!userInfo) {
-    return (
-      <PleaseLoginScreen />
-    )
-  } else {
     return (
       <ul className="reviews__list">
         {sortedReviews.map((review) => {
@@ -211,4 +206,3 @@ export default function ReviewsList({type}) {
       </ul>
     );
   }
-}

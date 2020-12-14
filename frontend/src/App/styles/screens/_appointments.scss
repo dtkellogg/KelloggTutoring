@@ -20,7 +20,7 @@
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
 
-  padding: 3rem;
+  padding: 2rem;
   height: 100%;
 
   align-items: center;
@@ -30,6 +30,7 @@
   height: 78vh;
   display: flex;
   overflow: scroll;
+  position: relative;
 
   @media (max-width: 900px) {
     // overflow: visible;
@@ -38,6 +39,22 @@
 
   @media (max-width: 600px) {
     // padding: 2rem 1rem;
+  }
+
+  &__payments {
+    &--container {
+      @include hundredPercentHW();
+    }
+
+    &--header-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 4vh 3vh;
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+      margin-bottom: 1rem;
+    }
   }
 
   &__header {
@@ -71,14 +88,14 @@
     }
 
     &--container {
-      // display: grid;
-      // grid-template-columns: repeat(5, 1fr);
-      // grid-template-rows: 4vh 3vh;
-      // align-items: center;
-      // justify-items: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 4vh 3vh;
+      align-items: center;
+      justify-items: center;
       width : 100%;
       margin-bottom: 1rem;
-      position: relative;
+      // position: relative;
     }
 
     &--container-checkout {
@@ -208,6 +225,7 @@
     &-time {
       grid-column: 2 / span 1;
       text-align: center;
+      // padding: 0.25rem;
     }
 
     &-date {
@@ -223,6 +241,7 @@
     &-student {
       grid-column: 4 / span 1;
       text-align: center;
+      // padding: 0.25rem;
     }
 
     &-btns {
@@ -313,6 +332,22 @@
       grid-column: 5 / span 1;
     }
   }
+
+  &__payments {
+    &--container {
+      @include hundredPercentHW();
+    }
+
+    &--header-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 4vh 3vh;
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .msg {
@@ -383,9 +418,13 @@
   
 }
 
-.payments__login--msg {
-  margin-top: 20rem;
-  text-align: center;
+
+
+.payments {
+  &__login--msg {
+    margin-top: 20rem;
+    text-align: center;
+  }
 }
 
 .appointments-2 {
@@ -431,6 +470,10 @@
 .th {
   padding: 1.5rem;
   font-weight: 500;
+
+  @media ( max-width: 450px ) {
+    padding: 1rem;
+  }
 }
 
 .tbody {
@@ -485,3 +528,7 @@ tbody tr {
   border-bottom: 2px solid $grey-light-6;
   background-color: $grey-light-8;
 }
+
+
+
+

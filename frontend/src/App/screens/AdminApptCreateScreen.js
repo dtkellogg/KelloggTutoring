@@ -41,7 +41,8 @@ export default function AdminAppointmentCreate({ location, history }) {
       dispatch(subheader(""))
     }
     if (error) {
-      dispatch(subheader({ error }))
+      // dispatch(subheader({ error }))
+      console.log(error)
     }
     if (submitted) {
       history.push('/admin/appointments')
@@ -52,28 +53,31 @@ export default function AdminAppointmentCreate({ location, history }) {
 		e.preventDefault()
 
     setSubmitted(true)
-    console.log(`student2: ${student}`)
+    // console.log(`student2: ${student}`)
+    console.log(
+      `subject: ${subject}, student: ${student}, date: ${date}, startTime: ${startTime}, endTime: ${endTime}, paid: ${paid}`
+    );
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
   }
   
-  console.log(`student: ${student}`)
+  // console.log(`student: ${student}`)
 
   
 
-  console.log(`userList: ${userList}`)
+  // console.log(`userList: ${userList}`)
   // console.log(`users: ${users[0]}`)
   // console.log(users[0])
-  console.log(userList)
+  // console.log(userList)
 
   const userNames = users.map(user => user.name)
   // if (userNames !== undefined) {
     const sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
-    console.log(sortedUsers)
+    // console.log(sortedUsers)
   // }
 
-  console.log(userNames)
+  // console.log(userNames)
 
-  console.log(`student: ${student}`)
+  // console.log(`student: ${student}`)
 
   
 
@@ -108,6 +112,7 @@ export default function AdminAppointmentCreate({ location, history }) {
               value={student}
               onChange={(e) => setStudent(e.target.value)}
               >
+                <option></option>
                 { sortedUsers && sortedUsers.map((user) => (
                   <option>{user}</option>
 

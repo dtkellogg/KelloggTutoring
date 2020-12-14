@@ -78,7 +78,7 @@ export default function AdminAppointmentsList({ location, history }) {
 		<div className="pg__meetToshi">
 			<Sidebar title="Toshi" list={adminList} />
 			<div className="reviewsAdmin">
-				<div className="text-size-2 appointments__header--container">
+				<div className="text-size-2 admin__header--container">
 					<div className="text-size-2 appointments__header">
 						All appointments:
 					</div>

@@ -248,9 +248,10 @@
 
     &--delete {
       grid-column: 5 / span 2;
-      @include flexCenterCenter($flex-direction: column);
+      // @include flexCenterCenter($flex-direction: column);
       text-align: center;
       height: 100%;
+      transform: translateY(0.4rem);
     }
   }
 

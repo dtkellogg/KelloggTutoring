@@ -49,9 +49,22 @@ export default function Calendar({ type }) {
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
+  // code below for testing ... trying to get calendar to start on correct day
+
+  days.forEach(() => (item, index) => {
+
+  })
+
+
 	function daysInMonth(month, year) {
 		return new Date(year, month, 0).getDate()
-	}
+  }
+  
+  // console.log(`date: ${date}`);
+
+  // console.log(`date.getMonth: ${date.getMonth()}`);
+  // console.log(`date.getDate: ${date.getDate()}`);
+  // console.log(`day: ${day}`);
 
 	
 	const getCalendarDays = (date) => {
@@ -64,16 +77,26 @@ export default function Calendar({ type }) {
 		setDay(date.getDate())
     setMonth(monthStr)
 
-		let firstDayOfCurrentMonth = days[date.getUTCDay() - 3];
+    // testing
+    let ok = date.setDate(1)
+    
+    // let ok2 = ok.getUTCDay();
+
+		let firstDayOfCurrentMonth = days[date.getUTCDay()];
+		// let firstDayOfCurrentMonth = days[date.getUTCDay() - 3];
 		let numDaysOfPreviousMonth = days.indexOf(firstDayOfCurrentMonth)
 		
 		let totalNumOfDaysInCurrentMonth = daysInMonth(date.getMonth() + 1, year)
     let totalNumOfDaysInLastMonth = daysInMonth(date.getMonth(), year)
+
+    // console.log(`date: ${date}`)
+    // console.log(`ok: ${ok}`)
+    // console.log(`ok2: ${ok2}`)
     
-    console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
-    console.log(`date.getDay(): ${date.getDay()}`)
-    console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
-    console.log(`date: ${date}`)
+    // console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
+    // console.log(`date.getDay(): ${date.getDay()}`)
+    // console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
+    // console.log(`date: ${date}`)
 
 		let arrayDaysCurrentMonth = []
 		let arrayDaysLastMonth = []
@@ -219,11 +242,7 @@ export default function Calendar({ type }) {
     return useFormatAMPM(time);
   }
 
-  console.log(`date: ${date}`)
-
-  console.log(`date.getMonth: ${date.getMonth()}`)
-  console.log(`date.getDate: ${date.getDate()}`)
-  console.log(`day: ${day}`)
+  
 
 
 	if(userInfo === null) {

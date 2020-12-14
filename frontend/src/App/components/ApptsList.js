@@ -172,7 +172,7 @@ export default function ApptsList({ location, type }) {
                           size={20}
                           color="var(--green-dark)"
                           fill="var(--green)"
-                          className="social-media-icon grey-light-7"
+                          className="social-media-icon__square grey-light-7"
                           type="button"
                           // onClick={() => deleteHandler(appt._id)}
                         />
@@ -182,7 +182,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--grey-light-5)"
-                        className="social-media-icon grey-light-7"
+                        className="social-media-icon--times grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -249,7 +249,7 @@ export default function ApptsList({ location, type }) {
                           size={20}
                           color="var(--green-dark)"
                           fill="var(--green)"
-                          className="social-media-icon grey-light-7"
+                          className="social-media-icon__square grey-light-7"
                           type="button"
                           // onClick={() => deleteHandler(appt._id)}
                         />
@@ -259,7 +259,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--grey-light-5)"
-                        className="social-media-icon grey-light-7"
+                        className="social-media-icon--times grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -320,7 +320,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--green)"
-                        className="social-media-icon grey-light-7"
+                        className="social-media-icon__square grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -330,7 +330,7 @@ export default function ApptsList({ location, type }) {
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--grey-light-5)"
-                      className="social-media-icon"
+                      className="social-media-icon--times"
                       type="button"
                     />
                   )}
@@ -554,7 +554,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--green)"
-                        className="social-media-icon grey-light-7"
+                        className="social-media-icon__square grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -564,7 +564,7 @@ export default function ApptsList({ location, type }) {
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--grey-light-5)"
-                      className="social-media-icon grey-light-7"
+                      className="social-media-icon--times grey-light-7"
                       type="button"
                     />
                   )}

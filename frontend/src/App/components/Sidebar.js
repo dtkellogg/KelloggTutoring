@@ -32,7 +32,6 @@ export default function Sidebar({ title, list }) {
     behavior: 'smooth'
   });
 
-  console.log(url.split('/'))
 
   return (
     <div className="sidebar">

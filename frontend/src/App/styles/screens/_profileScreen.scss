@@ -73,15 +73,15 @@
     }
   }
 
-  &__success-message--contact {
-    color: $green;
-    margin-top: 1rem;
-  }
+  // &__success-message--contact {
+  //   color: $green;
+  //   margin-top: 1rem;
+  // }
 
-  &__fail-message--contact {
-    color: $red;
-    margin-top: 1rem;
-  }
+  // &__fail-message--contact {
+  //   color: $red;
+  //   margin-top: 1rem;
+  // }
 
   &__textarea {
     margin: 1rem 0;
@@ -94,6 +94,21 @@
     &:focus {
       outline: none;
       border: 1px solid $old-blue-2;
+    }
+  }
+
+  &__msg {
+    &--failed {
+      color: $red;
+      // margin-top: 1rem;
+      transform: translateY(2rem);
+      // position: absolute;
+      // bottom: 10%;
+    }
+
+    &--success {
+      color: $green;
+      transform: translateY(2rem); 
     }
   }
 }

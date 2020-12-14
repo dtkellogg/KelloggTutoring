@@ -213,6 +213,10 @@
       border: none;
       transform: translate(-3rem, 0.25rem);
       background: transparent;
+
+      @media (max-width: 950px) and (max-height: 450px) {
+        transform: translate(-3rem, 0.15rem);
+      }
     }
   }
 }

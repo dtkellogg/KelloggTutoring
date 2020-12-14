@@ -28,6 +28,16 @@ export default function Profile({ location, history }) {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
+  // if (success) {
+  //   window.setTimeout(() => {
+  //     success = "";
+  //   }, 4000);
+  // }
+
+  if (success) {
+    history.push("/");
+  }
+
   React.useEffect(() => {
     if (user) {
       if (!userInfo) {
@@ -47,9 +57,14 @@ export default function Profile({ location, history }) {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Passwords don't match");
+
+      window.setTimeout(() => {
+        setMessage("");
+      }, 4000);
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }))
     }
+    
   };
 
 
@@ -60,9 +75,6 @@ export default function Profile({ location, history }) {
         <h2 className="profileScreen__title text-size-2 letter-spacing-sm">
           Update your profile
         </h2>
-
-        {message && <h1>{message}</h1>}
-        {success && <h1>Profile successfully updated</h1>}
       </div>
       <div className="profileScreen__content">
         <div className="profileScreen__element">
@@ -122,6 +134,9 @@ export default function Profile({ location, history }) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
+
+        {message && <span className="text-size-3 profileScreen__msg--failed">{message}</span>}
+        {success && <span className="text-size-3 profileScreen__msg--success">Profile successfully updated</span>}
 
         <button
           className="btn__profileScreen"

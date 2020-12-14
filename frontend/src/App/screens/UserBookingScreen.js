@@ -98,7 +98,7 @@ export default function UserBookingScreen({ location, history, type}) {
       requestAppointment(subject, student, date, startTime, endTime, paid)
     )
     } else {
-      setFailed("Please fill out all fields above.")
+      setFailed("Please fill out all fields.")
 
       window.setTimeout(() => {
         setFailed("");

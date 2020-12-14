@@ -83,6 +83,18 @@
     text-align: center;
   }
 
+  &__success-message {
+    color: $green;
+    // margin-bottom: 1.5rem;
+  }
+
+  &__failed-message {
+    color: $red;
+    // margin-bottom: 3rem;
+    // position: absolute;
+    // bottom: 10rem;
+    // display: block;
+  }
 }
 
 label[for="email__messageForm"]::after,

@@ -145,9 +145,9 @@ export default function Payments({ match, history }) {
               </div>
             </div>
         ) : (
-          <div className="">
+          <div className="appointments__payments--container">
             <PaymentSteps step1 step2 />
-            <div className="appointments__header--container">
+            <div className="appointments__payments--header-container">
               <Link
                 to={`/appointments/payment-method`}
                 className="btn__continue text-size-5"

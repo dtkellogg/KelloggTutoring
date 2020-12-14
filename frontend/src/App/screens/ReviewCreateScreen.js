@@ -14,8 +14,10 @@ const toshiList = ["About", "Teaching", "Reviews", "Blog"];
 
 
 
-export default function ReviewCreateScreen() {
+export default function ReviewCreateScreen({ history }) {
   const dispatch = useDispatch();
+
+  console.log(history.location.pathname);
 
   const [name, setName] = React.useState("");
   const [relation, setRelation] = React.useState("Student");
@@ -39,14 +41,14 @@ export default function ReviewCreateScreen() {
     e.preventDefault();
     // const isValid = validate();
 
-    if (name.length === 0 && msg.length === 0) {
+    if (name === undefined || msg.length === 0) {
       setFailed("Please enter a name and message.");
       window.setTimeout(() => {
         setFailed("");
       }, 4000);
     }
 
-    if (name.length > 0 && msg.length > 0) {
+    if (name !== undefined && msg.length > 0) {
       setSubmitted(true);
 
       window.setTimeout(() => {
@@ -60,6 +62,8 @@ export default function ReviewCreateScreen() {
         setName("");
         setRelation("Student");
         setMsg("");
+        console.log(history.location.pathname)
+        history.push('/meetToshi/reviews')
       });
     }
   };
@@ -80,108 +84,104 @@ export default function ReviewCreateScreen() {
 
   return (
     <div className="pg__meetToshi">
-    <Sidebar title="Toshi" list={toshiList} />
-    <form className="reviews__new-review">
-      <h2 className="reviews__new-review--header text-size-2">
-        Create a review
-      </h2>
+      <Sidebar title="Toshi" list={toshiList} />
+      <form className="reviews__new-review">
+        <h2 className="reviews__new-review--header text-size-2">
+          Create a review
+        </h2>
 
-      <div className="reviews__new-review--element">
-        <input
-          className="reviews__new-review--input text-size-4"
-          type="text"
-          placeholder="Name"
-          style={{ color: "var(--old-blue-2)" }}
-          value={name || ""}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label className="reviews__new-review--label text-size-4"></label>
-      </div>
-
-      <div className="reviews__new-review--radio-btns">
-        <div className="reviews__new-review--radio-btn">
+        <div className="reviews__new-review--element">
           <input
-            type="radio"
-            id="Student"
-            name="relation"
-            value="Student"
-            className="btn__radio--input"
-            // checked
-            onChange={(e) => handleRadioBtnChange(e)}
+            className="reviews__new-review--input text-size-4"
+            type="text"
+            placeholder="Name"
+            style={{ color: "var(--old-blue-2)" }}
+            value={name || ""}
+            onChange={(e) => setName(e.target.value)}
           />
-
-          <label
-            className="reviews__new-review--label text-size-4"
-            style={{ color: "var(--old-blue-2)"  }}
-          >
-            Student
-          </label>
+          <label className="reviews__new-review--label text-size-4"></label>
         </div>
 
-        <div className="reviews__new-review--radio-btn">
-          <input
-            type="radio"
-            id="Parent"
-            name="relation"
-            value="Parent"
-            className="btn__radio--input"
-            onChange={(e) => handleRadioBtnChange(e)}
-          />
-          <label
-            className="reviews__new-review--label text-size-4"
-          >
-            Parent
-          </label>
+        <div className="reviews__new-review--radio-btns">
+          <div className="reviews__new-review--radio-btn">
+            <input
+              type="radio"
+              id="Student"
+              name="relation"
+              value="Student"
+              className="btn__radio--input"
+              // checked
+              onChange={(e) => handleRadioBtnChange(e)}
+            />
+
+            <label
+              className="reviews__new-review--label text-size-4"
+              // style={{ color: "var(--old-blue-2)" }}
+            >
+              Student
+            </label>
+          </div>
+
+          <div className="reviews__new-review--radio-btn">
+            <input
+              type="radio"
+              id="Parent"
+              name="relation"
+              value="Parent"
+              className="btn__radio--input"
+              onChange={(e) => handleRadioBtnChange(e)}
+            />
+            <label className="reviews__new-review--label text-size-4">
+              Parent
+            </label>
+          </div>
+
+          <div className="reviews__new-review--radio-btn">
+            <input
+              type="radio"
+              id="Friend"
+              name="relation"
+              value="Friend"
+              className="btn__radio--input"
+              onChange={(e) => handleRadioBtnChange(e)}
+            />
+            <label className="reviews__new-review--label text-size-4">
+              Friend
+            </label>
+          </div>
         </div>
 
-        <div className="reviews__new-review--radio-btn">
-          <input
-            type="radio"
-            id="Friend"
-            name="relation"
-            value="Friend"
-            className="btn__radio--input"
-            onChange={(e) => handleRadioBtnChange(e)}
-          />
-          <label
-            className="reviews__new-review--label text-size-4"
-          >
-            Friend
-          </label>
+        <div className="review__new-review--element text-size-4">
+          <textarea
+            className="reviews__new-review--textarea text-size-4"
+            type="text"
+            placeholder="Message"
+            value={msg}
+            onChange={(e) => setMsg(e.target.value)}
+          ></textarea>
+          <label className="reviews__new-review--label text-size-4"></label>
         </div>
-      </div>
 
-      <div className="review__new-review--element text-size-4">
-        <textarea
-          className="reviews__new-review--textarea text-size-4"
-          type="text"
-          placeholder="Message"
-          value={msg}
-          onChange={(e) => setMsg(e.target.value)}
-        ></textarea>
-        <label className="reviews__new-review--label text-size-4"></label>
-      </div>
+        {submitted && (
+          <p className="messageForm__success-message--contact text-size-3">
+            Your review was submitted successfully. Thank you!
+          </p>
+        )}
+        {failed.length > 0 && (
+          <p className="messageForm__fail-message--contact text-size-3">
+            {failed}
+          </p>
+        )}
 
-      {submitted && (
-        <p className="messageForm__success-message--contact text-size-3">
-          Email has been sent.
-        </p>
-      )}
-      {failed.length > 0 && (
-        <p className="messageForm__fail-message--contact text-size-3">
-          {failed}
-        </p>
-      )}
-
-      <button
-        type="button"
-        className="btn__reviews--new-review"
-        onClick={handleSubmit}
-        disabled={submitted || failed.length > 0}
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-  )
+        <button
+          type="button"
+          className="btn__reviews--new-review"
+          onClick={handleSubmit}
+          disabled={submitted || failed.length > 0}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 }
