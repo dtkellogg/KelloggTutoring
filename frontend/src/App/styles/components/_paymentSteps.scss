@@ -20,11 +20,11 @@
 			}
 
 			@media ( max-width: 900px ) {
-				padding: 0 3rem;
+				padding: 0 8rem;
 			}
 
-			@media ( max-width: 375px ) {
-				padding: 0 1rem;
+			@media ( max-width: 500px ) {
+				padding: 0 8vw;
 			}
 		}
 
@@ -44,8 +44,8 @@
 			height: 100%;
 			overflow: scroll;
 
-			@media (max-width: 600px ) {
-				padding: 2rem 1rem;
+			@media (max-width: 900px ) {
+				padding: 2rem 0;
 			}
 		}
 

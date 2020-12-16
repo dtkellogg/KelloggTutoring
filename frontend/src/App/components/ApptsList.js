@@ -18,7 +18,7 @@ import useFormatAMPM from "../hooks/useFormatAMPM"
 
 // actions
 import { subheader } from "../actions/subheader"
-import { listAppointments, deleteAppointment } from '../actions/appointmentActions'
+import { listAppointments, deleteAppointment, updateAppointment } from '../actions/appointmentActions'
 
 // components --- this is for testing purposes. Delete when satisfaction is acheive in regards to the Loading Spinner positioning.
 import LoadingSpinner from '../components/LoadingSpinner'
@@ -36,6 +36,13 @@ export default function ApptsList({ location, type }) {
 
   const appointmentList = useSelector((state) => state.appointmentList)
   const { loading, error, appointments } = appointmentList
+
+  const appointmentUpdate = useSelector((state) => state.appointmentUpdate);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate
+  } = appointmentUpdate;
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -62,12 +69,24 @@ export default function ApptsList({ location, type }) {
 
   React.useEffect(() => {
     dispatch(listAppointments())
-  }, [dispatch, userInfo])
+  }, [dispatch, userInfo, successUpdate])
 
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete this appointment?")) {
       dispatch(deleteAppointment(id))
+    }
+  }
+
+  const paidHandler = (id) => {
+
+    const selectedAppt = appointments.find(x => x._id === id)
+    const { paid, user, student, subject, startTime, endTime, date } = selectedAppt
+
+    console.log(paid)
+
+    if (window.confirm("Are you sure you want to toggle the paid status?")) {
+      dispatch(updateAppointment({ _id: id, paid: !paid, user, student, subject, startTime, endTime, date }))
     }
   }
 
@@ -321,7 +340,7 @@ export default function ApptsList({ location, type }) {
                         fill="var(--green)"
                         className="social-media-icon__square grey-light-7"
                         type="button"
-                        // onClick={() => deleteHandler(appt._id)}
+                        onClick={() => paidHandler(appt._id)}
                       />
                     </>
                   ) : (
@@ -331,6 +350,7 @@ export default function ApptsList({ location, type }) {
                       fill="var(--grey-light-5)"
                       className="social-media-icon--times"
                       type="button"
+                      onClick={() => paidHandler(appt._id)}
                     />
                   )}
                 </td>

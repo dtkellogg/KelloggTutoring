@@ -36,7 +36,7 @@ const PaymentMethodScreen = ({ history }) => {
               <label as="legend" className="appointments__header text-size-2">
                 Select payment method:
               </label>
-              <button type="submit" className="btn__continue--select-method text-size-5">
+              <button type="submit" className="btn__continue--select-method">
                 continue
               </button>
             </div>

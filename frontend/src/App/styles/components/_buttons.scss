@@ -147,6 +147,7 @@
     border-radius: 5rem;
     border: 2px solid $white;;
     color: $white;
+    transform: translate(1rem, -0.5rem);
 
     &:hover {
       color: $black;
@@ -157,7 +158,7 @@
     @extend %btn;
     // position: absolute;
     grid-column: 1 / span 1;
-    transform: translateY(-4rem);
+    // transform: translateY(-4rem);
     align-self: start;
     justify-self: start;
     padding: 0.5rem;
@@ -165,14 +166,15 @@
     text-align: center;
     border-radius: 5rem;
     color: $white;
+    transform: translate(1rem, -0.5rem);
 
     &:hover {
       color: $black;
     }
 
     @media (max-width: 900px) {
-      transform: translateY(0rem);
-      margin: 1rem 0;
+      // transform: translateY(0rem);
+      // margin: 1rem 0;
 
       grid-column: 1 / span 1;
     // transform: translateY(-1rem);
@@ -194,13 +196,16 @@
       background: $grey-light-5;
       grid-column: 5 / span 1;
       align-self: start;
-      justify-self: start;
       padding: 0.5rem;
       width: 12rem;
       text-align: center;
       border-radius: 5rem;
       border: 2px solid $white;;
       color: $white;
+
+      @media (max-width:750px) {
+        transform: translate(-1rem, -0.5rem);
+      }
 
 
     &:hover {

@@ -45,7 +45,7 @@ export default function AdminAppointmentCreate({ location, history }) {
       console.log(error)
     }
     if (submitted) {
-      history.push('/admin/appointments')
+      history.push('/admin/appts')
     }
   }, [dispatch, loading, error, submitted, successCreate])
 
