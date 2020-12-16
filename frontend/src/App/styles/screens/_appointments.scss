@@ -55,9 +55,6 @@
       width : 100%;
       margin-bottom: 1rem;
 
-      @media ( max-width:900px ) {
-        grid-template-rows: 6vh 3vh;
-      }
     }
   }
 
@@ -79,7 +76,7 @@
     }
 
     @media (max-width: 900px) {
-      // margin: 6rem 0 4.5rem 0;
+      margin: 1rem 0;
       grid-column: 1 / span 5;
       text-align: center;
       margin-bottom: 1rem;
@@ -357,8 +354,23 @@
 
   &__table {
     &--container {
-      height: 69vh;
+      height: 80vh;
       overflow: scroll;
+      grid-column: 2 / -1;
+      
+      @media (max-width:900px) {
+        height: 69vh;
+        overflow: scroll;
+      }
+    }
+
+    &--payments-container {
+      height: 63vh;
+
+      @media (max-width:900px) {
+        height: 52vh;
+        overflow: scroll;
+      }
     }
   }
 }

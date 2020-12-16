@@ -159,7 +159,7 @@ export default function Payments({ match, history }) {
                 Select appointments to pay for:
               </div>
             </div>
-            <div className="appointments__table--container">
+            <div className="appointments__table--payments-container">
               <table className="appointments__list text-size-3">
                 <thead className="thead">
                   <tr className="tr">

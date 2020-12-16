@@ -93,9 +93,9 @@ export default function Calendar({ type }) {
     // console.log(`ok: ${ok}`)
     // console.log(`ok2: ${ok2}`)
     
-    // console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
+    console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
     // console.log(`date.getDay(): ${date.getDay()}`)
-    // console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
+    console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
     // console.log(`date: ${date}`)
 
 		let arrayDaysCurrentMonth = []

@@ -214,6 +214,7 @@
     padding: 0.35rem;
     width: 8rem;
     color: $white;
+    margin: 0.25rem;
 
     &:hover {
       background-color: $green-12;
@@ -350,6 +351,7 @@
     @media ( max-width: 900px ) {
       margin-top: 0rem;
       // transform: translateY(2rem);
+      transform: translateY(4vh);
     }
 
 
@@ -835,8 +837,8 @@
 
 .loader {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 30vh;
+  left: 70vh;
   z-index: 999999999;
   width: 5rem;
   height: 5rem;
@@ -845,8 +847,8 @@
   animation: spinner 0.7s linear infinite;
 
   @media (max-width:900px) {
-    top: 36%;
-    left: 47%;
+    top: 30vh;
+    left: 50vh;
   }
 }
 
