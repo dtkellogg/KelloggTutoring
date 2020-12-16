@@ -151,10 +151,6 @@
     &:hover {
       color: $black;
     }
-
-    @media (max-width: 450px) {
-      margin: 1rem 0;
-    }
   }
 
   &__continue--select-method {
@@ -193,27 +189,22 @@
 
   &__cart {
     &--reset {
-    @extend %btn;
-    background-image: none;
-    background: $grey-light-5;
-    grid-column: 5 / span 1;
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    width: 12rem;
-    text-align: center;
-    border-radius: 5rem;
-    border: 2px solid $white;;
-    color: $white;
+      @extend %btn;
+      background-image: none;
+      background: $grey-light-5;
+      grid-column: 5 / span 1;
+      align-self: start;
+      justify-self: start;
+      padding: 0.5rem;
+      width: 12rem;
+      text-align: center;
+      border-radius: 5rem;
+      border: 2px solid $white;;
+      color: $white;
 
 
     &:hover {
       color: $black;
-    }
-
-    @media (max-width: 450px) {
-      // transform: translateY(1rem);
-      margin: 1rem 0;
     }
     }
   }

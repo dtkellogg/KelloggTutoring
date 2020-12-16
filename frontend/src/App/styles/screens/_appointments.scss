@@ -27,9 +27,9 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  height: 78vh;
+  height: 100%;
   display: flex;
-  overflow: scroll;
+  // overflow: scroll;
   position: relative;
 
   @media (max-width: 900px) {
@@ -54,6 +54,10 @@
       justify-items: center;
       width : 100%;
       margin-bottom: 1rem;
+
+      @media ( max-width:900px ) {
+        grid-template-rows: 6vh 3vh;
+      }
     }
   }
 
@@ -112,6 +116,8 @@
     // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
     line-height: 3.5rem;
     display: table;
+    overflow: scroll;
+    height: 62vh;
 
     &--item {
       // @include flexCenterCenter($justify-content: space-between);
@@ -346,6 +352,13 @@
       justify-items: center;
       width : 100%;
       margin-bottom: 1rem;
+    }
+  }
+
+  &__table {
+    &--container {
+      height: 69vh;
+      overflow: scroll;
     }
   }
 }
