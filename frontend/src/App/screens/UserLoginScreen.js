@@ -10,7 +10,7 @@ export default function Login({ location, history }) {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const [failedMsg, setFailedMsg] = React.useState()
+  const [failedMsg, setFailedMsg] = React.useState("")
   const [successMsg, setSuccessMsg] = React.useState('')
 
   const userLogin = useSelector(state => state.userLogin)
@@ -28,11 +28,11 @@ export default function Login({ location, history }) {
     if(error) {
       // dispatch(subheader({error}));
       console.log(error);
-      setFailedMsg('There was a problem logging in. Please confirm your email and password.');
+      setFailedMsg('There was a problem logging in. Reenter your email and password.');
 
       window.setTimeout(() => {
         setFailedMsg("");
-      }, 4000);
+      }, 5000);
 
     }
   }, [dispatch, history, userInfo, redirect, loading, error])

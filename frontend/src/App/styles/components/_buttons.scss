@@ -794,6 +794,7 @@
 .social-media-icon {
   &__trash {
     cursor: pointer;
+    transform: translateY(0.1rem);
 
     &:hover {
       color: $white;

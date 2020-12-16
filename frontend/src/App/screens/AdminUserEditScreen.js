@@ -54,7 +54,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 
 		if (successUpdate) {
 			dispatch({ type: USER_UPDATE_RESET })
-			history.push('/admin/user-list')
+			history.push('/admin/users')
 		} else {
 			if (!user.name || user._id !== userId) {
 				dispatch(getUserDetails(userId))
@@ -77,7 +77,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 			<div className="pg__meetToshi">
 			<Sidebar title="Toshi" list={adminList} />
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
-			<Link to='/admin/user-list' className="btn__user-edit" >Go Back</Link>
+			<Link to='/admin/users' className="btn__user-edit" >Go Back</Link>
 				<div className="userEditScreen__header">
 					<h2 className="text-size-2 letter-spacing-sm">
 							Edit User
