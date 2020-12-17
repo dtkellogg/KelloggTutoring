@@ -20,6 +20,7 @@ import {
     reviewDeleteReducer,
     reviewCreateReducer
 } from './reducers/reviewReducer'
+import { messageCreateReducer } from './reducers/msgReducers'
 
 
 
@@ -54,6 +55,7 @@ const reducer = combineReducers({
     reviewDelete: reviewDeleteReducer,
     reviewCreate: reviewCreateReducer,
     reviewUpdate: reviewUpdateReducer,
+    messageCreate: messageCreateReducer,
     subheader
 })
 

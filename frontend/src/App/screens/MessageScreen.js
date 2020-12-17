@@ -9,6 +9,7 @@ import Sidebar from "../components/Sidebar";
 
 // actions
 import { getUserDetails } from "../actions/userActions";
+import { sendMessageToNodeMailer } from "../actions/msgActions";
 
 // hooks
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
@@ -104,21 +105,14 @@ export default function MessageScreen({ history }) {
         message,
       };
 
-      // await dispatch(createReview(name, relation, msg, date)).then(() => {
-      //   // setSubmitted(false);
-      //   setSent(true);
-
-      //   setName("");
-      //   setRelation("Student");
-      //   setMsg("");
-      // });
-
-
-      await axios
-        .post("/api/messages", dataToSubmit)
-        .then((response) => {
-          console.log(`axios response: ${response.data}`);
-        })
+    
+      // await axios
+        // .post("/api/messages", dataToSubmit)
+      // await dispatch(sendMessageToNodeMailer(dataToSubmit))
+      await dispatch(sendMessageToNodeMailer(name, email, subject, phone, message))
+        // .then((response) => {
+        //   console.log(`axios response: ${response}`);
+        // })
         .then(() => {
           setName("");
           setEmail("");

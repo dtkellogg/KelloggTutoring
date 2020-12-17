@@ -1,15 +1,17 @@
+import axios from 'axios'
+import { MESSAGE_CREATE_SUCCESS, MESSAGE_CREATE_FAIL, MESSAGE_CREATE_REQUEST } from '../constants/msgConstants';
+
 export const sendMessageToNodeMailer = (
     name,
-    relation,
-    msg,
-    date,
-    approved,
-    user
+    email,
+    subject,
+    phone,
+    message
 ) => async (dispatch, getState) => {
     try {
-        // dispatch({
-        //     type: REVIEW_CREATE_REQUEST,
-        // });
+        dispatch({
+            type: MESSAGE_CREATE_REQUEST,
+        });
 
         const {
             userLogin: { userInfo },
@@ -22,13 +24,13 @@ export const sendMessageToNodeMailer = (
         };
 
         const { data } = await axios.post(
-            `/api/reviews`,
-            { name, relation, date, msg, approved, user },
+            `/api/messages`,
+            { name, email, subject, phone, message },
             config
         );
 
         dispatch({
-            type: REVIEW_CREATE_SUCCESS,
+            type: MESSAGE_CREATE_SUCCESS,
             payload: data,
         });
     } catch (error) {
@@ -40,7 +42,7 @@ export const sendMessageToNodeMailer = (
             //   dispatch(logout());
         }
         dispatch({
-            type: REVIEW_CREATE_FAIL,
+            type: MESSAGE_CREATE_FAIL,
             payload: message,
         });
     }
