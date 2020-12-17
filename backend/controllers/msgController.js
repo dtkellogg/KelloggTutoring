@@ -51,7 +51,7 @@ exports.sendMessageToNodeMailer = async (req, res, next) => {
             <li>Name: ${req.body.name}</li>
             <li>Email: ${req.body.email}</li>
             <li>Phone: ${req.body.phone}</li>
-            <li>Company: ${req.body.subject}</li>
+            <li>Subject: ${req.body.subject}</li>
             </ul>
             <h3>Message</h3>
             <p>${req.body.message}</p>
@@ -64,8 +64,8 @@ exports.sendMessageToNodeMailer = async (req, res, next) => {
             host: process.env.NODEMAILER_HOST,
             service: "Gmail",
             port: 587,
-            secure: true, // true for 465, false for other ports
-            // secure: false, // true for 465, false for other ports
+            // secure: true, // true for 465, false for other ports
+            secure: false, // true for 465, false for other ports
             requireTLS: true,
             auth: {
                 user: process.env.NODEMAILER_FROM_EMAIL, // generated ethereal user
@@ -81,7 +81,7 @@ exports.sendMessageToNodeMailer = async (req, res, next) => {
         const mailOptions = {
             from: `"Nodemailer Contact" <${process.env.NODEMAILER_FROM_EMAIL}>`, // sender address
             to: `${process.env.NODEMAILER_TO_EMAIL}`, // list of receivers
-            subject: "Kelloggtutoring.com Tutoring Request", // Subject line
+            subject: "Tutoring Request", // Subject line
             text: "Hello!", // plain text body
             html: output, // html body
             uri: "https://kelloggtutoring.com"

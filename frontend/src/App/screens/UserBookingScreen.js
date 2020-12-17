@@ -162,7 +162,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element">
+            <div className="user-booking__element align-items__flex-end">
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="date">
                 date
               </label>
@@ -176,7 +176,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element">
+            <div className="user-booking__element align-items__flex-end">
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 start time
               </label>
@@ -190,7 +190,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element">
+            <div className="user-booking__element align-items__flex-end">
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 end time
               </label>
