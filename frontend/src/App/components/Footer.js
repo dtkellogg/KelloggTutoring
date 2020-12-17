@@ -11,8 +11,8 @@ export default function Footer() {
             <span role="img" aria-label="email emoji" className="footer__emoji">
               ✉️
             </span>
-            <a href="mailto:toshi.kelloggtutoring@gmail.com" style={{ color: "blue" }}>
-              &nbsp; toshi.kelloggtutoring@gmail.com
+            <a href="mailto:toshikelloggtutoring@gmail.com" style={{ color: "blue" }}>
+              &nbsp; toshikelloggtutoring@gmail.com
             </a>
           </div>
 

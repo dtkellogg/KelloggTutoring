@@ -12,6 +12,8 @@ import { getUserDetails } from "../actions/userActions";
 // screens
 import PleaseLogin from './UserPleaseLoginScreen'
 
+// hooks
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 const contactList = ['message', 'schedule', 'contact info'];
@@ -19,6 +21,8 @@ const contactList = ['message', 'schedule', 'contact info'];
 
 
 export default function UserBookingScreen({ location, history, type}) {
+  const { width, height } = useWindowDimensions()
+
   const [student, setStudent] = React.useState("")
   const [subject, setSubject] = React.useState("")
   const [date, setDate] = React.useState("")
@@ -162,7 +166,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element align-items__flex-end">
+              <div className="user-booking__element " style={width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="date">
                 date
               </label>
@@ -176,7 +180,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element align-items__flex-end">
+            <div className="user-booking__element " style={ width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 start time
               </label>
@@ -190,7 +194,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element align-items__flex-end">
+            <div className="user-booking__element " style={ width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 end time
               </label>
