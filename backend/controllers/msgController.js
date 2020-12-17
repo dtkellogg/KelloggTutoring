@@ -64,8 +64,8 @@ exports.sendMessageToNodeMailer = async (req, res, next) => {
             host: process.env.NODEMAILER_HOST,
             service: "Gmail",
             port: 587,
-            // secure: true, // true for 465, false for other ports
-            secure: false, // true for 465, false for other ports
+            secure: true, // true for 465, false for other ports
+            // secure: false, // true for 465, false for other ports
             requireTLS: true,
             auth: {
                 user: process.env.NODEMAILER_FROM_EMAIL, // generated ethereal user
