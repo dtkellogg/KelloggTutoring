@@ -155,7 +155,9 @@
 
 
   &__btn--screen-nav {
-    padding: 20rem 0;
+    grid-row: 3 / span 1;
+    grid-column: 5 / -1;
+    padding: 23rem 0;
     height: 100%;
     z-index: 99999999;
     @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
