@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash, FaEdit } from "react-icons/fa";
-
-// screens
-import PleaseLoginScreen from '../screens/UserPleaseLoginScreen'
 
 // hooks
 import { useSortMultiple } from "../hooks/useSort";
@@ -17,7 +14,7 @@ export default function ReviewsList({ type }) {
     const dispatch = useDispatch();
 
     const reviewList = useSelector((state) => state.reviewList);
-    const { loading, error, reviews } = reviewList;
+    const { loading, error, reviews } = reviewList; // eslint-disable-line no-unused-vars
 
     const userDetails = useSelector((state) => state.userDetails);
     const {
@@ -27,7 +24,7 @@ export default function ReviewsList({ type }) {
     } = userDetails;
 
     const userLogin = useSelector(state => state.userLogin)
-    const { userInfo } = userLogin
+    const { userInfo } = userLogin // eslint-disable-line no-unused-vars
 
     const sortedReviews = useSortMultiple(reviews, "date", "name");
 

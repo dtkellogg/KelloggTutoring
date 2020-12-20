@@ -9,7 +9,7 @@ import PaymentSteps from "../components/PaymentSteps";
 import Sidebar from "../components/Sidebar";
 
 //actions
-import { listAppointments } from "../actions/appointmentActions";
+// import { listAppointments } from "../actions/appointmentActions";
 import { removeFromCart } from "../actions/cartActions"
 import { createPayment } from "../actions/paymentActions";
 

@@ -21,7 +21,7 @@ function NavUpper({ history }) {
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
-  const { width, height } = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
   const handleLogout = (e) => {
     e.preventDefault()

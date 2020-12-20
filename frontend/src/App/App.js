@@ -5,10 +5,10 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import './App.scss';
 
-// ACTIONS
+// actions
 import { subheader } from "./actions/subheader";
 
-// COMPONENTS
+// components
 import NavUpper from "./components/NavUpper";
 import NavLower from "./components/NavLower";
 import Footer from "./components/Footer";
@@ -16,14 +16,11 @@ import Calendar from "./components/Calendar"
 import LoadingSpinner from "./components/LoadingSpinner"
 
 // these don't have to be loaded immediately
-const ReviewsList = React.lazy(() => import("./components/ReviewsList"));  // This doesn't have to be loaded immediately on mobile, but it does on desktop. Testing this out.
 const ApptsList = React.lazy(() => import("./components/ApptsList"));
 const PageHeader = React.lazy(() => import("./components/PageHeader"));
-// const ApptsList = React.lazy(() => import("./components/ApptsList"))
-// const Calendar = React.lazy(() => import("./components/Calendar"))
 
 
-// SCREENS
+// screens
 const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
 const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
 const AdminApptRequests = React.lazy(() => import("./screens/AdminApptRequestsScreen"));
@@ -31,6 +28,7 @@ const AdminReviewsList = React.lazy(() => import("./screens/AdminReviewsListScre
 const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
 const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
 const AdminAppointmentCreate = React.lazy(() => import("./screens/AdminApptCreateScreen"));
+const AdminStats = React.lazy(() => import("./screens/AdminStatsScreen"));
 const Booking = React.lazy(() => import("./screens/UserBookingScreen"));
 const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
 const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
@@ -61,8 +59,7 @@ const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
 
 
 export default function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(false); // eslint-disable-line no-unused-vars
   const location = useLocation();
   const dispatch = useDispatch();
 
@@ -235,6 +232,11 @@ export default function App() {
                     exact
                     path="/admin/requests"
                     component={AdminApptRequests}
+                  />
+                  <Route
+                    exact
+                    path="/admin/stats"
+                    component={AdminStats}
                   />
                  
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />

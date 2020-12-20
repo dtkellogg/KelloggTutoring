@@ -118,7 +118,6 @@
     width: 13rem;
 
     @media(max-width: 600px ) {
-      // width: 12rem;
       height: 4.5rem;
     }
   }
@@ -156,9 +155,7 @@
 
   &__continue--select-method {
     @extend %btn;
-    // position: absolute;
     grid-column: 1 / span 1;
-    // transform: translateY(-4rem);
     align-self: start;
     justify-self: start;
     padding: 0.5rem;
@@ -173,19 +170,15 @@
     }
 
     @media (max-width: 900px) {
-      // transform: translateY(0rem);
-      // margin: 1rem 0;
-
       grid-column: 1 / span 1;
-    // transform: translateY(-1rem);
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    width: 12rem;
-    text-align: center;
-    border-radius: 5rem;
-    border: 2px solid #fff;
-    color: #fff;
+      align-self: start;
+      justify-self: start;
+      padding: 0.5rem;
+      width: 12rem;
+      text-align: center;
+      border-radius: 5rem;
+      border: 2px solid #fff;
+      color: #fff;
     }
   }
 
@@ -207,10 +200,9 @@
         transform: translate(-1rem, -0.5rem);
       }
 
-
-    &:hover {
-      color: $black;
-    }
+      &:hover {
+        color: $black;
+      }
     }
   }
 
@@ -253,10 +245,6 @@
     margin-bottom: 5rem;
     width: 100%;
     transform: translateY(4rem);
-
-    @media ( max-width: 400px ) {
-      // width: 80vw;
-    }
   }
 
   &__registerScreen {
@@ -277,7 +265,6 @@
   &__loginScreen {
     @extend %btn;
     @extend %btn--blue;
-    // margin-bottom: 5rem;
     margin: 1rem 0 6rem 0;
     color: $white;
     width: 100%;
@@ -299,7 +286,6 @@
   &__profileScreen {
     @extend %btn;
     @extend %btn--blue;
-    // margin-top: 11rem;
     border: none;
     width: 100%;
     transform: translateY(8rem);
@@ -316,8 +302,6 @@
     margin: 1rem;
 
     width: 100%;
-    // width: 35rem;
-    // transform: translateY(-9rem);
     transform: translateY(2rem);
 
     &:hover {
@@ -343,9 +327,6 @@
     margin: 1rem;
 
     width: 100%;
-    // width: 35rem;
-    // transform: translateY(-9rem);
-    // transform: translateY(2rem);
 
     &:hover {
       background-color: $green-12;
@@ -355,7 +336,6 @@
 
     @media ( max-width: 900px ) {
       margin-top: 0rem;
-      // transform: translateY(2rem);
       transform: translateY(4vh);
     }
 
@@ -402,14 +382,7 @@
     color: $white;
     width: 13rem;
 
-
-    @media ( max-width: 750px ) {
-      // margin-right: 0rem;
-    }
-
-
     @media(max-width: 600px ) {
-      // width: 12rem;
       height: 4.5rem;
     }
   }
@@ -563,27 +536,10 @@
     &:hover {
       color: $black;
       background-position: right center; /* change the direction of the change here */
-              color: $old-blue-2;
-              text-decoration: none;
+      color: $old-blue-2;
+      text-decoration: none;
     }
-
-    
   }
-
-  // &__createReview {
-  //   // @extend %btn;
-  //   // @extend %btn--blue;
-  //   align-self: start;
-  //   justify-self: start;
-  //   padding: 0.5rem;
-  //   width: 13rem;
-  //   text-align: center;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   margin-bottom: 1rem;
-  // }
-
 
   &__white, &__createReview {background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)}
   &__white, &__createReview {
@@ -672,21 +628,12 @@
 
     @media (max-width: 1050px){
       transform: translateY(200%);
-      // width: 60vw;
       padding: 1rem;
       margin: 0.5rem;
     }
 
     @media (max-width: 950px) and (max-height: 450px) {
       padding: 0.5rem;
-    }
-
-    @media (max-width: 700px){
-      // width: 50vw;
-    }
-
-    @media (max-width: 600px){
-      // width: 40rem;
     }
 
     @media (max-width: 450px){
@@ -716,10 +663,6 @@
     position: absolute;
     top: 1rem;
     left: 2rem;
-
-    @media (max-width: 900px) {
-      // left: 5rem;
-    }
   }
 }
 
@@ -729,20 +672,7 @@
     grid-row: 1 / span 3;
     grid-column: 2 / span 1;
     width: max-content;
-    // transform: translateY(-3rem);
     transform: translateY(-2rem);
-    
-    
-    @media (max-width: 750px) {
-      // display: flex;
-      // flex-direction: column;
-      // height: 8rem;
-      // justify-content: space-between;
-      // transform: translateY(-1rem);
-      // position: absolute;
-      // right: 10rem;
-      // top: 50%;
-    }
 
     @media (max-width: 650px) {
       transform: translate(-2rem, -3rem);

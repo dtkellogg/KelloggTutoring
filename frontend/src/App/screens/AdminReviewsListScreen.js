@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, useRouteMatch } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 
@@ -9,26 +8,19 @@ import { subheader } from "../actions/subheader";
 
 // components
 import Sidebar from "../components/Sidebar";
-import ReviewsList from '../components/ReviewsList'
 
 // hooks
 import { useSortMultiple } from "../hooks/useSort";
 
 // data
-const adminList = ["Users", "Appts", "Reviews", "Requests"]
+const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"]
 
 
 export default function AdminReviewsList({ location, history }) {
     const dispatch = useDispatch()
-    const {
-        // path,
-        url
-    } = useRouteMatch()
-
-    // const [approved]
 
     const reviewList = useSelector((state) => state.reviewList);
-    const { loading, error, reviews } = reviewList;
+    const { loading, error, reviews } = reviewList; // eslint-disable-line no-unused-vars
 
     const reviewDelete = useSelector((state) => state.reviewDelete);
     const {
@@ -39,8 +31,8 @@ export default function AdminReviewsList({ location, history }) {
 
     const reviewUpdate = useSelector((state) => state.reviewUpdate);
     const {
-        loading: loadingUpdate,
-        error: errorUpdate,
+        loading: loadingUpdate, // eslint-disable-line no-unused-vars
+        error: errorUpdate, // eslint-disable-line no-unused-vars
         success: successUpdate
     } = reviewUpdate;
 
@@ -107,8 +99,6 @@ export default function AdminReviewsList({ location, history }) {
                         <tbody className="tbody">
                             {sortedReviews.map((review) => {
                                 const date = review.date.split("T")[0].split("-");
-                                const approved = review.approved
-                                // console.log(`review.approved: ${review.approved}`)
                                 return (
                                     <tr key={review._id} className="reviewsAdmin__list--item">
                                         <td className="text-size-3 reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>

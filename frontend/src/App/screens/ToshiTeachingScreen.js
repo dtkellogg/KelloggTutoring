@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 
-import { subheader } from "../actions/subheader";
+// components
 import Sidebar from "../components/Sidebar";
 
+// data
 const toshiList = [ "About", "Teaching", "Reviews", "Blog" ]
 
 export default function ToshiTeaching() {

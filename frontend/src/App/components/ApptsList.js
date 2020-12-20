@@ -20,9 +20,6 @@ import useFormatAMPM from "../hooks/useFormatAMPM"
 import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment, updateAppointment } from '../actions/appointmentActions'
 
-// components --- this is for testing purposes. Delete when satisfaction is acheive in regards to the Loading Spinner positioning.
-import LoadingSpinner from '../components/LoadingSpinner'
-
 // data
 const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
 
@@ -39,8 +36,8 @@ export default function ApptsList({ location, type }) {
 
   const appointmentUpdate = useSelector((state) => state.appointmentUpdate);
   const {
-    loading: loadingUpdate,
-    error: errorUpdate,
+    loading: loadingUpdate, // eslint-disable-line no-unused-vars
+    error: errorUpdate, // eslint-disable-line no-unused-vars
     success: successUpdate
   } = appointmentUpdate;
 
@@ -99,7 +96,6 @@ export default function ApptsList({ location, type }) {
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
           <PleaseLoginScreen />
-          {/* <LoadingSpinner /> */}
         </div>
       </div>
     )

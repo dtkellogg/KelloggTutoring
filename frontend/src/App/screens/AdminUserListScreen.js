@@ -1,27 +1,23 @@
 import React from "react";
-import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 
 // components
 import Sidebar from "../components/Sidebar";
 
-// screens
-import AdminUserEdit from "./AdminUserEditScreen"
 
 // actions
 import { listUsers, deleteUser } from "../actions/userActions";
 import { subheader } from "../actions/subheader";
 
 
-const adminList = [ "Users", "Appts", "Reviews", "Requests" ]
+const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats" ]
 
 
 
 export default function AdminUserList ({ location, history }) {
 	const dispatch = useDispatch()
-
-	const { path } = useRouteMatch()
 
 
 	const userList = useSelector((state) => state.userList)

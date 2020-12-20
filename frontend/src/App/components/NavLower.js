@@ -96,7 +96,6 @@ export default function NavLower() {
     setFilterDisplay(newList)
   }
 
-  console.log(subheader)
 
   return (
     <nav className="nav__lower">

@@ -24,7 +24,7 @@ export default function AdminAppointmentCreate({ location, history }) {
 
   React.useEffect(() => {
     dispatch(listUsers())
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const userList = useSelector((state) => state.userList);
   const {
@@ -47,7 +47,7 @@ export default function AdminAppointmentCreate({ location, history }) {
     if (submitted) {
       history.push('/admin/appts')
     }
-  }, [dispatch, loading, error, submitted, successCreate])
+  }, [dispatch, history, loading, error, submitted, successCreate])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()

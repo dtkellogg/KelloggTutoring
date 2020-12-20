@@ -18,11 +18,11 @@ import useWindowDimensions from '../hooks/useWindowDimensions'
 
 
 
-const adminList = ["Users", "Appts", "Reviews", "Requests"]
+const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"]
 
 
 export default function AdminAppointmentsList({ location, history }) {
-	const { width, height } = useWindowDimensions()
+	const { width } = useWindowDimensions()
 
 	const dispatch = useDispatch()
 	const { 
@@ -59,7 +59,7 @@ export default function AdminAppointmentsList({ location, history }) {
 		} else {
 			dispatch(listAppointments())
 		}
-	}, [dispatch, loadingDelete, errorDelete, successDelete, successCreate, createdAppt])
+	}, [dispatch, history, loadingDelete, errorDelete, successDelete, successCreate, createdAppt])
 
 	React.useEffect(() => {
 		if (loadingCreate || loadingDelete) {

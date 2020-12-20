@@ -1,31 +1,25 @@
 import React from "react";
-import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 
 // components
 import Sidebar from "../components/Sidebar";
 
-// screens
-import AdminUserEdit from "./AdminUserEditScreen"
 
 // actions
-import { listAppointmentRequests, deleteAppointmentRequest } from "../actions/appointmentRequestActions";
+import { listAppointmentRequests, deleteAppointmentRequest } from "../actions/appointmentRequestActions"; // eslint-disable-line no-unused-vars
 import { subheader } from "../actions/subheader";
 
 // hooks
-import { useSortMultiple } from '../hooks/useSort'
+import { useSortMultiple } from '../hooks/useSort' // eslint-disable-line no-unused-vars
 import useFormatAMPM from "../hooks/useFormatAMPM"
 
 
-const adminList = ["Users", "Appts", "Reviews", "Requests"]
+const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"]
 
 
 
 export default function AdminApptRequests({ location, history }) {
     const dispatch = useDispatch()
-
-    const { path } = useRouteMatch()
 
 
     const appointmentRequestList = useSelector((state) => state.appointmentRequestList)
@@ -63,11 +57,11 @@ export default function AdminApptRequests({ location, history }) {
     }, [dispatch, loading, error])
 
 
-    const deleteHandler = (id) => {
-        if (window.confirm('Are you sure you want to delete this user?')) {
-            dispatch(deleteAppointmentRequest(id))
-        }
-    }
+    // const deleteHandler = (id) => {
+    //     if (window.confirm('Are you sure you want to delete this user?')) {
+    //         dispatch(deleteAppointmentRequest(id))
+    //     }
+    // }
 
     function AMPMTime(time) {
         return useFormatAMPM(time)

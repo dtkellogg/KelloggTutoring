@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDispatch } from "react-redux";
 
 // prop-types
 import PropTypes from "prop-types";
@@ -7,15 +6,12 @@ import PropTypes from "prop-types";
 // components
 import Sidebar from "./Sidebar";
 
-// actions
-import { subheader } from "../actions/subheader";
-
 
 
 const contactList = ['message', 'schedule', 'contact info'];
 const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
 const toshiList = ["About", "Teaching", "Reviews", "Blog"];
-const adminList = [ "Users", "Appts", "Reviews", "Requests"];
+const adminList = [ "Users", "Appts", "Reviews", "Requests", "Stats"];
 
 // random hands showing user to pick a link to the left...
 const hands = ["👈🏻","👈🏼","👈🏽","👈🏾","👈🏿","👈"]
@@ -24,7 +20,6 @@ const randomHand = hands[Math.floor(Math.random() * hands.length)];
 
 
 export default function PageHeader({ location, history, page }) {
-  const dispatch = useDispatch();
 
   return (
     <div className="pg__appointment">

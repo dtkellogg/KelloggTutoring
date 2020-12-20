@@ -11,7 +11,7 @@ export default function Login({ location, history }) {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [failedMsg, setFailedMsg] = React.useState("")
-  const [successMsg, setSuccessMsg] = React.useState('')
+  const [successMsg, setSuccessMsg] = React.useState('') // eslint-disable-line no-unused-vars
 
   const userLogin = useSelector(state => state.userLogin)
   const { loading, error, userInfo } = userLogin

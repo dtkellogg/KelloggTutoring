@@ -48,8 +48,6 @@ export default function Payments({ match, history }) {
 
   const { width, height } = useWindowDimensions() // eslint-disable-line no-unused-vars
 
-  console.log(`cart: ${cart}`)
-
  
 
   React.useEffect(() => {

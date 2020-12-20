@@ -22,10 +22,10 @@ export default function ReviewCreateScreen({ history }) {
   const [name, setName] = React.useState("");
   const [relation, setRelation] = React.useState("Student");
   const [msg, setMsg] = React.useState("");
-  const [date, setDate] = React.useState(Date.now()); // eslint-disable no-unused-vars
+  const [date, setDate] = React.useState(Date.now()); // eslint-disable-line no-unused-vars
   const [submitted, setSubmitted] = React.useState(false);
   const [failed, setFailed] = React.useState("");
-  const [sent, setSent] = React.useState(false);
+  const [sent, setSent] = React.useState(false); // eslint-disable-line no-unused-vars
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
@@ -35,7 +35,7 @@ export default function ReviewCreateScreen({ history }) {
   } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const { userInfo } = userLogin;  // eslint-disable-line no-unused-vars
 
   const handleSubmit = async (e) => {
     e.preventDefault();

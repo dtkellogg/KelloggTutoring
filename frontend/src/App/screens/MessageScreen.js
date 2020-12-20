@@ -1,9 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// axios
-import axios from "axios";
-
 // components
 import Sidebar from "../components/Sidebar";
 
@@ -97,22 +94,7 @@ export default function MessageScreen({ history }) {
         setSubmitted(false);
       }, 4000);
 
-      const dataToSubmit = {
-        name,
-        email,
-        subject,
-        phone,
-        message,
-      };
-
-    
-      // await axios
-        // .post("/api/messages", dataToSubmit)
-      // await dispatch(sendMessageToNodeMailer(dataToSubmit))
       await dispatch(sendMessageToNodeMailer(name, email, subject, phone, message))
-        // .then((response) => {
-        //   console.log(`axios response: ${response}`);
-        // })
         .then(() => {
           setName("");
           setEmail("");
@@ -142,7 +124,7 @@ export default function MessageScreen({ history }) {
                 type="name"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="name"
-                value={name}
+                value={name || ""}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -157,7 +139,7 @@ export default function MessageScreen({ history }) {
                 type="email"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="email"
-                value={email}
+                value={email || ""}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -184,7 +166,7 @@ export default function MessageScreen({ history }) {
                 type="subject"
                 className="messageForm__input messageForm__input-contact text-size-4"
                 placeholder="subject"
-                value={subject}
+                value={subject || ""}
                 onChange={(e) => setSubject(e.target.value)}
               />
             </div>
@@ -199,7 +181,7 @@ export default function MessageScreen({ history }) {
                 type="text"
                 className="messageForm__textarea messageForm__input--contact-message text-size-4"
                 placeholder="Please leave your message here."
-                value={message}
+                value={message || ""}
                 onChange={(e) => setMessage(e.target.value)}
               />
             </div>

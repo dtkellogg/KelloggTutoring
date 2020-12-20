@@ -21,7 +21,7 @@ const contactList = ['message', 'schedule', 'contact info'];
 
 
 export default function UserBookingScreen({ location, history, type}) {
-  const { width, height } = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
   const [student, setStudent] = React.useState("")
   const [subject, setSubject] = React.useState("")
@@ -29,7 +29,7 @@ export default function UserBookingScreen({ location, history, type}) {
   const [startTime, setStartTime] = React.useState("")
   const [endTime, setEndTime] = React.useState("")
   const [submitted, setSubmitted] = React.useState(false)
-  const [paid, setPaid] = React.useState(false) // eslint-disable no-unused-vars
+  const [paid, setPaid] = React.useState(false) // eslint-disable-line no-unused-vars
   const [failed, setFailed] = React.useState("");
 
   const dispatch = useDispatch();
@@ -39,16 +39,6 @@ export default function UserBookingScreen({ location, history, type}) {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
-
-  // const appointmentCreate = useSelector((state) => state.appointmentCreate);
-  // const {
-  //     // loading,
-  //     // error,
-  //     // success: successCreate,
-  //     // userInfox
-  //  } = appointmentCreate;
-  // const redirect = location.search ? location.search.split("=")[1] : "/";
 
   React.useEffect(() => {
     if (!user) {
@@ -60,16 +50,10 @@ export default function UserBookingScreen({ location, history, type}) {
       setStudent("");
     }
 
-    // if (submitted) {
-    //     history.push(redirect);
-    // }
-    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     dispatch, 
     history,
-    // user.name,
-    //  redirect,
     submitted,
   ]);
 
@@ -84,7 +68,7 @@ export default function UserBookingScreen({ location, history, type}) {
     // if (error) {
     //   dispatch(subheader({ error }));
     // }
-  }, [loading, error]);
+  }, [dispatch, loading, error]);
 
 
   const handleSubmit = async (e) => {
@@ -144,7 +128,7 @@ export default function UserBookingScreen({ location, history, type}) {
                 className="user-booking__input text-size-4"
                 placeholder="student"
                 style={{ color: "var(--old-blue-2)" }}
-                value={student}
+                value={student || ''}
                 onChange={(e) => setStudent(e.target.value)}
               />
             </div>
@@ -166,7 +150,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-              <div className="user-booking__element " style={width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
+              <div className="user-booking__element " style={width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="date">
                 date
               </label>
@@ -180,7 +164,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element " style={ width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
+            <div className="user-booking__element " style={ width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 start time
               </label>
@@ -194,7 +178,7 @@ export default function UserBookingScreen({ location, history, type}) {
               />
             </div>
 
-            <div className="user-booking__element " style={ width > '450' ? {"align-items": 'stretch'} : {"align-items": 'flex-end'}}>
+            <div className="user-booking__element " style={ width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
                 <label className="text-size-5 letter-spacing-md user-booking__label" htmlFor="time">
                 end time
               </label>

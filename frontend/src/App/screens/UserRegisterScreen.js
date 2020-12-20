@@ -20,8 +20,8 @@ export default function Register({ location, history }) {
 
   const userRegister = useSelector((state) => state.userRegister)
   const { 
-    loading, 
-    error, 
+    loading, // eslint-disable-line no-unused-vars
+    error, // eslint-disable-line no-unused-vars
     userInfo 
   } = userRegister
 
