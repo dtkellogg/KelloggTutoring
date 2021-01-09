@@ -8,6 +8,7 @@ import { useSortMultiple } from "../hooks/useSort";
 
 // actions
 import { listReviews, deleteReview } from "../actions/reviewActions";
+import { subheader } from "../actions/subheader";
 
 
 export default function ReviewsList({ type }) {
@@ -35,6 +36,22 @@ export default function ReviewsList({ type }) {
         await dispatch(deleteReview(id)).then(() => dispatch(listReviews()));
       }
     };
+
+  React.useEffect(() => {
+    dispatch(listReviews())
+  }, [dispatch, userInfo])
+
+  React.useEffect(() => {
+    if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
+    }
+    if (error) {
+      dispatch(subheader({ error }));
+    }
+  }, [dispatch, loading, error]);
+
 
 
     return (

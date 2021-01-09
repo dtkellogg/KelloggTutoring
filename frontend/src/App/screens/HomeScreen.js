@@ -57,6 +57,11 @@ export default function HomePage() {
   }, [dispatch])
 
 
+  React.useEffect(() => {
+    dispatch(subheader(""));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+
 
   return (
     <div className="pg__home">

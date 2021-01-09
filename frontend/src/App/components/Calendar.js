@@ -78,7 +78,7 @@ export default function Calendar({ type }) {
     setMonth(monthStr)
 
     // testing
-    let ok = date.setDate(1)
+    // let ok = date.setDate(1)
     
     // let ok2 = ok.getUTCDay();
 
@@ -93,9 +93,9 @@ export default function Calendar({ type }) {
     // console.log(`ok: ${ok}`)
     // console.log(`ok2: ${ok2}`)
     
-    console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
+    // console.log(`firstDayOfCurrentMonth: ${firstDayOfCurrentMonth}`)
     // console.log(`date.getDay(): ${date.getDay()}`)
-    console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
+    // console.log(`date.getUTCDay(): ${date.getUTCDay()}`)
     // console.log(`date: ${date}`)
 
 		let arrayDaysCurrentMonth = []
@@ -220,7 +220,7 @@ export default function Calendar({ type }) {
     }
 
     
-  }, [sortedAppts]) // eslint-disable react-hooks/exhaustive-deps
+  }, [sortedAppts]) // eslint-disable-line react-hooks/exhaustive-deps
 
   React.useEffect(() => {
     dispatch(listAppointments());
@@ -291,6 +291,7 @@ export default function Calendar({ type }) {
                     <li
                       className="calendar__row--element-with-appts"
                       style={{ color: "var(grey-light-5)" }}
+                      key={dayKey}
                     >
                       <div
                         style={{
@@ -340,6 +341,7 @@ export default function Calendar({ type }) {
                     <li
                       className="calendar__row--element-with-appts"
                       style={{ color: "var(--old-blue-2)" }}
+                      key={uuid()}
                     >
                       <div
                         style={{
@@ -360,7 +362,7 @@ export default function Calendar({ type }) {
                       >
                         {numDay.appts.map((appt) => {
                           return (
-                            <div>
+                            <div key={appt._id}>
                               {AMPMTime(appt.startTime)} - {AMPMTime(appt.endTime)}: <br /><span className="calendar__element--subject">{appt.subject}</span>
                             </div>
                           );
