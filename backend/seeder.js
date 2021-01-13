@@ -1,24 +1,30 @@
+// The following is for seeder data - aka.. sample data
+/////
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const colors = require('colors')
 
+// import sample data
 const users = require('./data/users')
 const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
+
+// models
 const Appointment = require('./models/appointmentModel')
 const User = require('./models/userModel')
 const Review = require('./models/reviewModel')
 
 const connectDB = require('./config/db.js')
 
-
+// environment variables
 dotenv.config()
 
+// database
 connectDB()
 
 const importData = async () => {
     try {
-        // so data isn't taken from database with data already loaded
+        // delete the following so data isn't taken from database with data already loaded
        await Appointment.deleteMany()
        await User.deleteMany()
        await Review.deleteMany()

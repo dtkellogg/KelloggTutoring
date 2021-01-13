@@ -1,11 +1,12 @@
 const express = require('express')
 const path = require('path')
 const dotenv = require('dotenv')
-const colors = require('colors')
-const bcrypt = require('bcryptjs')
 const enforce = require("express-sslify");
 const https = require('https')
 const fs = require('fs')
+const colors = require('colors')
+
+// sample data
 // const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 
@@ -30,7 +31,7 @@ connectDB()
 
 const app = express()
 
-// the following allows you to accept JSON data in the body... when u make a request to db, ur getting back JSON. This allows you to use it in the UI
+// the following allows JSON data to be accepted in the body... when u make a request to db, ur getting back JSON. This allows you to use it in the UI
 app.use(express.json())
 
 app.use(cors())
@@ -38,13 +39,13 @@ app.use(cors())
 // compress responses
 app.use(compression({ threshold: 0 }));
 
-//CORS middleware
+// CORS middleware
 var corsMiddleware = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'kelloggtutoring.com'); //replace localhost with actual host
-    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Authorization');
+  res.header('Access-Control-Allow-Origin', 'kelloggtutoring.com');
+  res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Authorization');
 
-    next();
+  next();
 }
 
 console.log("in backend")
@@ -82,40 +83,30 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-// NEED TO COME BACK AND REIMPLEMENT THE CODE BELOW (once I figure out what is required...):
-// note: the code below has two set ups (dev && prod). dev server requires certificates for ssl && https
-
-
 //////////////
 // To run in production:
 if (process.env.NODE_ENV === "production") {
-const PORT = process.env.PORT || 5000
+  const PORT = process.env.PORT || 5000
 
-app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
-);
+  app.listen(
+    PORT,
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
+  );
 }
 
-/////////////
-
-
-
-//////////////
 // To run in development:
-  if (process.env.NODE_ENV === "development") {
-const PORT = process.env.PORT || 5000;
+if (process.env.NODE_ENV === "development") {
+  const PORT = process.env.PORT || 5000;
 
-const options = {
-  key: fs.readFileSync("./server.key", "utf8"),
-  cert: fs.readFileSync("./kelloggtutoring_com.crt", "utf8"),
-};
+  const options = {
+    key: fs.readFileSync("./server.key", "utf8"),
+    cert: fs.readFileSync("./kelloggtutoring_com.crt", "utf8"),
+  };
 
-https.createServer(options, app).listen(PORT, () => {
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  );
-});
-  }
-
+  https.createServer(options, app).listen(PORT, () => {
+    console.log(
+      `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    );
+  });
+}
 //////////////
