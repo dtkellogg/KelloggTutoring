@@ -68,7 +68,7 @@ function NavUpper({ history }) {
 
           <li className="nav__list--item">
             <NavLink
-              to="/meetToshi"
+              to="/Toshi"
               activeStyle={activeStyle}
               className="nav__link text-size-5 letter-spacing-sm"
             >

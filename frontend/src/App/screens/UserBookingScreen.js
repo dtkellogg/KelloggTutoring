@@ -15,7 +15,7 @@ import PleaseLogin from './UserPleaseLoginScreen'
 // hooks
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
-const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
+const apptsList = ["Booking", "Payments", "List", "Calendar"];
 const contactList = ['message', 'schedule', 'contact info'];
 
 

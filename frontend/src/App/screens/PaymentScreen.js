@@ -27,7 +27,7 @@ import Loading from "../components/Loading";
 
 // import { subheader } from "../actions/subheader";
 
-const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
+const apptsList = ["Booking", "Payments", "List", "Calendar"];
 // const apptsList = ["Booking", "Payments", "Appointments List", "Appointments Calendar"]
 
 

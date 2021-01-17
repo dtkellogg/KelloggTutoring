@@ -23,7 +23,7 @@ import Sidebar from "../components/Sidebar";
 import PleaseLogin from './UserPleaseLoginScreen'
 
 // data
-const apptsList = ["Booking", "Payments", "Appts", "Calendar"]
+const apptsList = ["Booking", "Payments", "List", "Calendar"]
 
 
 
@@ -31,22 +31,23 @@ export default function Payments({ match, history }) {
   const [checkedAppointments, setCheckedAppointments] = React.useState([]); // eslint-disable-line no-unused-vars
   const [submitted, setSubmitted] = React.useState(false); // eslint-disable-line no-unused-vars
   const [cart, setCart] = React.useState([]);
+  const [disabledBtns, setDisabledBtns] = React.useState([]); // eslint-disable-line no-unused-vars
+
   const dispatch = useDispatch();
   const location = useLocation();
   // const { url, path } = useRouteMatch()
-  const [disabledBtns, setDisabledBtns] = React.useState([]); // eslint-disable-line no-unused-vars
 
 
   const appointmentList = useSelector((state) => state.appointmentList);
   const { loading, error, appointments } = appointmentList;
-  const redirect = location.search ? location.search.split("=")[1] : "/"; // eslint-disable-line no-unused-vars
-
+  
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
+  
   const reduxCart = useSelector((state) => state.cart);
-
+  
   const { width, height } = useWindowDimensions() // eslint-disable-line no-unused-vars
+  const redirect = location.search ? location.search.split("=")[1] : "/"; // eslint-disable-line no-unused-vars
 
  
 

@@ -79,6 +79,8 @@ const createAppointment = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Invalid user data.')
   }
+
+  // below - for sample data... just leaving for future ref (as w other comments)
   // const appointment = new Appointment({
   //   user: req.user,
   //   subject: 'SAT',
@@ -126,9 +128,9 @@ const updateAppointment = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
-    getAppointments,
-    getAppointmentById,
-    deleteAppointment,
-    createAppointment,
-    updateAppointment
+  getAppointments,
+  getAppointmentById,
+  deleteAppointment,
+  createAppointment,
+  updateAppointment
 }

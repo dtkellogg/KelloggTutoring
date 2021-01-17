@@ -9,8 +9,7 @@ import {
   USER_REGISTER_FAIL, 
   USER_DETAILS_REQUEST, 
   USER_DETAILS_SUCCESS, 
-  USER_DETAILS_FAIL, 
-  
+  USER_DETAILS_FAIL,
   USER_UPDATE_PROFILE_SUCCESS, 
   USER_UPDATE_PROFILE_FAIL, 
   USER_UPDATE_PROFILE_REQUEST, 
@@ -115,10 +114,12 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 
+// Note: getUserDetails can be passed 'profile' instead of 'id'
 export const getUserDetails = (id) => async (dispatch, getState) => {
 
-  try {
+  console.log(id)
 
+  try {
     dispatch({
       type: USER_DETAILS_REQUEST,
     });
@@ -138,6 +139,8 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       `/api/users/${id}`,
       config
     );
+
+    console.log(data)
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -197,7 +200,7 @@ export const listUsers = () => async (dispatch, getState) => {
       type: USER_LIST_REQUEST,
     });
 
-    const { userLogin: { userInfo }, } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {

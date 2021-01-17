@@ -71,7 +71,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
           email: user.email,
           isAdmin: user.isAdmin,
         });
-
     } else {
         res.status(404)
         throw new Error('User not found.')
@@ -112,8 +111,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 const getUsers = asyncHandler(async (req, res) => {
     const users = await User.find({})
     res.json(users)
-
-    
 });
 
 // @desc    Delete user

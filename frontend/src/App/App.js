@@ -97,7 +97,6 @@ export default function App() {
       <div className="container__main">
         <NavUpper />
         <NavLower />
-
         <div className="container__btn--screen-nav">
           <button className="btn__screen-nav--up">
             <FaCaretUp
@@ -123,122 +122,34 @@ export default function App() {
               <CSSTransition timeout={250} classNames="fade" key={location.key}>
                 <Switch location={location}>
                   <Route exact path="/" component={Home} />
-                  <Route
-                    exact
-                    path="/appointments"
-                    component={() => <PageHeader page="appts" />}
-                  />
-                  <Route
-                    exact
-                    path="/appointments/booking"
-                    component={() => <Booking type="booking" />}
-                  />
+                  <Route exact path="/appointments" component={() => <PageHeader page="appts" />} />
+                  <Route exact path="/appointments/booking" component={() => <Booking type="booking" />} />
                   {/* <Route exact path="/appointments/booking" component={() => <Booking type="appts"/>} /> */}
-
                   <Route exact path="/appointments/payments" component={Payments} />
-
-                  <Route
-                    exact
-                    path="/appointments/appts"
-                    component={() => <ApptsList type="all" />}
-                  />
-                  <Route
-                    exact
-                    path="/appointments/calendar"
-                    component={Calendar}
-                  />
+                  <Route exact path="/appointments/list" component={() => <ApptsList type="all" />} />
+                  <Route exact path="/appointments/calendar" component={Calendar} />
                   <Route exact path="/appointments/payment-method" component={PaymentMethod} />
                   <Route exact path="/appointments/checkout" component={Checkout} />
-                  <Route
-                    exact
-                    path="/meetToshi"
-                    component={() => <PageHeader page="meetToshi" />}
-                  />
-                  <Route exact path="/meetToshi/about" component={ToshiAbout} />
-                  <Route
-                    exact
-                    path="/meetToshi/teaching"
-                    component={ToshiTeaching}
-                  />
-                  <Route
-                    exact
-                    path="/meetToshi/reviews"
-                    component={() => <Reviews type="meetToshi" />}
-                  />
-                  {/* <Route exact path="/meetToshi/reviews/UserCreateReview" component={UserCreateReview} />
-                  UserCreateReview */}
-                  <Route exact path="/meetToshi/blog" component={Blog} />
-                  <Route
-                    exact
-                    path="/contact"
-                    component={() => <PageHeader page="contact" />}
-                  />
-                  <Route
-                    exact
-                    path="/contact/message"
-                    component={MessageScreen}
-                  />
-                  <Route
-                    exact
-                    path="/contact/schedule"
-                    component={() => <Booking type="schedule" />}
-                  />
-                  <Route
-                    exact
-                    path="/admin"
-                    component={() => <PageHeader page="admin" />}
-                  />
-                  <Route
-                    exact
-                    path="/admin/users"
-                    component={AdminUserList}
-                  />
-                  <Route
-                    exact
-                    path="/admin/user/:id/edit"
-                    component={AdminUserEdit}
-                  />
-                  <Route
-                    exact
-                    path="/admin/appts"
-                    component={AdminAppointmentsList}
-                  />
-                  <Route
-                    exact
-                    path="/admin/appt/:id/edit"
-                    component={AdminAppointmentEdit}
-                  />
-                  <Route
-                    exact
-                    path="/admin/appts/create-appointment"
-                    component={AdminAppointmentCreate}
-                  />
-                  <Route
-                    exact
-                    path="/admin/blog"
-                    component={AdminAppointmentsList}
-                  />
-                  <Route
-                    exact
-                    path="/admin/user/:id/edit"
-                    component={AdminUserEdit}
-                  />
-                  <Route
-                    exact
-                    path="/admin/reviews"
-                    component={AdminReviewsList}
-                  />
-                  <Route
-                    exact
-                    path="/admin/requests"
-                    component={AdminApptRequests}
-                  />
-                  <Route
-                    exact
-                    path="/admin/stats"
-                    component={AdminStats}
-                  />
-                 
+                  <Route exact path="/Toshi" component={() => <PageHeader page="meetToshi" />} />
+                  <Route exact path="/Toshi/about" component={ToshiAbout} />
+                  <Route exact path="/Toshi/teaching" component={ToshiTeaching} />
+                  <Route exact path="/Toshi/reviews" component={() => <Reviews type="meetToshi" />} />
+                  {/* <Route exact path="/Toshi/reviews/UserCreateReview" component={UserCreateReview} /> */}
+                  <Route exact path="/Toshi/blog" component={Blog} />
+                  <Route exact path="/contact" component={() => <PageHeader page="contact" />} />
+                  <Route exact path="/contact/message" component={MessageScreen} />
+                  <Route exact path="/contact/schedule" component={() => <Booking type="schedule" />} />
+                  <Route exact path="/admin" component={() => <PageHeader page="admin" />} />
+                  <Route exact path="/admin/users" component={AdminUserList} />
+                  <Route exact path="/admin/user/:id/edit" component={AdminUserEdit} />
+                  <Route exact path="/admin/appts" component={AdminAppointmentsList} />
+                  <Route exact path="/admin/appt/:id/edit" component={AdminAppointmentEdit} />
+                  <Route exact path="/admin/appts/create-appointment" component={AdminAppointmentCreate} />
+                  <Route exact path="/admin/blog" component={AdminAppointmentsList} />
+                  <Route exact path="/admin/user/:id/edit" component={AdminUserEdit} />
+                  <Route exact path="/admin/reviews" component={AdminReviewsList} />
+                  <Route exact path="/admin/requests" component={AdminApptRequests} />
+                  <Route exact path="/admin/stats" component={AdminStats} />
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
                   <Route exact path="/review/create-review" component={ReviewCreate} />
                   <Route exact path="/login" component={Login} />
@@ -257,7 +168,7 @@ export default function App() {
             </TransitionGroup>
           </React.Suspense>
         </div>
-          <Footer />
+        <Footer />
       </div>
     </React.Fragment>
   );

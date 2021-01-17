@@ -1,18 +1,44 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { 
+    createStore, 
+    combineReducers, 
+    applyMiddleware 
+} from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { appointmentListReducer, appointmentDetailsReducer,appointmentDeleteReducer, appointmentCreateReducer, appointmentUpdateReducer  } from './reducers/appointmentReducers'
-import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer, userListReducer, userDeleteReducer, userUpdateReducer} from './reducers/userReducers'
-import subheader from './reducers/subheader'
-import { appointmentRequestCreateReducer, appointmentRequestDeleteReducer, appointmentRequestDetailsReducer, appointmentRequestListReducer } from './reducers/appointmentRequestReducer'
-import { cartReducer } from './reducers/cartReducers'
+
+import { 
+    appointmentListReducer, 
+    appointmentDetailsReducer,
+    appointmentDeleteReducer, 
+    appointmentCreateReducer, 
+    appointmentUpdateReducer  
+} from './reducers/appointmentReducers'
+
+import { 
+    userLoginReducer, 
+    userRegisterReducer, 
+    userDetailsReducer, 
+    userUpdateProfileReducer, 
+    userListReducer, 
+    userDeleteReducer, 
+    userUpdateReducer
+} from './reducers/userReducers'
+
+import { 
+    appointmentRequestCreateReducer, 
+    appointmentRequestDeleteReducer, 
+    appointmentRequestDetailsReducer, 
+    appointmentRequestListReducer 
+} from './reducers/appointmentRequestReducer'
+
 import { 
     paymentDetailsReducer,
     paymentPayReducer,
     paymentListMyReducer,
     paymentListReducer,
     paymentCreateReducer
- } from './reducers/paymentReducers'
+} from './reducers/paymentReducers'
+
 import { 
     reviewDetailsReducer, 
     reviewUpdateReducer,
@@ -20,7 +46,10 @@ import {
     reviewDeleteReducer,
     reviewCreateReducer
 } from './reducers/reviewReducer'
+
 import { messageCreateReducer } from './reducers/msgReducers'
+import { cartReducer } from './reducers/cartReducers'
+import subheader from './reducers/subheader'
 
 
 

@@ -45,12 +45,14 @@ export default function MessageScreen({ history }) {
 
 
   React.useEffect(() => {
-      if (!user) {
+    if (user) {
+      if (!user.name) {
         dispatch(getUserDetails("profile"));
       } else {
         setName(user.name);
         setEmail(user.email);
       }
+    }
   }, [dispatch, history, user]);
 
   const validate = () => {

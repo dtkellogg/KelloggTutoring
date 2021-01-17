@@ -8,6 +8,8 @@ export default function Login({ location, history }) {
   const dispatch= useDispatch()
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
+  console.log(location)
+
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [failedMsg, setFailedMsg] = React.useState("")
@@ -49,7 +51,6 @@ export default function Login({ location, history }) {
         setFailedMsg("");
       }, 4000);
     } 
-
   }
 
 

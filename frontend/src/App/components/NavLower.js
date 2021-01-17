@@ -30,19 +30,19 @@ const searchBar = [
   },
   {
     name: "about Toshi",
-    link: "/meetToshi/about",
+    link: "/Toshi/about",
   },
   {
     name: "teaching",
-    link: "/meetToshi/teaching",
+    link: "/Toshi/teaching",
   },
   {
     name: "reviews",
-    link: "/meetToshi/reviews",
+    link: "/Toshi/reviews",
   },
   {
     name: "blog",
-    link: "/meetToshi/blog",
+    link: "/Toshi/blog",
   },
   {
     name: "messages",

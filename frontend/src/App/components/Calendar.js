@@ -23,7 +23,7 @@ import useFormatAMPM from "../hooks/useFormatAMPM";
 const { v4: uuid } = require("uuid");
 
 // data
-const apptsList = ["Booking", "Payments", "Appts", "Calendar"]
+const apptsList = ["Booking", "Payments", "List", "Calendar"]
 
 
 

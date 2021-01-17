@@ -15,9 +15,9 @@ import {
   APPOINTMENT_DETAILS_SUCCESS,
   APPOINTMENT_DETAILS_FAIL,
   APPOINTMENT_DETAILS_REQUEST,
-	APPOINTMENT_REQUEST_REQUEST,
-	APPOINTMENT_REQUEST_SUCCESS,
-	APPOINTMENT_REQUEST_FAIL,
+  APPOINTMENT_REQUEST_REQUEST,
+  APPOINTMENT_REQUEST_SUCCESS,
+  APPOINTMENT_REQUEST_FAIL,
 } from "../constants/appointmentConstants";
 import { logout } from './userActions'
 
@@ -28,8 +28,8 @@ export const listAppointments = () => async (dispatch) => {
 		const { data } = await axios.get("/api/appointments")
 
 		dispatch({ 
-				type: APPOINTMENT_LIST_SUCCESS,
-				payload: data
+			type: APPOINTMENT_LIST_SUCCESS,
+			payload: data
 		})
 	} catch (error) {
 		dispatch({
@@ -122,7 +122,6 @@ export const deleteAppointment = (id) => async (dispatch, getState) => {
 
 export const createAppointment = (subject, student, date, startTime, endTime, paid, user) => async (dispatch, getState) => {
 	try {
-		console.log(startTime)
 		dispatch({
 				type: APPOINTMENT_CREATE_REQUEST,
 		})
@@ -138,8 +137,6 @@ export const createAppointment = (subject, student, date, startTime, endTime, pa
 		}
 
 		const { data } = await axios.post(`/api/appointments`, { subject, student, date, startTime, endTime, paid, user }, config)
-
-		console.log(data.startTime)
 
 		dispatch({
 				type: APPOINTMENT_CREATE_SUCCESS,

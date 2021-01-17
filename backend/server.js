@@ -1,13 +1,13 @@
-const express = require('express')
+const fs = require('fs')
 const path = require('path')
+const express = require('express')
 const dotenv = require('dotenv')
 const enforce = require("express-sslify");
 const https = require('https')
-const fs = require('fs')
 const colors = require('colors')
 
 // sample data
-// const appointments = require('./data/appointments')
+const appointments = require('./data/appointments')
 const reviews = require('./data/reviews')
 
 // database
@@ -34,12 +34,13 @@ const app = express()
 // the following allows JSON data to be accepted in the body... when u make a request to db, ur getting back JSON. This allows you to use it in the UI
 app.use(express.json())
 
-app.use(cors())
 
 // compress responses
 app.use(compression({ threshold: 0 }));
 
-// CORS middleware
+// CORS
+app.use(cors())
+
 var corsMiddleware = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'kelloggtutoring.com');
   res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
@@ -47,8 +48,6 @@ var corsMiddleware = function(req, res, next) {
 
   next();
 }
-
-console.log("in backend")
 
 app.use(corsMiddleware);
 
@@ -65,7 +64,6 @@ app.use('/api/reviews', reviewRoutes)
 app.get('/api/config/paypal', (req, res) => 
 	res.send(process.env.PAYPAL_CLIENT_ID)
 )
-
 
 // static build files for react side of app
 const modifiedPath = __dirname.split('/').slice(0,-1).join('/')

@@ -21,7 +21,7 @@ import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment, updateAppointment } from '../actions/appointmentActions'
 
 // data
-const apptsList = ["Booking", "Payments", "Appts", "Calendar"];
+const apptsList = ["Booking", "Payments", "List", "Calendar"];
 
 
 
