@@ -29,7 +29,8 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 }
 
 userSchema.pre('save', async function (next) {
-  // The following makes it so that the salt and bcrypt only run one the profile is updated and the password isn't updated
+  // The following makes it so that the salt and bcrypt only run once the profile 
+  // is updated and the password isn't updated
   if(!this.isModified('password')) {
     next()
   }

@@ -14,7 +14,7 @@ import { useSortMultiple } from '../hooks/useSort' // eslint-disable-line no-unu
 import useFormatAMPM from "../hooks/useFormatAMPM"
 
 
-const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"]
+import { adminList } from "../data/lists"
 
 
 

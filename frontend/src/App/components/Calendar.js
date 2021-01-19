@@ -19,12 +19,11 @@ import { subheader } from "../actions/subheader"
 import { useSort } from '../hooks/useSort'
 import useFormatAMPM from "../hooks/useFormatAMPM";
 
+// sidebar list
+import { apptsList } from '../data/lists'
+
 // uuid
 const { v4: uuid } = require("uuid");
-
-// data
-const apptsList = ["Booking", "Payments", "List", "Calendar"]
-
 
 
 export default function Calendar({ type }) {

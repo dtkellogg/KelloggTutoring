@@ -20,7 +20,7 @@ import useFormatAMPM from "../hooks/useFormatAMPM";
 import { CART_RESET } from "../constants/cartConstants";
 
 // data
-const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
+import { apptsList } from "../data/lists"
 
 
 function PaymentCheckout({ match, history }) {
@@ -92,7 +92,7 @@ function PaymentCheckout({ match, history }) {
   return (
     <div className="pg__appointment">
 
-      <Sidebar title="Appointments" list={appointmentsList} />
+      <Sidebar title="Appointments" list={apptsList} />
       <div className="appt__checkout">
 
         <PaymentSteps step1 step2 step3 step4 />

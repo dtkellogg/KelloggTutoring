@@ -20,8 +20,9 @@ import useFormatAMPM from "../hooks/useFormatAMPM"
 import { subheader } from "../actions/subheader"
 import { listAppointments, deleteAppointment, updateAppointment } from '../actions/appointmentActions'
 
-// data
-const apptsList = ["Booking", "Payments", "List", "Calendar"];
+// sidebar list
+import { apptsList } from '../data/lists'
+
 
 
 
@@ -46,6 +47,7 @@ export default function ApptsList({ location, type }) {
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime")
 
+  console.log(apptsList)
   
 
   function AMPMTime(time) {

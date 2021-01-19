@@ -53,7 +53,7 @@
 .legal {
   @include hundredPercentHW();
   text-align: center;
-  margin: auto;
+  margin-bottom: 1rem;
   color: $grey-light-4;
 
   @media (max-width: 320px) {

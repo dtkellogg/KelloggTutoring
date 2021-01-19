@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 import ReviewsList from "./ReviewsList";
 
 // data
-const toshiList = [ "About", "Teaching", "Reviews", "Blog" ]
+import { toshiList } from '../data/lists'
 
 
 

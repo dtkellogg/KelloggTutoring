@@ -35,7 +35,7 @@
     border: 2px solid $black;
     width: 15rem;
     max-height: 27rem;
-    z-index: 9999;
+    z-index: 9999999;
     // clip-path: polygon(0 10%, 75% 10%, 80% 0%, 85% 10%,100% 10%, 100% 100%, 0 100%);
 
     &--logged-in {

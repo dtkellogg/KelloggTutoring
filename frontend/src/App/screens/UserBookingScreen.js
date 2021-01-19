@@ -15,8 +15,8 @@ import PleaseLogin from './UserPleaseLoginScreen'
 // hooks
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
-const apptsList = ["Booking", "Payments", "List", "Calendar"];
-const contactList = ['message', 'schedule', 'contact info'];
+// data
+import { apptsList, contactList } from "../data/lists"
 
 
 

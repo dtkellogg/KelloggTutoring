@@ -1,3 +1,4 @@
+// Redux
 import { 
     createStore, 
     combineReducers, 
@@ -6,6 +7,7 @@ import {
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
+// Reducers
 import { 
     appointmentListReducer, 
     appointmentDetailsReducer,

@@ -49,11 +49,7 @@ const ReviewCreate = React.lazy(() => import("./screens/ReviewCreateScreen"))
 const Reviews = React.lazy(() => import("./components/Reviews"));
 const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
 const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
-
-
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
-
-
 
 
 

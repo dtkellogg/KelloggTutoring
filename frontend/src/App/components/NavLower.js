@@ -3,68 +3,12 @@ import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 
+// data
+import {searchBar} from "../data/lists"
+
 // uuid
 const { v4: uuid } = require("uuid");
 
-// data
-const searchBar = [
-  {
-    name: "home",
-    link: "/home",
-  },
-  {
-    name: "booking",
-    link: "/appointments/booking",
-  },
-  {
-    name: "payments",
-    link: "/appointments/payments",
-  },
-  {
-    name: "appointments list",
-    link: "/appointments/appointments-list",
-  },
-  {
-    name: "appointments calendar",
-    link: "/appointments/appointments-calendar",
-  },
-  {
-    name: "about Toshi",
-    link: "/Toshi/about",
-  },
-  {
-    name: "teaching",
-    link: "/Toshi/teaching",
-  },
-  {
-    name: "reviews",
-    link: "/Toshi/reviews",
-  },
-  {
-    name: "blog",
-    link: "/Toshi/blog",
-  },
-  {
-    name: "messages",
-    link: "/contact/message-form",
-  },
-  {
-    name: "schedule an appointment",
-    link: "/contact/schedule-an-appointment",
-  },
-  {
-    name: "profile",
-    link: "/profile",
-  },
-  {
-    name: "settings",
-    link: "/settings",
-  },
-  {
-    name: "resources",
-    link: "/studentResources",
-  },
-];
 
 // const names = searchBar.map((item) => item.name).sort()
 

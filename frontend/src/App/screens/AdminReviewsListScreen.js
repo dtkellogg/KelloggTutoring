@@ -13,7 +13,7 @@ import Sidebar from "../components/Sidebar";
 import { useSortMultiple } from "../hooks/useSort";
 
 // data
-const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"]
+import { adminList } from "../data/lists"
 
 
 export default function AdminReviewsList({ location, history }) {

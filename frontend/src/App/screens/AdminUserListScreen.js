@@ -6,13 +6,12 @@ import { FaTrash } from 'react-icons/fa'
 // components
 import Sidebar from "../components/Sidebar";
 
-
 // actions
 import { listUsers, deleteUser } from "../actions/userActions";
 import { subheader } from "../actions/subheader";
 
-
-const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats" ]
+// data
+import { adminList } from "../data/lists"
 
 
 

@@ -12,7 +12,7 @@ import { sendMessageToNodeMailer } from "../actions/msgActions";
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 
 // data
-const contactList = ['message', 'schedule', 'contact info'];
+import { contactList } from "../data/lists"
 
 
 // can't call hook conditionally in jsx so using the following fn:

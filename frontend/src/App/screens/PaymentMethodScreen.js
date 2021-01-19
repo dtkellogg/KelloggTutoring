@@ -10,7 +10,7 @@ import Sidebar from "../components/Sidebar";
 import { savePaymentMethod } from "../actions/cartActions";
 
 // data
-const appointmentsList = ["Booking", "Payments", "Appts", "Calendar"];
+import { apptsList } from "../data/lists"
 
 
 const PaymentMethodScreen = ({ history }) => {
@@ -27,7 +27,7 @@ const PaymentMethodScreen = ({ history }) => {
 
   return (
     <div className="pg__appointment">
-      <Sidebar title="Appointments" list={appointmentsList} />
+      <Sidebar title="Appointments" list={apptsList} />
       <div className="payment__method--screen">
         <CheckoutSteps step1 step2 step3 />
         <form onSubmit={submitHandler} className="payment__method--screen--form">

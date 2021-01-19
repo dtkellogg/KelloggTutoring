@@ -23,7 +23,7 @@ import Sidebar from "../components/Sidebar";
 import PleaseLogin from './UserPleaseLoginScreen'
 
 // data
-const apptsList = ["Booking", "Payments", "List", "Calendar"]
+import { apptsList } from "../data/lists"
 
 
 

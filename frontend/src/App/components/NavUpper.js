@@ -42,46 +42,22 @@ function NavUpper({ history }) {
         </NavLink>
       {/* </div> */}
 
-      {/* <div className="nav__upper--text">
-        <NavLink to="/" className="nav__upper--title-text">
-          Kellogg Tutoring&nbsp;
-            <span> |&nbsp; </span>
-          <NavLink to="/" className="nav__upper--house-icon" role="img" aria-label="email emoji">
-            <span role="img" aria-label="email emoji">
-              🏠
-            </span>
-          </NavLink>
-        </NavLink>
-      </div> */}
-
       <div className="nav__upper--right-container">
         <ul className="nav__list">
           <li className="nav__list--item">
-            <NavLink
-              to="/appointments"
-              activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
-            >
+            <NavLink to="/appointments" activeStyle={activeStyle} className="nav__link text-size-5 letter-spacing-sm" >
               Appts
             </NavLink>
           </li>
 
           <li className="nav__list--item">
-            <NavLink
-              to="/Toshi"
-              activeStyle={activeStyle}
-              className="nav__link text-size-5 letter-spacing-sm"
-            >
+            <NavLink to="/Toshi" activeStyle={activeStyle} className="nav__link text-size-5 letter-spacing-sm" >
               Toshi
             </NavLink>
           </li>
 
           <li className="nav__list--item">
-          <NavLink
-            to="/contact"
-            activeStyle={activeStyle}
-            className="nav__link text-size-5 letter-spacing-sm nav__list--item"
-          >
+          <NavLink to="/contact" activeStyle={activeStyle} className="nav__link text-size-5 letter-spacing-sm nav__list--item" >
             Contact
           </NavLink>
           </li>
@@ -90,19 +66,12 @@ function NavUpper({ history }) {
             {userInfo ? (
               <h1 className="nav__user-name text-size-3">{userInfo.name.split(" ")[0]}</h1>
             ) : (
-              <FaUserCircle
-                size={30}
-                fill="var(--old-blue-2)"
-                className="social-media-icon grey-light-7"
-              />
+              <FaUserCircle size={30} fill="var(--old-blue-2)" className="social-media-icon grey-light-7" />
             )}
             {/* { width > 350 && <FaCaretDown */}
-            {<FaCaretDown
-              size={15}
-              fill="var(--old-blue-2)"
-              className="social-media-icon grey-light-7 user__dropdown-menu--icon"
+            <FaCaretDown size={15} fill="var(--old-blue-2)" className="social-media-icon grey-light-7 user__dropdown-menu--icon"
               style={{display: width > 450 || userInfo? 'block' : 'none'}} 
-            />}
+            />
             {!userInfo ? (
               <ul className="user__dropdown-menu--not-logged-in">
                 <NavLink
