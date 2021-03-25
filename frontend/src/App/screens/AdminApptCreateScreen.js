@@ -8,7 +8,7 @@ import { listUsers } from "../actions/userActions"
 
 
 export default function AdminAppointmentCreate({ location, history }) {
-  const [sortedUsers, setSortedUsers] = React.useState([])
+  const [sortedUsers, setSortedUsers] = React.useState(null)
   const dispatch = useDispatch()
   
 	const [student, setStudent] = React.useState("")
@@ -68,6 +68,10 @@ export default function AdminAppointmentCreate({ location, history }) {
   //   setSortedUsers(users.map(user => user.name).sort((a, b) => a.localeCompare(b)))
   // }, [users])
 
+  console.log(`sortedUsers: ${sortedUsers}`)
+
+  sortedUsers && console.log(`sortedUsers: ${sortedUsers}`)
+
 
   React.useEffect(() => {
     const getUsers = async () => {
@@ -103,11 +107,16 @@ export default function AdminAppointmentCreate({ location, history }) {
               value={student}
               onChange={(e) => setStudent(e.target.value)}
               >
-                <option></option>
+                {/* <option></option>
                 {sortedUsers ? sortedUsers.map((user) => (
                   <option>{user}</option>
 
-                )) : <option>---</option>}
+                )) : <option>---</option>} */}
+              <option></option>
+              {sortedUsers && sortedUsers.map((user) => (
+                <option>{user}</option>
+
+              ))}
             </select>
           </div>
 
