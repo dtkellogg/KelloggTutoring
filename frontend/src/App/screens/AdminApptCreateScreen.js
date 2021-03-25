@@ -8,6 +8,7 @@ import { listUsers } from "../actions/userActions"
 
 
 export default function AdminAppointmentCreate({ location, history }) {
+  const [sortedUsers, setSortedUsers] = React.useState([])
   const dispatch = useDispatch()
   
 	const [student, setStudent] = React.useState("")
@@ -61,12 +62,11 @@ export default function AdminAppointmentCreate({ location, history }) {
   }
 
 
-  const sortedUsers = users.map(user => user.name).sort((a, b) => a.localeCompare(b))
+  // const sortedUsers = users.map(user => user.name).sort((a, b) => a.localeCompare(b))
 
-  // React.useEffect(() => {
-  //   const userNames = users.map(user => user.name)
-  //   sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
-  // }, [users])
+  React.useEffect(() => {
+    setSortedUsers(users.map(user => user.name).sort((a, b) => a.localeCompare(b)))
+  }, [users])
 
   
 
