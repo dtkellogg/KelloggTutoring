@@ -11,7 +11,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 
 
 export default function AdminAppointmentCreate({ location, history }) {
-  // const [users, setUsers] = React.useState(null)
+  const [users, setUsers] = React.useState([])
   const dispatch = useDispatch()
   
 	const [student, setStudent] = React.useState("")
@@ -34,17 +34,12 @@ export default function AdminAppointmentCreate({ location, history }) {
   const {
     loading,
     error,
-    users,
+    users: usersList,
   } = userList;
 
-  // React.useEffect(() => {
-  //   const getUsers = async () => {
-  //     const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
-  //     setSortedUsers(sortUsers)
-  //   }
-
-  //   getUsers()
-  // }, [users])
+  React.useEffect(() => {
+    setUsers(usersList)
+  }, [usersList])
   
   
   React.useEffect(() => {
