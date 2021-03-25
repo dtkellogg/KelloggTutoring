@@ -102,10 +102,10 @@ export default function AdminAppointmentCreate({ location, history }) {
               onChange={(e) => setStudent(e.target.value)}
               >
                 <option></option>
-                { sortedUsers && sortedUsers.map((user) => (
+                { sortedUsers && (sortedUsers.map((user) => (
                   <option>{user}</option>
 
-                ))}
+                )))}
             </select>
           </div>
 
