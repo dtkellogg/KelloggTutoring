@@ -64,10 +64,19 @@ export default function AdminAppointmentCreate({ location, history }) {
 
   // const sortedUsers = users.map(user => user.name).sort((a, b) => a.localeCompare(b))
 
-  React.useEffect(() => {
-    setSortedUsers(users.map(user => user.name).sort((a, b) => a.localeCompare(b)))
-  }, [users])
+  // React.useEffect(() => {
+  //   setSortedUsers(users.map(user => user.name).sort((a, b) => a.localeCompare(b)))
+  // }, [users])
 
+
+  React.useEffect(() => {
+    const getUsers = async () => {
+      const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
+      setSortedUsers(sortUsers)
+    }
+
+    getUsers()
+  }, [users])
   
 
   // if (sortedUsers) {
@@ -102,10 +111,10 @@ export default function AdminAppointmentCreate({ location, history }) {
               onChange={(e) => setStudent(e.target.value)}
               >
                 <option></option>
-                {sortedUsers.map((user) => (
+                {sortedUsers ? sortedUsers.map((user) => (
                   <option>{user}</option>
 
-                ))}
+                )) : <option>---</option>}
             </select>
           </div>
 
