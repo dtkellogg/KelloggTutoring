@@ -70,7 +70,7 @@ export default function AdminAppointmentCreate({ location, history }) {
 
   
 
-  
+  // if (sortedUsers) {
 	return (
     <div className="user__page">
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
@@ -102,7 +102,7 @@ export default function AdminAppointmentCreate({ location, history }) {
               onChange={(e) => setStudent(e.target.value)}
               >
                 <option></option>
-                { sortedUsers && sortedUsers.map((user) => (
+                { sortedUsers !== undefined && sortedUsers.map((user) => (
                   <option>{user}</option>
 
                 ))}
@@ -193,4 +193,5 @@ export default function AdminAppointmentCreate({ location, history }) {
       </form>
     </div>
   )
+  // }
 }
