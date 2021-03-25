@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation, useParams } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import './App.scss';
@@ -58,6 +58,9 @@ export default function App() {
   const [loading, setLoading] = React.useState(false); // eslint-disable-line no-unused-vars
   const location = useLocation();
   const dispatch = useDispatch();
+  // let { slug } = useParams()
+
+  console.log(location.pathname)
 
   const handleScrollToTop = () =>
     window.scrollTo({
@@ -93,24 +96,26 @@ export default function App() {
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        <div className="container__btn--screen-nav">
-          <button className="btn__screen-nav--up">
-            <FaCaretUp
-              size={40}
-              fill="var(--old-blue)"
-              className=""
-              onClick={handleScrollToTop}
-            />
-          </button>
-          <button className="btn__screen-nav--down">
-            <FaCaretDown
-              size={40}
-              fill="var(--old-blue)"
-              className="btn__calendar"
-              onClick={handleScrollToBottom}
-            />
-          </button>
-        </div>
+        {location.pathname === '/' && 
+          <div className="container__btn--screen-nav">
+            <button className="btn__screen-nav--up">
+              <FaCaretUp
+                size={40}
+                fill="var(--old-blue)"
+                className=""
+                onClick={handleScrollToTop}
+              />
+            </button>
+            <button className="btn__screen-nav--down">
+              <FaCaretDown
+                size={40}
+                fill="var(--old-blue)"
+                className="btn__calendar"
+                onClick={handleScrollToBottom}
+              />
+            </button>
+          </div>
+        }
 
         <div className="container__body">
           <React.Suspense fallback={ <LoadingSpinner /> }>

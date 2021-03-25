@@ -59,25 +59,14 @@ export default function AdminAppointmentCreate({ location, history }) {
     );
 		dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
   }
-  
-  // console.log(`student: ${student}`)
 
-  
 
-  // console.log(`userList: ${userList}`)
-  // console.log(`users: ${users[0]}`)
-  // console.log(users[0])
-  // console.log(userList)
+  let sortedUsers
 
-  const userNames = users.map(user => user.name)
-  // if (userNames !== undefined) {
-    const sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
-    // console.log(sortedUsers)
-  // }
-
-  // console.log(userNames)
-
-  // console.log(`student: ${student}`)
+  React.useEffect(() => {
+    const userNames = users.map(user => user.name)
+    sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
+  }, [users])
 
   
 

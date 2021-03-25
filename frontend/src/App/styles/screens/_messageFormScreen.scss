@@ -8,9 +8,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 40rem;
 
-  @media (max-width: 1200px) {
-    // width: 50rem;
+  @media (max-width: 900px) {
+    width: 100%;
   }
 
   @media (max-width: 1000px) {
