@@ -34,14 +34,14 @@ export default function AdminAppointmentCreate({ location, history }) {
     users,
   } = userList;
 
-  React.useEffect(() => {
-    const getUsers = async () => {
-      const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
-      setSortedUsers(sortUsers)
-    }
+  // React.useEffect(() => {
+  //   const getUsers = async () => {
+  //     const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
+  //     setSortedUsers(sortUsers)
+  //   }
 
-    getUsers()
-  }, [users])
+  //   getUsers()
+  // }, [users])
   
   
   React.useEffect(() => {
@@ -77,9 +77,10 @@ export default function AdminAppointmentCreate({ location, history }) {
   //   setSortedUsers(users.map(user => user.name).sort((a, b) => a.localeCompare(b)))
   // }, [users])
 
-  console.log(`sortedUsers: ${sortedUsers}`)
+  // console.log(`sortedUsers: ${sortedUsers}`)
 
-  sortedUsers && console.log(`sortedUsers: ${sortedUsers}`)
+  // sortedUsers && console.log(`sortedUsers: ${sortedUsers}`)
+  users && console.log(`users: ${users}`)
 
 
   
@@ -114,9 +115,14 @@ export default function AdminAppointmentCreate({ location, history }) {
                   <option>{user}</option>
 
                 )) : <option>---</option>} */}
-              <option></option>
+              {/* <option></option>
               {sortedUsers && sortedUsers.map((user) => (
                 <option>{user}</option>
+
+              ))} */}
+              <option></option>
+              {users.map((user, i) => (
+                <option key={i}>{user}</option>
 
               ))}
             </select>

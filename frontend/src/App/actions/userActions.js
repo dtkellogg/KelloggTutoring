@@ -210,9 +210,16 @@ export const listUsers = () => async (dispatch, getState) => {
 
     const { data } = await axios.get(`/api/users`, config);
 
+    const sortedUsers = await data.map(user => user.name).sort((a, b) => a.localeCompare(b))
+
+    console.log('listUsers data')
+    console.log(data)
+    console.log('listUsers sortedUsers')
+    console.log(sortedUsers)
+
     dispatch({
       type: USER_LIST_SUCCESS,
-      payload: data,
+      payload: sortedUsers,
     });
 
   } catch (error) {
