@@ -6,9 +6,12 @@ import { createAppointment } from "../actions/appointmentActions"
 import { subheader } from "../actions/subheader"
 import { listUsers } from "../actions/userActions"
 
+// components
+import LoadingSpinner from '../components/LoadingSpinner'
+
 
 export default function AdminAppointmentCreate({ location, history }) {
-  const [sortedUsers, setSortedUsers] = React.useState(null)
+  // const [users, setUsers] = React.useState(null)
   const dispatch = useDispatch()
   
 	const [student, setStudent] = React.useState("")
@@ -21,7 +24,7 @@ export default function AdminAppointmentCreate({ location, history }) {
 
 
 	const appointmentCreate = useSelector((state) => state.appointmentCreate)
-  const { loading, error, success: successCreate } = appointmentCreate
+  const { loadingCreate, errorCreate, success: successCreate } = appointmentCreate
 
   React.useEffect(() => {
     dispatch(listUsers())
@@ -29,8 +32,8 @@ export default function AdminAppointmentCreate({ location, history }) {
 
   const userList = useSelector((state) => state.userList);
   const {
-    // loading,
-    // error,
+    loading,
+    error,
     users,
   } = userList;
 
@@ -57,7 +60,7 @@ export default function AdminAppointmentCreate({ location, history }) {
     if (submitted) {
       history.push('/admin/appts')
     }
-  }, [dispatch, history, loading, error, submitted, successCreate, sortedUsers])
+  }, [dispatch, history, loading, error, submitted, successCreate])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
@@ -89,6 +92,7 @@ export default function AdminAppointmentCreate({ location, history }) {
   // if (sortedUsers) {
 	return (
     <div className="user__page">
+      { loading ? <LoadingSpinner/> : (
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
         <div className="createApptScreen__header">
           <h2 className="text-size-2 letter-spacing-sm">
@@ -210,6 +214,7 @@ export default function AdminAppointmentCreate({ location, history }) {
           </button>
         </div>
       </form>
+      )}
     </div>
   )
   // }
