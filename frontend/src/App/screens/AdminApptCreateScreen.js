@@ -33,6 +33,15 @@ export default function AdminAppointmentCreate({ location, history }) {
     // error,
     users,
   } = userList;
+
+  React.useEffect(() => {
+    const getUsers = async () => {
+      const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
+      setSortedUsers(sortUsers)
+    }
+
+    getUsers()
+  }, [users])
   
   
   React.useEffect(() => {
@@ -73,14 +82,7 @@ export default function AdminAppointmentCreate({ location, history }) {
   sortedUsers && console.log(`sortedUsers: ${sortedUsers}`)
 
 
-  React.useEffect(() => {
-    const getUsers = async () => {
-      const sortUsers = await users.map(user => user.name).sort((a, b) => a.localeCompare(b))
-      setSortedUsers(sortUsers)
-    }
-
-    getUsers()
-  }, [users])
+  
   
 
   // if (sortedUsers) {
