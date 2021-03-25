@@ -61,12 +61,12 @@ export default function AdminAppointmentCreate({ location, history }) {
   }
 
 
-  let sortedUsers
+  const sortedUsers = users.map(user => user.name).sort((a, b) => a.localeCompare(b))
 
-  React.useEffect(() => {
-    const userNames = users.map(user => user.name)
-    sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
-  }, [users])
+  // React.useEffect(() => {
+  //   const userNames = users.map(user => user.name)
+  //   sortedUsers = userNames.sort((a, b) => a.localeCompare(b))
+  // }, [users])
 
   
 
@@ -102,7 +102,7 @@ export default function AdminAppointmentCreate({ location, history }) {
               onChange={(e) => setStudent(e.target.value)}
               >
                 <option></option>
-                { sortedUsers !== undefined && sortedUsers.map((user) => (
+                { sortedUsers && sortedUsers.map((user) => (
                   <option>{user}</option>
 
                 ))}
