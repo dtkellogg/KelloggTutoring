@@ -48,7 +48,7 @@ export default function AdminAppointmentCreate({ location, history }) {
     if (submitted) {
       history.push('/admin/appts')
     }
-  }, [dispatch, history, loading, error, submitted, successCreate])
+  }, [dispatch, history, loading, error, submitted, successCreate, sortedUsers])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
@@ -96,13 +96,6 @@ export default function AdminAppointmentCreate({ location, history }) {
             >
               student
             </label>
-            {/* <input
-              type="name"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
-              placeholder="student name"
-              value={student}
-              onChange={(e) => setStudent(e.target.value)}
-            /> */}
             <select 
               type="name" 
               className="createApptScreen__input createApptScreen__input-contact text-size-3"
