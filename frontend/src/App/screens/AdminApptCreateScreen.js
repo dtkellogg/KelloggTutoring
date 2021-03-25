@@ -102,6 +102,7 @@ export default function AdminAppointmentCreate({ location, history }) {
             >
               student
             </label>
+            {users && (
             <select 
               type="name" 
               className="createApptScreen__input createApptScreen__input-contact text-size-3"
@@ -125,6 +126,7 @@ export default function AdminAppointmentCreate({ location, history }) {
 
               ))}
             </select>
+              )}
           </div>
 
           <div className="createApptScreen__element">
