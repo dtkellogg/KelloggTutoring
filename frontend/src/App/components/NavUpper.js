@@ -57,9 +57,9 @@ function NavUpper({ history }) {
           </li>
 
           <li className="nav__list--item">
-          <NavLink to="/contact" activeStyle={activeStyle} className="nav__link text-size-5 letter-spacing-sm nav__list--item" >
-            Contact
-          </NavLink>
+            <NavLink to="/contact" activeStyle={activeStyle} className="nav__link text-size-5 letter-spacing-sm nav__list--item" >
+              Contact
+            </NavLink>
           </li>
 
           <li className="nav__user-icons nav__list-item">

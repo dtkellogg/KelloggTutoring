@@ -14,7 +14,7 @@ const Message = require("../models/msgModel");
 
 // @desc  Create a message
 // @route POST /api/messages
-// @access NM2
+// @access Public
 exports.sendMessageToDb = async (req, res, next) => {
     try {
         // req.body gives the object that was sent for the post request

@@ -1,15 +1,4 @@
 .user {
-   &__dropdown-menu {
-
-    &--icon {
-
-      @media (max-width: 450px) {
-        // display: none;
-      }
-
-    }
-
-   }
 
   &__page {
     @include hundredPercentHW();
