@@ -1,13 +1,8 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
 import { Switch, Route, useLocation, useParams } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { ToastProvider } from "react-toast-notifications";
 import './App.scss';
-
-// actions
-import { subheader } from "./actions/subheader";
 
 // components
 import NavUpper from "./components/navigation/NavUpper";
@@ -16,7 +11,6 @@ import Footer from "./components/Footer";
 import Calendar from "./components/Calendar"
 import LoadingSpinner from "./components/LoadingSpinner"
 
-// these don't have to be loaded immediately
 const ApptsList = React.lazy(() => import("./components/ApptsList"));
 const PageHeader = React.lazy(() => import("./components/PageHeader"));
 
@@ -56,69 +50,13 @@ const ToshiTeaching = React.lazy(() => import("./screens/Toshi/ToshiTeachingScre
 
 
 export default function App() {
-  const [loading, setLoading] = React.useState(false); // eslint-disable-line no-unused-vars
   const location = useLocation();
-  const dispatch = useDispatch();
-  // let { slug } = useParams()
-
-  console.log(location.pathname)
-
-  const handleScrollToTop = () =>
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-
-  const handleScrollToBottom = () =>
-    window.scrollTo({
-      top: 20000,
-      left: 100,
-      behavior: "smooth",
-    });
-
-  React.useEffect(() => {
-    if (loading) {
-      dispatch(subheader("Loading..."));
-    } else {
-      dispatch(subheader(""));
-    }
-    // if (error) {
-    //   dispatch(subheader({ error }));
-    // }
-  }, [
-    dispatch,
-    loading,
-    // error
-  ]);
 
   return (
     <ToastProvider>
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        {location.pathname === "/" && (
-          <div className="container__btn--screen-nav fadeInAnimated--9">
-            <button className="btn__screen-nav--up">
-              <FaCaretUp
-                size={40}
-                fill="var(--old-blue)"
-                className=""
-                onClick={handleScrollToTop}
-              />
-            </button>
-            <button className="btn__screen-nav--down">
-              <FaCaretDown
-                size={40}
-                fill="var(--old-blue)"
-                className="btn__calendar"
-                onClick={handleScrollToBottom}
-              />
-            </button>
-          </div>
-        )}
-
-        {/* <div className="container__body"> */}
           <React.Suspense fallback={<LoadingSpinner />}>
             <TransitionGroup>
               <CSSTransition timeout={250} classNames="fade" key={location.key}>

@@ -118,6 +118,17 @@
     background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
     color: $black;
     width: 13rem;
+    font-family: 'Cormorant Infant', serif;
+    font-family: 'Cormorant Infant', serif;
+    font-size: 1.8rem;
+    transition: all 0.2s;
+    transform: translate(0, 3rem);
+
+    &:hover {
+      background-image: none;
+      background-color: $blue-10;
+      color: $black;
+    }
 
     @media(max-width: 600px ) {
       height: 4.5rem;
@@ -387,6 +398,15 @@
     color: $black;
     margin-right: 1.25rem;
     width: 13rem;
+    font-family: 'Cormorant Infant', serif;
+    font-size: 1.8rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background-image: none;
+      background-color: $old-blue-2;
+      color: $white;
+    }
 
     @media(max-width: 600px ) {
       height: 4.5rem;
@@ -679,6 +699,7 @@
     grid-column: 2 / span 1;
     width: max-content;
     transform: translate(-0.75rem, 7.5rem);
+    z-index: 9999999;
     // position: absolute;
     // top: 39rem;
     // right: 13.5vw;
@@ -691,7 +712,7 @@
     // }
 
     @media (max-height: 850px) {
-      transform: translate(-3rem, 10.5rem);
+      transform: translate(-1rem, 10.5rem);
     }
 
     @media (max-width: 650px) {

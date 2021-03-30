@@ -76,7 +76,7 @@
     }
 
     &--welcome {
-      transform: translateX(-0.2rem);
+      transform: translate(-0.2rem, -1rem);
       letter-spacing: 0.4rem;
 
       @media (max-width: 600px) {
@@ -150,6 +150,8 @@
     padding: 23rem 0;
     height: 100%;
     z-index: 99;
+    position: absolute;
+    right: 2.5vw;
     @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
   
     @media (max-width: 1000px){
@@ -196,26 +198,3 @@
     }
 }
 
-.bubble {
-  &--1 {
-    transform: translate(-1.5rem, 8.75rem);
-
-    @media (max-height: 850px) {
-      display: none;
-    }
-  }
-  &--2 {
-    transform: translate(-3rem, 10rem);
-
-    @media (max-height: 850px) {
-      transform: translate(-3.25rem, 11rem);
-    }
-  }
-  &--3 {
-    transform: translate(-4.5rem, 11rem);
-
-    @media (max-height: 850px) {
-      // transform: translate(-4.5rem, 12rem);
-    }
-  }
-}

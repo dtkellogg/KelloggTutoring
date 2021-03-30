@@ -99,7 +99,7 @@ function NavUpper() {
               </ul>
 
             ) : userInfo.isAdmin ? (
-                <ul className="user__dropdown-menu--logged-in fadeInAnimated--0">
+                <ul className="user__dropdown-menu--logged-in">
                   {navCondensedAdmin.map((navEl) => {
                     return <NavLink
                       to={navEl.to}
@@ -121,7 +121,7 @@ function NavUpper() {
               </ul>
 
             ) : (
-              <ul className="user__dropdown-menu--logged-in--not-admin fadeInAnimated--0">
+              <ul className="user__dropdown-menu--logged-in--not-admin">
                 {navCondensedLoggedIn.map((navEl) => {
                   return <NavLink
                     to={navEl.to}
