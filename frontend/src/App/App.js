@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import { Switch, Route, useLocation, useParams } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
+import { ToastProvider } from "react-toast-notifications";
 import './App.scss';
 
 // actions
 import { subheader } from "./actions/subheader";
 
 // components
-import NavUpper from "./components/NavUpper";
-import NavLower from "./components/NavLower";
+import NavUpper from "./components/navigation/NavUpper";
+import NavLower from "./components/navigation/NavLower";
 import Footer from "./components/Footer";
 import Calendar from "./components/Calendar"
 import LoadingSpinner from "./components/LoadingSpinner"
@@ -21,34 +22,34 @@ const PageHeader = React.lazy(() => import("./components/PageHeader"));
 
 
 // screens
-const AdminUserList = React.lazy(() => import("./screens/AdminUserListScreen"));
-const AdminUserEdit = React.lazy(() => import("./screens/AdminUserEditScreen"));
-const AdminApptRequests = React.lazy(() => import("./screens/AdminApptRequestsScreen"));
-const AdminReviewsList = React.lazy(() => import("./screens/AdminReviewsListScreen"));
-const AdminAppointmentsList = React.lazy(() => import("./screens/AdminApptsListScreen"));
-const AdminAppointmentEdit = React.lazy(() => import("./screens/AdminApptEditScreen"));
-const AdminAppointmentCreate = React.lazy(() => import("./screens/AdminApptCreateScreen"));
-const AdminStats = React.lazy(() => import("./screens/AdminStatsScreen"));
-const Booking = React.lazy(() => import("./screens/UserBookingScreen"));
-const Blog = React.lazy(() => import("./screens/ToshiBlogScreen"));
-const Checkout = React.lazy(() => import("./screens/PaymentCheckoutScreen"));    
+const AdminUserList = React.lazy(() => import("./screens/admin/AdminUserListScreen"));
+const AdminUserEdit = React.lazy(() => import("./screens/admin/AdminUserEditScreen"));
+const AdminApptRequests = React.lazy(() => import("./screens/admin/AdminApptRequestsScreen"));
+const AdminReviewsList = React.lazy(() => import("./screens/admin/AdminReviewsListScreen"));
+const AdminAppointmentsList = React.lazy(() => import("./screens/admin/AdminApptsListScreen"));
+const AdminAppointmentEdit = React.lazy(() => import("./screens/admin/AdminApptEditScreen"));
+const AdminAppointmentCreate = React.lazy(() => import("./screens/admin/AdminApptCreateScreen"));
+const AdminStats = React.lazy(() => import("./screens/admin/AdminStatsScreen"));
+const Booking = React.lazy(() => import("./screens/user/UserBookingScreen"));
+const Blog = React.lazy(() => import("./screens/Toshi/ToshiBlogScreen"));
+const Checkout = React.lazy(() => import("./screens/payments/PaymentCheckoutScreen"));    
 const Home = React.lazy(() => import("./screens/HomeScreen"));
-const Login = React.lazy(() => import("./screens/UserLoginScreen"));
+const Login = React.lazy(() => import("./screens/user/UserLoginScreen"));
 const Zoom = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Resources = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Settings = React.lazy(() => import("./screens/ComingSoonScreen"));
 const MessageScreen = React.lazy(() => import("./screens/MessageScreen"));
-const Profile = React.lazy(() => import("./screens/UserProfileScreen"));
-const Payments = React.lazy(() => import("./screens/PaymentsScreen"));
-const PaymentMethod = React.lazy(() => import("./screens/PaymentMethodScreen"));
-const Payment = React.lazy(() => import("./screens/PaymentScreen"));
-const Register = React.lazy(() => import("./screens/UserRegisterScreen"));
+const Profile = React.lazy(() => import("./screens/user/UserProfileScreen"));
+const Payments = React.lazy(() => import("./screens/payments/PaymentsScreen"));
+const PaymentMethod = React.lazy(() => import("./screens/payments/PaymentMethodScreen"));
+const Payment = React.lazy(() => import("./screens/payments/PaymentScreen"));
+const Register = React.lazy(() => import("./screens/user/UserRegisterScreen"));
 // const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
-const ReviewEdit = React.lazy(() => import("./screens/ReviewEditScreen"))
-const ReviewCreate = React.lazy(() => import("./screens/ReviewCreateScreen"))
-const Reviews = React.lazy(() => import("./components/Reviews"));
-const ToshiAbout = React.lazy(() => import("./screens/ToshiAboutScreen"));
-const ToshiTeaching = React.lazy(() => import("./screens/ToshiTeachingScreen"));
+const ReviewEdit = React.lazy(() => import("./screens/review/ReviewEditScreen"))
+const ReviewCreate = React.lazy(() => import("./screens/review/ReviewCreateScreen"))
+const Reviews = React.lazy(() => import("./components/reviews/Reviews"));
+const ToshiAbout = React.lazy(() => import("./screens/Toshi/ToshiAboutScreen"));
+const ToshiTeaching = React.lazy(() => import("./screens/Toshi/ToshiTeachingScreen"));
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 
 
@@ -92,12 +93,12 @@ export default function App() {
   ]);
 
   return (
-    <React.Fragment>
+    <ToastProvider>
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        {location.pathname === '/' && 
-          <div className="container__btn--screen-nav">
+        {location.pathname === "/" && (
+          <div className="container__btn--screen-nav fadeInAnimated--9">
             <button className="btn__screen-nav--up">
               <FaCaretUp
                 size={40}
@@ -115,44 +116,136 @@ export default function App() {
               />
             </button>
           </div>
-        }
+        )}
 
-        <div className="container__body">
-          <React.Suspense fallback={ <LoadingSpinner /> }>
+        {/* <div className="container__body"> */}
+          <React.Suspense fallback={<LoadingSpinner />}>
             <TransitionGroup>
               <CSSTransition timeout={250} classNames="fade" key={location.key}>
                 <Switch location={location}>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/appointments" component={() => <PageHeader page="appts" />} />
-                  <Route exact path="/appointments/booking" component={() => <Booking type="booking" />} />
+                  <Route
+                    exact
+                    path="/appointments"
+                    component={() => <PageHeader page="appts" />}
+                  />
+                  <Route
+                    exact
+                    path="/appointments/booking"
+                    component={() => <Booking type="booking" />}
+                  />
                   {/* <Route exact path="/appointments/booking" component={() => <Booking type="appts"/>} /> */}
-                  <Route exact path="/appointments/payments" component={Payments} />
-                  <Route exact path="/appointments/list" component={() => <ApptsList type="all" />} />
-                  <Route exact path="/appointments/calendar" component={Calendar} />
-                  <Route exact path="/appointments/payment-method" component={PaymentMethod} />
-                  <Route exact path="/appointments/checkout" component={Checkout} />
-                  <Route exact path="/Toshi" component={() => <PageHeader page="meetToshi" />} />
+                  <Route
+                    exact
+                    path="/appointments/payments"
+                    component={Payments}
+                  />
+                  <Route
+                    exact
+                    path="/appointments/list"
+                    component={() => <ApptsList type="all" />}
+                  />
+                  <Route
+                    exact
+                    path="/appointments/calendar"
+                    component={Calendar}
+                  />
+                  <Route
+                    exact
+                    path="/appointments/payment-method"
+                    component={PaymentMethod}
+                  />
+                  <Route
+                    exact
+                    path="/appointments/checkout"
+                    component={Checkout}
+                  />
+                  <Route
+                    exact
+                    path="/Toshi"
+                    component={() => <PageHeader page="meetToshi" />}
+                  />
                   <Route exact path="/Toshi/about" component={ToshiAbout} />
-                  <Route exact path="/Toshi/teaching" component={ToshiTeaching} />
-                  <Route exact path="/Toshi/reviews" component={() => <Reviews type="meetToshi" />} />
+                  <Route
+                    exact
+                    path="/Toshi/teaching"
+                    component={ToshiTeaching}
+                  />
+                  <Route
+                    exact
+                    path="/Toshi/reviews"
+                    component={() => <Reviews type="meetToshi" />}
+                  />
                   {/* <Route exact path="/Toshi/reviews/UserCreateReview" component={UserCreateReview} /> */}
                   <Route exact path="/Toshi/blog" component={Blog} />
-                  <Route exact path="/contact" component={() => <PageHeader page="contact" />} />
-                  <Route exact path="/contact/message" component={MessageScreen} />
-                  <Route exact path="/contact/schedule" component={() => <Booking type="schedule" />} />
-                  <Route exact path="/admin" component={() => <PageHeader page="admin" />} />
+                  <Route
+                    exact
+                    path="/contact"
+                    component={() => <PageHeader page="contact" />}
+                  />
+                  <Route
+                    exact
+                    path="/contact/message"
+                    component={MessageScreen}
+                  />
+                  <Route
+                    exact
+                    path="/contact/schedule"
+                    component={() => <Booking type="schedule" />}
+                  />
+                  <Route
+                    exact
+                    path="/admin"
+                    component={() => <PageHeader page="admin" />}
+                  />
                   <Route exact path="/admin/users" component={AdminUserList} />
-                  <Route exact path="/admin/user/:id/edit" component={AdminUserEdit} />
-                  <Route exact path="/admin/appts" component={AdminAppointmentsList} />
-                  <Route exact path="/admin/appt/:id/edit" component={AdminAppointmentEdit} />
-                  <Route exact path="/admin/appts/create-appointment" component={AdminAppointmentCreate} />
-                  <Route exact path="/admin/blog" component={AdminAppointmentsList} />
-                  <Route exact path="/admin/user/:id/edit" component={AdminUserEdit} />
-                  <Route exact path="/admin/reviews" component={AdminReviewsList} />
-                  <Route exact path="/admin/requests" component={AdminApptRequests} />
+                  <Route
+                    exact
+                    path="/admin/user/:id/edit"
+                    component={AdminUserEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appts"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appt/:id/edit"
+                    component={AdminAppointmentEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appts/create-appointment"
+                    component={AdminAppointmentCreate}
+                  />
+                  <Route
+                    exact
+                    path="/admin/blog"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/user/:id/edit"
+                    component={AdminUserEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/reviews"
+                    component={AdminReviewsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/requests"
+                    component={AdminApptRequests}
+                  />
                   <Route exact path="/admin/stats" component={AdminStats} />
                   <Route exact path="/review/:id/edit" component={ReviewEdit} />
-                  <Route exact path="/review/create-review" component={ReviewCreate} />
+                  <Route
+                    exact
+                    path="/review/create-review"
+                    component={ReviewCreate}
+                  />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/register" component={Register} />
@@ -168,9 +261,9 @@ export default function App() {
               </CSSTransition>
             </TransitionGroup>
           </React.Suspense>
-        </div>
+        {/* </div> */}
         <Footer />
       </div>
-    </React.Fragment>
+    </ToastProvider>
   );
 }

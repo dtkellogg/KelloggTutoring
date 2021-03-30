@@ -6,10 +6,10 @@ import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 // components
-import Sidebar from "./Sidebar";
+import {Sidebar} from "./navigation/Sidebar";
 
 // screens
-import PleaseLoginScreen from "../screens/UserPleaseLoginScreen"
+import PleaseLoginScreen from "../screens/user/UserPleaseLoginScreen"
 
 // actions
 import { listAppointments } from "../actions/appointmentActions"
@@ -24,6 +24,11 @@ import { apptsList } from '../data/lists'
 
 // uuid
 const { v4: uuid } = require("uuid");
+
+
+function AMPMTime(time) {
+  return useFormatAMPM(time);
+}
 
 
 export default function Calendar({ type }) {
@@ -187,7 +192,6 @@ export default function Calendar({ type }) {
 
 	const handleForwards = () => {
 		if (months.indexOf(month) < 11) {
-		
 			let indexOfCurrentMonth = months.indexOf(month)
 			let indexOfNextMonth = indexOfCurrentMonth + 1
 			date.setMonth(indexOfNextMonth)
@@ -198,13 +202,11 @@ export default function Calendar({ type }) {
 			setMonth(newMonth)
 			setDate(date)
 			getCalendarDays(date)
-
 		} else {
 			let indexOfNextMonth = 0
 			let newMonth = months[0]
 
 			date.setMonth(indexOfNextMonth)
-
 
 			setYear((year) => year + 1)
 			setMonth(newMonth)
@@ -214,15 +216,11 @@ export default function Calendar({ type }) {
   }
 
   React.useEffect(() => {
+    dispatch(listAppointments());
+
     if (sortedAppts) {
       getCalendarDays(date);
     }
-
-    
-  }, [sortedAppts]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  React.useEffect(() => {
-    dispatch(listAppointments());
   }, [dispatch]);
 
   React.useEffect(() => {
@@ -236,12 +234,6 @@ export default function Calendar({ type }) {
     }
   }, [dispatch, loading, error])
 
-
-  function AMPMTime(time) {
-    return useFormatAMPM(time);
-  }
-
-  
 
 
 	if(userInfo === null) {

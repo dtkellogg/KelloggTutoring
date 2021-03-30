@@ -1,0 +1,112 @@
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1}
+  to {opacity: 0}
+}
+
+// Number at end of the following fadeInAnimated classes will denote the time of delay (seconds).
+
+.fadeInAnimated--0, .fadeInAnimated--kelloggtutoring,
+.fadeInAnimated--hackerNewsClone, .fadeInAnimated--omnifood {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.fadeInAnimated--1, .fadeInAnimated--nexter,
+.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket  {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 1s;
+}
+
+.fadeInAnimated--1-5 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 1.5s;
+}
+
+.fadeInAnimated--2, .fadeInAnimated--thalassa,
+.fadeInAnimated--tetris,  .fadeInAnimated--natours {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 2s;
+}
+
+.fadeInAnimated--2-25 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 2.25s;
+}
+
+.fadeInAnimated--2-5 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 2.25s;
+}
+
+.fadeInAnimated--3, .fadeInAnimated--indonesia2015,
+.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 3s;
+}
+
+.fadeInAnimated--3-25 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 3.25s;
+}
+
+.fadeInAnimated--4 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 4s;
+}
+
+.fadeInAnimated--4-5 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 4.5s;
+}
+
+.fadeInAnimated--5 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 5s;
+}
+
+.fadeInAnimated--6 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 6s;
+}
+
+.fadeInAnimated--7 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 7s;
+}
+
+.fadeInAnimated--8 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 8s;
+}
+
+.fadeInAnimated--9 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 9s;
+}
+
+
+////////////////////////////////
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}

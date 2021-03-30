@@ -150,6 +150,7 @@ export const createAppointment = (subject, student, date, startTime, endTime, pa
 		if (message === 'Not authorized, token failed') {
 				dispatch(logout())
 		}
+		console.log(message)
 		dispatch({
 				type: APPOINTMENT_CREATE_FAIL,
 				payload: message,

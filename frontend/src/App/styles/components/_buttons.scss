@@ -114,7 +114,9 @@
 
   &__pay {
     @extend %btn;
-    color: $white;
+    border: 1px solid $old-blue-2;
+    background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
+    color: $black;
     width: 13rem;
 
     @media(max-width: 600px ) {
@@ -380,8 +382,10 @@
 
   &__request-tutoring {
     @extend %btn;
+    border: 1px solid $old-blue-2;
+    background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
+    color: $black;
     margin-right: 1.25rem;
-    color: $white;
     width: 13rem;
 
     @media(max-width: 600px ) {
@@ -674,10 +678,24 @@
     grid-row: 1 / span 3;
     grid-column: 2 / span 1;
     width: max-content;
-    transform: translateY(-2rem);
+    transform: translate(-0.75rem, 7.5rem);
+    // position: absolute;
+    // top: 39rem;
+    // right: 13.5vw;
+
+    // &:after {
+    //   width: 5rem;
+    //   height: 5rem;
+    //   border-radius: 50%;
+    //   background-color: $white;
+    // }
+
+    @media (max-height: 850px) {
+      transform: translate(-3rem, 10.5rem);
+    }
 
     @media (max-width: 650px) {
-      transform: translate(-2rem, -3rem);
+      // transform: translate(-2rem, -3rem);
     }
     
     @media (max-width: 600px) {
@@ -685,7 +703,7 @@
       grid-column: 1 / span 2;
       
       align-self: start;
-      transform: translate(0rem, 0rem);
+      // transform: translate(0rem, 0rem);
       width: 27.5rem;
       display: flex;
       justify-content: space-between;
@@ -742,28 +760,7 @@
     margin-left: 2.5rem;
   }
 
-  &__ghost {
-    width: 10rem;
-    height: 10rem;
-    grid-row: 2 / span 2;
-    grid-column: 2 / span 1;
-
-    // Getting rid of ghost for now. Will either get a logo eventually or animate an svg.
-    // display: none;
-
-    @media (max-width: 950px) and (max-height: 450px) {
-			grid-row: 2 / span 3;
-		}
-
-    @media (max-width: 600px) {
-      // grid-row: 2 / span 2;
-      grid-column: 1 / - 1;
-      // justify-self: start;
-      // transform: translate(166%, 44%);
-
-      transform: translateY(20%);
-    }
-  }
+  
 
   &--times {
     transform: translateY(0.4rem);
@@ -775,8 +772,8 @@
 
 .loader {
   position: absolute;
-  top: 30vh;
-  left: 70vh;
+  top: 50%;
+  left: 50%;
   z-index: 999999999;
   width: 5rem;
   height: 5rem;
@@ -784,10 +781,10 @@
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   animation: spinner 0.7s linear infinite;
 
-  @media (max-width:900px) {
-    top: 30vh;
-    left: 50vh;
-  }
+  // @media (max-width:900px) {
+  //   top: 30vh;
+  //   left: 50vh;
+  // }
 }
 
 @keyframes spinner {

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // components
-import Sidebar from "../components/Sidebar";
+import {Sidebar} from "../components/navigation/Sidebar";
 
 // actions
 import { getUserDetails } from "../actions/userActions";

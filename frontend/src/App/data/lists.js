@@ -61,3 +61,74 @@ export const searchBar = [
         link: "/studentResources",
     },
 ];
+
+//
+// --------------Nav Links-------------- //
+//
+
+export const navExpandedLinks = [
+  {
+    name: "Appts",
+    to: "/appointments",
+  },
+  {
+    name: "Toshi",
+    to: "/Toshi",
+  },
+  {
+    name: "Contact",
+    to: "/contact",
+  },
+];
+
+
+export const navCondensedNotLoggedIn = [
+    {
+        name: "Login",
+        to: "/login"
+    },
+    {
+        name: "Settings",
+        to: "/settings"
+    },
+]
+export const navCondensedLoggedIn = [
+  {
+    name: "Profile",
+    to: "/profile",
+  },
+  {
+    name: "Zoom",
+    to: "/zoom",
+  },
+  {
+    name: "Resources",
+    to: "/resources",
+  },
+  {
+    name: "Settings",
+    to: "/settings",
+  },
+];
+export const navCondensedAdmin = [
+  {
+    name: "Admin",
+    to: "/admin",
+  },
+  {
+    name: "Profile",
+    to: "/profile",
+  },
+  {
+    name: "Zoom",
+    to: "/zoom",
+  },
+  {
+    name: "Resources",
+    to: "/resources",
+  },
+  {
+    name: "Settings",
+    to: "/settings",
+  },
+];

@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from "prop-types";
 
 // components
-import Sidebar from "./Sidebar";
+import {Sidebar} from "./navigation/Sidebar";
 
 // data
 import { contactList, apptsList, toshiList, adminList } from "../data/lists"
@@ -40,7 +40,7 @@ export default function PageHeader({ location, history, page }) {
         }
       />
 
-      <div className="page-header">
+      <div className="page-header fadeInAnimated--0">
         <h2 className="page-header__text text-size-2">
           Please select an option to the left.
         </h2>
@@ -51,7 +51,7 @@ export default function PageHeader({ location, history, page }) {
         </span>
       </div>
     </div>
-  )
+  );
 }
 
 PageHeader.propTypes = {

@@ -7,10 +7,10 @@ import PropTypes from "prop-types"
 
 // moment
 import moment from 'moment'
-import Sidebar from "../components/Sidebar"
+import {Sidebar} from "./navigation/Sidebar"
 
 // screens
-import PleaseLoginScreen from "../screens/UserPleaseLoginScreen.js"
+import PleaseLoginScreen from "../screens/user/UserPleaseLoginScreen"
 
 // hooks
 import {useSortMultiple} from '../hooks/useSort'
@@ -22,9 +22,6 @@ import { listAppointments, deleteAppointment, updateAppointment } from '../actio
 
 // sidebar list
 import { apptsList } from '../data/lists'
-
-
-
 
 
 export default function ApptsList({ location, type }) {
@@ -46,9 +43,6 @@ export default function ApptsList({ location, type }) {
   const { userInfo } = userLogin
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime")
-
-  console.log(apptsList)
-  
 
   function AMPMTime(time) {
     return useFormatAMPM(time)
@@ -81,8 +75,6 @@ export default function ApptsList({ location, type }) {
 
     const selectedAppt = appointments.find(x => x._id === id)
     const { paid, user, student, subject, startTime, endTime, date } = selectedAppt
-
-    console.log(paid)
 
     if (window.confirm("Are you sure you want to toggle the paid status?")) {
       dispatch(updateAppointment({ _id: id, paid: !paid, user, student, subject, startTime, endTime, date }))

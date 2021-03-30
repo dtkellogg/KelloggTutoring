@@ -1,6 +1,6 @@
 .nav {
 
-  &__list {
+  &__expanded {
     @include flexCenterCenter();
     height: 100%;
 
@@ -41,6 +41,7 @@
     background-color: $grey-light-9;
     border-bottom: 1px solid $grey-light-6;
     color: $black;
+    z-index: 999999999;
 
     @media ( max-width: 510px ) {
       display: grid;

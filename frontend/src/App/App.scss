@@ -1,3 +1,4 @@
+@import "styles/abstracts/animations";
 // @import "styles/abstracts/functions";
 @import "styles/abstracts/mixins";
 @import "styles/abstracts/variables";
@@ -17,25 +18,25 @@
 @import "styles/layout/containers";
 @import "styles/layout/footer";
 
-@import "styles/screens/appointments";
+@import "styles/screens/appointments/appointments";
 @import "styles/screens/contact";
 @import "styles/screens/home";
-@import "styles/screens/meetToshi";
-@import "styles/screens/user";
+@import "styles/screens/toshi/meetToshi";
+@import "styles/screens/user/user";
 
-@import "styles/screens/adminAppointmentRequestsScreen";
-@import "styles/screens/adminReviewsListScreen";
-@import "styles/screens/adminUsersListScreen";
-@import "styles/screens/apptEditScreen";
+@import "styles/screens/admin/adminAppointmentRequestsScreen";
+@import "styles/screens/admin/adminApptEditScreen";
+@import "styles/screens/admin/adminCreateApptScreen";
+@import "styles/screens/admin/adminReviewsListScreen";
+@import "styles/screens/admin/adminUsersListScreen";
+@import "styles/screens/review/reviewEditScreen";
+@import "styles/screens/user/userLoginScreen";
+@import "styles/screens/user/userProfileScreen";
+@import "styles/screens/user/userRegisterScreen";
+@import "styles/screens/user/userEditScreen";
+@import "styles/screens/user/userPleaseLoginScreen";
 @import "styles/screens/comingSoonScreen";
-@import "styles/screens/createApptScreen";
 @import "styles/screens/messageFormScreen";
-@import "styles/screens/loginScreen";
-@import "styles/screens/profileScreen";
-@import "styles/screens/reviewEditScreen";
-@import "styles/screens/registerScreen";
-@import "styles/screens/userEditScreen";
-@import "styles/screens/userPleaseLoginScreen";
 
 // @import "styles/themes/admin"
 
