@@ -139,7 +139,7 @@ export default function Profile({ location, history }) {
         {success && <span className="text-size-3 profileScreen__msg--success">Profile successfully updated</span>}
 
         <button
-          className="btn__profileScreen"
+          className="btn__profile"
           type="submit"
           onClick={handleSubmit}
         >

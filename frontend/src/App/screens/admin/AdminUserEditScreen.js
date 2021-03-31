@@ -74,7 +74,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 	}
 
 	return (
-			<div className="pg__meetToshi">
+			<div className="toshi">
 			<Sidebar title="Toshi" list={adminList} />
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
 			<Link to='/admin/users' className="btn__user-edit" >Go Back</Link>
@@ -134,7 +134,7 @@ export default function AdminUserEdit ({ match, history, location }) {
 					</div>
 
 					<button
-						className="btn__userEditScreen"
+						className="btn__edit-user"
 						type="submit"
 						onClick={handleSubmit}
 					>

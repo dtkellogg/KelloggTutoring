@@ -74,16 +74,16 @@ export default function AdminStatsScreen({history, location}) {
 
     
         return (
-            <div className="pg__meetToshi">
-                <Sidebar title="Toshi" list={adminList} />
-                <div className="appointment-requests">
-                    <div className="text-size-2 appointment-requests__header--container">
-                        <div className="text-size-2 appointment-requests__header">
-                            Stats:
-                        </div>
-                    </div>
+          <div className="container__toshi">
+            <Sidebar title="Toshi" list={adminList} />
+            <div className="appointment-requests">
+              <div className="text-size-2 appointment-requests__header--container">
+                <div className="text-size-2 appointment-requests__header">
+                  Stats:
+                </div>
+              </div>
 
-                    {/* <div className="">
+              {/* <div className="">
                         <h3 className="">Appt Lengths</h3>
                         <ul className="">
                             {appointments.map((appt) => {
@@ -103,29 +103,25 @@ export default function AdminStatsScreen({history, location}) {
                         </ul>
                     </div> */}
 
-                        <div className="">
-                            <h3 className="">Owe me:</h3>
-                            {students && (
-                                <ul className="">
-                                    {students.map((student) => {
-                                        return (
-                                            <li className="">{student}</li>
-                                        )
-                                    })}
-                                </ul>
-                            )
-                        }
-                        </div>
+              <div className="">
+                <h3 className="">Owe me:</h3>
+                {students && (
+                  <ul className="">
+                    {students.map((student) => {
+                      return <li className="">{student}</li>;
+                    })}
+                  </ul>
+                )}
+              </div>
 
+              <div className="">
+                <h3 className="">Total Hours</h3>
+                <span>This Week:</span>
+                <span>This Month:</span>
+                <span>This Year:</span>
+              </div>
 
-                    <div className="">
-                        <h3 className="">Total Hours</h3>
-                        <span>This Week:</span>
-                        <span>This Month:</span>
-                        <span>This Year:</span>
-                    </div>
-
-                    {/* <div className="admin__table--container">
+              {/* <div className="admin__table--container">
                         <table className="appointment-requests__list text-size-3">
                             <thead className="thead">
                                 <tr className="tr">
@@ -161,8 +157,8 @@ export default function AdminStatsScreen({history, location}) {
                             </tbody>
                         </table>
                     </div> */}
-                </div>
             </div>
-        )
+          </div>
+        );
     }
 }

@@ -35,7 +35,7 @@ function NavUpper() {
   }
 
   return (
-    <nav className="nav__upper">
+    <nav className="container__nav--upper">
       <NavLink to="/" className="nav__upper--title-text">
         <h1 className="text-size-1 nav__upper--text fadeInAnimated--0">
           {" "}Kellogg Tutoring&nbsp;{" "}
@@ -75,13 +75,13 @@ function NavUpper() {
               <FaUserCircle
                 size={30}
                 fill="var(--old-blue-2)"
-                className="social-media-icon grey-light-7"
+                className="icon grey-light-7"
               />
             )}
             <FaCaretDown
               size={15}
               fill="var(--old-blue-2)"
-              className="social-media-icon grey-light-7 user__dropdown-menu--icon"
+              className="icon grey-light-7 user__dropdown-menu--icon"
               style={{ display: width > 450 || userInfo ? "block" : "none" }}
             />
             {!userInfo ? (

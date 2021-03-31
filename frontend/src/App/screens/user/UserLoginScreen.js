@@ -101,7 +101,7 @@ export default function Login({ location, history }) {
         )}
 
         <button
-          className="btn__loginScreen"
+          className="btn__login"
           type="submit"
           onClick={handleSubmit}
         >

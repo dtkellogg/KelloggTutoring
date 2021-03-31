@@ -78,7 +78,7 @@ export default function AdminReviewsList({ location, history }) {
 
 
     return (
-        <div className="pg__meetToshi">
+        <div className="container__toshi">
             <Sidebar title="Toshi" list={adminList} />
             <div className="reviewsAdmin">
                 <div className="text-size-2 reviewsAdmin__header">
@@ -110,7 +110,7 @@ export default function AdminReviewsList({ location, history }) {
                                                 size={20}
                                                 color="var(--green-dark)"
                                                 fill="var(--green)"
-                                                className="social-media-icon grey-light-7"
+                                                className="icon grey-light-7"
                                                 type="button"
                                                 onClick={() => approvedHandler(review._id)}
                                             />
@@ -119,7 +119,7 @@ export default function AdminReviewsList({ location, history }) {
                                                         size={20}
                                                         color="var(--green-dark)"
                                                         fill="var(--grey-light-5)"
-                                                        className="social-media-icon"
+                                                        className="icon"
                                                         type="button"
                                                         onClick={() => approvedHandler(review._id)}
                                                     />
@@ -133,7 +133,7 @@ export default function AdminReviewsList({ location, history }) {
                                                 size={20}
                                                 color="var(--green-dark)"
                                                 fill="var(--red)"
-                                                className="social-media-icon__trash grey-light-7"
+                                                className="icon__trash grey-light-7"
                                                 type="button"
                                                 onClick={() => deleteHandler(review._id)}
                                             />

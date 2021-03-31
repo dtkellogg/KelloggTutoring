@@ -206,7 +206,7 @@ export default function UserBookingScreen({ location, history, type}) {
 
 
           <button
-            className="btn__user-booking"
+            className="btn__booking"
             type="submit"
             onClick={handleSubmit}
           >

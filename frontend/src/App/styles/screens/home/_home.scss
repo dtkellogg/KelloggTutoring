@@ -1,68 +1,4 @@
-// GRID LAYOUT FOR HOME SCREEN
-.pg__home {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 86vh 100vh 100vh 20vh;
-  height: min-content;
-  width: 90vw;
-  transform: translate(5vw, 0);
-  overflow-y: hidden;
-  border-right: 0.5px dashed $old-blue-2;
-  border-left: 0.5px dashed $old-blue-2;
-  // scroll-snap-type: y mandatory;
-
-
-  background-color: $white;
-    position: relative;
-    display: inline-grid;
-    height: min-content;
-    // scroll-snap-type: y mandatory;
-    grid-row: 3 / span 1;
-    grid-column: 2 / span 3;
-
-
-
-
-
-
-
-  @media (max-width: 1050px) {
-    grid-template-rows: 86vh 194vh 163vh 20vh;
-    margin-right: 0;
-  }
-  @media (max-width: 1000px) {
-    width: 100vw;
-    transform: translate(0);
-  }
-
-  @media (max-width: 950px) and (max-height: 450px) {
-		grid-template-rows: 86vh 400vh 163vh 20vh;
-	}
-
-  
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    margin-right: 0;
-
-    grid-template-rows: 86vh 80vh 0vh 20vh;
-  }
-
-  @media (max-width: 950px) and (max-height: 450px) {
-    grid-template-columns: none;
-    min-height: 148vh;
-  }
-
-  @media (max-width: 950px) and (max-height: 450px) {
-    grid-template-columns: none;
-    min-height: 148vh;
-  }
-
-  @media (max-width: 400px) and (max-height: 500px) {
-    grid-template-rows: 121vh 80vh 0vh 20vh;
-  }
-
-  
+.home {
   
   &--review-container {
     grid-row: 1 / span 1;
@@ -177,20 +113,7 @@
       // height: 0;
     }
 
-    &--btns-container {
-      position: absolute;
-      margin-top: 33rem;
-
-      @media(max-width: 1050px) {
-        margin-top: 0;
-        // transform: translateY(59rem);
-        transform: translateY(58.25rem);
-      }
-
-      @media(max-width: 600px) {
-        display: none;
-      }
-    }
+    
 
     &--appointments__list {
       width: 100%;
@@ -437,10 +360,3 @@
   }
 }
 
-.home {
-  grid-row: 3 / -1;
-  grid-column: 2 / span 3;
-
-  width: 100vw;
-  position: relative;
-}

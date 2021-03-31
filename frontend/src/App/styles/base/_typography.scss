@@ -1,3 +1,5 @@
+//--------------------fonts--------------------//
+
 .text-size-0 {
   font-size: 6.5rem;
   font-weight: 300;
@@ -106,8 +108,17 @@
   }
 }
 
-.align-items {
-  &__flex-end {
-    align-items: flex-end;
+//--------------------headers--------------------//
+
+.header {
+  &__no-appts {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: 900px) {
+      height: 58vh;
+    }
   }
 }

@@ -75,82 +75,82 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 	}
 
 	return (
-		<div className="pg__meetToshi">
+		<div className="toshi">
 		<Sidebar title="Toshi" list={adminList} />
-		<form onSubmit={handleSubmit} className="apptEditScreen user__page">
-			<div className="apptEditScreen__header">
+		<form onSubmit={handleSubmit} className="appt-edit user__page">
+			<div className="appt-edit__header">
 				<h2 className="text-size-2 letter-spacing-sm">
 					Edit Appointment
 				</h2>
 			</div>
 
-			<div className="apptEditScreen__content">
+			<div className="appt-edit__content">
 				<div className="loginScreen__input-container">
-				<div className="apptEditScreen__element">
+				<div className="appt-edit__element">
 					<label
-							className="text-size-4 letter-spacing-md apptEditScreen__label"
+							className="text-size-4 letter-spacing-md appt-edit__label"
 							htmlFor="student"
 					>
 							student
 					</label>
 					<input
 							type="name"
-							className="apptEditScreen__input apptEditScreen__input-contact text-size-3"
+							className="appt-edit__input appt-edit__input-contact text-size-3"
 							placeholder="Student name"
 							value={student}
 							onChange={(e) => setStudent(e.target.value)}
 					/>
 				</div>
 
-					<div className="apptEditScreen__element">
+					<div className="appt-edit__element">
 						<label
-								className="text-size-4 letter-spacing-md apptEditScreen__label"
+								className="text-size-4 letter-spacing-md appt-edit__label"
 								htmlFor="subject"
 						>
 								subject
 						</label>
 						<input
 								type="text"
-								className="apptEditScreen__input apptEditScreen__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact text-size-3"
 								placeholder="subject"
 								value={subject}
 								onChange={(e) => setSubject(e.target.value)}
 						/>
 					</div>
 
-					<div className="apptEditScreen__element">
-						<label className="text-size-4 letter-spacing-md apptEditScreen__label">
+					<div className="appt-edit__element">
+						<label className="text-size-4 letter-spacing-md appt-edit__label">
 								date
 						</label>
 						<input
 								type="text"
-								className="apptEditScreen__input apptEditScreen__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact text-size-3"
 								placeholder="date"
 								value={date}
 								onChange={(e) => setDate(e.target.value)}
 						/>
 					</div>
 
-					<div className="apptEditScreen__element">
-						<label className="text-size-4 letter-spacing-md apptEditScreen__label">
+					<div className="appt-edit__element">
+						<label className="text-size-4 letter-spacing-md appt-edit__label">
 								duration
 						</label>
 						<input
 								type="text"
-								className="apptEditScreen__input apptEditScreen__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact text-size-3"
 								placeholder="duration"
 								value={duration}
 								onChange={(e) => setDuration(e.target.value)}
 						/>
 					</div>
 
-					<div className="apptEditScreen__element">
-						<label className="text-size-4 letter-spacing-md apptEditScreen__label">
+					<div className="appt-edit__element">
+						<label className="text-size-4 letter-spacing-md appt-edit__label">
 								time
 						</label>
 						<input
 								type="text"
-								className="apptEditScreen__input apptEditScreen__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact text-size-3"
 								placeholder="time"
 								value={time}
 								onChange={(e) => setTime(e.target.value)}
@@ -158,7 +158,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</div>
 
 					<button
-						className="btn__apptEditScreen"
+						className="btn__appt-edit"
 						type="submit"
 						onClick={handleSubmit}
 					>

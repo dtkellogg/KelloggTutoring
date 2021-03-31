@@ -1,0 +1,25 @@
+.hero {
+
+    &__welcome {
+      transform: translate(-0.2rem, -1rem);
+      letter-spacing: 0.4rem;
+
+      @media (max-width: 600px) {
+        transform: translate(0.0rem, .4rem);
+      }
+    }
+
+    &__text {
+      line-height: 5rem;
+      transform: translate(0rem, -10rem);
+
+      @media (max-width: 1200px) {
+      }
+
+      @media (max-width: 600px) {
+          padding-left: 0rem;
+          transform: translateX(0rem);
+          @include flexCenterCenter();
+      }
+    }
+}

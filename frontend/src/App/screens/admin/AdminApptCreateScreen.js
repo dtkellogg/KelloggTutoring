@@ -208,7 +208,7 @@ export default function AdminAppointmentCreate({ location, history }) {
           </div>
 
           <button
-            className="btn__createApptScreen"
+            className="btn__create-appt"
             type="submit"
             onClick={handleSubmit}
           >

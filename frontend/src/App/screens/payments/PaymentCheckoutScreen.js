@@ -167,7 +167,7 @@ function PaymentCheckout({ match, history }) {
                           size={15}
                           color="var(--green-dark)"
                           fill="var(--red)"
-                          className="social-media-icon grey-light-7"
+                          className="icon grey-light-7"
                           type="button"
                           onClick={() => deleteHandler(appt.appointment)}
                         />
@@ -214,7 +214,7 @@ function PaymentCheckout({ match, history }) {
         <button
           disabled={cart.cartItems.length === 0}
           onClick={submitPaymentHandler}
-          className="btn__confirm-payment"
+          className="btn__payments--confirm-payment"
         >
           Confirm Payment
         </button>

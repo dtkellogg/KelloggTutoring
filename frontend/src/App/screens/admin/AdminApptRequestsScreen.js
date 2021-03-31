@@ -70,7 +70,7 @@ export default function AdminApptRequests({ location, history }) {
 
     if (appointmentRequests) {
         return (
-            <div className="pg__meetToshi">
+            <div className="toshi">
                 <Sidebar title="Toshi" list={adminList} />
                 <div className="appointment-requests">
                     <div className="text-size-2 appointment-requests__header--container">

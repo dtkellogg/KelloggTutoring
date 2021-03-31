@@ -1,4 +1,4 @@
-// EXTENDS
+// extends
 %btn {
   padding: 1rem;
   border-radius: 5rem;
@@ -35,469 +35,122 @@
 }
 
 
-// BTN CLASSES
+//--------------------general classes--------------------//
+
 .btn {
-  &__search {
-    @extend %btn;
-    @include flexCenterCenter($justify-content: space-around);
-    width: 10rem;
-    color: $red;
-    outline: none;
-    transition: 1s;
-    width: 55%;
-    padding-left: 2rem;
 
-    &--hover {
-      @extend %btn--blue;
-      color: $black;
-    }
+  //--------------------home--------------------//
 
-    &:focus {
-      width: 230%;
-    }
+  &__home {
 
-    &:active {
-      width: 130%;
-    }
-    
-    @media (max-width: 950px) and (max-height: 450px) {
-      padding: 0.5rem;
-      padding-left: 1rem;
-    }
-  }
-
-  &__reviews {
-    @extend %btn;
-    @extend %btn--blue;
-    grid-column: 1 / span 1;
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    position: absolute;
-    width: 13rem;
-    text-align: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transform: translateY(-2.75rem);
-
-    @media ( max-width: 900px ) {
-      right: 8vw;
-      
-    }
-
-    
-
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-  }
-  
-
-
-  &__cancel {
-    @extend %btn;
-    background-color: $red;
-    color: $white;
-    border: 2px solid $grey-dark-3;
-    width: 8rem;
-
-    &:hover {
-      background-color: $red-light-1;
-      color: $black;
-    }
-  }
-
-  &__pay {
-    @extend %btn;
-    border: 1px solid $old-blue-2;
-    background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
-    color: $black;
-    width: 13rem;
-    font-family: 'Cormorant Infant', serif;
-    font-family: 'Cormorant Infant', serif;
-    font-size: 1.8rem;
-    transition: all 0.2s;
-    transform: translate(0, 3rem);
-
-    &:hover {
-      background-image: none;
-      background-color: $blue-10;
-      color: $black;
-    }
-
-    @media(max-width: 600px ) {
-      height: 4.5rem;
-    }
-  }
-
-  &__edit {
-    @extend %btn;
-    padding: 0.5rem;
-    border-radius: 5rem;
-    border: 2px solid $white;;
-    color: $white;
-
-    &:hover {
-      background-color: $green-12;
-      color: $black;
-    }
-  }
-
-  &__continue {
-    @extend %btn;
-    grid-column: 1 / span 1;
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    width: 12rem;
-    text-align: center;
-    border-radius: 5rem;
-    border: 2px solid $white;;
-    color: $white;
-    transform: translate(1rem, -0.5rem);
-
-    &:hover {
-      color: $black;
-    }
-  }
-
-  &__continue--select-method {
-    @extend %btn;
-    grid-column: 1 / span 1;
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    width: 12rem;
-    text-align: center;
-    border-radius: 5rem;
-    color: $white;
-    transform: translate(1rem, -0.5rem);
-
-    &:hover {
-      color: $black;
-    }
-
-    @media (max-width: 900px) {
-      grid-column: 1 / span 1;
-      align-self: start;
-      justify-self: start;
-      padding: 0.5rem;
-      width: 12rem;
-      text-align: center;
-      border-radius: 5rem;
-      border: 2px solid #fff;
-      color: #fff;
-    }
-  }
-
-  &__cart {
-    &--reset {
+    &--to-request-tutoring {
       @extend %btn;
-      background-image: none;
-      background: $grey-light-5;
-      grid-column: 5 / span 1;
-      align-self: start;
-      padding: 0.5rem;
-      width: 12rem;
-      text-align: center;
-      border-radius: 5rem;
-      border: 2px solid $white;;
-      color: $white;
-
-      @media (max-width:750px) {
-        transform: translate(-1rem, -0.5rem);
-      }
+      border: 1px solid $old-blue-2;
+      background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
+      color: $black;
+      margin-right: 1.25rem;
+      width: 13rem;
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.8rem;
+      transition: all 0.2s;
 
       &:hover {
-        color: $black;
+        background-image: none;
+        background-color: $old-blue-2;
+        color: $white;
+      }
+
+      @media(max-width: 600px ) {
+        height: 4.5rem;
       }
     }
-  }
 
-  &__addToCart {
-    @extend %btn;
-    padding: 0.35rem;
-    width: 8rem;
-    color: $white;
-    margin: 0.25rem;
-
-    &:hover {
-      background-color: $green-12;
+    &--to-payments {
+      @extend %btn;
+      border: 1px solid $old-blue-2;
+      background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
       color: $black;
+      width: 13rem;
+      font-family: 'Cormorant Infant', serif;
+      font-family: 'Cormorant Infant', serif;
+      font-size: 1.8rem;
+      transition: all 0.2s;
+      transform: translate(0, 3rem);
+
+      &:hover {
+        background-image: none;
+        background-color: $blue-10;
+        color: $black;
+      }
+
+      @media(max-width: 600px ) {
+        height: 4.5rem;
+      }
     }
 
-    @media ( max-width: 550px ) {
-      width: 7.4rem;
-    }
-  }
-
-  &__pay--header {
-    @extend %btn;
-    color: $white;
-    background-color: skyblue;
-    width: 8rem;
-    margin-right: 1rem;
-
-  }
-
-  &__cancel--header {
-    @extend %btn;
-    color: $white;
-    background-color: $red;
-    width: 8rem;
-  }
-
-  &__messageForm {
-    @extend %btn;
-    @extend %btn--blue;
-    margin-bottom: 5rem;
-    width: 100%;
-    transform: translateY(4rem);
-  }
-
-  &__registerScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    margin-bottom: 5rem;
-    width: 8rem;
-  }
-
-  &__apptEditScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    margin-bottom: 5rem;
-    width: 12rem;
-  }
-
-
-  &__loginScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    margin: 1rem 0 6rem 0;
-    color: $white;
-    width: 100%;
-  }
-
-  &__userEditScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    margin-bottom: 5rem;
-    width: 100%;
-
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-  }
-
-  &__profileScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    border: none;
-    width: 100%;
-    transform: translateY(8rem);
-
-    &:hover {
-      background-color: $green-12;
-      color: $black;
-    }
-  }
-
-  &__createApptScreen {
-    @extend %btn;
-    @extend %btn--blue;
-    margin: 1rem;
-
-    width: 100%;
-    transform: translateY(2rem);
-    align-self: center;
-    // col
-
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-
-    @media ( max-width: 900px ) {
-      margin-top: 0rem;
-      transform: translateY(2rem);
-    }
-
-
-    @media ( max-width: 400px ) {
-      width: 80vw;
-    }
-  }
-
-  &__user-booking {
-    @extend %btn;
-    @extend %btn--blue;
-    margin: 1rem;
-
-    width: 100%;
-
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-
-    @media ( max-width: 900px ) {
-      margin-top: 0rem;
-      transform: translateY(4vh);
-    }
-
-
-    @media ( max-width: 400px ) {
-      width: 80vw;
-    }
-
-  }
-
-  &__adminApptsList {
-    @extend %btn;
-    @extend %btn--blue;
-    grid-column: 1 / span 1;
-    align-self: start;
-    justify-self: start;
-    padding: 0.5rem;
-    position: absolute;
-    width: 13rem;
-    text-align: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transform: translateY(-3rem);
-
-    @media ( max-width: 900px ) {
-      right: 1rem;
-      width: 6rem;
-      transform: translateY(-3.5rem);
-    }
-
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-  }
-
-  &__request-tutoring {
-    @extend %btn;
-    border: 1px solid $old-blue-2;
-    background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
-    color: $black;
-    margin-right: 1.25rem;
-    width: 13rem;
-    font-family: 'Cormorant Infant', serif;
-    font-size: 1.8rem;
-    transition: all 0.2s;
-
-    &:hover {
-      background-image: none;
-      background-color: $old-blue-2;
+    &--to-reviews {
+      @extend %btn;
+      transform: translateY(250%);
+      margin: 0.25rem;
+      // width: 45rem;
       color: $white;
-    }
 
-    @media(max-width: 600px ) {
-      height: 4.5rem;
-    }
-  }
+      @media (max-width: 1050px){
+        transform: translateY(200%);
+        padding: 1rem;
+        margin: 0.5rem;
+      }
 
-  &__container {
-    @include flexCenterCenter();
-  }
+      @media (max-width: 950px) and (max-height: 450px) {
+        padding: 0.5rem;
+      }
 
-
-  &__highlights--appointments {
-    @extend %btn;
-    transform: translateY(390%);
-    margin: 0.25rem;
-    width: 20rem;
-    color: $white;
-    border: 1px dotted $white;
-
-    @media (max-width: 1050px){
-      transform: none;
-      width: 60vw;
-      padding: 2rem;
-      margin: 0.5rem;
-    }
-
-    @media (max-width: 700px){
-      width: 50vw;
-    }
-
-    @media (max-width: 600px){
-      width: 40rem;
-    }
-
-    @media (max-width: 450px){
-      width: 93vw;
-    }
-
-    &-container {
-      @include flexCenterCenter($justify-content: space-between, $flex-direction: column);
-      width: 100%;
-
-      @media (max-width: 1050px) {
-        padding-bottom: 32rem;
-        display: flex;
+      @media (max-width: 450px){
+        width: 93vw;
       }
 
       @media (max-width: 600px) {
-        padding-bottom: 0;
+        display: none;
+      }
+    
+      &--container {
+        z-index: 99999999;
       }
     }
 
-    &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
-      color: $black;
-    }
-  }
+    &--3-btns {
+      @extend %btn;
+      transform: translateY(390%);
+      margin: 0.25rem;
+      width: 20rem;
+      color: $white;
+      border: 1px dotted $white;
 
-  &__trashIcon {
-    border: none;
+      &:hover {
+        background-color: $green-12;
+        border: 1px solid $green-12;
+        color: $black;
+      }
+
+      @media (max-width: 1050px){
+        transform: none;
+        width: 60vw;
+        padding: 2rem;
+        margin: 0.5rem;
+      }
+      @media (max-width: 700px){
+        width: 50vw;
+      }
+      @media (max-width: 600px){
+        width: 40rem;
+      }
+      @media (max-width: 450px){
+        width: 93vw;
+      }
+    }
+
     
   }
-
-  &__screen-nav--up {
-    position: fixed;
-    grid-row: 3 / span 1;
-    grid-column: 1 / span 1;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    @media (max-width: 600px) {
-      display: none;
-      }
-  }
-
-  &__screen-nav--down {
-    position: fixed;
-    grid-row: 3 / span 1;
-    grid-column: 1 / span 1;
-    border: none;
-    background-color: transparent;
-    transform: translateY(100%);
-
-    @media (max-width: 600px) {
-      display: none;
-      }
-  }
-
-
 
   &__highlights--appts-calendar {
     padding: 1rem;
@@ -525,100 +178,438 @@
     }
   }
 
-  &__list {
-    padding: 1rem;
-    border-radius: 5rem;
-    border: 1px solid $green;
-    color: $green;
+  //--------------------nav--------------------//
+
+  &__nav {
+
+    &--up {
+      position: fixed;
+      grid-row: 3 / span 1;
+      grid-column: 1 / span 1;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &--down {
+      position: fixed;
+      grid-row: 3 / span 1;
+      grid-column: 1 / span 1;
+      border: none;
+      background-color: transparent;
+      transform: translateY(100%);
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &--search {
+      @extend %btn;
+      @include flexCenterCenter($justify-content: space-around);
+      width: 10rem;
+      color: $red;
+      outline: none;
+      transition: 1s;
+      width: 55%;
+      padding-left: 2rem;
+
+      &--hover {
+        @extend %btn--blue;
+        color: $black;
+      }
+
+      &:focus {
+        width: 230%;
+      }
+
+      &:active {
+        width: 130%;
+      }
+      
+      @media (max-width: 950px) and (max-height: 450px) {
+        padding: 0.5rem;
+        padding-left: 1rem;
+      }
+    }
   }
 
-  &__confirm-payment {
-    @extend %btn;
-    padding: 1rem;
-    width: 12rem;
-    margin: 1rem 0;
-    color: $white;
+  //--------------------reviews--------------------//
 
-    &:hover {
-      color: $black;
-    }
-
-    @media (max-width: 600px) {
-      width: 31rem;
-      margin: 3rem 0 1rem 0;
-    }
-  }
-
-  &__reviews--new-review {
-    @extend %btn;
-    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
-    box-shadow: 0 0 20px #eee;
-    
-    padding: 1rem;
-    width: 12rem;
-    margin: 1rem 0;
-    color: $black;
-
-    &:hover {
-      color: $black;
-      background-position: right center; /* change the direction of the change here */
-      color: $old-blue-2;
-      text-decoration: none;
-    }
-  }
-
-  &__white, &__createReview {background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)}
-  &__white, &__createReview {
-      margin: 10px;
-      padding: 15px 45px;
-      text-align: center;
-      text-transform: uppercase;
-      transition: 0.5s;
-      background-size: 200% auto;
-      color: white;            
-      box-shadow: 0 0 20px #eee;
-      border-radius: 10px;
-      display: block;
-    }
-
-    &__white:hover, &__createReview:hover {
-      background-position: right center; /* change the direction of the change here */
-      color: #fff;
-      text-decoration: none;
-    }
-          
-  &__calendar {
-    cursor: pointer;
-  }
-
-  &__go-back {
+  &__reviews {
     @extend %btn;
     @extend %btn--blue;
-
+    grid-column: 1 / span 1;
+    align-self: start;
+    justify-self: start;
+    padding: 0.5rem;
     position: absolute;
-    transform: translateY(2rem);
+    width: 13rem;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-2.75rem);
+
+    @media ( max-width: 900px ) {
+      right: 8vw;
+    }
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+
+    &--new-review {
+      @extend %btn;
+      background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
+      box-shadow: 0 0 20px #eee;
+      
+      padding: 1rem;
+      width: 12rem;
+      margin: 1rem 0;
+      color: $black;
+
+      &:hover {
+        color: $black;
+        background-position: right center; /* change the direction of the change here */
+        color: $old-blue-2;
+        text-decoration: none;
+      }
+    }
+
+    &--go-back {
+      @extend %btn;
+      @extend %btn--blue;
+
+      position: absolute;
+      transform: translateY(2rem);
+    }
   }
 
-  &__payments--add-all {
+
+  //--------------------admin--------------------//
+
+  &__admin {
+    
+    &--edit {
+      @extend %btn;
+      padding: 0.5rem;
+      border-radius: 5rem;
+      border: 2px solid $white;;
+      color: $white;
+  
+      &:hover {
+        background-color: $green-12;
+        color: $black;
+      }
+    }
+
+    &--appts-list {
+      @extend %btn;
+      @extend %btn--blue;
+      grid-column: 1 / span 1;
+      align-self: start;
+      justify-self: start;
+      padding: 0.5rem;
+      position: absolute;
+      width: 13rem;
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transform: translateY(-3rem);
+
+      @media ( max-width: 900px ) {
+        right: 1rem;
+        width: 6rem;
+        transform: translateY(-3.5rem);
+      }
+
+      &:hover {
+        background-color: $green-12;
+        border: 1px solid $green-12;
+        color: $black;
+      }
+    }
+  }
+
+  &__appt-edit {
     @extend %btn;
-    padding: 0.35rem;
-    // background-image: $labor-work;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 12rem;
+  }
 
+  &__edit-user {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 100%;
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+  }
+  
+
+  // i forget if either the above or below code r what i want for btn__edit-user
+  
+  // &__user-edit {
+  //   @extend %btn;
+  //   margin: 2rem 0.25rem;
+  //   width: 6rem;
+  //   height: 3.5rem;
+  //   color: $white;
+  //   padding: 1rem;
+  //   cursor: pointer;
+  //   text-align: center;
+
+  //   position: absolute;
+  //   top: 1rem;
+  //   left: 2rem;
+  // }
+
+  &__create-appt {
+    @extend %btn;
+    @extend %btn--blue;
+    margin: 1rem;
+
+    width: 100%;
+    transform: translateY(2rem);
+    align-self: center;
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+
+    @media ( max-width: 900px ) {
+      margin-top: 0rem;
+      transform: translateY(2rem);
+    }
+
+
+    @media ( max-width: 400px ) {
+      width: 80vw;
+    }
+  }
+
+  //--------------------payments--------------------//
+
+  &__payments {
+
+      &--continue {
+      @extend %btn;
+      grid-column: 1 / span 1;
+      align-self: start;
+      justify-self: start;
+      padding: 0.5rem;
+      width: 12rem;
+      text-align: center;
+      border-radius: 5rem;
+      border: 2px solid $white;;
+      color: $white;
+      transform: translate(1rem, -0.5rem);
+
+      &:hover {
+        color: $black;
+      }
+    }
+
+    &--confirm-payment {
+      @extend %btn;
+      padding: 1rem;
+      width: 12rem;
+      margin: 1rem 0;
+      color: $white;
+
+      &:hover {
+        color: $black;
+      }
+
+      @media (max-width: 600px) {
+        width: 31rem;
+        margin: 3rem 0 1rem 0;
+      }
+    }
+
+    &--add-all {
+      @extend %btn;
+      padding: 0.35rem;
+      // background-image: $labor-work;
+
+      width: 8rem;
+      color: $gold;
+
+
+      &:hover {
+        background-color: $green-12;
+        color: $black;
+      }
+
+      @media ( max-width: 550px ) {
+        width: 7.4rem;
+      }
+    }
+  }
+
+  &__payment-method {
+
+    &--continue {
+      @extend %btn;
+      grid-column: 1 / span 1;
+      align-self: start;
+      justify-self: start;
+      padding: 0.5rem;
+      width: 12rem;
+      text-align: center;
+      border-radius: 5rem;
+      color: $white;
+      transform: translate(1rem, -0.5rem);
+
+      &:hover {
+        color: $black;
+      }
+
+      @media (max-width: 900px) {
+        grid-column: 1 / span 1;
+        align-self: start;
+        justify-self: start;
+        padding: 0.5rem;
+        width: 12rem;
+        text-align: center;
+        border-radius: 5rem;
+        border: 2px solid #fff;
+        color: #fff;
+      }
+    }
+  }
+
+  &__cart {
+
+    &--reset {
+      @extend %btn;
+      background-image: none;
+      background: $grey-light-5;
+      grid-column: 5 / span 1;
+      align-self: start;
+      padding: 0.5rem;
+      width: 12rem;
+      text-align: center;
+      border-radius: 5rem;
+      border: 2px solid $white;;
+      color: $white;
+
+      @media (max-width:750px) {
+        transform: translate(-1rem, -0.5rem);
+      }
+
+      &:hover {
+        color: $black;
+      }
+    }
+
+    &--add {
+      @extend %btn;
+      padding: 0.35rem;
+      width: 8rem;
+      color: $white;
+      margin: 0.25rem;
+
+      &:hover {
+        background-color: $green-12;
+        color: $black;
+      }
+
+      @media ( max-width: 550px ) {
+        width: 7.4rem;
+      }
+    }
+  }
+
+  //--------------------messages--------------------//
+
+  &__messageForm {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
+    width: 100%;
+    transform: translateY(4rem);
+  }
+
+  //--------------------user--------------------//
+
+  &__register {
+    @extend %btn;
+    @extend %btn--blue;
+    margin-bottom: 5rem;
     width: 8rem;
-    color: $gold;
+  }
 
+  &__login {
+    @extend %btn;
+    @extend %btn--blue;
+    margin: 1rem 0 6rem 0;
+    color: $white;
+    width: 100%;
+  }
+
+  &__profile {
+    @extend %btn;
+    @extend %btn--blue;
+    border: none;
+    width: 100%;
+    transform: translateY(8rem);
 
     &:hover {
       background-color: $green-12;
       color: $black;
     }
+  }
 
-    @media ( max-width: 550px ) {
-      width: 7.4rem;
+  &__booking {
+    @extend %btn;
+    @extend %btn--blue;
+    margin: 1rem;
+    width: 100%;
+
+    &:hover {
+      background-color: $green-12;
+      border: 1px solid $green-12;
+      color: $black;
+    }
+
+    @media ( max-width: 900px ) {
+      margin-top: 0rem;
+      transform: translateY(4vh);
+    }
+
+
+    @media ( max-width: 400px ) {
+      width: 80vw;
     }
   }
 
-  
+  //--------------------calendar--------------------//
+          
+  &__calendar {
+    cursor: pointer;
+  }
+
+//--------------------radio-btns--------------------//
 
   &__radio {
     margin-right: 0.5rem;
@@ -634,6 +625,9 @@
     }
   }
 
+
+//--------------------misc--------------------//
+
   &__contact-info {
     --webkit-verflow-scrolling: touch;
 
@@ -644,212 +638,4 @@
     color: $white;
     text-align: left;
   }
-
-  &__to-reviews {
-    @extend %btn;
-    transform: translateY(250%);
-    margin: 0.25rem;
-    // width: 45rem;
-    color: $white;
-
-    @media (max-width: 1050px){
-      transform: translateY(200%);
-      padding: 1rem;
-      margin: 0.5rem;
-    }
-
-    @media (max-width: 950px) and (max-height: 450px) {
-      padding: 0.5rem;
-    }
-
-    @media (max-width: 450px){
-      width: 93vw;
-    }
-
-    @media (max-width: 600px) {
-      display: none;
-    }
-  
-    &--container {
-      z-index: 99999999;
-    }
-      
-    }
-
-  &__user-edit {
-    @extend %btn;
-    margin: 2rem 0.25rem;
-    width: 6rem;
-    height: 3.5rem;
-    color: $white;
-    padding: 1rem;
-    cursor: pointer;
-    text-align: center;
-
-    position: absolute;
-    top: 1rem;
-    left: 2rem;
-  }
-}
-
-// BTNS CLASSES
-.btns {
-  &__hero--header {
-    grid-row: 1 / span 3;
-    grid-column: 2 / span 1;
-    width: max-content;
-    transform: translate(-0.75rem, 7.5rem);
-    z-index: 9999999;
-    // position: absolute;
-    // top: 39rem;
-    // right: 13.5vw;
-
-    // &:after {
-    //   width: 5rem;
-    //   height: 5rem;
-    //   border-radius: 50%;
-    //   background-color: $white;
-    // }
-
-    @media (max-height: 850px) {
-      transform: translate(-1rem, 10.5rem);
-    }
-
-    @media (max-width: 650px) {
-      // transform: translate(-2rem, -3rem);
-    }
-    
-    @media (max-width: 600px) {
-      grid-row: 4 / span 1;
-      grid-column: 1 / span 2;
-      
-      align-self: start;
-      // transform: translate(0rem, 0rem);
-      width: 27.5rem;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  &__reviews {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 2rem;
-
-    transform: translateY(-2.75rem);
-  }
-  
-  // The following "&__container" classes hasn't been used in html
-  &__container {
-  
-    &--users {
-      grid-column: 7 / span 2;
-      display: flex;
-    }
-
-    &--appointments {
-      grid-column: 7 / span 2;
-    }
-  }
-}
-
-
-
-// SOCIAL MEDIA icons
-
-.social-media-icon {
-  &__trash {
-    cursor: pointer;
-    transform: translateY(0.1rem);
-
-    &:hover {
-      color: $white;
-    }
-  }
-
-  &__square {
-    transform: translateY(0.4rem);
-  }
-
-  &__edit {
-    margin-right: 0.5rem;
-    margin-left: 2.5rem;
-  }
-
-  
-
-  &--times {
-    transform: translateY(0.4rem);
-  }
-}
-
-
-// Loading Spinner
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 999999999;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
-  animation: spinner 0.7s linear infinite;
-
-  // @media (max-width:900px) {
-  //   top: 30vh;
-  //   left: 50vh;
-  // }
-}
-
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  /* 50% {
-    transform: rotate(180deg);
-  } */
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.loader span {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: linear-gradient($white, $old-blue-2);
-}
-
-
-
-.loader span:nth-child(1) {
-  filter: blur(5px)
-}
-.loader span:nth-child(2) {
-  filter: blur(10px)
-}
-.loader span:nth-child(3) {
-  filter: blur(25px)
-}
-.loader span:nth-child(4) {
-  filter: blur(50px)
-}
-
-.loader:after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background: #240229;
-  border-radius: 50%;
 }

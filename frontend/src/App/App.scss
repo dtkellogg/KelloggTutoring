@@ -10,6 +10,8 @@
 @import "styles/components/buttons";
 @import "styles/components/calendar";
 @import "styles/components/headerScreen";
+@import "styles/components/icons";
+@import "styles/components/loading";
 @import "styles/components/nav";
 @import "styles/components/paymentSteps";
 @import "styles/components/reviews";
@@ -17,10 +19,12 @@
 
 @import "styles/layout/containers";
 @import "styles/layout/footer";
+@import "styles/layout/hero";
+
+//--------------------screens--------------------//
 
 @import "styles/screens/appointments/appointments";
-@import "styles/screens/contact";
-@import "styles/screens/home";
+@import "styles/screens/home/home";
 @import "styles/screens/Toshi/meetToshi";
 @import "styles/screens/user/user";
 
@@ -28,15 +32,20 @@
 @import "styles/screens/admin/adminApptEditScreen";
 @import "styles/screens/admin/adminCreateApptScreen";
 @import "styles/screens/admin/adminReviewsListScreen";
-@import "styles/screens/admin/adminUsersListScreen";
-@import "styles/screens/review/reviewEditScreen";
+@import "styles/screens/admin/adminUsersScreen";
+
+@import "styles/screens/review/editReviewScreen";
+
 @import "styles/screens/user/userLoginScreen";
 @import "styles/screens/user/userProfileScreen";
 @import "styles/screens/user/userRegisterScreen";
 @import "styles/screens/user/userEditScreen";
 @import "styles/screens/user/userPleaseLoginScreen";
+
 @import "styles/screens/comingSoonScreen";
-@import "styles/screens/messageFormScreen";
+
+@import "styles/screens/contact/contact";
+@import "styles/screens/contact/messageFormScreen";
 
 // @import "styles/themes/admin"
 

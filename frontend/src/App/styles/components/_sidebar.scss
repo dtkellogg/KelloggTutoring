@@ -1,20 +1,4 @@
 .sidebar {
-  background: $labor-work;
-  padding: 2rem;
-
-  @media (max-width: 950px) and (max-height: 450px) {
-    padding: 1rem;
-  }
-
-  @media (max-width: 650px ) {
-    padding: 1.4rem;
-  }
-
-  @media (max-height: 650px) {
-    // width: 22rem;
-  }
-
-
 
   &__list {
     margin-top: 2rem;
@@ -25,38 +9,17 @@
     @media (max-width: 900px ) {
       display: flex;
       justify-content: space-around;
-      // padding-right: 50vw;
       margin-top: 0;
     }
 
     @media (max-width: 950px) and (max-height: 450px) {
       line-height: 1.6rem;
     }
-
-    @media (max-width: 450px ) {
-      // padding-right: 80vw;
-    }
-
-    @media (max-width: 350px ) {
-      // padding-right: 110vw;
-    }
-
-     @media (max-width: 300px ) {
-      //  padding-right: 120vw;
-     }
   }
-
-
   
   &__list--item {
     line-height: 2rem;
-
-    @media (max-width: 650px ) {
-      // margin-right: 1.75rem;
-    }
   }
-
-
 
   &__title {
     @media (max-width: 900px ) {

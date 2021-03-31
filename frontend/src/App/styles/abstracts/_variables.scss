@@ -1,3 +1,5 @@
+//--------------------colors--------------------//
+
 $green: rgb(39, 170, 39);
 $green-12: rgb(95, 255, 95);
 $green-dark: rgb(73, 165, 73);
@@ -35,9 +37,6 @@ $blue-9: #66c2ff;
 $blue-10: #80ccff;
 $blue-11: #99d6ff;
 $blue-12: #b3e0ff;
-//   /* modified blue-13 - not css colorpicker */
-// $blue-13: #edf6fc; 
-// $blue-14: #e6f5ff;
 
 $red: rgb(230, 36, 36);
 $red-light-1: rgb(255, 24, 24);
@@ -52,34 +51,7 @@ $facebook: #3b5998;
 $instagram: #FD1D1D;
 $twitter: #1dcaff;
 
-////////
-// from cssgradient.io
-
-$rich-neighbor-1: #09c6f9;
-$rich-neighbor: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
-
-$free-food-1: #f5d020;
-$free-food: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
-
-$calm-celebration-1: #537895;
-$calm-celebration: linear-gradient(315deg, #537895 0%, #09203f 74%);
-
-$history-book-1: #d9e4f5;
-$history-book: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
-
-$someone-elses-tie-1: #485461;
-$someone-elses-tie: linear-gradient(315deg, #485461 0%, #28313b 74%);
-
-
-$early-retirement-1: #000000;
-$early-retirement: linear-gradient(315deg, #000000 0%, #414141 74%);
-
-
-$secret-file: #5b6467;
-$secret-file: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
-
-$brush: #5ca0f2;
-$brush: linear-gradient(315deg, #5ca0f2 0%, #f5f7f6 74%);
+//--------------------cssgradient.io--------------------//
 
 $old-blue-1: #fefefe;
 $old-blue-2: #00a4e4;
@@ -87,23 +59,8 @@ $old-blue-2-opacity: #00a3e418;
 $old-blue: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
 $old-blue-180: linear-gradient(315deg, #00a4e4 0%, #fefefe 74%);
 
-$pre-dark-1: #000000;
-$pre-dark: linear-gradient(147deg, #000000 0%, #434343 74%);
-
-$labor-work-1: #000000;
 $labor-work: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
 
+//--------------------fonts--------------------//
 
-$slow-internet-1: #000000;
-$slow-internet: linear-gradient(315deg, #000000 0%, #b82e1f 74%);
-
-// Favorites
-
-// #1 -- $old-blue -- better for tutoring or for stronger positive energy
-// #2 -- $labor-work -- "cooler" -- better for a different app
-// #3 -- $pre-dark -- same as $labor-work
-// #4 -- $history-book
-
-
-// 10/23/20 - actually... going to go with old blue
-
+$font-primary: 'Roboto', sans-serif;

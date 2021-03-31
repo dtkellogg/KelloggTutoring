@@ -16,7 +16,7 @@ const PageHeader = React.lazy(() => import("./components/PageHeader"));
 
 
 // screens
-const AdminUserList = React.lazy(() => import("./screens/admin/AdminUserListScreen"));
+const AdminUsers = React.lazy(() => import("./screens/admin/AdminUsersScreen"));
 const AdminUserEdit = React.lazy(() => import("./screens/admin/AdminUserEditScreen"));
 const AdminApptRequests = React.lazy(() => import("./screens/admin/AdminApptRequestsScreen"));
 const AdminReviewsList = React.lazy(() => import("./screens/admin/AdminReviewsListScreen"));
@@ -136,7 +136,7 @@ export default function App() {
                     path="/admin"
                     component={() => <PageHeader page="admin" />}
                   />
-                  <Route exact path="/admin/users" component={AdminUserList} />
+                  <Route exact path="/admin/users" component={AdminUsers} />
                   <Route
                     exact
                     path="/admin/user/:id/edit"

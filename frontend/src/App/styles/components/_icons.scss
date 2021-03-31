@@ -1,0 +1,23 @@
+.icon {
+  &__trash {
+    cursor: pointer;
+    transform: translateY(0.1rem);
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__square {
+    transform: translateY(0.4rem);
+  }
+
+  &__edit {
+    margin-right: 0.5rem;
+    margin-left: 2.5rem;
+  }
+
+  &--times {
+    transform: translateY(0.4rem);
+  }
+}

@@ -69,35 +69,35 @@ export default function ReviewEdit({ match, history, location }) {
   }
 
   return (
-    <div className="pg__meetToshi">
-      <Link to="/" className="btn__go-back">
+    <div className="container__toshi">
+      <Link to="/" className="btn__reviews--go-back">
         Go Back
       </Link>
-      <form onSubmit={handleSubmit} className="reviewEditScreen user__page">
-        <div className="reviewEditScreen__header">
+      <form onSubmit={handleSubmit} className="edit-review user__page">
+        <div className="edit-review__header">
           <h2 className="text-size-2 letter-spacing-sm">
             Edit Review
           </h2>
 
         </div>
-        <div className="reviewEditScreen__content">
-          <div className="reviewEditScreen__element">
+        <div className="edit-review__content">
+          <div className="edit-review__element">
             <label
-              className="text-size-4 letter-spacing-md reviewEditScreen__label"
+              className="text-size-4 letter-spacing-md edit-review__label"
               htmlFor="name"
             >
               name
             </label>
             <input
               type="text"
-              className="reviewEditScreen__input reviewEditScreen__input-contact text-size-3"
+              className="edit-review__input edit-review__input-contact text-size-3"
               placeholder="Your name address"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
 
-          <div className="reviewEditScreen__element">
+          <div className="edit-review__element">
             <div className="review__new-review--radio-btns">
               <div className="">
                 <input
@@ -162,23 +162,23 @@ export default function ReviewEdit({ match, history, location }) {
             </div>
           </div>
 
-          {/* <div className="reviewEditScreen__element">
-            <label className="text-size-4 letter-spacing-md reviewEditScreen__label">
+          {/* <div className="edit-review__element">
+            <label className="text-size-4 letter-spacing-md edit-review__label">
               Is Admin
             </label>
             <input
               type="radio"
               checked={isAdmin}
-              className="reviewEditScreen__input reviewEditScreen__input-contact text-size-3"
+              className="edit-review__input edit-review__input-contact text-size-3"
               placeholder="Admin?"
               value={isAdmin}
               onChange={(isAdmin) => setIsAdmin(!isAdmin)}
             />
           </div> */}
 
-          <div className="reviewEditScreen__element text-size-4">
+          <div className="edit-review__element text-size-4">
             <textarea
-              className="reviewEditScreen__textarea text-size-4"
+              className="edit-review__textarea text-size-4"
               type="text"
               placeholder="Message"
               style={{ color: "var(--old-blue-2)" }}
@@ -193,7 +193,7 @@ export default function ReviewEdit({ match, history, location }) {
           </div>
 
           <button
-            className="btn__userEditScreen"
+            className="btn__edit-user"
             type="submit"
             onClick={handleSubmit}
           >

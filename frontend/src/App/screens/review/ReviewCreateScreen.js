@@ -83,7 +83,7 @@ export default function ReviewCreateScreen({ history }) {
   }, [dispatch, user]);
 
   return (
-    <div className="pg__meetToshi">
+    <div className="container__toshi">
       <Sidebar title="Toshi" list={toshiList} />
       <form className="reviews__new-review">
         <h2 className="reviews__new-review--header text-size-2">

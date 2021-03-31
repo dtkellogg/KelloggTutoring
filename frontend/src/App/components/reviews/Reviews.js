@@ -15,15 +15,15 @@ export default function Reviews({history, type}) {
     <>
       <div
         className={
-          type === "meetToshi" ? "pg__meetToshi" : "pg__home--container"
+          type === "meetToshi" ? "container__toshi" : "home--container"
         }
       >
         {type === "meetToshi" && <Sidebar title="Toshi" list={toshiList} />}
         <div
           className={
             type === "meetToshi"
-              ? "pg__meetToshi--card__meetToshi"
-              : "pg__home--review-container"
+              ? "toshi--card__meetToshi"
+              : "home--review-container"
           }
         >
           <div
@@ -33,10 +33,7 @@ export default function Reviews({history, type}) {
             }
           >
             {type === "meetToshi" && (
-              <Link
-                to={`/review/create-review`}
-                className="btn__reviews"
-              >
+              <Link to={`/review/create-review`} className="btn__reviews">
                 <span className="text-size-6" style={{ textAlign: "center" }}>
                   Create Review
                 </span>

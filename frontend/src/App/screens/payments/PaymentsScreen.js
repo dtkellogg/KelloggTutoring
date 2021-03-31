@@ -138,7 +138,7 @@ export default function Payments({ match, history }) {
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
             .filter((appt) => appt.paid === false).length === 0 ? (
-            <div className="container__no-appts">
+            <div className="header__no-appts">
               <div className="text-size-2 msg__userInfoNull">
                 You have no unpaid appointments
               </div>
@@ -149,7 +149,7 @@ export default function Payments({ match, history }) {
             <div className="appointments__payments--header-container">
               <Link
                 to={`/appointments/payment-method`}
-                className="btn__continue"
+                className="btn__payments--continue"
               >
                 continue
               </Link>
@@ -221,7 +221,7 @@ export default function Payments({ match, history }) {
                             {!appt.paid && (
                               <button
                                 key={appt._id}
-                                className="btn__addToCart"
+                                className="btn__cart--add"
                                 disabled={cart.includes(appt._id)}
                                 style={{
                                   backgroundImage:

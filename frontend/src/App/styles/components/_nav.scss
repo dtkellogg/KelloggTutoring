@@ -35,19 +35,10 @@
 
   }
 
-  &__upper {
-    @include hundredPercentHW();
-    @include flexCenterCenter($justify-content: space-between);
-    background-color: $grey-light-9;
-    border-bottom: 1px solid $grey-light-6;
-    color: $black;
-    z-index: 999999999;
+  
 
-    @media ( max-width: 510px ) {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
-    }
+  &__upper {
+    
 
     &--text {
       height: 100%;
@@ -111,15 +102,7 @@
     }
   }
 
-  &__lower {
-    @include hundredPercentHW();
-    @include flexCenterCenter($justify-content: space-between);
-    background-color: $grey-light-9;
-    border-bottom: 1px solid $grey-light-6;
-    padding: 1rem 1rem 1rem 2rem;
-    position: relative;
-    // overflow: hidden;
-  }
+  
 
   &__link {
     height: 100%;
@@ -279,4 +262,31 @@ input[type="text"]::placeholder {
 
 input[type="text"] {
   // color: $black;
+}
+
+.container__nav {
+  &--upper {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: space-between);
+    background-color: $grey-light-9;
+    border-bottom: 1px solid $grey-light-6;
+    color: $black;
+    z-index: 999999999;
+
+    @media ( max-width: 510px ) {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &--lower {
+    @include hundredPercentHW();
+    @include flexCenterCenter($justify-content: space-between);
+    background-color: $grey-light-9;
+    border-bottom: 1px solid $grey-light-6;
+    padding: 1rem 1rem 1rem 2rem;
+    position: relative;
+    // overflow: hidden;
+  }
 }

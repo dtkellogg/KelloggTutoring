@@ -123,7 +123,7 @@ export default function ApptsList({ location, type }) {
       <div className="pg__appointment">
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
-          <div className="container__no-appts">
+          <div className="header__no-appts">
             <h2 className="text-size-2 msg__no-prev-appts">
               You have no appointment history
             </h2>
@@ -180,7 +180,7 @@ export default function ApptsList({ location, type }) {
                           size={20}
                           color="var(--green-dark)"
                           fill="var(--green)"
-                          className="social-media-icon__square grey-light-7"
+                          className="icon__square grey-light-7"
                           type="button"
                           // onClick={() => deleteHandler(appt._id)}
                         />
@@ -190,7 +190,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--grey-light-5)"
-                        className="social-media-icon--times grey-light-7"
+                        className="icon--times grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -201,7 +201,7 @@ export default function ApptsList({ location, type }) {
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--red)"
-                      className="social-media-icon__trash grey-light-7"
+                      className="icon__trash grey-light-7"
                       type="button"
                       // onClick={() => deleteHandler(appt._id)}
                     />
@@ -256,7 +256,7 @@ export default function ApptsList({ location, type }) {
                             size={20}
                             color="var(--green-dark)"
                             fill="var(--green)"
-                            className="social-media-icon__square grey-light-7"
+                            className="icon__square grey-light-7"
                             type="button"
                             // onClick={() => deleteHandler(appt._id)}
                           />
@@ -266,7 +266,7 @@ export default function ApptsList({ location, type }) {
                           size={20}
                           color="var(--green-dark)"
                           fill="var(--grey-light-5)"
-                          className="social-media-icon--times grey-light-7"
+                          className="icon--times grey-light-7"
                           type="button"
                           // onClick={() => deleteHandler(appt._id)}
                         />
@@ -277,7 +277,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--red)"
-                        className="social-media-icon__trash grey-light-7"
+                        className="icon__trash grey-light-7"
                         type="button"
                         onClick={() => deleteHandler(appt._id)}
                       />
@@ -328,7 +328,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--green)"
-                        className="social-media-icon__square grey-light-7"
+                        className="icon__square grey-light-7"
                         type="button"
                         onClick={() => paidHandler(appt._id)}
                       />
@@ -338,7 +338,7 @@ export default function ApptsList({ location, type }) {
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--grey-light-5)"
-                      className="social-media-icon--times"
+                      className="icon--times"
                       type="button"
                       onClick={() => paidHandler(appt._id)}
                     />
@@ -350,7 +350,7 @@ export default function ApptsList({ location, type }) {
                     size={20}
                     color="var(--green-dark)"
                     fill="var(--red)"
-                    className="social-media-icon__trash grey-light-7"
+                    className="icon__trash grey-light-7"
                     type="button"
                     onClick={() => deleteHandler(appt._id)}
                   />
@@ -414,7 +414,7 @@ export default function ApptsList({ location, type }) {
   //                           size={20}
   //                           color="var(--green-dark)"
   //                           fill="var(--green)"
-  //                           className="social-media-icon grey-light-7"
+  //                           className="icon grey-light-7"
   //                           type="button"
   //                         // onClick={() => deleteHandler(appt._id)}
   //                         />
@@ -424,7 +424,7 @@ export default function ApptsList({ location, type }) {
   //                           size={20}
   //                           color="var(--green-dark)"
   //                           fill="var(--red)"
-  //                           className="social-media-icon grey-light-7"
+  //                           className="icon grey-light-7"
   //                           type="button"
   //                         // onClick={() => deleteHandler(appt._id)}
   //                         />
@@ -435,7 +435,7 @@ export default function ApptsList({ location, type }) {
   //                       size={20}
   //                       color="var(--green-dark)"
   //                       fill="var(--red)"
-  //                       className="social-media-icon__trash grey-light-7"
+  //                       className="icon__trash grey-light-7"
   //                       type="button"
   //                     // onClick={() => deleteHandler(appt._id)}
   //                     />
@@ -489,7 +489,7 @@ export default function ApptsList({ location, type }) {
   //                           size={20}
   //                           color="var(--green-dark)"
   //                           fill="var(--green)"
-  //                           className="social-media-icon grey-light-7"
+  //                           className="icon grey-light-7"
   //                           type="button"
   //                         // onClick={() => deleteHandler(appt._id)}
   //                         />
@@ -499,7 +499,7 @@ export default function ApptsList({ location, type }) {
   //                           size={20}
   //                           color="var(--green-dark)"
   //                           fill="var(--red)"
-  //                           className="social-media-icon grey-light-7"
+  //                           className="icon grey-light-7"
   //                           type="button"
   //                         // onClick={() => deleteHandler(appt._id)}
   //                         />
@@ -510,7 +510,7 @@ export default function ApptsList({ location, type }) {
   //                       size={20}
   //                       color="var(--green-dark)"
   //                       fill="var(--red)"
-  //                       className="social-media-icon__trash grey-light-7"
+  //                       className="icon__trash grey-light-7"
   //                       type="button"
   //                     // onClick={() => deleteHandler(appt._id)}
   //                     />
@@ -563,7 +563,7 @@ export default function ApptsList({ location, type }) {
                         size={20}
                         color="var(--green-dark)"
                         fill="var(--green)"
-                        className="social-media-icon__square grey-light-7"
+                        className="icon__square grey-light-7"
                         type="button"
                         // onClick={() => deleteHandler(appt._id)}
                       />
@@ -573,7 +573,7 @@ export default function ApptsList({ location, type }) {
                       size={20}
                       color="var(--green-dark)"
                       fill="var(--grey-light-5)"
-                      className="social-media-icon--times grey-light-7"
+                      className="icon--times grey-light-7"
                       type="button"
                     />
                   )}
@@ -583,7 +583,7 @@ export default function ApptsList({ location, type }) {
                     size={20}
                     color="var(--green-dark)"
                     fill="var(--red)"
-                    className="social-media-icon__trash grey-light-7"
+                    className="icon__trash grey-light-7"
                     type="button"
                     onClick={() => deleteHandler(appt._id)}
                   />

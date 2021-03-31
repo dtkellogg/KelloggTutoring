@@ -19,8 +19,7 @@
   --text-size-5: $text-size-5;
 }
 
-/* --------------------------------------------------------------------- */
-/* global resets */
+//--------------------global-resets--------------------//
 *,
 *::before, 
 *::after {
@@ -39,7 +38,7 @@ body {
   box-sizing: border-box;
   background: $white;
   color: $black;
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
 }
 
 a {

@@ -1,42 +1,20 @@
-.messageForm {
-  @include hundredPercentHW();
-  padding: 1rem 2rem;
+.edit-review {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 3;
+  padding: 5rem 2rem 5rem 2rem;
+  height: 100%;
   overflow: scroll;
-  cursor: ns-resize;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 40rem;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
-
-  @media (max-width: 1000px) {
-    // width: 40rem;
-  }
-
-  @media (max-width: 600px) {
-    // width: 35rem;
-    height: min-content;
-    overflow: visible;
-    // padding: 1rem;
-  }
 
   &__header {
     text-align: center;
-    margin-bottom: 1rem;
-    width: 100%;
+    margin-bottom: 3rem;
   }
 
   &__content {
-    height: min-content;
+    height: 60vh;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    // align-items: center;
     justify-content: space-around;
   }
 
@@ -44,11 +22,6 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    
-    
-    @media (max-width: 600px) {
-      width: 100%;
-    }
 
   }
 
@@ -69,9 +42,9 @@
     }
     
     &--contact {
-    border: none;
-    border-bottom: 1px solid black;
-    height: 3rem;
+      border: none;
+      border-bottom: 1px solid black;
+      height: 3rem;
     }
 
     &--contact-message {
@@ -81,24 +54,25 @@
 
   &__success-message--contact {
     color: $green;
-    // margin-bottom: 1.5rem;
+    margin-top: 1rem;
   }
 
   &__fail-message--contact {
     color: $red;
-    // margin-bottom: 3rem;
-    // position: absolute;
-    // bottom: 10rem;
-    // display: block;
+    margin-top: 1rem;
   }
 
   &__textarea {
+    min-height: 30vh;
+    max-height: 62vh;
+    width: 100%;
+
     margin: 1rem 0;
     padding: 1rem;
     height: 20rem;
-    border: 1px dashed $old-blue-2;
     color: $old-blue-2;
-    resize: vertical;
+    border: 1px dashed $old-blue-2;
+    resize: none;
     font-family: 'Roboto', sans-serif;
 
     &:focus {
@@ -106,7 +80,6 @@
       border: 1px solid $old-blue-2;
     }
   }
-
 }
 
 label[for="email__messageForm"]::after,

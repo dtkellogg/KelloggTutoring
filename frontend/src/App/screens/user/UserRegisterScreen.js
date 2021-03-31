@@ -42,69 +42,69 @@ export default function Register({ location, history }) {
   };
 
   return (
-      <form onSubmit={handleSubmit} className="registerScreen user__page">
-        <div className="registerScreen__header">
+      <form onSubmit={handleSubmit} className="register-screen user__page">
+        <div className="register-screen__header">
           <h2 className="text-size-2 letter-spacing-sm">
             Sign up.
           </h2>
 
           {message && <h1>{message}</h1>}
         </div>
-        <div className="registerScreen__content">
+        <div className="register-screen__content">
           <div className="loginScreen__input-container">
 
-            <div className="registerScreen__element">
+            <div className="register-screen__element">
               <label
-                className="text-size-5 letter-spacing-md registerScreen__label"
+                className="text-size-5 letter-spacing-md register-screen__label"
                 htmlFor="name"
               >
                 Full name
               </label>
               <input
                 type="name"
-                className="registerScreen__input registerScreen__input-contact text-size-4"
+                className="register-screen__input register-screen__input-contact text-size-4"
                 placeholder="Full name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div className="registerScreen__element">
+            <div className="register-screen__element">
               <label
-                className="text-size-5 letter-spacing-md registerScreen__label"
+                className="text-size-5 letter-spacing-md register-screen__label"
                 htmlFor="email"
               >
                 email
               </label>
               <input
                 type="email"
-                className="registerScreen__input registerScreen__input-contact text-size-4"
+                className="register-screen__input register-screen__input-contact text-size-4"
                 placeholder="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
-            <div className="registerScreen__element">
-              <label className="text-size-5 letter-spacing-md registerScreen__label">
+            <div className="register-screen__element">
+              <label className="text-size-5 letter-spacing-md register-screen__label">
                 password
               </label>
               <input
                 type="password"
-                className="registerScreen__input registerScreen__input-contact text-size-4"
+                className="register-screen__input register-screen__input-contact text-size-4"
                 placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
-            <div className="registerScreen__element">
-              <label className="text-size-5 letter-spacing-md registerScreen__label">
+            <div className="register-screen__element">
+              <label className="text-size-5 letter-spacing-md register-screen__label">
                 confirm password
               </label>
               <input
                 type="password"
-                className="registerScreen__input registerScreen__input-contact text-size-4"
+                className="register-screen__input register-screen__input-contact text-size-4"
                 placeholder="confirm password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -113,7 +113,7 @@ export default function Register({ location, history }) {
           </div>
 
           <button
-            className="btn__registerScreen"
+            className="btn__register"
             type="submit"
             onClick={handleSubmit}
           >

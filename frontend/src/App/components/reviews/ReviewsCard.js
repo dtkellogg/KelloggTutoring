@@ -62,7 +62,7 @@ function ReviewsCard({review}, type) {
 
         <div className="reviews__card--item-msg text-size-4">{review.msg}</div>
 
-        <div className="btns__reviews">
+        <div className="reviews__card--interactions">
           <div
             className="reviews__card--item-approved text-size-4"
             style={{
@@ -78,14 +78,14 @@ function ReviewsCard({review}, type) {
                 <FaEdit
                   size={20}
                   fill="var(--old-blue-2)"
-                  className="social-media-icon__edit"
+                  className="icon__edit"
                   type="button"
                 />
               </Link>
               <FaTrash
                 size={20}
                 fill="var(--red)"
-                className="social-media-icon__trash"
+                className="icon__trash"
                 type="button"
                 onClick={() => deleteHandler(review._id)}
               />
@@ -149,7 +149,7 @@ function ReviewsCard({review}, type) {
                 <FaEdit
                   size={20}
                   fill="var(--old-blue-2)"
-                  className="social-media-icon__edit"
+                  className="icon__edit"
                   type="button"
                   // onClick={() => deleteHandler(appt._id)}
                 />
@@ -157,7 +157,7 @@ function ReviewsCard({review}, type) {
               <FaTrash
                 size={20}
                 fill="var(--red)"
-                className="social-media-icon__trash"
+                className="icon__trash"
                 type="button"
                 onClick={() => deleteHandler(review._id)}
               />

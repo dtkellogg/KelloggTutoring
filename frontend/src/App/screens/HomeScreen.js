@@ -78,9 +78,9 @@ export default function HomePage() {
   }, [location, dispatch]);
 
   return (
-    <div className="home">
-      <div className="container__btn--screen-nav fadeInAnimated--0">
-        <button className="btn__screen-nav--up">
+    <div className="container__home--primary">
+      <div className="container__btns--up-down-ui fadeInAnimated--0">
+        <button className="btn__nav--up">
           <FaCaretUp
             size={40}
             fill="var(--old-blue)"
@@ -88,19 +88,19 @@ export default function HomePage() {
             onClick={handleScrollToTop}
           />
         </button>
-        <button className="btn__screen-nav--down">
+        <button className="btn__nav--down">
           <FaCaretDown
             size={40}
             fill="var(--old-blue)"
-            className="btn__calendar"
+            className=""
             onClick={handleScrollToBottom}
           />
         </button>
       </div>
-      <div className="pg__home">
+      <div className="container__home--secondary">
         <div className="container__hero">
-          <div className="container__hero--text">
-            <h1 className="text-size-0 letter-spacing-lg container__hero--welcome fadeInAnimated--2">
+          <div className="hero__text">
+            <h1 className="text-size-0 letter-spacing-lg hero__welcome fadeInAnimated--2">
               Kellogg Tutoring
             </h1>
             <h3 className="text-size-2 hero__tutoring-simplified fadeInAnimated--3">
@@ -111,14 +111,14 @@ export default function HomePage() {
             </h4>
           </div>
 
-          <div className="hero__container--right">
-            <div className="btns__hero--header fadeInAnimated--4">
-              <button className="btn__request-tutoring">
+          <div className="container__hero--right">
+            <div className="container__btns--hero fadeInAnimated--4">
+              <button className="btn__home--to-request-tutoring">
                 <Link to={`/appointments/booking`} className="">
                   Request Tutoring
                 </Link>
               </button>
-              <button className="btn__pay">
+              <button className="btn__home--to-payments">
                 <Link to={`/appointments/payments`} className="">
                   Payments
                 </Link>
@@ -138,34 +138,33 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="highlights__appointments">
+        <section className="highlights__appointments">
           <div className="highlights__appointments--text">
             <h3 className="text-size-2 highlights__appointments--header">
               Here are your <b>upcoming appointments:</b>
             </h3>
 
-            <div className="btn__highlights--appointments-container">
+            <div className="container__btns--home-3-btns">
               <Link to={`/appointments/booking`} className="">
-                <button className="btn__highlights--appointments">
+                <button className="btn__home--3-btns">
                   Request an appointment
                 </button>
               </Link>
 
               <Link to={`/appointments/appts`} className="">
-                <button className="btn__highlights--appointments">
+                <button className="btn__home--3-btns">
                   View all appointments
                 </button>
               </Link>
 
               <Link to={`/appointments/payments`} className="">
-                <button className="btn__highlights--appointments">
+                <button className="btn__home--3-btns">
                   Make a payment
                 </button>
               </Link>
 
-              <div className="highlights__appointments--btns-container">
-                <button
-                  className="btn__highlights--appts-calendar"
+              <div className="container__btns--home-calendar-or-list">
+                <button className="btn__highlights--appts-calendar"
                   onClick={() => setDisplayAppts("calendar")}
                   style={{
                     backgroundColor:
@@ -185,8 +184,7 @@ export default function HomePage() {
                   Calendar
                 </button>
 
-                <button
-                  className="btn__highlights--appts-list"
+                <button className="btn__highlights--appts-list"
                   onClick={() => setDisplayAppts("list")}
                   style={{
                     backgroundColor:
@@ -207,11 +205,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          <div
-            className="highlights__appointments--appointments__list-container"
-            ref={calendarRef}
-          >
+          <div className="highlights__appointments--appointments__list-container" ref={calendarRef} >
             {displayAppts === "list" ? (
               <div style={{ width: "100%" }}>
                 <ApptsList type="upcoming" />
@@ -228,19 +222,20 @@ export default function HomePage() {
               </Link>
             )}
           </div>
-        </div>
+        </section>
 
-        <div className="highlights__meetToshi" ref={reviewsRef}>
+        <section className="highlights__meetToshi" ref={reviewsRef}>
           <div className="highlights__meetToshi--container">
             <Reviews type="home" />
             <Link
               to={`/review/create-review`}
-              className="btn__to-reviews--container"
+              className=""
             >
-              <button className="btn__to-reviews">Write a review</button>
+              <button className="btn__home--to-reviews">Write a review</button>
             </Link>
           </div>
-        </div>
+        </section>
+
       </div>
     </div>
   );

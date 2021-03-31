@@ -238,7 +238,7 @@ export default function Calendar({ type }) {
 
 	if(userInfo === null) {
 		return (
-      <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"} >
+      <div className={type === "home" ? "home--calendar" : "pg__appointment"} >
         <Sidebar title="Appointments" list={apptsList} />
         <div className="appointments">
           <PleaseLoginScreen />
@@ -247,7 +247,7 @@ export default function Calendar({ type }) {
     )
 	 } else {
 	 return (
-     <div className={type === "home" ? "pg__home--calendar" : "pg__appointment"}>
+     <div className={type === "home" ? "home--calendar" : "pg__appointment"}>
        {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
        <div className="calendar">
          <div className="calendar__row--header text-size-2">
@@ -257,7 +257,7 @@ export default function Calendar({ type }) {
              className="btn__calendar"
              onClick={() => handleBackwards()}
            />
-           <div className="pg__home--calendar--header">{`${month} ${day}, ${year}`}</div>
+           <div className="home--calendar--header">{`${month} ${day}, ${year}`}</div>
            <FaCaretRight
              size={30}
              fill="var(--old-blue-2)"

@@ -75,14 +75,14 @@ export default function AdminAppointmentsList({ location, history }) {
 
 
 	return (
-		<div className="pg__meetToshi">
+		<div className="toshi">
 			<Sidebar title="Toshi" list={adminList} />
 			<div className="reviewsAdmin">
 				<div className="text-size-2 admin__header--container">
 					<div className="text-size-2 appointments__header">
 						All appointments:
 					</div>
-					<Link to={`${url}/create-appointment`} className="btn__adminApptsList">
+					<Link to={`${url}/create-appointment`} className="btn__admin--appts-list">
 						<span className="text-size-6" style={{ textAlign: "center" }}>
 							{width > 900 ? "Create appointment" : "Create"}
 						</span>

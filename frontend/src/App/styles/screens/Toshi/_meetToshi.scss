@@ -1,22 +1,5 @@
-.pg__meetToshi {
-  // height: min-content;
-  min-height: 85vh;
-  width: 100vw;
-  // height: 85vh;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(5, 1fr);
+.toshi {
   
-
-  @media (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media (max-width: 950px) and (max-height: 450px) {
-    grid-template-columns: none;
-    min-height: 148vh;
-  }
 
   &--card {
     &__meetToshi-home {

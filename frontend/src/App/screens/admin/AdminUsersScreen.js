@@ -15,7 +15,7 @@ import { adminList } from "../../data/lists"
 
 
 
-export default function AdminUserList ({ location, history }) {
+export default function AdminUsers ({ location, history }) {
 	const dispatch = useDispatch()
 
 
@@ -63,7 +63,7 @@ export default function AdminUserList ({ location, history }) {
 
 	if(users) {
     return (
-      <div className="pg__meetToshi">
+      <div className="container__toshi">
         <Sidebar title="Toshi" list={adminList} />
         <div className="users">
           <div className="text-size-2 users__header--container">
@@ -95,7 +95,7 @@ export default function AdminUserList ({ location, history }) {
 
                       <td className="users__td--edit">
                         <Link to={`/admin/user/${user._id}/edit`}>
-                          <button className="btn__edit">edit</button>
+                          <button className="btn__admin--edit">edit</button>
                         </Link>
                       </td>
 
@@ -104,7 +104,7 @@ export default function AdminUserList ({ location, history }) {
                           size={20}
                           color="var(--green-dark)"
                           fill="var(--red)"
-                          className="social-media-icon grey-light-7"
+                          className="icon grey-light-7"
                           type="button"
                           onClick={() => deleteHandler(user._id)}
                         />

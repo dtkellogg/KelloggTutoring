@@ -22,7 +22,7 @@ function CustomLink({ to, children }) {
 }
 
 
-function SidebarPre({ title, list }) {
+function SidebarRaw({ title, list }) {
   const { url } = useRouteMatch();
   const location = useLocation();
   
@@ -34,7 +34,7 @@ function SidebarPre({ title, list }) {
 
 
   return (
-    <div className="sidebar">
+    <div className="container__sidebar">
       <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
       <ul className="sidebar__list text-size-5">
         {list.map((item) => {
@@ -88,4 +88,4 @@ function SidebarPre({ title, list }) {
   );
 }
 
-export const Sidebar = React.memo(SidebarPre)
+export const Sidebar = React.memo(SidebarRaw)

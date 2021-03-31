@@ -39,7 +39,7 @@ export default function NavLower() {
 
 
   return (
-    <nav className="nav__lower">
+    <nav className="container__nav--lower">
       <h3 className="text-size-3">{subheader}</h3>
       <div className="search__wrapper fadeInAnimated--0">
         <input
@@ -47,7 +47,7 @@ export default function NavLower() {
           type="text"
           placeholder="Search Kellogg Tutoring..."
           style={searchInput ? { width: "100%" } : { width: "inherit" }}
-          className="btn__search"
+          className="btn__nav--search"
           onChange={(e) => handleSearchChange(e.target.value)}
         />
         <button className="nav__search--btn">
