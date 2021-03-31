@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // actions
@@ -17,8 +17,10 @@ import {Sidebar} from "../../components/navigation/Sidebar";
 import { adminList } from "../../data/lists"
 
 
-export default function AdminUserEdit ({ match, history, location }) {
+export default function AdminUserEdit ({ match }) {
 	const userId = match.params.id
+	const history = useHistory()
+	const location = useLocation()
 
 	const [name, setName] = React.useState('')
 	const [email, setEmail] = React.useState('')

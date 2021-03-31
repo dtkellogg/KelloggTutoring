@@ -70,7 +70,7 @@ export default function AdminApptRequests({ location, history }) {
 
     if (appointmentRequests) {
         return (
-            <div className="toshi">
+            <div className="container__toshi">
                 <Sidebar title="Toshi" list={adminList} />
                 <div className="appointment-requests">
                     <div className="text-size-2 appointment-requests__header--container">

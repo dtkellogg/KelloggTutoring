@@ -129,7 +129,7 @@ export default function Payments({ match, history }) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar title="Appointments" list={ apptsList } />
+      {/* <Sidebar title="Appointments" list={ apptsList } /> */}
       <div className="appointments">
         {!userInfo ? (
           <div className="">

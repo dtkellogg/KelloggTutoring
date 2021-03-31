@@ -97,10 +97,10 @@ export default function UserBookingScreen({ location, history, type}) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar
+      {/* <Sidebar
         title={type === "booking" ? "Appointments" : "Contact"}
         list={type === "schedule" ? contactList : apptsList}
-      />
+      /> */}
 
       <div className="appointments">
         {!userInfo ? (

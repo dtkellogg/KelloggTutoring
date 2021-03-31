@@ -239,7 +239,7 @@ export default function Calendar({ type }) {
 	if(userInfo === null) {
 		return (
       <div className={type === "home" ? "home--calendar" : "pg__appointment"} >
-        <Sidebar title="Appointments" list={apptsList} />
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
         <div className="appointments">
           <PleaseLoginScreen />
         </div>
@@ -248,7 +248,7 @@ export default function Calendar({ type }) {
 	 } else {
 	 return (
      <div className={type === "home" ? "home--calendar" : "pg__appointment"}>
-       {type !== "home" && <Sidebar title="Appointments" list={apptsList} />}
+       {/* {type !== "home" && <Sidebar title="Appointments" list={apptsList} />} */}
        <div className="calendar">
          <div className="calendar__row--header text-size-2">
            <FaCaretLeft

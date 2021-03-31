@@ -87,7 +87,7 @@ export default function ApptsList({ location, type }) {
   if (!userInfo) {
     return (
       <div className="pg__appointment">
-        <Sidebar title="Appointments" list={apptsList} />
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
         <div className="appointments">
           <PleaseLoginScreen />
         </div>
@@ -121,7 +121,7 @@ export default function ApptsList({ location, type }) {
   ) {
     return (
       <div className="pg__appointment">
-        <Sidebar title="Appointments" list={apptsList} />
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
         <div className="appointments">
           <div className="header__no-appts">
             <h2 className="text-size-2 msg__no-prev-appts">
@@ -218,7 +218,7 @@ export default function ApptsList({ location, type }) {
   if (type === "all" && userInfo) {
     return (
       <div className="pg__appointment">
-      <Sidebar title="Appointments" list={apptsList} />
+      {/* <Sidebar title="Appointments" list={apptsList} /> */}
       <div className="appointments__table--container">
         <table className="text-size-3 appointments__list--all">
           <thead className="thead">
@@ -375,7 +375,7 @@ export default function ApptsList({ location, type }) {
   // ) {
   //   return (
   //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
+        // <Sidebar title="Appointments" list={apptsList} />
   //       <table className="text-size-3 appointments__list">
   //         <thead className="thead">
   //           <tr className="tr">
@@ -452,7 +452,7 @@ export default function ApptsList({ location, type }) {
   // if (type === "all" && userInfo) {
   //   return (
   //     <div className="pg__appointment">
-  //       <Sidebar title="Appointments" list={apptsList} />
+        // <Sidebar title="Appointments" list={apptsList} />
 
 
   //       <table className="text-size-3 appointments__list--all">

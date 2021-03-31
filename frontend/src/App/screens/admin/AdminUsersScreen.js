@@ -5,6 +5,7 @@ import { FaTrash } from 'react-icons/fa'
 
 // components
 import {Sidebar} from "../../components/navigation/Sidebar";
+import AdminUserList from "../../components/users/UserList";
 
 // actions
 import { listUsers, deleteUser } from "../../actions/userActions";
@@ -15,53 +16,21 @@ import { adminList } from "../../data/lists"
 
 
 
-export default function AdminUsers ({ location, history }) {
+export default function AdminUsers () {
 	const dispatch = useDispatch()
 
-
-	const userList = useSelector((state) => state.userList)
-	const {
-		loading, 
-		error, 
-    users
-  } = userList
-
-	const userLogin = useSelector((state) => state.userLogin)
-	const { userInfo } = userLogin
-
-	const userDelete = useSelector((state) => state.userDelete)
-  const { success: successDelete } = userDelete
-
-
-	React.useEffect(() => {
-		if (userInfo && userInfo.isAdmin) {
-			dispatch(listUsers())
-		} else {
-			// Note: come back and implement the redirect below once useHistory is defined in the right place
-			history.push('/login')
-		}
-	}, [dispatch, history, successDelete, userInfo])
-
-	React.useEffect(() => {
-		if (loading) {
-			dispatch(subheader("Loading..."));
-		} else {
-			dispatch(subheader(""));
-		}
-		if (error) {
-			dispatch(subheader({ error }));
-		}
-  }, [dispatch, loading, error])
+	// React.useEffect(() => {
+	// 	if (loading) {
+	// 		dispatch(subheader("Loading..."));
+	// 	} else {
+	// 		dispatch(subheader(""));
+	// 	}
+	// 	if (error) {
+	// 		dispatch(subheader({ error }));
+	// 	}
+  // }, [dispatch, loading, error])
   
-
-	const deleteHandler = (id) => {
-		if (window.confirm('Are you sure you want to delete this user?')) {
-			dispatch(deleteUser(id))
-		}
-  }
-  
-
-	if(users) {
+	// if(users) {
     return (
       <div className="container__toshi">
         <Sidebar title="Toshi" list={adminList} />
@@ -82,41 +51,12 @@ export default function AdminUsers ({ location, history }) {
                   <th className="users__th--delete">delete</th>
                 </tr>
               </thead>
-              <tbody className="tbody">
-                {users.map((user) => {
-                  return (
-                    <tr key={user._id} className="tr">
-                      <td className="text-size-3 users__td--name">
-                        {user.name}
-                      </td>
-                      <td className="text-size-3 users__td--email">
-                        <a href={`mailto:${user.email}`}>{user.email}</a>
-                      </td>
-
-                      <td className="users__td--edit">
-                        <Link to={`/admin/user/${user._id}/edit`}>
-                          <button className="btn__admin--edit">edit</button>
-                        </Link>
-                      </td>
-
-                      <td className="users__td--delete">
-                        <FaTrash
-                          size={20}
-                          color="var(--green-dark)"
-                          fill="var(--red)"
-                          className="icon grey-light-7"
-                          type="button"
-                          onClick={() => deleteHandler(user._id)}
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
+              
+                <AdminUserList />
             </table>
           </div>
         </div>
       </div>
     )
-  } else return null
+  // } else return null
 }

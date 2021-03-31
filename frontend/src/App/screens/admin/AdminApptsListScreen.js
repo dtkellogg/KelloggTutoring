@@ -75,7 +75,7 @@ export default function AdminAppointmentsList({ location, history }) {
 
 
 	return (
-		<div className="toshi">
+		<div className="container__toshi">
 			<Sidebar title="Toshi" list={adminList} />
 			<div className="reviewsAdmin">
 				<div className="text-size-2 admin__header--container">
