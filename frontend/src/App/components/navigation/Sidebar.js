@@ -17,7 +17,7 @@ function CustomLink({ to, children }) {
   );
 }
 
-export function SidebarRaw({ title, list }) {
+function SidebarRaw({ title, list }) {
   const { url } = useRouteMatch();
   const location = useLocation();
 
@@ -29,7 +29,8 @@ export function SidebarRaw({ title, list }) {
           <CustomLink
             key={item}
             to={{
-              pathname: `${url}/${slug(item)}`,
+              // pathname: `${url}/${slug(item)}`,
+              pathname: `/appointments/${slug(item)}`,
               search: location.search,
             }}
           >
@@ -120,4 +121,6 @@ export function SidebarRaw({ title, list }) {
 //   );
 // }
 
-export const Sidebar = React.memo(SidebarRaw)
+export const Sidebar = React.memo(SidebarRaw, (prevProps, nextProps) => {
+  return prevProps.count === nextProps.count
+})

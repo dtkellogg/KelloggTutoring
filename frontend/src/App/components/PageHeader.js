@@ -19,7 +19,7 @@ export default function PageHeader({ location, history, page }) {
 
   return (
     <div className="pg__appointment">
-      <Sidebar
+      {/* <Sidebar
         title={
           page === "appts"
             ? "Appointments"
@@ -38,7 +38,7 @@ export default function PageHeader({ location, history, page }) {
             ? contactList
             : adminList
         }
-      />
+      /> */}
 
       <div className="page-header fadeInAnimated--0">
         <h2 className="page-header__text text-size-2">

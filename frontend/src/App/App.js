@@ -11,6 +11,13 @@ import Footer from "./components/Footer";
 import Calendar from "./components/Calendar"
 import LoadingSpinner from "./components/LoadingSpinner"
 
+import { Sidebar } from "./components/navigation/Sidebar";
+
+// sidebar list
+import { apptsList } from './data/lists'
+
+
+
 const ApptsList = React.lazy(() => import("./components/ApptsList"));
 const PageHeader = React.lazy(() => import("./components/PageHeader"));
 
@@ -53,23 +60,38 @@ const ApptsScreen = React.lazy(() => import("./screens/appts/ApptsScreen"));
 
 export default function App() {
   const location = useLocation();
+  const [showSidebar, setShowSidebar] = React.useState(true)
+
+  React.useEffect(() => {
+    setShowSidebar(true)
+    console.log(`showSidebar: ${showSidebar}`)
+  }, [location])
+
+  console.log(location.pathname.split("/").filter((word) => word !== ""));
+  console.log(location.pathname.split("/"));
+  console.log(location.pathname);
 
   return (
     <ToastProvider>
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        <React.Suspense fallback={<LoadingSpinner />}>
-          <TransitionGroup>
-            <CSSTransition timeout={250} classNames="fade" key={location.key}>
-              <Switch location={location}>
-                <Route exact path="/" component={Home} />
-                <Route
-                  // exact
-                  path="/appointments"
-                  component={() => <ApptsScreen />}
-                />
-                {/*}
+        {/* {showSidebar && location.pathname.split("/").filter((word) => word !== "") > 0 && ( */}
+        {showSidebar &&
+          location.pathname.split("/").filter((word) => word !== "").length >
+            0 && <Sidebar title="Appointments" list={apptsList} />}
+        {/* <div className="container__body"> */}
+          <React.Suspense fallback={<LoadingSpinner />}>
+            <TransitionGroup>
+              <CSSTransition timeout={250} classNames="fade" key={location.key}>
+                <Switch location={location}>
+                  <Route exact path="/" component={Home} />
+                  <Route
+                    // exact
+                    path="/appointments"
+                    component={() => <ApptsScreen />}
+                  />
+                  {/*}
                   <Route
                     exact
                     path="/appointments"
@@ -107,103 +129,108 @@ export default function App() {
                   component={Checkout}
                 /> 
                 */}
-                <Route
-                  exact
-                  path="/Toshi"
-                  component={() => <PageHeader page="meetToshi" />}
-                />
-                <Route exact path="/Toshi/about" component={ToshiAbout} />
-                <Route exact path="/Toshi/teaching" component={ToshiTeaching} />
-                <Route
-                  exact
-                  path="/Toshi/reviews"
-                  component={() => <Reviews type="meetToshi" />}
-                />
-                {/* <Route exact path="/Toshi/reviews/UserCreateReview" component={UserCreateReview} /> */}
-                <Route exact path="/Toshi/blog" component={Blog} />
-                <Route
-                  exact
-                  path="/contact"
-                  component={() => <PageHeader page="contact" />}
-                />
-                <Route
-                  exact
-                  path="/contact/message"
-                  component={MessageScreen}
-                />
-                <Route
-                  exact
-                  path="/contact/schedule"
-                  component={() => <Booking type="schedule" />}
-                />
-                <Route
-                  exact
-                  path="/admin"
-                  component={() => <PageHeader page="admin" />}
-                />
-                <Route exact path="/admin/users" component={AdminUsers} />
-                <Route
-                  exact
-                  path="/admin/user/:id/edit"
-                  component={AdminUserEdit}
-                />
-                <Route
-                  exact
-                  path="/admin/appts"
-                  component={AdminAppointmentsList}
-                />
-                <Route
-                  exact
-                  path="/admin/appt/:id/edit"
-                  component={AdminAppointmentEdit}
-                />
-                <Route
-                  exact
-                  path="/admin/appts/create-appointment"
-                  component={AdminAppointmentCreate}
-                />
-                <Route
-                  exact
-                  path="/admin/blog"
-                  component={AdminAppointmentsList}
-                />
-                <Route
-                  exact
-                  path="/admin/user/:id/edit"
-                  component={AdminUserEdit}
-                />
-                <Route
-                  exact
-                  path="/admin/reviews"
-                  component={AdminReviewsList}
-                />
-                <Route
-                  exact
-                  path="/admin/requests"
-                  component={AdminApptRequests}
-                />
-                <Route exact path="/admin/stats" component={AdminStats} />
-                <Route exact path="/review/:id/edit" component={ReviewEdit} />
-                <Route
-                  exact
-                  path="/review/create-review"
-                  component={ReviewCreate}
-                />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/resources" component={Resources} />
-                <Route exact path="/zoom" component={Zoom} />
-                <Route exact path="/resources" component={Resources} />
-                <Route exact path="/settings" component={Settings} />
-                {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
-                {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
-                <Route exact path="/payment/:id/edit" component={Payment} />
-                <Route path="*" component={Home} />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-        </React.Suspense>
+                  <Route
+                    exact
+                    path="/Toshi"
+                    component={() => <PageHeader page="meetToshi" />}
+                  />
+                  <Route exact path="/Toshi/about" component={ToshiAbout} />
+                  <Route
+                    exact
+                    path="/Toshi/teaching"
+                    component={ToshiTeaching}
+                  />
+                  <Route
+                    exact
+                    path="/Toshi/reviews"
+                    component={() => <Reviews type="meetToshi" />}
+                  />
+                  {/* <Route exact path="/Toshi/reviews/UserCreateReview" component={UserCreateReview} /> */}
+                  <Route exact path="/Toshi/blog" component={Blog} />
+                  <Route
+                    exact
+                    path="/contact"
+                    component={() => <PageHeader page="contact" />}
+                  />
+                  <Route
+                    exact
+                    path="/contact/message"
+                    component={MessageScreen}
+                  />
+                  <Route
+                    exact
+                    path="/contact/schedule"
+                    component={() => <Booking type="schedule" />}
+                  />
+                  <Route
+                    exact
+                    path="/admin"
+                    component={() => <PageHeader page="admin" />}
+                  />
+                  <Route exact path="/admin/users" component={AdminUsers} />
+                  <Route
+                    exact
+                    path="/admin/user/:id/edit"
+                    component={AdminUserEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appts"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appt/:id/edit"
+                    component={AdminAppointmentEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/appts/create-appointment"
+                    component={AdminAppointmentCreate}
+                  />
+                  <Route
+                    exact
+                    path="/admin/blog"
+                    component={AdminAppointmentsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/user/:id/edit"
+                    component={AdminUserEdit}
+                  />
+                  <Route
+                    exact
+                    path="/admin/reviews"
+                    component={AdminReviewsList}
+                  />
+                  <Route
+                    exact
+                    path="/admin/requests"
+                    component={AdminApptRequests}
+                  />
+                  <Route exact path="/admin/stats" component={AdminStats} />
+                  <Route exact path="/review/:id/edit" component={ReviewEdit} />
+                  <Route
+                    exact
+                    path="/review/create-review"
+                    component={ReviewCreate}
+                  />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/profile" component={Profile} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/resources" component={Resources} />
+                  <Route exact path="/zoom" component={Zoom} />
+                  <Route exact path="/resources" component={Resources} />
+                  <Route exact path="/settings" component={Settings} />
+                  {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
+                  {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
+                  <Route exact path="/payment/:id/edit" component={Payment} />
+                  <Route path="*" component={Home} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          </React.Suspense>
+        {/* </div> */}
         {/* </div> */}
         <Footer />
       </div>

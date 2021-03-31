@@ -22,9 +22,9 @@ function ApptsScreen() {
     
     return (
       <div className="pg__appointment container__appts">
-        <Sidebar title="Appointments" list={apptsList} />
+        {/* <Sidebar title="Appointments" list={apptsList} /> */}
 
-        <TransitionGroup component={null}>
+        <TransitionGroup>
           <CSSTransition timeout={250} classNames="fade" key={location.key}>
             <Switch location={location}>
               <Route
@@ -47,7 +47,7 @@ function ApptsScreen() {
               />
               <Route exact path={`${url}/checkout`} component={Checkout} />
               <Route path="*">
-                <PageHeader />
+                <PageHeader page="appts"/>
               </Route>
             </Switch>
           </CSSTransition>

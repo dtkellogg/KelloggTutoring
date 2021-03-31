@@ -1,5 +1,5 @@
 .pg__appointment {
-  min-height: 85vh;
+  height: 83vh;
   width: 100vw;
   display: grid;
   grid-template-rows: 1fr;
@@ -19,7 +19,7 @@
 
 .appointments {
   grid-row: 1 / span 1;
-  grid-column: 2 / span 4;
+  grid-column: 1 / -1;
 
   padding: 2rem;
   height: 100%;
