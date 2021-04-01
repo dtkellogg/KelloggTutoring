@@ -33,7 +33,7 @@ export default function AdminUsers () {
 	// if(users) {
     return (
       <div className="container__toshi">
-        <Sidebar title="Toshi" list={adminList} />
+        {/* <Sidebar title="Toshi" list={adminList} /> */}
         <div className="users">
           <div className="text-size-2 users__header--container">
             <div className="text-size-2 users__header">

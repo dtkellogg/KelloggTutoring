@@ -10,7 +10,7 @@ export default function ToshiTeaching() {
 
   return (
     <div className="container__toshi">
-      <Sidebar title="Toshi" list={toshiList} />
+      {/* <Sidebar title="Toshi" list={toshiList} /> */}
       <div className="toshi--card__meetToshi">
         <h2 className="text-size-2 toshi--card__meetToshi--header  letter-spacing-sm">
           {/* How will I prepare you for your upcoming academic endevours? */}

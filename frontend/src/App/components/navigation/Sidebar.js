@@ -17,26 +17,41 @@ function CustomLink({ to, children }) {
   );
 }
 
-function SidebarRaw({ title, list }) {
-  const { url } = useRouteMatch();
+function SidebarRaw({ title, list, url }) {
+  // const { url } = useRouteMatch();
   const location = useLocation();
+
+  console.log(useRouteMatch())
+
+  console.log(`url: ${url}`)
+
+  const handleScroll = () => window.scrollTo({
+    top: 550,
+    left: 100,
+    behavior: 'smooth'
+  });
 
   return (
     <div className="container__sidebar">
       <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
       <ul className="sidebar__list text-size-5">
-        {list.map((item) => (
-          <CustomLink
+        {list.map((item) => {
+          if(item === 'contact info') {
+            return (
+              <button className="btn__contact-info text-size-5" key={uuid()} onClick={handleScroll} >
+                contact info
+              </button>)
+          } else {
+          return <CustomLink
             key={item}
             to={{
-              // pathname: `${url}/${slug(item)}`,
-              pathname: `/appointments/${slug(item)}`,
+              pathname: `/${url}/${slug(item)}`,
               search: location.search,
             }}
           >
             {item.toUpperCase()}
           </CustomLink>
-        ))}
+          }})}
       </ul>
     </div>
   );

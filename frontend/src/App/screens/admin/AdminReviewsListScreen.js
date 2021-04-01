@@ -79,7 +79,7 @@ export default function AdminReviewsList({ location, history }) {
 
     return (
         <div className="container__toshi">
-            <Sidebar title="Toshi" list={adminList} />
+            {/* <Sidebar title="Toshi" list={adminList} /> */}
             <div className="reviewsAdmin">
                 <div className="text-size-2 reviewsAdmin__header">
                     All reviews:

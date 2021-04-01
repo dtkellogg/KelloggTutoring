@@ -73,7 +73,7 @@ export const navExpandedLinks = [
   },
   {
     name: "Toshi",
-    to: "/Toshi",
+    to: "/toshi",
   },
   {
     name: "Contact",

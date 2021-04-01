@@ -77,7 +77,7 @@ export default function AdminUserEdit ({ match }) {
 
 	return (
 			<div className="toshi">
-			<Sidebar title="Toshi" list={adminList} />
+			{/* <Sidebar title="Toshi" list={adminList} /> */}
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
 			<Link to='/admin/users' className="btn__user-edit" >Go Back</Link>
 				<div className="userEditScreen__header">

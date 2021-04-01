@@ -109,7 +109,7 @@ export default function MessageScreen({ history }) {
 
   return (
     <div className="container__contact">
-      <Sidebar title="Contact" list={contactList} />
+      {/* <Sidebar title="Contact" list={contactList} /> */}
       <div className="user__page">
         <form className="messageForm" onSubmit={handleSubmit}>
           <div className="messageForm__header">

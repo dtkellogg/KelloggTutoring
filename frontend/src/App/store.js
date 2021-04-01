@@ -52,6 +52,7 @@ import {
 import { messageCreateReducer } from './reducers/msgReducers'
 import { cartReducer } from './reducers/cartReducers'
 import subheader from './reducers/subheader'
+import { sidebarDetailsReducer } from './reducers/sidebarReducers'
 
 
 
@@ -87,7 +88,8 @@ const reducer = combineReducers({
     reviewCreate: reviewCreateReducer,
     reviewUpdate: reviewUpdateReducer,
     messageCreate: messageCreateReducer,
-    subheader
+    subheader,
+    sidebarDetails: sidebarDetailsReducer
 })
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
