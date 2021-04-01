@@ -8,7 +8,7 @@ import './App.scss';
 import NavUpper from "./components/navigation/NavUpper";
 import NavLower from "./components/navigation/NavLower";
 import Footer from "./components/Footer";
-import LoadingSpinner from "./components/LoadingSpinner"
+import LoadingSpinner from "./components/loading/LoadingSpinner"
 
 import { Sidebar } from "./components/navigation/Sidebar";
 
@@ -18,24 +18,24 @@ import { apptsList, contactList, toshiList, adminList } from "./data/lists";
 
 // screens   
 const Home = React.lazy(() => import("./screens/HomeScreen"));
-const Login = React.lazy(() => import("./screens/user/UserLoginScreen"));
+const Login = React.lazy(() => import("./screens/LoginScreen"));
 const Zoom = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Resources = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Settings = React.lazy(() => import("./screens/ComingSoonScreen"));
-const Profile = React.lazy(() => import("./screens/user/UserProfileScreen"));
-const Payment = React.lazy(() => import("./screens/payments/PaymentScreen"));
-const Register = React.lazy(() => import("./screens/user/UserRegisterScreen"));
+const Profile = React.lazy(() => import("./screens/ProfileScreen"));
+const Payment = React.lazy(() => import("./components/payments/Payment"));
+const Register = React.lazy(() => import("./screens/RegisterScreen"));
 // const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
-const ReviewEdit = React.lazy(() => import("./screens/review/ReviewEditScreen"))
-const ReviewCreate = React.lazy(() => import("./screens/review/ReviewCreateScreen"))
+const ReviewEdit = React.lazy(() => import("./components/reviews/ReviewEdit"))
+const ReviewCreate = React.lazy(() => import("./components/reviews/ReviewCreate"))
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 
 
 
-const ApptsScreen = React.lazy(() => import("./screens/appts/ApptsScreen"));
-const ToshiScreen = React.lazy(() => import("./screens/Toshi/ToshiScreen"));
-const ContactScreen = React.lazy(() => import("./screens/contact/ContactScreen"));
-const AdminScreen = React.lazy(() => import("./screens/admin/AdminScreen"));
+const ApptsScreen = React.lazy(() => import("./screens/ApptsScreen"));
+const ToshiScreen = React.lazy(() => import("./screens/ToshiScreen"));
+const ContactScreen = React.lazy(() => import("./screens/ContactScreen"));
+const AdminScreen = React.lazy(() => import("./screens/AdminScreen"));
 
 
 export default function App() {

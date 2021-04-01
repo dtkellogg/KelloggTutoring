@@ -1,116 +1,131 @@
 //--------------------fonts--------------------//
 
 .text-size-0 {
-  font-size: 6.5rem;
+  font-size: var(--text-size-0);
   font-weight: 300;
 
-  @media (max-width: 750px) {
-    font-size: 5.5rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 5.5rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 5rem;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 5rem;
+  // }
 
-  @media (max-width: 350px) {
-    font-size: 4.6rem;
-  }
+  // @media (max-width: 350px) {
+  //   font-size: 4.6rem;
+  // }
 }
 
 .text-size-1 {
-  font-size: 3rem;
+  font-size: var(--text-size-1);
   font-weight: 300;
 
-  @media (max-width: 750px) {
-    font-size: 2.5rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 2.5rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 2.0rem;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 2.0rem;
+  // }
 
-  @media (max-width: 350px) {
-    font-size: 1.7rem;
-  }
+  // @media (max-width: 350px) {
+  //   font-size: 1.7rem;
+  // }
 }
 
 .text-size-2 {
-  font-size: 2.6rem;
+  font-size: var(--text-size-2);
   font-weight: 300;
   box-sizing: inherit;
 
-  @media (max-width: 750px) {
-    font-size: 2.4rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 2.4rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 1.9rem;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 1.9rem;
+  // }
 
-  @media (max-width: 350px) {
-    font-size: 1.6rem;
-  }
+  // @media (max-width: 350px) {
+  //   font-size: 1.6rem;
+  // }
 }
 
 .text-size-3 {
-  font-size: 2rem;
+  font-size: var(--text-size-3);
   font-weight: 300;
 
-  @media (max-width: 750px) {
-    font-size: 1.8rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 1.8rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 1.3rem;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 1.3rem;
+  // }
 
-  @media (max-width: 350px) {
-    font-size: 1.1rem;
-  }
+  // @media (max-width: 350px) {
+  //   font-size: 1.1rem;
+  // }
 }
 
 .text-size-4 {
-  font-size: 1.75rem;
+  font-size: var(--text-size-4);
   font-weight: 400;
 
-  @media (max-width: 750px) {
-    font-size: 1.5rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 1.5rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 1.0;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 1.0rem;
+  // }
 }
 
 .text-size-5 {
-  font-size: 1.625rem;
+  font-size: var(--text-size-5);
   font-weight: 300;
 
-  @media (max-width: 750px) {
-    font-size: 1.3rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 1.3rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 0.8;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 0.8rem;
+  // }
 }
 
 .text-size-6 {
-  font-size: 1.25rem;
+  font-size: var(--text-size-6);
   font-weight: 300;
 
-  @media (max-width: 750px) {
-    font-size: 1.1rem;
-  }
+  // @media (max-width: 750px) {
+  //   font-size: 1.1rem;
+  // }
   
-  @media (max-width: 550px) {
-    font-size: 0.6;
-  }
+  // @media (max-width: 550px) {
+  //   font-size: 0.6rem;
+  // }
 }
 
 //--------------------headers--------------------//
 
 .header {
+  &__home {
+    &--appointments {
+      font-size: var(--text-size-2);
+      font-weight: inherit;
+
+      @media(max-width: 1050px) {
+        // padding-bottom: 10.5rem;
+      }
+
+      @media(max-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
   &__no-appts {
     height: 100%;
     display: flex;
@@ -119,6 +134,52 @@
 
     @media(max-width: 900px) {
       height: 58vh;
+    }
+  }
+}
+
+//--------------------home--------------------//
+
+.text {
+
+  &__home {
+    
+    &--welcome {
+      font-size: var(--text-size-0);
+      font-weight: inherit;
+      transform: translate(-0.2rem, -1rem);
+      letter-spacing: 0.4rem;
+
+      @media (max-width: 600px) {
+        transform: translate(0.0rem, .4rem);
+      }
+    }
+    &--tutoring-simplified {
+      font-size: var(--text-size-2);
+      font-weight: inherit;
+      transform: translate(0rem,0.5rem);
+    }
+    &--subjects {
+      font-size: var(--text-size-3);
+      font-weight: inherit;
+      transform: translate(0.15rem,-1rem);
+      width: 38rem;
+
+      @media (max-width: 750px) {
+        width: 36rem;
+      }
+
+      @media (max-width: 400px) {
+        width: 25rem;
+      }
+    }
+
+    &--request-tutoring {
+
+    }
+
+    &--payments {
+
     }
   }
 }

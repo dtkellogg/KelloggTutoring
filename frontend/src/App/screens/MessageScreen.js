@@ -1,18 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// components
-import {Sidebar} from "../components/navigation/Sidebar";
-
 // actions
 import { getUserDetails } from "../actions/userActions";
 import { sendMessageToNodeMailer } from "../actions/msgActions";
 
 // hooks
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
-
-// data
-import { contactList } from "../data/lists"
 
 
 // can't call hook conditionally in jsx so using the following fn:
@@ -109,7 +103,6 @@ export default function MessageScreen({ history }) {
 
   return (
     <div className="container__contact">
-      {/* <Sidebar title="Contact" list={contactList} /> */}
       <div className="user__page">
         <form className="messageForm" onSubmit={handleSubmit}>
           <div className="messageForm__header">

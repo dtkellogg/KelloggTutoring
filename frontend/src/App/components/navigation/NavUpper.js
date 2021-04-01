@@ -37,12 +37,12 @@ function NavUpper() {
   return (
     <nav className="container__nav--upper">
       <NavLink to="/" className="nav__upper--title-text">
-        <h1 className="text-size-1 nav__upper--text fadeInAnimated--0">
+        <h1 className="nav__upper--text fadeInAnimated--0">
           {" "}Kellogg Tutoring&nbsp;{" "}
         </h1>
-        <span className="text-size-1 nav__upper--title-line"> |&nbsp; </span>
+        <span className="nav__upper--title-line"> |&nbsp; </span>
         <span
-          className="text-size-1 nav__upper--house-icon"
+          className="nav__upper--house-icon"
           role="img"
           aria-label="email emoji"
         >
@@ -58,7 +58,7 @@ function NavUpper() {
                 <NavLink
                   to={navEl.to}
                   activeStyle={activeStyle}
-                  className="nav__link text-size-5 letter-spacing-sm"
+                  className="nav__link letter-spacing-sm"
                 >
                   {navEl.name}
                 </NavLink>
@@ -68,7 +68,7 @@ function NavUpper() {
 
           <li className="nav__user-icons nav__expanded-item">
             {userInfo ? (
-              <h1 className="nav__user-name text-size-3">
+              <h1 className="nav__user-name">
                 {userInfo.name.split(" ")[0]}
               </h1>
             ) : (
@@ -90,7 +90,7 @@ function NavUpper() {
                   return <NavLink
                     to={navEl.to}
                     activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link text-size-5 letter-spacing-sm"
+                    className="user__dropdown-menu--link nav__link letter-spacing-sm"
                   >
                     {navEl.name}
                   </NavLink>
@@ -104,7 +104,7 @@ function NavUpper() {
                     return <NavLink
                       to={navEl.to}
                       activeStyle={activeStyle}
-                      className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                      className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
                     >
                       {navEl.name}
                     </NavLink>
@@ -113,7 +113,7 @@ function NavUpper() {
                 <NavLink
                   to="/login"
                   activeStyle={activeStyle}
-                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
                   onClick={handleLogout}
                 >
                   Logout
@@ -126,7 +126,7 @@ function NavUpper() {
                   return <NavLink
                     to={navEl.to}
                     activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                    className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
                   >
                     {navEl.name}
                   </NavLink>;
@@ -135,7 +135,7 @@ function NavUpper() {
                 <NavLink
                   to="/logout"
                   activeStyle={activeStyle}
-                  className="user__dropdown-menu--link nav__link--dropdown text-size-5 letter-spacing-sm"
+                  className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
                   onClick={handleLogout}
                 >
                   Logout

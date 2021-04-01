@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
-// import { FaGhost } from "react-icons/fa";
-import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 // components
-import ApptsList from '../components/ApptsList'
-import Calendar from '../components/Calendar'
+import ApptsList from '../components/appointments/ApptsList'
+
+import Calendar from "../components/calendar/Calendar";
 import Reviews from '../components/reviews/Reviews'
+import BtnsUpDownHome from '../components/navigation/BtnsUpDownHome'
 
 // hooks
 import useWindowDimensions from '../hooks/useWindowDimensions'
@@ -22,8 +22,7 @@ import lottieTeachingAnimation from '../img/lottieTeachingAnimation.json'
 
 export default function HomePage() {
   const [displayAppts, setDisplayAppts] = useState('calendar')
-  const [windowLocation, setWindowLocation] = useState('top')
-
+  
   const location = useLocation();
   const dispatch = useDispatch();
   const { height } = useWindowDimensions();
@@ -32,40 +31,6 @@ export default function HomePage() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
-  const handleScrollToTop = () => {
-    if (windowLocation === "calendar") {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-        setWindowLocation("top");
-      } else if (windowLocation === "reviews") {
-          calendarRef.current.scrollIntoView();
-          setWindowLocation("calendar");
-      } else if (windowLocation === "bottom") {
-        reviewsRef.current.scrollIntoView();
-        setWindowLocation("reviews");
-      }
-  }
-
-  const handleScrollToBottom = () => {
-    if (windowLocation === "top") {
-      calendarRef.current.scrollIntoView();
-      setWindowLocation('calendar')
-    } else if (windowLocation === "calendar") {
-      reviewsRef.current.scrollIntoView();
-      setWindowLocation("reviews");
-    } else if (windowLocation === "reviews") {
-        window.scrollTo({
-        top: 20000,
-        left: 100,
-        behavior: "smooth",
-      });
-      setWindowLocation("bottom");
-    }
-  }
 
   useEffect(() => {
     lottie.loadAnimation({
@@ -79,34 +44,17 @@ export default function HomePage() {
 
   return (
     <div className="container__home--primary">
-      <div className="container__btns--up-down-ui fadeInAnimated--0">
-        <button className="btn__nav--up">
-          <FaCaretUp
-            size={40}
-            fill="var(--old-blue)"
-            className=""
-            onClick={handleScrollToTop}
-          />
-        </button>
-        <button className="btn__nav--down">
-          <FaCaretDown
-            size={40}
-            fill="var(--old-blue)"
-            className=""
-            onClick={handleScrollToBottom}
-          />
-        </button>
-      </div>
+      <BtnsUpDownHome calendarRef={calendarRef} reviewsRef={reviewsRef} />
       <div className="container__home--secondary">
         <div className="container__hero">
-          <div className="hero__text">
-            <h1 className="text-size-0 letter-spacing-lg hero__welcome fadeInAnimated--2">
+          <div className="container__hero--text">
+            <h1 className="letter-spacing-lg text__home--welcome fadeInAnimated--2">
               Kellogg Tutoring
             </h1>
-            <h3 className="text-size-2 hero__tutoring-simplified fadeInAnimated--3">
+            <h3 className="text__home--tutoring-simplified fadeInAnimated--3">
               Tutoring Simplified.
             </h3>
-            <h4 className="text-size-3 hero__subjects-text fadeInAnimated--4">
+            <h4 className="text__home--subjects fadeInAnimated--4">
               Math, Science, English, Spanish, SAT & ACT
             </h4>
           </div>
@@ -114,33 +62,36 @@ export default function HomePage() {
           <div className="container__hero--right">
             <div className="container__btns--hero fadeInAnimated--4">
               <button className="btn__home--to-request-tutoring">
-                <Link to={`/appointments/booking`} className="">
+                <Link
+                  to={`/appointments/booking`}
+                  className="text__home--request-tutoring"
+                >
                   Request Tutoring
                 </Link>
               </button>
               <button className="btn__home--to-payments">
-                <Link to={`/appointments/payments`} className="">
+                <Link
+                  to={`/appointments/payments`}
+                  className="text__home--payments"
+                >
                   Payments
                 </Link>
               </button>
             </div>
-            <div
-              className="hero__thinking--bubble bubble--1 fadeInAnimated--3"
-              // style={{ display: height > 850 ? "block" : "none" }}
-            />
-            <div className="hero__thinking--bubble bubble--2 fadeInAnimated--2" />
-            <div className="hero__thinking--bubble bubble--3 fadeInAnimated--1" />
+            <div className="home__bubble bubble--1 fadeInAnimated--3" />
+            <div className="home__bubble bubble--2 fadeInAnimated--2" />
+            <div className="home__bubble bubble--3 fadeInAnimated--1" />
 
             <div
               id="teaching-animation"
-              className="teaching-animation fadeInAnimated--0"
+              className="home__teaching-animation fadeInAnimated--0"
             />
           </div>
         </div>
 
-        <section className="highlights__appointments">
-          <div className="highlights__appointments--text">
-            <h3 className="text-size-2 highlights__appointments--header">
+        <section className="container__home--appointments">
+          <div className="container__home--appointments-left">
+            <h3 className="header__home--appointments">
               Here are your <b>upcoming appointments:</b>
             </h3>
 
@@ -158,13 +109,12 @@ export default function HomePage() {
               </Link>
 
               <Link to={`/appointments/payments`} className="">
-                <button className="btn__home--3-btns">
-                  Make a payment
-                </button>
+                <button className="btn__home--3-btns">Make a payment</button>
               </Link>
 
               <div className="container__btns--home-calendar-or-list">
-                <button className="btn__highlights--appts-calendar"
+                <button
+                  className="btn__highlights--appts-calendar"
                   onClick={() => setDisplayAppts("calendar")}
                   style={{
                     backgroundColor:
@@ -184,7 +134,8 @@ export default function HomePage() {
                   Calendar
                 </button>
 
-                <button className="btn__highlights--appts-list"
+                <button
+                  className="btn__highlights--appts-list"
                   onClick={() => setDisplayAppts("list")}
                   style={{
                     backgroundColor:
@@ -205,7 +156,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="highlights__appointments--appointments__list-container" ref={calendarRef} >
+          <div  className="container__home--appointments-right" ref={calendarRef}>
             {displayAppts === "list" ? (
               <div style={{ width: "100%" }}>
                 <ApptsList type="upcoming" />
@@ -224,18 +175,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="highlights__meetToshi" ref={reviewsRef}>
-          <div className="highlights__meetToshi--container">
-            <Reviews type="home" />
-            <Link
-              to={`/review/create-review`}
-              className=""
-            >
-              <button className="btn__home--to-reviews">Write a review</button>
-            </Link>
-          </div>
+        <section className="container__home--reviews" ref={reviewsRef}>
+          <Reviews type="home" />
+          <Link to={`/review/create-review`} className="">
+            <button className="btn__home--to-reviews">Write a review</button>
+          </Link>
         </section>
-
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Reviews({history, type}) {
     <>
       <div
         className={
-          type === "meetToshi" ? "container__toshi" : "home--container"
+          type === "meetToshi" ? "container__toshi" : "container__home--reviews-3"
         }
       >
         {/* {type === "meetToshi" && <Sidebar title="Toshi" list={toshiList} />} */}
@@ -23,7 +23,7 @@ export default function Reviews({history, type}) {
           className={
             type === "meetToshi"
               ? "toshi--card__meetToshi"
-              : "home--review-container"
+              : "container__home--reviews-2"
           }
         >
           <div
