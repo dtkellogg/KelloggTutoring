@@ -90,7 +90,7 @@ function PaymentCheckout({ match, history }) {
 
 
   return (
-    <div className="pg__appointment">
+    <div className="container__screen--sidebar">
 
       <Sidebar title="Appointments" list={apptsList} />
       <div className="appt__checkout">
@@ -98,20 +98,20 @@ function PaymentCheckout({ match, history }) {
         <PaymentSteps step1 step2 step3 step4 />
 
         <div className="appointments__header--container-checkout">
-          <h2 className="text-size-2 appointments__header">Checkout</h2>
+          <h2 className="font-size-2 appointments__header">Checkout</h2>
         </div>
 
         <div className="checkout__payment-method">
-          <h2 className="text-size-4">Payment Method:&nbsp;</h2>
+          <h2 className="font-size-4">Payment Method:&nbsp;</h2>
 
-          <div className="text-size-2 checkout__payment-method--text">
-            {/* <strong className="text-size-3"> */}
+          <div className="font-size-2 checkout__payment-method--text">
+            {/* <strong className="font-size-3"> */}
               &nbsp;{cart.paymentMethod}
             {/* </strong> */}
           </div>
         </div>
 
-        {error && <h2 className="text-size-2">{error}</h2>}
+        {error && <h2 className="font-size-2">{error}</h2>}
 
         <div
           className="checkout__appts"
@@ -119,13 +119,13 @@ function PaymentCheckout({ match, history }) {
             padding: "1rem 0",
           }}
         >
-          <h2 className="text-size-4" style={{ padding: "1rem" }}>
+          <h2 className="font-size-4" style={{ padding: "1rem" }}>
             Paying for the following (<strong>{cart.cartItems.length}</strong>){" "}
             appointments:
           </h2>
           {cart.cartItems.length === 0 ? (
             <h2
-              className="text-size-3"
+              className="font-size-3"
               style={{
                 padding: "1rem",
                 borderBottom: "2px solid var(--grey-light-6)",
@@ -134,7 +134,7 @@ function PaymentCheckout({ match, history }) {
               Your cart is <span style={{ color: "red" }}>empty</span>
             </h2>
           ) : (
-            <table className="text-size-3 appointments__list">
+            <table className="font-size-3 appointments__list">
               <thead className="thead">
                 <tr className="tr">
                   <th className="appointments__th--date">date</th>
@@ -151,14 +151,14 @@ function PaymentCheckout({ match, history }) {
 
                   return (
                     <tr key={id} className="appointments__list--item">
-                      <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="text-size-3 appointments__item--time">{`${AMPMTime(
+                      <td className="font-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                      <td className="font-size-3 appointments__item--time">{`${AMPMTime(
                         appt.startTime
                       )} - ${AMPMTime(appt.endTime)}`}</td>
-                      <td className="text-size-3 appointments__item--student">
+                      <td className="font-size-3 appointments__item--student">
                         $50.00
                       </td>
-                      <td className="text-size-3 appointments__item--subject">
+                      <td className="font-size-3 appointments__item--subject">
                         {appt.subject}
                       </td>
 
@@ -183,7 +183,7 @@ function PaymentCheckout({ match, history }) {
         </div>
 
         <div className="checkout__totals">
-          <div className="text-size-3">
+          <div className="font-size-3">
             <strong>
               Subtotal:
               <br />
@@ -191,7 +191,7 @@ function PaymentCheckout({ match, history }) {
             {cart.cartItems.length} &times; $50.00 = $
             {cart.cartItems.length * 50}.00
           </div>
-          <div className="text-size-3">
+          <div className="font-size-3">
             <strong className="">
               Tax:
               <br />
@@ -199,7 +199,7 @@ function PaymentCheckout({ match, history }) {
             ${cart.cartItems.length * 50}.00 &times; 0.08 = $
             {cart.cartItems.length * 50 * 0.08}.00
           </div>
-          <div className="text-size-3">
+          <div className="font-size-3">
             <strong className="">
               Total:
               <br />

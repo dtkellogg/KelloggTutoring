@@ -232,17 +232,15 @@ export default function Calendar({ type }) {
 
 	if(userInfo === null) {
 		return (
-      <div className={type === "home" ? "container__calendar" : "pg__appointment"} >
-        <div className="appointments">
-          <PleaseLoginScreen />
-        </div>
+      <div className={type === "home" ? "container__calendar" : "container__screen--sidebar"} >
+        <PleaseLoginScreen />
       </div>
     )
 	 } else {
 	 return (
-     <div className={type === "home" ? "container__calendar" : "pg__appointment"}>
+     <div className="container__screen--no-sidebar">
        <div className="calendar">
-         <div className="calendar__row--header text-size-2">
+         <div className="calendar__row--header font-size-2">
            <FaCaretLeft
              size={30}
              fill="var(--old-blue-2)"

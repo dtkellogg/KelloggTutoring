@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useLocation, useParams } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ToastProvider } from "react-toast-notifications";
 import './App.scss';
@@ -9,7 +9,6 @@ import NavUpper from "./components/navigation/NavUpper";
 import NavLower from "./components/navigation/NavLower";
 import Footer from "./components/Footer";
 import LoadingSpinner from "./components/loading/LoadingSpinner"
-
 import { Sidebar } from "./components/navigation/Sidebar";
 
 // sidebar list
@@ -29,9 +28,6 @@ const Register = React.lazy(() => import("./screens/RegisterScreen"));
 const ReviewEdit = React.lazy(() => import("./components/reviews/ReviewEdit"))
 const ReviewCreate = React.lazy(() => import("./components/reviews/ReviewCreate"))
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
-
-
-
 const ApptsScreen = React.lazy(() => import("./screens/ApptsScreen"));
 const ToshiScreen = React.lazy(() => import("./screens/ToshiScreen"));
 const ContactScreen = React.lazy(() => import("./screens/ContactScreen"));
@@ -39,7 +35,7 @@ const AdminScreen = React.lazy(() => import("./screens/AdminScreen"));
 
 
 export default function App() {
-  const [showSidebar, setShowSidebar] = React.useState(true)
+  const [showSidebar, setShowSidebar] = React.useState(false)
   const [sidebarTitle, setSidebarTitle] = React.useState("");
   const [sidebarList, setSidebarList] = React.useState([]);
   const [sidebarUrl, setSidebarUrl] = React.useState("");
@@ -49,11 +45,8 @@ export default function App() {
 
   React.useEffect(() => {
     setShowSidebar(true)
-    console.log(`showSidebar: ${showSidebar}`)
-
+    
     const locationForSidebar = location.pathname.split("/")[1]
-
-    console.log(`locationSidebar: ${locationForSidebar}`)
 
     if(locationForSidebar === 'toshi') {
       setSidebarTitle('Toshi')
@@ -71,58 +64,37 @@ export default function App() {
       setSidebarTitle("Admin");
       setSidebarList(adminList)
       setSidebarUrl('admin')
+    } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login') {
+      setShowSidebar(false)
     }
 
   }, [location])
 
-  console.log(location.pathname.split("/").filter((word) => word !== ""));
-  console.log(location.pathname.split("/"));
-  console.log(location.pathname);
-
   return (
-    <ToastProvider>
+    <ToastProvider styles={{
+      container: (provided) => ({ ...provided, zIndex: 100, top: 50 }),
+      toastContent: (provided, state) => ({ ...provided, padding: state.appearance === 'success' ? 15 : 10 }),
+      toastIcon: () => ({ display: 'none' }),
+    }}>
       <div className="container__main">
         <NavUpper />
         <NavLower />
-        {/* {showSidebar && location.pathname.split("/").filter((word) => word !== "") > 0 && ( */}
         {showSidebar &&
-          location.pathname.split("/").filter((word) => word !== "").length >
-            0 && (
-            <Sidebar
-              key={sidebarTitle}
-              title={sidebarTitle}
-              list={sidebarList}
-              url={sidebarUrl}
-            />
-          )}
-        {/* <div className="container__body"> */}
+          location.pathname.split("/").filter((word) => word !== "").length > 0 && (
+            <Sidebar key={sidebarTitle} title={sidebarTitle} list={sidebarList} url={sidebarUrl} />
+        )}
+
         <React.Suspense fallback={<LoadingSpinner />}>
           <TransitionGroup>
             <CSSTransition timeout={250} classNames="fade" key={location.key}>
               <Switch location={location}>
                 <Route exact path="/" component={Home} />
-                <Route
-                  path="/appointments"
-                  component={() => <ApptsScreen />}
-                />
-                <Route
-                  path="/toshi"
-                  component={() => <ToshiScreen />}
-                />
-                <Route
-                  path="/contact"
-                  component={() => <ContactScreen />}
-                />
-                <Route
-                  path="/admin"
-                  component={() => <AdminScreen />}
-                />
+                <Route path="/appointments" component={() => <ApptsScreen />} />
+                <Route path="/toshi" component={() => <ToshiScreen />} />
+                <Route path="/contact" component={() => <ContactScreen />} />
+                <Route path="/admin" component={() => <AdminScreen />} />
                 <Route exact path="/review/:id/edit" component={ReviewEdit} />
-                <Route
-                  exact
-                  path="/review/create-review"
-                  component={ReviewCreate}
-                />
+                <Route exact path="/review/create-review" component={ReviewCreate} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/register" component={Register} />
@@ -138,8 +110,6 @@ export default function App() {
             </CSSTransition>
           </TransitionGroup>
         </React.Suspense>
-        {/* </div> */}
-        {/* </div> */}
         <Footer />
       </div>
     </ToastProvider>

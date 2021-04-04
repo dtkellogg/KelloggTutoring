@@ -54,36 +54,37 @@ export default function Login({ location, history }) {
 
 
   return (
-    <form onSubmit={handleSubmit} className="loginScreen user__page">
-      <div className="loginScreen__header">
-        <h2 className="text-size-2 letter-spacing-sm">Please login.</h2>
+    <div className="container__screen--no-sidebar">
+      <form onSubmit={handleSubmit} className="container__login--form">
+      <div className="login__header">
+        <h2 className="font-size-2 letter-spacing-sm">Please login.</h2>
       </div>
 
-      <div className="loginScreen__content">
-        <div className="loginScreen__input-container">
-          <div className="loginScreen__element">
+      <div className="login__content">
+        <div className="login__input-container">
+          <div className="login__element">
             <label
-              className="text-size-5 letter-spacing-md loginScreen__label"
+              className="font-size-5 letter-spacing-md login__label"
               htmlFor="email"
             >
               email
             </label>
             <input
               type="email"
-              className="loginScreen__input loginScreen__input-contact text-size-3"
+              className="login__input login__input-contact font-size-3"
               placeholder="Your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          <div className="loginScreen__element">
-            <label className="text-size-5 letter-spacing-md loginScreen__label">
+          <div className="login__element">
+            <label className="font-size-5 letter-spacing-md login__label">
               password
             </label>
             <input
               type="password"
-              className="loginScreen__input loginScreen__input-contact text-size-3"
+              className="login__input login__input-contact font-size-3"
               placeholder="Your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -92,12 +93,12 @@ export default function Login({ location, history }) {
         </div>
 
         {failedMsg && (
-          <span className="text-size-3 loginScreen__failed-message">
+          <span className="font-size-3 login__failed-message">
             {failedMsg}
           </span>
         )}
         {successMsg && (
-          <span className="loginScreen__success-message">{successMsg}</span>
+          <span className="login__success-message">{successMsg}</span>
         )}
 
         <button
@@ -108,7 +109,7 @@ export default function Login({ location, history }) {
           Login
         </button>
 
-        <div className="text-size-5 loginScreen__register">
+        <div className="font-size-5 login__register">
           New User?{" "}
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
             <span style={{ color: "blue" }}>Register</span>
@@ -116,5 +117,6 @@ export default function Login({ location, history }) {
         </div>
       </div>
     </form>
+    </div>
   );
 }

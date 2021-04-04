@@ -11,7 +11,7 @@ function CustomLink({ to, children }) {
   const match = useRouteMatch(to.pathname);
 
   return (
-    <li style={{ fontWeight: match ? 900 : "normal" }}>
+    <li style={{ fontWeight: match ? 900 : "normal", color: match ? "var(--old-blue-2)" : "var(--white"}}>
       <NavLink to={to}>{children}</NavLink>
     </li>
   );
@@ -33,12 +33,12 @@ function SidebarRaw({ title, list, url }) {
 
   return (
     <div className="container__sidebar">
-      <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
-      <ul className="sidebar__list text-size-5">
+      <h4 className="sidebar__title font-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
+      <ul className="sidebar__list font-size-5">
         {list.map((item) => {
           if(item === 'contact info') {
             return (
-              <button className="btn__contact-info text-size-5" key={uuid()} onClick={handleScroll} >
+              <button className="btn__contact-info font-size-5" key={uuid()} onClick={handleScroll} >
                 contact info
               </button>)
           } else {
@@ -83,12 +83,12 @@ function SidebarRaw({ title, list, url }) {
 
 //   return (
 //     <div className="container__sidebar">
-//       <h4 className="sidebar__title text-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
-//       <ul className="sidebar__list text-size-5">
+//       <h4 className="sidebar__title font-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
+//       <ul className="sidebar__list font-size-5">
 //         {list.map((item) => {
 //           if (item === 'contact info') {
 //             return (
-//               <button className="btn__contact-info text-size-5" key={uuid()} onClick={handleScroll} >
+//               <button className="btn__contact-info font-size-5" key={uuid()} onClick={handleScroll} >
 //                 contact info
 //               </button>)
 //           } else if (url.split('/').length === 3){

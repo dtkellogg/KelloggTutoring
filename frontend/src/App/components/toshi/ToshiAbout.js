@@ -7,19 +7,19 @@ import { toshiList } from "../../data/lists"
 
 export default function ToshiAbout() {
     return (
-      <div className="container__toshi">
+      <div className="container__screen--sidebar">
         {/* <Sidebar title="Toshi" list={toshiList} /> */}
         <div className="toshi--card__meetToshi">
-          <h2 className="text-size-2 toshi--card__meetToshi--header  letter-spacing-sm">
+          <h2 className="font-size-2 toshi--card__meetToshi--header  letter-spacing-sm">
             Hello! I'm looking forward to teaching you.
           </h2>
 
-          {/* <p className="text-size-3 toshi--card__meetToshi--p">
+          {/* <p className="font-size-3 toshi--card__meetToshi--p">
             My name is Damian Kellogg, but you probably know we by my middle name,
             <span style={{ color: "var(--old-blue-2)" }}> Toshi</span>.
           </p>
 
-          <p className="text-size-3 toshi--card__meetToshi--p">
+          <p className="font-size-3 toshi--card__meetToshi--p">
             I am a highly experienced tutor, having been in the industry for 7
             years. I specialize in teaching concepts{" "}
             <span style={{ color: "var(--old-blue-2)" }}>simply</span>, and I have
@@ -31,7 +31,7 @@ export default function ToshiAbout() {
             in Japan and my father's in San Francisco.
           </p>
 
-          <p className="text-size-3 toshi--card__meetToshi--p">
+          <p className="font-size-3 toshi--card__meetToshi--p">
             Besides teaching, I spend my days running and building strong
             relationships with my friends. I have experience running division 1
             track and cross country for the NCAA, and I have taken away and
@@ -39,7 +39,7 @@ export default function ToshiAbout() {
             similarities between being a great athlete and a great student.
           </p>
 
-          <p className="text-size-3 toshi--card__meetToshi--p">
+          <p className="font-size-3 toshi--card__meetToshi--p">
             I attended Acalanes High School in Lafayette, CA and UC Davis, where I
             recieved my B.S. in Chemistry. I am very friendly and value forming
             mentor-student relationships, but I am also very{" "}
@@ -47,7 +47,7 @@ export default function ToshiAbout() {
             <span style={{ color: 'var(--old-blue-2)'}}>reliable</span>.
           </p>
 
-          <p className="text-size-3 toshi--card__meetToshi--p">
+          <p className="font-size-3 toshi--card__meetToshi--p">
             Please feel free to contact me if you have any questions, or if you
             would like to hear from a few of my clients. Thank you so much for
             taking the time to consider me. If you so choose to try working with

@@ -69,13 +69,13 @@ export default function ReviewEdit({ match, history, location }) {
   }
 
   return (
-    <div className="container__toshi">
+    <div className="container__screen--sidebar">
       <Link to="/" className="btn__reviews--go-back">
         Go Back
       </Link>
       <form onSubmit={handleSubmit} className="edit-review user__page">
         <div className="edit-review__header">
-          <h2 className="text-size-2 letter-spacing-sm">
+          <h2 className="font-size-2 letter-spacing-sm">
             Edit Review
           </h2>
 
@@ -83,14 +83,14 @@ export default function ReviewEdit({ match, history, location }) {
         <div className="edit-review__content">
           <div className="edit-review__element">
             <label
-              className="text-size-4 letter-spacing-md edit-review__label"
+              className="font-size-4 letter-spacing-md edit-review__label"
               htmlFor="name"
             >
               name
             </label>
             <input
               type="text"
-              className="edit-review__input edit-review__input-contact text-size-3"
+              className="edit-review__input edit-review__input-contact font-size-3"
               placeholder="Your name address"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -111,7 +111,7 @@ export default function ReviewEdit({ match, history, location }) {
                 />
 
                 <label
-                  className="reviews__new-review--label text-size-4"
+                  className="reviews__new-review--label font-size-4"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -131,7 +131,7 @@ export default function ReviewEdit({ match, history, location }) {
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
                 <label
-                  className="reviews__new-review--label text-size-4"
+                  className="reviews__new-review--label font-size-4"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -151,7 +151,7 @@ export default function ReviewEdit({ match, history, location }) {
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
                 <label
-                  className="reviews__new-review--label text-size-4"
+                  className="reviews__new-review--label font-size-4"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -163,22 +163,22 @@ export default function ReviewEdit({ match, history, location }) {
           </div>
 
           {/* <div className="edit-review__element">
-            <label className="text-size-4 letter-spacing-md edit-review__label">
+            <label className="font-size-4 letter-spacing-md edit-review__label">
               Is Admin
             </label>
             <input
               type="radio"
               checked={isAdmin}
-              className="edit-review__input edit-review__input-contact text-size-3"
+              className="edit-review__input edit-review__input-contact font-size-3"
               placeholder="Admin?"
               value={isAdmin}
               onChange={(isAdmin) => setIsAdmin(!isAdmin)}
             />
           </div> */}
 
-          <div className="edit-review__element text-size-4">
+          <div className="edit-review__element font-size-4">
             <textarea
-              className="edit-review__textarea text-size-4"
+              className="edit-review__textarea font-size-4"
               type="text"
               placeholder="Message"
               style={{ color: "var(--old-blue-2)" }}
@@ -189,7 +189,7 @@ export default function ReviewEdit({ match, history, location }) {
               // }}
               onChange={(e) => setMsg(e.target.value)}
             ></textarea>
-            <label className="reviews__new-review--label text-size-4"></label>
+            <label className="reviews__new-review--label font-size-4"></label>
           </div>
 
           <button

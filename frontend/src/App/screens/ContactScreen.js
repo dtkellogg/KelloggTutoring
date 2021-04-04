@@ -17,25 +17,19 @@ function ContactScreen() {
   const { url } = useRouteMatch();
 
   return (
-    <div className="pg__appointment container__appts">
-      {/* <Sidebar title="Appointments" list={apptsList} /> */}
+    // <div className="container__screen--sidebar">
 
       <TransitionGroup>
         <CSSTransition timeout={250} classNames="fade" key={location.key}>
           <Switch location={location}>
             <Route exact path={`${url}/message`} component={MessageScreen} />
-            <Route
-              exact
-              path={`${url}/schedule`}
-              component={() => <Booking type="schedule" />}
-            />
-            <Route path="*">
-              <PageHeader page="appts" />
-            </Route>
+            <Route exact path={`${url}/schedule`} component={() => <Booking type="schedule" />} />
+            <Route path="*" component={PageHeader} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
-    </div>
+      
+    // </div>
   );
 }
 

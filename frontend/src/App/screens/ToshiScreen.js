@@ -13,26 +13,22 @@ function ApptsScreen() {
   const { url } = useRouteMatch();
 
   return (
-    <div className="pg__appointment container__appts">
+    // <div className="container__screen--sidebar">
+
       <TransitionGroup>
         <CSSTransition timeout={250} classNames="fade" key={location.key}>
           <Switch location={location}>
             <Route exact path={`${url}/about`} component={ToshiAbout} />
             <Route exact path={`${url}/teaching`} component={ToshiTeaching} />
-            <Route
-              exact
-              path={`${url}/reviews`}
-              component={() => <Reviews type="meetToshi" />}
-            />
+            <Route exact path={`${url}/reviews`} component={() => <Reviews type="meetToshi" />} />
             {/* <Route exact path={`${url}/reviews/UserCreateReview`} component={UserCreateReview} /> */}
             <Route exact path={`${url}/blog`} component={Blog} />
-            <Route path="*">
-              <PageHeader page="appts" />
-            </Route>
+            <Route path="*" component={PageHeader} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
-    </div>
+
+    /* </div> */
   );
 }
 

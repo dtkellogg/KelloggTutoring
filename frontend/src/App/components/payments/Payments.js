@@ -128,9 +128,8 @@ export default function Payments({ match, history }) {
 
 
   return (
-    <div className="pg__appointment">
+    <div className="container__screen--sidebar">
       {/* <Sidebar title="Appointments" list={ apptsList } /> */}
-      <div className="appointments">
         {!userInfo ? (
           <div className="">
             <PleaseLogin />
@@ -138,10 +137,8 @@ export default function Payments({ match, history }) {
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
             .filter((appt) => appt.paid === false).length === 0 ? (
-            <div className="header__no-appts">
-              <div className="text-size-2 msg__userInfoNull">
-                You have no unpaid appointments
-              </div>
+            <div className="font-size-2 msg__userInfoNull">
+              You have no unpaid appointments
             </div>
         ) : (
           <div className="appointments__payments--container">
@@ -154,12 +151,12 @@ export default function Payments({ match, history }) {
                 continue
               </Link>
               <button className="btn__cart--reset" onClick={handleReset}>reset cart</button>
-              <div className="appointments__header text-size-2">
+              <div className="appointments__header font-size-2">
                 Select appointments to pay for:
               </div>
             </div>
             <div className="appointments__table--payments-container">
-              <table className="appointments__list text-size-3">
+              <table className="appointments__list font-size-3">
                 <thead className="thead">
                   <tr className="tr">
                     <th className="appointments__th--date">date</th>
@@ -209,12 +206,12 @@ export default function Payments({ match, history }) {
                       const date = appt.date.split("T")[0].split("-");
                       return (
                         <tr key={appt._id} className="appointments__list--item">
-                          <td className="text-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                          <td className="text-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                          <td className="text-size-3 appointments__item--student">
+                          <td className="font-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                          <td className="font-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                          <td className="font-size-3 appointments__item--student">
                             {appt.student}
                           </td>
-                          <td className="text-size-3 appointments__item--subject">
+                          <td className="font-size-3 appointments__item--subject">
                             {appt.subject}
                           </td>
                           <td className="appointments__item--btns">
@@ -252,7 +249,6 @@ export default function Payments({ match, history }) {
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 }

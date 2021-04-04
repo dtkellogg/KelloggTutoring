@@ -71,15 +71,15 @@ export default function AdminAppointmentsList({ location, history }) {
 
 
 	return (
-		<div className="container__toshi">
+		<div className="container__screen--sidebar">
 			{/* <Sidebar title="Toshi" list={adminList} /> */}
-			<div className="reviewsAdmin">
-				<div className="text-size-2 admin__header--container">
-					<div className="text-size-2 appointments__header">
+			<div className="container__admin">
+				<div className="font-size-2 admin__header--container">
+					<div className="font-size-2 appointments__header">
 						All appointments:
 					</div>
 					<Link to={`${url}/create-appointment`} className="btn__admin--appts-list">
-						<span className="text-size-6" style={{ textAlign: "center" }}>
+						<span className="font-size-6" style={{ textAlign: "center" }}>
 							{width > 900 ? "Create appointment" : "Create"}
 						</span>
 					</Link>

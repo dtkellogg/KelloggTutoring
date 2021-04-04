@@ -219,7 +219,8 @@ export const listUsers = () => async (dispatch, getState) => {
 
     dispatch({
       type: USER_LIST_SUCCESS,
-      payload: sortedUsers,
+      payload: data,
+      // payload: sortedUsers,
     });
 
   } catch (error) {

@@ -24,12 +24,12 @@
   &__content {
     height: min-content;
     width: 100%;
-    @include flexCenterCenter($flex-direction: column, $justify-content: space-around);
+    @include flexCenterCenter($flex-direction: column, $justify-content: space-around, $align-items: stretch);
   }
 
   &__element {
     padding: 1rem 0;
-    @include flexCenterCenter($flex-direction: column);
+    @include flexCenterCenter($flex-direction: column, $align-items: stretch);
     
     @media (max-width: 600px) {
       width: 100%;

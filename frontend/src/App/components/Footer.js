@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer">
         <div className="footer__contact-items">
 
-          <div className="footer__contact-item text-size-3">
+          <div className="footer__contact-item font-size-3">
             <span role="img" aria-label="email emoji" className="footer__emoji">
               ✉️
             </span>
@@ -16,26 +16,26 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="footer__contact-item text-size-3">
+          <div className="footer__contact-item font-size-3">
             <span role="img" aria-label="phone emoji" className="footer__emoji">
               📞&nbsp;
             </span>
             <Link
               to={`/contact/message`}
-              className="text-size-3 msg__userInfoNull"
+              className="font-size-3 msg__userInfoNull"
             >
               (Please&nbsp;
-              <span className="text-size-3" style={{ color: "blue" }}>
+              <span className="font-size-3" style={{ color: "blue" }}>
                 ask
               </span>
-              <span className="text-size-3">)</span>
+              <span className="font-size-3">)</span>
             </Link>
           </div>
 
         </div>
 
         <div className="legal">
-          <span className="text-size-5">
+          <span className="font-size-5">
             &copy; 2020 by Damian Toshi Kellogg. All rights reserved.
           </span>
         </div>

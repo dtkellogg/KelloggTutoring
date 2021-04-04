@@ -74,11 +74,11 @@ export default function AdminStatsScreen({history, location}) {
 
     
         return (
-          <div className="container__toshi">
+            <div className="container__screen--sidebar">
             {/* <Sidebar title="Toshi" list={adminList} /> */}
             <div className="appointment-requests">
-              <div className="text-size-2 appointment-requests__header--container">
-                <div className="text-size-2 appointment-requests__header">
+              <div className="font-size-2 appointment-requests__header--container">
+                <div className="font-size-2 appointment-requests__header">
                   Stats:
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function AdminStatsScreen({history, location}) {
               </div>
 
               {/* <div className="admin__table--container">
-                        <table className="appointment-requests__list text-size-3">
+                        <table className="appointment-requests__list font-size-3">
                             <thead className="thead">
                                 <tr className="tr">
                                     <th className="appointment-requests__th--date">date</th>
@@ -136,11 +136,11 @@ export default function AdminStatsScreen({history, location}) {
                                     const date = appt.date.split("T")[0].split("-")
                                     return (
                                         <tr key={appt._id} className="tr">
-                                            <td className="text-size-3 appointment-requests__td--date">
+                                            <td className="font-size-3 appointment-requests__td--date">
                                                 {`${date[1]}-${date[2]}`}
                                             </td>
 
-                                            <td className="text-size-3 appointment-requests__td--student">
+                                            <td className="font-size-3 appointment-requests__td--student">
                                                 {appt.student}
                                             </td>
 

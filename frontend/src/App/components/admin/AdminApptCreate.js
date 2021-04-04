@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import {useHistory, useLocation} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
 
@@ -11,24 +12,26 @@ import { listUsers } from "../../actions/userActions"
 import LoadingSpinner from '../loading/LoadingSpinner'
 
 
-export default function AdminAppointmentCreate({ location, history }) {
+export default function AdminAppointmentCreate() {
   
-  const [users, setUsers] = React.useState([])
-	const [student, setStudent] = React.useState("")
-	const [subject, setSubject] = React.useState("")
-	const [date, setDate] = React.useState("")
-	const [startTime, setStartTime] = React.useState("")
-	const [endTime, setEndTime] = React.useState("")
-	const [submitted, setSubmitted] = React.useState(false)
-	const [paid, setPaid] = React.useState(false)
+  const [users, setUsers] = useState([])
+	const [student, setStudent] = useState("")
+	const [subject, setSubject] = useState("")
+	const [date, setDate] = useState("")
+	const [startTime, setStartTime] = useState("")
+	const [endTime, setEndTime] = useState("")
+	const [submitted, setSubmitted] = useState(false)
+	const [paid, setPaid] = useState(false)
 
 	const appointmentCreate = useSelector((state) => state.appointmentCreate)
   const { loading: loadingCreate, error: errorCreate, success: successCreate } = appointmentCreate
 
   const dispatch = useDispatch()
+  const history = useHistory()
+  const location = useLocation()
   const { addToast } = useToasts();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(listUsers())
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -39,23 +42,25 @@ export default function AdminAppointmentCreate({ location, history }) {
     users: usersList,
   } = userList;
 
-  React.useEffect(() => {
+  useEffect(() => {
     setUsers(usersList)
   }, [usersList])
   
   
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading) {
       dispatch(subheader("Loading..."));
     } else {
       dispatch(subheader(""));
     }
+
     if (error) {
       addToast("There was an error. Please try again.", {
         appearance: "error",
         autoDismiss: true,
       });
     }
+
     if (submitted) {
       addToast("Appointment successfully added.", {
         appearance: "success",
@@ -63,6 +68,7 @@ export default function AdminAppointmentCreate({ location, history }) {
       });
       history.push("/admin/appts");
     }
+
   }, [
     dispatch,
     history,
@@ -86,23 +92,22 @@ export default function AdminAppointmentCreate({ location, history }) {
         autoDismiss: true,
       });
     }
-
   }
 
 
 	return (
-    <div className="user__page">
+    <div className="container__screen--sidebar">
       { loading ? <LoadingSpinner/> : (
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
         <div className="createApptScreen__header">
-          <h2 className="text-size-2 letter-spacing-sm">
+          <h2 className="font-size-2 letter-spacing-sm">
             Create a new appointment
           </h2>
         </div>
         <div className="createApptScreen__content">
           <div className="createApptScreen__element">
             <label
-              className="text-size-4 letter-spacing-md createApptScreen__label"
+              className="font-size-4 letter-spacing-md createApptScreen__label"
               htmlFor="student"
             >
               student
@@ -110,7 +115,7 @@ export default function AdminAppointmentCreate({ location, history }) {
             {users && (
             <select 
               type="name" 
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               placeholder="student name"
               value={student}
               onChange={(e) => setStudent(e.target.value)}
@@ -127,7 +132,7 @@ export default function AdminAppointmentCreate({ location, history }) {
               ))} */}
               <option></option>
               {users.map((user, i) => (
-                <option key={i}>{user}</option>
+                <option key={i}>{user.name}</option>
 
               ))}
             </select>
@@ -136,14 +141,14 @@ export default function AdminAppointmentCreate({ location, history }) {
 
           <div className="createApptScreen__element">
             <label
-              className="text-size-4 letter-spacing-md createApptScreen__label"
+              className="font-size-4 letter-spacing-md createApptScreen__label"
               htmlFor="subject"
             >
               subject
             </label>
             <input
               type="text"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               placeholder="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
@@ -151,12 +156,12 @@ export default function AdminAppointmentCreate({ location, history }) {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="text-size-4 letter-spacing-md createApptScreen__label">
+            <label className="font-size-4 letter-spacing-md createApptScreen__label">
               date
             </label>
             <input
               type="date"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               placeholder="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -164,12 +169,12 @@ export default function AdminAppointmentCreate({ location, history }) {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="text-size-4 letter-spacing-md createApptScreen__label">
+            <label className="font-size-4 letter-spacing-md createApptScreen__label">
               start time
             </label>
             <input
               type="time"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               placeholder="start time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
@@ -177,12 +182,12 @@ export default function AdminAppointmentCreate({ location, history }) {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="text-size-4 letter-spacing-md createApptScreen__label">
+            <label className="font-size-4 letter-spacing-md createApptScreen__label">
               end time
             </label>
             <input
               type="time"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               placeholder="end time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
@@ -190,12 +195,12 @@ export default function AdminAppointmentCreate({ location, history }) {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="text-size-4 letter-spacing-md createApptScreen__label">
+            <label className="font-size-4 letter-spacing-md createApptScreen__label">
               paid?
             </label>
             <input
               type="checkbox"
-              className="createApptScreen__input createApptScreen__input-contact text-size-3"
+              className="createApptScreen__input createApptScreen__input-contact font-size-3"
               style={{ alignSelf: "flex-start" }}
               placeholder="paid"
               value={paid}

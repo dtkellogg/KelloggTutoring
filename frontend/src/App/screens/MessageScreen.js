@@ -106,18 +106,18 @@ export default function MessageScreen({ history }) {
       <div className="user__page">
         <form className="messageForm" onSubmit={handleSubmit}>
           <div className="messageForm__header">
-            <h2 className="text-size-2 letter-spacing-sm">
+            <h2 className="font-size-2 letter-spacing-sm">
               Any questions?
             </h2>
           </div>
           <div className="messageForm__content">
             <div className="messageForm__element">
-              <label className="text-size-5 letter-spacing-md messageForm__label">
+              <label className="font-size-5 letter-spacing-md messageForm__label">
                 name
               </label>
               <input
                 type="name"
-                className="messageForm__input messageForm__input-contact text-size-4"
+                className="messageForm__input messageForm__input-contact font-size-4"
                 placeholder="name"
                 value={name || ""}
                 onChange={(e) => setName(e.target.value)}
@@ -125,28 +125,28 @@ export default function MessageScreen({ history }) {
             </div>
             <div className="messageForm__element">
               <label
-                className="text-size-5 letter-spacing-md messageForm__label"
+                className="font-size-5 letter-spacing-md messageForm__label"
                 htmlFor="email__messageForm"
               >
                 email
               </label>
               <input
                 type="email"
-                className="messageForm__input messageForm__input-contact text-size-4"
+                className="messageForm__input messageForm__input-contact font-size-4"
                 placeholder="email"
                 value={email || ""}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="messageForm__element">
-              <label className="text-size-5 letter-spacing-md messageForm__label">
+              <label className="font-size-5 letter-spacing-md messageForm__label">
                 phone
               </label>
               <input
                 type="tel"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 // format="(###) ###-####"
-                className="messageForm__input messageForm__input-contact text-size-4"
+                className="messageForm__input messageForm__input-contact font-size-4"
                 placeholder="(xxx) xxx - xxxx"
                 // value={phone ? useFormatedPhoneNumber(phone) : phone}
                 value={phone ? FormattedPhoneNum(phone) : phone}
@@ -154,12 +154,12 @@ export default function MessageScreen({ history }) {
               />
             </div>
             <div className="messageForm__element">
-              <label className="text-size-5 letter-spacing-md messageForm__label">
+              <label className="font-size-5 letter-spacing-md messageForm__label">
                 subject
               </label>
               <input
                 type="subject"
-                className="messageForm__input messageForm__input-contact text-size-4"
+                className="messageForm__input messageForm__input-contact font-size-4"
                 placeholder="subject"
                 value={subject || ""}
                 onChange={(e) => setSubject(e.target.value)}
@@ -167,14 +167,14 @@ export default function MessageScreen({ history }) {
             </div>
             <div className="messageForm__element">
               <label
-                className="text-size-5 letter-spacing-md messageForm__label"
+                className="font-size-5 letter-spacing-md messageForm__label"
                 htmlFor="message__messageForm"
               >
                 message
               </label>
               <textarea
                 type="text"
-                className="messageForm__textarea messageForm__input--contact-message text-size-4"
+                className="messageForm__textarea messageForm__input--contact-message font-size-4"
                 placeholder="Please leave your message here."
                 value={message || ""}
                 onChange={(e) => setMessage(e.target.value)}
@@ -182,12 +182,12 @@ export default function MessageScreen({ history }) {
             </div>
             
             {submitted && (
-              <p className="messageForm__success-message--contact text-size-3">
+              <p className="messageForm__success-message--contact font-size-3">
                 Message has been sent.
               </p>
             )}
             {failed.length > 0 && (
-              <p className="messageForm__fail-message--contact text-size-3">
+              <p className="messageForm__fail-message--contact font-size-3">
                 {failed}
               </p>
             )}

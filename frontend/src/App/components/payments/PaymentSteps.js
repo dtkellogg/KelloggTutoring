@@ -21,13 +21,13 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <NavLink
               to="/login"
               activeStyle={activeStyle}
-              className="nav__link text-size-6 letter-spacing-sm green"
+              className="nav__link font-size-6 letter-spacing-sm green"
               style={{ color: "var(--old-blue-2)"}}
             >
               Sign In
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Sign In</div>
+            <div className="payment__steps--li font-size-6 letter-spacing-sm" disabled>Sign In</div>
           )}
         </li>
 
@@ -36,13 +36,13 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <NavLink
               to={`/appointments/payments`}
               // activeStyle={activeStyle}
-              className="nav__link text-size-6 letter-spacing-sm"
+              className="nav__link font-size-6 letter-spacing-sm"
               style={{ color: "var(--old-blue-2)"}}
             >
               Appointments
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment</div>
+            <div className="payment__steps--li font-size-6 letter-spacing-sm" disabled>Payment</div>
           )}
         </li>
 
@@ -51,13 +51,13 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <NavLink
               to={`/appointments/payment-method`} 
               // activeStyle={activeStyle}}
-              className="nav__link text-size-6 letter-spacing-sm"
+              className="nav__link font-size-6 letter-spacing-sm"
               style={{ color: "var(--old-blue-2)"}}
             >
               Payment Method
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Payment Method</div>
+            <div className="payment__steps--li font-size-6 letter-spacing-sm" disabled>Payment Method</div>
           )}
         </li>
 
@@ -66,13 +66,13 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <NavLink
               to={`${path}/submit-payment`}
               // activeStyle={activeStyle}
-              className="nav__link text-size-6 letter-spacing-sm"
+              className="nav__link font-size-6 letter-spacing-sm"
               style={{ color: "var(--old-blue-2)"}}
             >
               Submit
             </NavLink>
           ) : (
-            <div className="payment__steps--li text-size-6 letter-spacing-sm" disabled>Submit</div>
+            <div className="payment__steps--li font-size-6 letter-spacing-sm" disabled>Submit</div>
           )}
         </li>
       </ul>

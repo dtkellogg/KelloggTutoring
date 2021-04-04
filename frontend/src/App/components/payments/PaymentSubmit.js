@@ -84,18 +84,18 @@ export default function SubmitPaymentScreen ({ history }) {
 
   return (
       <React.Fragment>
-          <div className="text-size-2">
-              <h2 className="text-size-2">Submit Payment Screen</h2>
+          <div className="font-size-2">
+              <h2 className="font-size-2">Submit Payment Screen</h2>
 
-              <div className="text-size-3">Payment Method</div>
+              <div className="font-size-3">Payment Method</div>
 
               <div className="">
-                  <h3 className="text-size-3">Pay for the following appointments:</h3>
+                  <h3 className="font-size-3">Pay for the following appointments:</h3>
               </div>
 
               <div className="card">
                   <div>
-                      <h2 className="text-size-2">Payment Summary</h2>
+                      <h2 className="font-size-2">Payment Summary</h2>
 
                       <div className="Appointments">
                           {/* <span>${cart.apptPrice}</span> */}

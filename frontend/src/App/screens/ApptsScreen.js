@@ -18,36 +18,20 @@ function ApptsScreen() {
     const { url } = useRouteMatch();
     
     return (
-      <div className="pg__appointment container__appts">
         <TransitionGroup>
           <CSSTransition timeout={250} classNames="fade" key={location.key}>
             <Switch location={location}>
-              <Route
-                exact
-                path={`${url}/booking`}
-                component={() => <Booking type="booking" />}
-              />
+              <Route exact path={`${url}/booking`} component={() => <Booking type="booking" />} />
               {/* <Route exact path={`${url}/booking`} component={() => <Booking type="appts"/>} /> */}
               <Route exact path={`${url}/payments`} component={Payments} />
-              <Route
-                exact
-                path={`${url}/list`}
-                component={() => <ApptsList type="all" />}
-              />
+              <Route exact path={`${url}/list`} component={() => <ApptsList type="all" />} />
               <Route exact path={`${url}/calendar`} component={Calendar} />
-              <Route
-                exact
-                path={`${url}/payment-method`}
-                component={PaymentMethod}
-              />
+              <Route exact path={`${url}/payment-method`} component={PaymentMethod} />
               <Route exact path={`${url}/checkout`} component={Checkout} />
-              <Route path="*">
-                <PageHeader page="appts"/>
-              </Route>
+              <Route path="*" component={PageHeader} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-      </div>
     );
 }
 

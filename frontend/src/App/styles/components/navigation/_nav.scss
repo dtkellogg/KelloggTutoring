@@ -41,7 +41,7 @@
     
 
     &--text {
-      font-size: var(--text-size-1);
+      font-size: var(--font-size-1);
       font-weight: inherit;
       height: 100%;
       display: flex;
@@ -64,7 +64,7 @@
     }
 
     &--title-text {
-      font-size: var(--text-size-1);
+      font-size: var(--font-size-1);
       display: inline-block;
       height: 100%;
       display: flex;
@@ -108,7 +108,7 @@
   
 
   &__link {
-    font-size: var(--text-size-5);
+    font-size: var(--font-size-5);
     font-weight: inherit;
     height: 100%;
     display: flex;
@@ -126,7 +126,7 @@
   }
 
   &__link--dropdown {
-    font-size: var(--text-size-5);
+    font-size: var(--font-size-5);
     font-weight: inherit;
     height: 100%;
     display: flex;
@@ -166,7 +166,7 @@
   }
 
   &__user-name {
-    font-size:var(--text-size-3);
+    font-size:var(--font-size-3);
     font-weight: inherit;
     padding-right: 0.25rem;
     @media (max-width: 440px) {
@@ -271,31 +271,4 @@ input[type="text"]::placeholder {
 
 input[type="text"] {
   // color: $black;
-}
-
-.container__nav {
-  &--upper {
-    @include hundredPercentHW();
-    @include flexCenterCenter($justify-content: space-between);
-    background-color: $grey-light-9;
-    border-bottom: 1px solid $grey-light-6;
-    color: $black;
-    z-index: 999999999;
-
-    @media ( max-width: 510px ) {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
-    }
-  }
-
-  &--lower {
-    @include hundredPercentHW();
-    @include flexCenterCenter($justify-content: space-between);
-    background-color: $grey-light-9;
-    border-bottom: 1px solid $grey-light-6;
-    padding: 1rem 1rem 1rem 2rem;
-    position: relative;
-    // overflow: hidden;
-  }
 }

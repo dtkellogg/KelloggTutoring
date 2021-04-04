@@ -9,7 +9,6 @@
 
   &__contact-items {
     @include hundredPercentHW();
-    padding: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-around;

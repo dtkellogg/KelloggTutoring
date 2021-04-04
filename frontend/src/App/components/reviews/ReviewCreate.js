@@ -83,23 +83,23 @@ export default function ReviewCreateScreen({ history }) {
   }, [dispatch, user]);
 
   return (
-    <div className="container__toshi">
+    <div className="container__screen--sidebar">
       <Sidebar title="Toshi" list={toshiList} />
       <form className="reviews__new-review">
-        <h2 className="reviews__new-review--header text-size-2">
+        <h2 className="reviews__new-review--header font-size-2">
           Create a review
         </h2>
 
         <div className="reviews__new-review--element">
           <input
-            className="reviews__new-review--input text-size-4"
+            className="reviews__new-review--input font-size-4"
             type="text"
             placeholder="Name"
             style={{ color: "var(--old-blue-2)" }}
             value={name || ""}
             onChange={(e) => setName(e.target.value)}
           />
-          <label className="reviews__new-review--label text-size-4"></label>
+          <label className="reviews__new-review--label font-size-4"></label>
         </div>
 
         <div className="reviews__new-review--radio-btns">
@@ -115,7 +115,7 @@ export default function ReviewCreateScreen({ history }) {
             />
 
             <label
-              className="reviews__new-review--label text-size-4"
+              className="reviews__new-review--label font-size-4"
               // style={{ color: "var(--old-blue-2)" }}
             >
               Student
@@ -131,7 +131,7 @@ export default function ReviewCreateScreen({ history }) {
               className="btn__radio--input"
               onChange={(e) => handleRadioBtnChange(e)}
             />
-            <label className="reviews__new-review--label text-size-4">
+            <label className="reviews__new-review--label font-size-4">
               Parent
             </label>
           </div>
@@ -145,30 +145,30 @@ export default function ReviewCreateScreen({ history }) {
               className="btn__radio--input"
               onChange={(e) => handleRadioBtnChange(e)}
             />
-            <label className="reviews__new-review--label text-size-4">
+            <label className="reviews__new-review--label font-size-4">
               Friend
             </label>
           </div>
         </div>
 
-        <div className="review__new-review--element text-size-4">
+        <div className="review__new-review--element font-size-4">
           <textarea
-            className="reviews__new-review--textarea text-size-4"
+            className="reviews__new-review--textarea font-size-4"
             type="text"
             placeholder="Message"
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
           ></textarea>
-          <label className="reviews__new-review--label text-size-4"></label>
+          <label className="reviews__new-review--label font-size-4"></label>
         </div>
 
         {submitted && (
-          <p className="messageForm__success-message--contact text-size-3">
+          <p className="messageForm__success-message--contact font-size-3">
             Your review was submitted successfully. Thank you!
           </p>
         )}
         {failed.length > 0 && (
-          <p className="messageForm__fail-message--contact text-size-3">
+          <p className="messageForm__fail-message--contact font-size-3">
             {failed}
           </p>
         )}

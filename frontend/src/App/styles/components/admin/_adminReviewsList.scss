@@ -213,7 +213,7 @@
 .admin {
   &__table {
     &--container {
-      height: 70vh;
+      height: 100%;
       overflow: scroll;
 
       @media (max-width:900px) {

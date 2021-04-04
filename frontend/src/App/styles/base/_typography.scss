@@ -1,7 +1,7 @@
 //--------------------fonts--------------------//
 
-.text-size-0 {
-  font-size: var(--text-size-0);
+.font-size-0 {
+  font-size: var(--font-size-0);
   font-weight: 300;
 
   // @media (max-width: 750px) {
@@ -17,8 +17,8 @@
   // }
 }
 
-.text-size-1 {
-  font-size: var(--text-size-1);
+.font-size-1 {
+  font-size: var(--font-size-1);
   font-weight: 300;
 
   // @media (max-width: 750px) {
@@ -34,8 +34,8 @@
   // }
 }
 
-.text-size-2 {
-  font-size: var(--text-size-2);
+.font-size-2 {
+  font-size: var(--font-size-2);
   font-weight: 300;
   box-sizing: inherit;
 
@@ -52,8 +52,8 @@
   // }
 }
 
-.text-size-3 {
-  font-size: var(--text-size-3);
+.font-size-3 {
+  font-size: var(--font-size-3);
   font-weight: 300;
 
   // @media (max-width: 750px) {
@@ -69,8 +69,8 @@
   // }
 }
 
-.text-size-4 {
-  font-size: var(--text-size-4);
+.font-size-4 {
+  font-size: var(--font-size-4);
   font-weight: 400;
 
   // @media (max-width: 750px) {
@@ -82,8 +82,8 @@
   // }
 }
 
-.text-size-5 {
-  font-size: var(--text-size-5);
+.font-size-5 {
+  font-size: var(--font-size-5);
   font-weight: 300;
 
   // @media (max-width: 750px) {
@@ -95,8 +95,8 @@
   // }
 }
 
-.text-size-6 {
-  font-size: var(--text-size-6);
+.font-size-6 {
+  font-size: var(--font-size-6);
   font-weight: 300;
 
   // @media (max-width: 750px) {
@@ -113,7 +113,7 @@
 .header {
   &__home {
     &--appointments {
-      font-size: var(--text-size-2);
+      font-size: var(--font-size-2);
       font-weight: inherit;
 
       @media(max-width: 1050px) {
@@ -136,6 +136,13 @@
       height: 58vh;
     }
   }
+
+  &__register {
+    font-size: var(--font-size-2);
+    font-weight: inherit;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
 }
 
 //--------------------home--------------------//
@@ -145,25 +152,29 @@
   &__home {
     
     &--welcome {
-      font-size: var(--text-size-0);
+      font-size: var(--font-size-0);
       font-weight: inherit;
       transform: translate(-0.2rem, -.4rem);
       letter-spacing: 0.4rem;
 
-      @media (max-width: 600px) {
-        transform: translate(0.0rem, .4rem);
+      @media (max-width: 1050px) {
+          letter-spacing: 0;
       }
     }
     &--tutoring-simplified {
-      font-size: var(--text-size-2);
+      font-size: var(--font-size-2);
       font-weight: inherit;
       transform: translate(0rem,0.5rem);
     }
     &--subjects {
-      font-size: var(--text-size-3);
+      font-size: var(--font-size-3);
       font-weight: inherit;
       transform: translate(0.15rem,-1rem);
       width: 38rem;
+
+      @media (max-width: 950px) {
+        text-align: center;
+      }
 
       @media (max-width: 750px) {
         width: 36rem;

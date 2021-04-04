@@ -79,7 +79,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 		<Sidebar title="Toshi" list={adminList} />
 		<form onSubmit={handleSubmit} className="appt-edit user__page">
 			<div className="appt-edit__header">
-				<h2 className="text-size-2 letter-spacing-sm">
+				<h2 className="font-size-2 letter-spacing-sm">
 					Edit Appointment
 				</h2>
 			</div>
@@ -88,14 +88,14 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 				<div className="loginScreen__input-container">
 				<div className="appt-edit__element">
 					<label
-							className="text-size-4 letter-spacing-md appt-edit__label"
+							className="font-size-4 letter-spacing-md appt-edit__label"
 							htmlFor="student"
 					>
 							student
 					</label>
 					<input
 							type="name"
-							className="appt-edit__input appt-edit__input-contact text-size-3"
+							className="appt-edit__input appt-edit__input-contact font-size-3"
 							placeholder="Student name"
 							value={student}
 							onChange={(e) => setStudent(e.target.value)}
@@ -104,14 +104,14 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 
 					<div className="appt-edit__element">
 						<label
-								className="text-size-4 letter-spacing-md appt-edit__label"
+								className="font-size-4 letter-spacing-md appt-edit__label"
 								htmlFor="subject"
 						>
 								subject
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact font-size-3"
 								placeholder="subject"
 								value={subject}
 								onChange={(e) => setSubject(e.target.value)}
@@ -119,12 +119,12 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</div>
 
 					<div className="appt-edit__element">
-						<label className="text-size-4 letter-spacing-md appt-edit__label">
+						<label className="font-size-4 letter-spacing-md appt-edit__label">
 								date
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact font-size-3"
 								placeholder="date"
 								value={date}
 								onChange={(e) => setDate(e.target.value)}
@@ -132,12 +132,12 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</div>
 
 					<div className="appt-edit__element">
-						<label className="text-size-4 letter-spacing-md appt-edit__label">
+						<label className="font-size-4 letter-spacing-md appt-edit__label">
 								duration
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact font-size-3"
 								placeholder="duration"
 								value={duration}
 								onChange={(e) => setDuration(e.target.value)}
@@ -145,12 +145,12 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</div>
 
 					<div className="appt-edit__element">
-						<label className="text-size-4 letter-spacing-md appt-edit__label">
+						<label className="font-size-4 letter-spacing-md appt-edit__label">
 								time
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact text-size-3"
+								className="appt-edit__input appt-edit__input-contact font-size-3"
 								placeholder="time"
 								value={time}
 								onChange={(e) => setTime(e.target.value)}

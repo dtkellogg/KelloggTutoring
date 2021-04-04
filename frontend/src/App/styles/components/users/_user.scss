@@ -81,7 +81,7 @@
   }
 }
 
-.user-booking {
+.booking {
   @include hundredPercentHW();
   // padding: 1rem 18vw;
   display: flex;
@@ -90,6 +90,7 @@
   align-items: center;
   padding: 1rem 2rem;
   width: 40rem;
+  grid-column: 2 / -1;
   
 
   @media (max-width: 900px) {

@@ -81,7 +81,7 @@ export default function AdminUserEdit ({ match }) {
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
 			<Link to='/admin/users' className="btn__user-edit" >Go Back</Link>
 				<div className="userEditScreen__header">
-					<h2 className="text-size-2 letter-spacing-sm">
+					<h2 className="font-size-2 letter-spacing-sm">
 							Edit User
 					</h2>
 				</div>
@@ -90,14 +90,14 @@ export default function AdminUserEdit ({ match }) {
 					<div className="userEditScreen__element--container">
 						<div className="userEditScreen__element">
 							<label
-								className="text-size-4 letter-spacing-md userEditScreen__label"
+								className="font-size-4 letter-spacing-md userEditScreen__label"
 								for="name"
 							>
 								name
 							</label>
 							<input
 								type="text"
-								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								className="userEditScreen__input userEditScreen__input-contact font-size-3"
 								placeholder="Your name address"
 								value={name}
 								onChange={(e) => setName(e.target.value)}
@@ -106,14 +106,14 @@ export default function AdminUserEdit ({ match }) {
 
 						<div className="userEditScreen__element">
 							<label
-								className="text-size-4 letter-spacing-md userEditScreen__label"
+								className="font-size-4 letter-spacing-md userEditScreen__label"
 								for="email"
 							>
 								email
 							</label>
 							<input
 								type="email"
-								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								className="userEditScreen__input userEditScreen__input-contact font-size-3"
 								placeholder="Your email address"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
@@ -121,13 +121,13 @@ export default function AdminUserEdit ({ match }) {
 						</div>
 
 						<div className="userEditScreen__element">
-							<label className="text-size-4 letter-spacing-md userEditScreen__label">
+							<label className="font-size-4 letter-spacing-md userEditScreen__label">
 								Is Admin
 							</label>
 							<input
 								type="radio"
 								checked={isAdmin}
-								className="userEditScreen__input userEditScreen__input-contact text-size-3"
+								className="userEditScreen__input userEditScreen__input-contact font-size-3"
 								placeholder="Admin?"
 								value={isAdmin}
 								onChange={(isAdmin) => setIsAdmin(!isAdmin)}

@@ -70,7 +70,7 @@ const createAppointment = asyncHandler(async (req, res) => {
       user: req.user_id,
       student: appointment.student,
       subject: appointment.subject,
-      date: appointment.date,
+      date: new Date(appointment.date),
       startTime: appointment.startTime,
       endTime: appointment.endTime,
       paid: appointment.paid,

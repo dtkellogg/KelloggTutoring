@@ -26,14 +26,14 @@ const PaymentMethodScreen = ({ history }) => {
 
 
   return (
-    <div className="pg__appointment">
+    <div className="container__screen--sidebar">
       <Sidebar title="Appointments" list={apptsList} />
       <div className="payment__method--screen">
         <CheckoutSteps step1 step2 step3 />
         <form onSubmit={submitHandler} className="payment__method--screen--form">
           <div className="payment__method--screen--form-container">
             <div className="appointments__header--container">
-              <label as="legend" className="appointments__header text-size-2">
+              <label as="legend" className="appointments__header font-size-2">
                 Select payment method:
               </label>
               <button type="submit" className="btn__payment-method--continue">
@@ -51,7 +51,7 @@ const PaymentMethodScreen = ({ history }) => {
                   checked
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 />
-                <label className="text-size-3">PayPal or Credit Card</label>
+                <label className="font-size-3">PayPal or Credit Card</label>
               </div>
               {/* <div className="payment__method--screen--form-element">
                 <label className="">Stripe</label>

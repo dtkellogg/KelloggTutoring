@@ -15,7 +15,7 @@ export default function Reviews({history, type}) {
     <>
       <div
         className={
-          type === "meetToshi" ? "container__toshi" : "container__home--reviews-3"
+          type === "meetToshi" ? "container__screen--sidebar" : "container__home--reviews-3"
         }
       >
         {/* {type === "meetToshi" && <Sidebar title="Toshi" list={toshiList} />} */}
@@ -34,7 +34,7 @@ export default function Reviews({history, type}) {
           >
             {type === "meetToshi" && (
               <Link to={`/review/create-review`} className="btn__reviews">
-                <span className="text-size-6" style={{ textAlign: "center" }}>
+                <span className="font-size-6" style={{ textAlign: "center" }}>
                   Create Review
                 </span>
               </Link>
