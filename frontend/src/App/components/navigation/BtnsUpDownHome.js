@@ -40,25 +40,23 @@ function BtnsUpDownHome({calendarRef, reviewsRef}) {
 
 
     return (
-      <div>
-        <div className="container__btns--up-down-ui fadeInAnimated--0">
-          <button className="btn__nav--up">
-            <FaCaretUp
-              size={40}
-              fill="var(--old-blue)"
-              className=""
-              onClick={handleScrollToTop}
-            />
-          </button>
-          <button className="btn__nav--down">
-            <FaCaretDown
-              size={40}
-              fill="var(--old-blue)"
-              className=""
-              onClick={handleScrollToBottom}
-            />
-          </button>
-        </div>
+      <div className="container__btns--up-down-ui fadeInAnimated--0">
+        <button className="btn__nav--up">
+          <FaCaretUp
+            size={40}
+            fill="var(--old-blue)"
+            className=""
+            onClick={handleScrollToTop}
+          />
+        </button>
+        <button className="btn__nav--down">
+          <FaCaretDown
+            size={40}
+            fill="var(--old-blue)"
+            className=""
+            onClick={handleScrollToBottom}
+          />
+        </button>
       </div>
     );
 }

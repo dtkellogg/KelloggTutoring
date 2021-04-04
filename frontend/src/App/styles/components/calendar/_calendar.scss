@@ -2,7 +2,8 @@
 	@include hundredPercentHW();
 
 	display: grid;
-	grid-column: 2 / span 3;
+	grid-column: 2 / -1;
+	width: 100%;
 	grid-template-rows: 5rem 3rem repeat(6, 1fr);
 	grid-template-columns: repeat(7, 1fr);
 	
@@ -21,6 +22,10 @@
 
 	@media (max-width: 650px) {
 		// display: none;
+	}
+
+	&__appt {
+		margin-bottom: 0.5rem;
 	}
 
 	&__row {

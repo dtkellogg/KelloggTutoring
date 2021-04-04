@@ -215,6 +215,7 @@
     &--container {
       height: 100%;
       overflow: scroll;
+      padding-bottom: 2rem;
 
       @media (max-width:900px) {
         height: 59vh;

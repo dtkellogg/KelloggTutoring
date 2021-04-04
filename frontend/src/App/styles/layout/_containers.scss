@@ -146,6 +146,7 @@
 
       width: 100vw;
       position: relative;
+      height: min-content;
     }
 
     &--secondary {
@@ -160,11 +161,7 @@
       border-left: 0.5px dashed $old-blue-2;
       background-color: $white;
       position: relative;
-      display: inline-grid;
       height: min-content;
-      // scroll-snap-type: y mandatory;
-      grid-row: 3 / span 1;
-      grid-column: 2 / span 3;
 
 
       @media (max-width: 1050px) {
@@ -258,7 +255,7 @@
       overflow: hidden;
 
       @media (max-width: 600px) {
-        display: none;
+        // display: none;
       }
     }
     &--reviews-3 {
@@ -293,10 +290,35 @@
       padding-left: 0;
     }
 
+    @media (max-height: 950px) {
+      position: relative;
+    }
+
     &--content {
       grid-row: 2 / span 2;
       grid-column: 1 / -1;
     }
+
+    // &--right {
+    //   width: 40rem;
+    //   align-items: center;
+    //   transform: translate(0, -17rem);
+    //   @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
+
+    //   @media (max-height: 850px) {
+    //     transform: translate(0rem, -14rem);
+    //   }
+    // }
+
+    // &--text {
+    //   line-height: 5rem;
+    //   transform: translate(0rem, -10rem);
+
+    //   @media (max-width: 950px) {
+    //     transform: translate(0rem, 0rem);
+    //     @include flexCenterCenter($flex-direction: column);
+    //   }
+    // }
 
     &--right {
       width: 40rem;
@@ -304,8 +326,10 @@
       transform: translate(0, -17rem);
       @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
 
-      @media (max-height: 850px) {
+      @media (max-height: 950px) and (max-width: 950px) {
         transform: translate(0rem, -14rem);
+        position: absolute;
+        top: 28rem;
       }
     }
 
@@ -313,9 +337,12 @@
       line-height: 5rem;
       transform: translate(0rem, -10rem);
 
-      @media (max-width: 950px) {
+      @media (max-height: 950px) and (max-width: 950px) {
         transform: translate(0rem, 0rem);
         @include flexCenterCenter($flex-direction: column);
+
+        position: absolute;
+        top: 5rem;
       }
     }
   }
@@ -389,7 +416,7 @@
     }
   }
 
-  //--------------------home--------------------//
+  //--------------------register--------------------//
 
   &__register {
 
@@ -547,7 +574,7 @@
 
       @media(max-width: 1050px) {
         margin-top: 0;
-        transform: translateY(58.25rem);
+        transform: translateY(57rem);
       }
 
       @media(max-width: 600px) {

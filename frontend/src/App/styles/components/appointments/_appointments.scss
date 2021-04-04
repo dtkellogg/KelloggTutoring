@@ -356,7 +356,7 @@
 
   &__table {
     &--container {
-      height: 80vh;
+      @include hundredPercentHW();
       overflow: scroll;
       grid-column: 2 / -1;
       
@@ -547,7 +547,7 @@ tbody tr {
 .thead {
   @include hundredPercentHW();
 
-  // height: 10rem;
+  font-size: var(--font-size-3);
   height: 5rem;
   align-items: center;
   

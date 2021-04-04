@@ -23,8 +23,8 @@ export default function HomePage() {
 
   return (
     <div className="container__home--primary">
-
       <BtnsUpDownHome calendarRef={calendarRef} reviewsRef={reviewsRef} />
+
       
       <div className="container__home--secondary">
         <HomeHero />

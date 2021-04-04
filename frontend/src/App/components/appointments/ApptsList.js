@@ -13,11 +13,10 @@ import moment from 'moment'
 
 // hooks
 import {useSortMultiple} from '../../hooks/useSort'
-import useFormatAMPM from "../../hooks/useFormatAMPM"
 
 // actions
 import { subheader } from "../../actions/subheader"
-import { listAppointments, deleteAppointment, updateAppointment } from '../../actions/appointmentActions'
+import { listAppointments } from '../../actions/appointmentActions'
 
 
 
@@ -69,6 +68,11 @@ export default function ApptsList({ type }) {
 
         
       )
+
+      //--------------solution-to-below--------------//
+
+      //--------------appts' date is not saved into db... need to go thru model and controller--------------//
+
       const test = sortedAppts
         .filter((appt) => appt.student === userInfo.name)
         // .map((appt) => console.log(moment(appt.date).isAfter(now)))
@@ -101,7 +105,7 @@ export default function ApptsList({ type }) {
  if (type === "upcoming" && appts.length > 0) {
     return (
       <div className="">
-        <table className="font-size-3 appointments__list">
+        <table className="appointments__list">
           <ApptsTableHead />
           <ApptsTableBody appts={appts} type={type} />
         </table>
@@ -111,7 +115,7 @@ export default function ApptsList({ type }) {
     return (
       <div className="container__screen--sidebar">
         <div className="appointments__table--container">
-          <table className="font-size-3 appointments__list--all">
+          <table className="appointments__list--all">
             <ApptsTableHead />
             <ApptsTableBody appts={appts} type={type} />
           </table>
@@ -121,7 +125,7 @@ export default function ApptsList({ type }) {
   } else if (type === "admin" && userInfo && appts.length ) {
     return (
       <div className="admin__table--container">
-        <table className="font-size-3 appointments__list--all">
+        <table className="appointments__list--all">
           <ApptsTableHead />
           <ApptsTableBody appts={appts} type={type} />
         </table>
