@@ -17,8 +17,6 @@ function ContactScreen() {
   const { url } = useRouteMatch();
 
   return (
-    // <div className="container__screen--sidebar">
-
       <TransitionGroup>
         <CSSTransition timeout={250} classNames="fade" key={location.key}>
           <Switch location={location}>
@@ -28,8 +26,6 @@ function ContactScreen() {
           </Switch>
         </CSSTransition>
       </TransitionGroup>
-      
-    // </div>
   );
 }
 
