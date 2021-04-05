@@ -44,8 +44,9 @@
 			height: 100%;
 			overflow: scroll;
 
-			@media (max-width: 900px ) {
-				padding: 2rem 0;
+			@media (max-width: 950px ) {
+				padding: 2rem;
+				grid-column: 1 / -1;
 			}
 		}
 

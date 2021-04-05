@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // components
 import { subheader } from "../../actions/subheader";
+import BookingElement from './BookingElement'
 
 // actions
 import { requestAppointment } from "../../actions/appointmentActions";
@@ -45,12 +46,7 @@ export default function Booking({ location, history, type}) {
       setStudent("");
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    dispatch, 
-    history,
-    submitted,
-  ]);
+  }, [dispatch, history, submitted]);
 
   React.useEffect(() => {
     if (loading ) {
@@ -90,98 +86,24 @@ export default function Booking({ location, history, type}) {
   };
 
     
-    if(!userInfo) { return (
-      <div className="">
-      <PleaseLogin />
-      </div>
-    )} else { return (
+  if(!userInfo) { 
+    return <PleaseLogin />
+  } else { 
+    return (
       <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
         <form onSubmit={handleSubmit} className="messageForm">
-          <div className="booking__header">
-            <h2 className="font-size-2 letter-spacing-sm">
-              Request an appointment
-            </h2>
-          </div>
+          <h2 className="booking__header font-size-2 letter-spacing-sm">
+            Request an appointment
+          </h2>
 
           <div className="booking__content">
-            <div className="booking__element">
-              <label
-                className="font-size-5 letter-spacing-md booking__label"
-                htmlFor="student"
-              >
-                student
-              </label>
-              <input
-                type="name"
-                className="booking__input font-size-4"
-                placeholder="student"
-                style={{ color: "var(--old-blue-2)" }}
-                value={student || ''}
-                onChange={(e) => setStudent(e.target.value)}
-              />
-            </div>
+            <BookingElement htmlFor="student" text="student" type="name" placeholder="student" style={{}} value={student || ''} onChange={(e) => setStudent(e.target.value)}/>
+            <BookingElement htmlFor="subject" text="subject" type="subject" placeholder="subject" style={{}} value={subject} onChange={(e) => setSubject(e.target.value)}/>
+            <BookingElement htmlFor="date" text="date" type="date" placeholder="student" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={date} onChange={(e) => setDate(e.target.value)}/>
+            <BookingElement htmlFor="time" text="start time" type="time" placeholder="start time" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={startTime} onChange={(e) => setStartTime(e.target.value)}/>
+            <BookingElement htmlFor="time" text="end time" type="time" placeholder="end time" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={endTime} onChange={(e) => setEndTime(e.target.value)}/>
 
-            <div className="booking__element">
-              <label
-                className="font-size-5 letter-spacing-md booking__label"
-                htmlFor="subject"
-              >
-                subject
-              </label>
-              <input
-                type="subject"
-                className="booking__input font-size-4"
-                placeholder="subject"
-                style={{ color: "var(--old-blue-2)" }}
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </div>
-
-              <div className="booking__element " style={width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
-                <label className="font-size-5 letter-spacing-md booking__label" htmlFor="date">
-                date
-              </label>
-              <input
-                type="date"
-                className="booking__input font-size-4"
-                placeholder="date"
-                style={{ fontWeight: "lighter", color: "var(--old-blue-2)" }}
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-
-            <div className="booking__element " style={ width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
-                <label className="font-size-5 letter-spacing-md booking__label" htmlFor="time">
-                start time
-              </label>
-              <input
-                type="time"
-                className="booking__input font-size-4"
-                placeholder="start time"
-                value={startTime}
-                
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-            </div>
-
-            <div className="booking__element " style={ width > '450' ? {"alignItems": 'stretch'} : {"alignItems": 'flex-end'}}>
-                <label className="font-size-5 letter-spacing-md booking__label" htmlFor="time">
-                end time
-              </label>
-              <input
-                type="time"
-                className="booking__input font-size-4"
-                placeholder="end time"
-                
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-              />
-            </div>
-          </div>
-
-          {submitted && (
+            {submitted && (
               <p className="messageForm__success-message--contact font-size-3">
                 Message has been sent.
               </p>
@@ -192,14 +114,11 @@ export default function Booking({ location, history, type}) {
               </p>
             )}
 
-
-          <button
-            className="btn__booking"
-            type="submit"
-            onClick={handleSubmit}
-          >
+          </div>
+          <button className="btn__booking" type="submit" onClick={handleSubmit} >
             Submit
           </button>
+          
         </form>
       </div>
     )

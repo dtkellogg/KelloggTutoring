@@ -130,9 +130,7 @@ export default function Payments({ match, history }) {
   return (
     <div className="container__screen--sidebar">
         {!userInfo ? (
-          <div className="">
             <PleaseLogin />
-          </div>
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
             .filter((appt) => appt.paid === false).length === 0 ? (

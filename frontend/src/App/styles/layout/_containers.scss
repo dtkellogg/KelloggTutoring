@@ -112,6 +112,10 @@
         min-height: 148vh;
       }
 
+      @media (max-width: 950px) {
+        margin-top: 4.5rem;
+      }
+
       @include mediaQueriesContainerWithSidebar();
     }
 
@@ -138,7 +142,6 @@
 
       @media (max-width: 950px) {
         margin-top: 4.5rem;
-        
       }
 
     }

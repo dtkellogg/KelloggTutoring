@@ -7,6 +7,7 @@ import PropTypes from "prop-types"
 // components
 import ApptsTableHead from "./AppointmentsHead"
 import ApptsTableBody from "./ApptsTableBody"
+import PleaseLogin from '../../screens/PleaseLoginScreen'
 
 // moment
 import moment from 'moment'
@@ -59,40 +60,42 @@ export default function ApptsList({ type }) {
   }, [dispatch, userInfo, successUpdate])
 
   useEffect(() => {
-    if (type === "all") {
-      setAppts(sortedAppts.filter((appt) => appt.student === userInfo.name))
-    } else if (type === "upcoming" && userInfo) {
-      setAppts(sortedAppts
-        .filter((appt) => appt.student === userInfo.name)
-        .filter((appt) => (new Date(appt.date)) > today)
+    if(userInfo) {
+      if (type === "all") {
+        setAppts(sortedAppts.filter((appt) => appt.student === userInfo.name))
+      } else if (type === "upcoming" && userInfo) {
+        setAppts(sortedAppts
+          .filter((appt) => appt.student === userInfo.name)
+          .filter((appt) => (new Date(appt.date)) > today)
 
-        
-      )
+          
+        )
 
-      //--------------solution-to-below--------------//
+        //--------------solution-to-below--------------//
 
-      //--------------appts' date is not saved into db... need to go thru model and controller--------------//
+        //--------------appts' date is not saved into db... need to go thru model and controller--------------//
 
-      const test = sortedAppts
-        .filter((appt) => appt.student === userInfo.name)
-        // .map((appt) => console.log(moment(appt.date).isAfter(now)))
-        // .map((appt) => console.log(`${new Date(appt.date)} ${today}`))
-        .map((appt) => console.log((new Date(appt.date))))
-        .map((appt) => console.log(today))
-        // .map((appt) => console.log(new Date(appt.date) > today))
+        const test = sortedAppts
+          .filter((appt) => appt.student === userInfo.name)
+          // .map((appt) => console.log(moment(appt.date).isAfter(now)))
+          // .map((appt) => console.log(`${new Date(appt.date)} ${today}`))
+          .map((appt) => console.log((new Date(appt.date))))
+          .map((appt) => console.log(today))
+          // .map((appt) => console.log(new Date(appt.date) > today))
 
-        // .map((appt) => console.log(today))
+          // .map((appt) => console.log(today))
 
 
-        // .map((appt) => console.log(moment(appt.date).isAfter(now.subtract(0, 'days'))))
-        // .filter((appt) => moment(appt.date).isAfter(now))
+          // .map((appt) => console.log(moment(appt.date).isAfter(now.subtract(0, 'days'))))
+          // .filter((appt) => moment(appt.date).isAfter(now))
 
-      // console.log("NOW")
-      // console.log(now)
-      // console.log(test)
-      // console.log(appts)
-    } else if (type === "admin") {
-      setAppts(appointments)
+        // console.log("NOW")
+        // console.log(now)
+        // console.log(test)
+        // console.log(appts)
+      } else if (type === "admin") {
+        setAppts(appointments)
+      }
     }
   }, [appointments])
 
@@ -102,7 +105,10 @@ export default function ApptsList({ type }) {
 
   //////////////////////////////////////
   //////////////////////////////////////
- if (type === "upcoming" && appts.length > 0) {
+  if (!userInfo || userInfo === null) {
+    return <PleaseLogin />
+  }
+ else if (type === "upcoming" && appts.length > 0) {
     return (
       <div className="">
         <table className="appointments__list">

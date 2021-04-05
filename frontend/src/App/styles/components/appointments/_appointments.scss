@@ -35,8 +35,8 @@
   // overflow: scroll;
   position: relative;
 
-  @media (max-width: 900px) {
-    padding: 2rem 0;
+  @media (max-width: 950px) {
+    padding: 2rem;
   }
 
   @media (max-width: 600px) {
@@ -47,6 +47,7 @@
     &--container {
       @include hundredPercentHW();
       grid-column: 2 / -1;
+      padding: 2rem;
 
       @media (max-width: 950px) {
         grid-column: 1 / -1;
@@ -366,8 +367,7 @@
       grid-column: 2 / -1;
       
       @media (max-width:900px) {
-        height: 69vh;
-        overflow: scroll;
+        grid-column: 1 / -1;
       }
     }
 
@@ -390,6 +390,10 @@
     grid-row: 1 / span 1;
     grid-column: 2 / -1;
     text-align: center;
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
   }
 
   &__no-prev-appts {
@@ -482,8 +486,11 @@
   height: 100%;
   overflow: scroll;
 
-  @media (max-width: 600px) {
-    padding: 2rem 0;
+  grid-column: 2 / -1;
+
+  @media (max-width: 950px) {
+    grid-column: 1 / -1;
+    padding: 2rem;
   }
 }
 

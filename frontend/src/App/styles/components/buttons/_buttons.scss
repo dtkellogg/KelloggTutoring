@@ -232,6 +232,8 @@
     justify-self: start;
     padding: 0.5rem;
     position: absolute;
+      top: 5rem;
+
     width: 13rem;
     text-align: center;
 
@@ -242,7 +244,7 @@
     transform: translateY(-2.75rem);
 
     @media ( max-width: 900px ) {
-      right: 8vw;
+      // right: 8vw;
     }
 
     &:hover {
