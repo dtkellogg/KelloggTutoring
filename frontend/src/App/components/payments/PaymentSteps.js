@@ -49,7 +49,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         <li>
           {step3 ? (
             <NavLink
-              to={`/appointments/payment-method`} 
+              to={`/appointments/payments/payment-method`} 
               // activeStyle={activeStyle}}
               className="nav__link font-size-6 letter-spacing-sm"
               style={{ color: "var(--old-blue-2)"}}

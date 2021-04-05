@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createPayment } from '../../actions/paymentActions'
 import { listAppointments } from '../../actions/appointmentActions'
 import { subheader } from "../../actions/subheader";
+import { useHistory } from 'react-router-dom';
 
 
-export default function SubmitPaymentScreen ({ history }) {
+export default function SubmitPaymentScreen () {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   // const cart = useSelector((state) => state.cart)
 
@@ -22,7 +24,9 @@ export default function SubmitPaymentScreen ({ history }) {
 
 
 
-  const submitPaymentHandler = () => {
+  const submitPaymentHandler = (e) => {
+    e.preventDefault()
+
     dispatch(
       createPayment({
         paymentItems: cart.cartItems,
@@ -60,7 +64,7 @@ export default function SubmitPaymentScreen ({ history }) {
 
   React.useEffect(() => {
     if (success) {
-        history.push(`/payment/${payment._id}/edit`)
+      history.push(`appointments/payments/${payment._id}/edit`)
     }
     // eslint-disable-next-line
   }, [history, success])
@@ -113,7 +117,7 @@ export default function SubmitPaymentScreen ({ history }) {
                       type="button" 
                       className="btn"
                       // disabled={cart.cartItems === 0}
-                      onClick={submitPaymentHandler}
+                      onClick={(e) => submitPaymentHandler(e)}
                       >Submit Payment</button>
 
                   </div>

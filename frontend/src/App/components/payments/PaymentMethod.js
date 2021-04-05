@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { withRouter } from 'react-router-dom';
+import { withRouter, useRouteMatch, useHistory } from 'react-router-dom';
 
 // components
 import CheckoutSteps from "./PaymentSteps";
-import {Sidebar} from "../navigation/Sidebar";
 
 // actions
 import { savePaymentMethod } from "../../actions/cartActions";
 
-// data
-import { apptsList } from "../../data/lists"
+// hooks
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 
-const PaymentMethodScreen = ({ history }) => {
+const PaymentMethodScreen = () => {
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const { url } = useRouteMatch();
+  
+  const { width } = useWindowDimensions()
+  const history = useHistory()
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
-    history.push("/appointments/checkout");
+    history.push("/appointments/payments/checkout");
   };
 
 
   return (
-    <div className="container__screen--sidebar">
-      <Sidebar title="Appointments" list={apptsList} />
+    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
       <div className="payment__method--screen">
         <CheckoutSteps step1 step2 step3 />
         <form onSubmit={submitHandler} className="payment__method--screen--form">

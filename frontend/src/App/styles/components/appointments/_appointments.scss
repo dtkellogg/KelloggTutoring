@@ -46,6 +46,11 @@
   &__payments {
     &--container {
       @include hundredPercentHW();
+      grid-column: 2 / -1;
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+      }
     }
 
     &--header-container {

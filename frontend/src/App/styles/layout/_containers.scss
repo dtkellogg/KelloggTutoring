@@ -396,7 +396,7 @@
     height: 100%;
     grid-row: 3 / span 2;
     grid-column: 2 / span 1;
-    z-index: 999999999999999;
+    z-index: 50;
 
     @media (max-width: 950px) {
       grid-row: 3 / span 1;
@@ -495,7 +495,11 @@
   &__page-header {
     grid-column: 2 / -1;
     @include flexCenterCenter($flex-direction: column);
-;  }
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
+  }
 
   //--------------------profile--------------------//
 

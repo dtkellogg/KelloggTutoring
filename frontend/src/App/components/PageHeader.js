@@ -1,5 +1,7 @@
 import React from 'react'
 
+import useWindowDimensions from '../hooks/useWindowDimensions'
+
 // hands indicating to the user to pick a link
 const hands = ["👈🏻","👈🏼","👈🏽","👈🏾","👈🏿","👈"]
 const randomHand = hands[Math.floor(Math.random() * hands.length)];
@@ -7,8 +9,10 @@ const randomHand = hands[Math.floor(Math.random() * hands.length)];
 
 export default function PageHeader() {
 
+  const {width} = useWindowDimensions()
+
   return (
-      <div className="container__screen--sidebar fadeInAnimated--0">
+    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar" }>
         <div className="container__page-header">
         <h2 className="page-header__text font-size-2">
           Please select an option to the left.

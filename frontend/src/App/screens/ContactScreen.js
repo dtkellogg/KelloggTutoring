@@ -1,13 +1,11 @@
 import React from "react";
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { Sidebar } from "../components/navigation/Sidebar";
-import Calendar from "../components/calendar/Calendar";
 import LoadingSpinner from "../components/loading/LoadingSpinner";
 
 
 const PageHeader = React.lazy(() => import("../components/PageHeader"));
-const Booking = React.lazy(() => import("../components/appointments/UserBooking"));
+const Booking = React.lazy(() => import("../components/appointments/Booking"));
 const MessageScreen = React.lazy(() => import("./MessageScreen"));
 
 

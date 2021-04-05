@@ -22,7 +22,6 @@ const Zoom = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Resources = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Settings = React.lazy(() => import("./screens/ComingSoonScreen"));
 const Profile = React.lazy(() => import("./screens/ProfileScreen"));
-const Payment = React.lazy(() => import("./components/payments/Payment"));
 const Register = React.lazy(() => import("./screens/RegisterScreen"));
 // const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const ReviewEdit = React.lazy(() => import("./components/reviews/ReviewEdit"))
@@ -104,7 +103,6 @@ export default function App() {
                 <Route exact path="/settings" component={Settings} />
                 {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
                 {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
-                <Route exact path="/payment/:id/edit" component={Payment} />
                 <Route path="*" component={Home} />
               </Switch>
             </CSSTransition>

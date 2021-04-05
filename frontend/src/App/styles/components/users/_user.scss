@@ -93,10 +93,11 @@
   grid-column: 2 / -1;
   
 
-  @media (max-width: 900px) {
+  @media (max-width: 950px) {
     // padding: 1rem 2rem;
     // width: 90vw;
     width: 100%;
+    grid-column: 1 / -1;
   }
 
   @media (max-width: 450px) {

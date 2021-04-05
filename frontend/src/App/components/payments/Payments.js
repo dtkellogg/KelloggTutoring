@@ -129,7 +129,6 @@ export default function Payments({ match, history }) {
 
   return (
     <div className="container__screen--sidebar">
-      {/* <Sidebar title="Appointments" list={ apptsList } /> */}
         {!userInfo ? (
           <div className="">
             <PleaseLogin />
@@ -145,7 +144,7 @@ export default function Payments({ match, history }) {
             <PaymentSteps step1 step2 />
             <div className="appointments__payments--header-container">
               <Link
-                to={`/appointments/payment-method`}
+                to={`/appointments/payments/payment-method`}
                 className="btn__payments--continue"
               >
                 continue

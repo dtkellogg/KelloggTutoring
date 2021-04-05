@@ -1,15 +1,13 @@
 // react
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 
 //components
 import PaymentSteps from "./PaymentSteps";
-import {Sidebar} from "../navigation/Sidebar";
 
 //actions
-// import { listAppointments } from "../actions/appointmentActions";
 import { removeFromCart } from "../../actions/cartActions"
 import { createPayment } from "../../actions/paymentActions";
 
@@ -23,8 +21,9 @@ import { CART_RESET } from "../../constants/cartConstants";
 import { apptsList } from "../../data/lists"
 
 
-function PaymentCheckout({ match, history }) {
+function PaymentCheckout({ match }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   // const location = useLocation();
 
   const cart = useSelector((state) => state.cart);
@@ -33,19 +32,6 @@ function PaymentCheckout({ match, history }) {
     // console.log(`cart: ${cart}`)
   }
 
-  
-
-
-  // React.useEffect(() => {
-  //   if (loading) {
-  //     dispatch(subheader("Loading..."));
-  //   } else {
-  //     dispatch(subheader(""));
-  //   }
-  //   if (error) {
-  //     dispatch(subheader({ error }));
-  //   }
-  // }, [loading, error])
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to remove this appointment?")) {
@@ -61,7 +47,7 @@ function PaymentCheckout({ match, history }) {
   React.useEffect(() => {
     if (success) {
       dispatch({ type: CART_RESET });
-      history.push(`/payment/${payment._id}/edit`);
+      history.push(`/${payment._id}/edit`);
       // history.push(`/home`);
     }
     // eslint-disable-next-line
@@ -92,7 +78,6 @@ function PaymentCheckout({ match, history }) {
   return (
     <div className="container__screen--sidebar">
 
-      <Sidebar title="Appointments" list={apptsList} />
       <div className="appt__checkout">
 
         <PaymentSteps step1 step2 step3 step4 />
