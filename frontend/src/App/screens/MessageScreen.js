@@ -7,7 +7,7 @@ import { sendMessageToNodeMailer } from "../actions/msgActions";
 
 // hooks
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
-
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 // can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
@@ -28,6 +28,7 @@ export default function MessageScreen({ history }) {
   const [failed, setFailed] = React.useState("");
 
   const dispatch = useDispatch();
+  const { width } = useWindowDimensions()
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
@@ -102,8 +103,9 @@ export default function MessageScreen({ history }) {
   };
 
   return (
-    <div className="container__contact">
-      <div className="user__page">
+    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+     {/* <div className="user__page"> */}
+      {/* <div className="container__contact"> */}
         <form className="messageForm" onSubmit={handleSubmit}>
           <div className="messageForm__header">
             <h2 className="font-size-2 letter-spacing-sm">
@@ -201,7 +203,7 @@ export default function MessageScreen({ history }) {
             Submit
           </button>
         </form>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

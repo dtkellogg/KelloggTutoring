@@ -96,7 +96,7 @@ export default function Booking({ location, history, type}) {
       </div>
     )} else { return (
       <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
-        <form onSubmit={handleSubmit} className="booking">
+        <form onSubmit={handleSubmit} className="messageForm">
           <div className="booking__header">
             <h2 className="font-size-2 letter-spacing-sm">
               Request an appointment
