@@ -1,6 +1,7 @@
 .reviews {
 	@include hundredPercentHW();
 	display: flex;
+	margin-top: 2rem;
 
 	@media (max-width: 1050px) {
 		flex-direction: column-reverse;

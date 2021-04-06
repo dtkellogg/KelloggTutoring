@@ -8,12 +8,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   height: 83vh;
   overflow: scroll;
+  top: 0;
 
   
-  @media (max-width: 900px) {
+  @media (max-width: 950px) {
+    grid-column: 1 / -1;
     overflow: visible;
   }
 

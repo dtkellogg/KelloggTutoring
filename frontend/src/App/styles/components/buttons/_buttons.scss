@@ -196,7 +196,7 @@
       @extend %btn;
       @include flexCenterCenter($justify-content: space-around);
       width: 10rem;
-      color: $red;
+      color: $black;
       outline: none;
       transition: 1s;
       width: 55%;
@@ -232,7 +232,7 @@
     justify-self: start;
     padding: 0.5rem;
     position: absolute;
-      top: 5rem;
+    top: 5rem;
 
     width: 13rem;
     text-align: center;

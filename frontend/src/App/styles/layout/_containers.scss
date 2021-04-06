@@ -499,6 +499,10 @@
     height: 100%;
     padding: 2rem;
     overflow: hidden;
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
   }
   //--------------------calendar--------------------//
 
