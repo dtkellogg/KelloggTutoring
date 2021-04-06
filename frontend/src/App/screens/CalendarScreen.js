@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 // screens
-import PleaseLoginScreen from "./PleaseLoginScreen"
+import PleaseLoginScreen from "../components/PleaseLogin"
 
 // components
 import Calendar from '../components/calendar/Calendar'

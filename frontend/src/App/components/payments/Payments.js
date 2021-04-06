@@ -17,10 +17,7 @@ import { CART_RESET } from "../../constants/cartConstants";
 
 // components
 import PaymentSteps from './PaymentSteps'
-import {Sidebar} from "../navigation/Sidebar";
-
-// screens
-import PleaseLogin from '../../screens/PleaseLoginScreen'
+import PleaseLogin from '../PleaseLogin'
 
 // data
 import { apptsList } from "../../data/lists"

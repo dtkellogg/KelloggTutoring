@@ -31,6 +31,7 @@ const ApptsScreen = React.lazy(() => import("./screens/ApptsScreen"));
 const ToshiScreen = React.lazy(() => import("./screens/ToshiScreen"));
 const ContactScreen = React.lazy(() => import("./screens/ContactScreen"));
 const AdminScreen = React.lazy(() => import("./screens/AdminScreen"));
+const FourOhFourScreen = React.lazy(() => import("./screens/FourOhFourScreen"));
 
 
 export default function App() {
@@ -103,7 +104,7 @@ export default function App() {
                 <Route exact path="/settings" component={Settings} />
                 {/* <Route exact path="/submitPayment" component={SubmitPaymentScreen} /> */}
                 {/* <Route exact path="/payments/checkout" component={Checkout} /> */}
-                <Route path="*" component={Home} />
+                <Route path="*" component={FourOhFourScreen} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
 // components
 import ApptsTableHead from "./AppointmentsHead"
 import ApptsTableBody from "./ApptsTableBody"
-import PleaseLogin from '../../screens/PleaseLoginScreen'
+import PleaseLogin from '../PleaseLogin'
 
 // moment
 import moment from 'moment'

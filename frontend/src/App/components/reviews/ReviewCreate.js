@@ -163,12 +163,12 @@ export default function ReviewCreateScreen({ history }) {
         </div>
 
         {submitted && (
-          <p className="messageForm__success-message--contact font-size-3">
+          <p className="form__success-message--contact font-size-3">
             Your review was submitted successfully. Thank you!
           </p>
         )}
         {failed.length > 0 && (
-          <p className="messageForm__fail-message--contact font-size-3">
+          <p className="form__fail-message--contact font-size-3">
             {failed}
           </p>
         )}

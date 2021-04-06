@@ -30,28 +30,32 @@
       grid-template-columns: 0.001rem repeat(5, 1fr) 0.001rem;
     }
 
+    @media (max-height: 950px) {
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 81rem) 17.5rem;
+    }
+
     @media (max-height: 900px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 71rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 71rem) 17.5rem;
     }
 
     @media (max-height: 800px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 61rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 61rem) 17.5rem;
     }
 
     @media (max-height: 700px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 51rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 51rem) 17.5rem;
     }
 
     @media (max-height: 600px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 41rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 41rem) 17.5rem;
     }
 
     @media (max-height: 500px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 31rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, min-content) 17.5rem;
     }
 
     @media (max-height: 400px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem 21rem 14.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 21rem) 17.5rem;
     }
 
     @media (max-width: 950px) and (max-height: 450px) {
@@ -128,7 +132,7 @@
     
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
-      overflow: visible;
+      // overflow: visible;
       position: relative;
 
       @include mediaQueriesContainerWithSidebar();

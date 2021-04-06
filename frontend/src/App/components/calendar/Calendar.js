@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import BtnsLeftRightCalendar from '../navigation/BtnsLeftRightCalendar'
 
 // screens
-import PleaseLoginScreen from "../../screens/PleaseLoginScreen"
+import PleaseLoginScreen from "../PleaseLogin"
 
 // actions
 import { listAppointments } from "../../actions/appointmentActions"
@@ -19,6 +19,8 @@ import { useSort } from '../../hooks/useSort'
 import useFormatAMPM from "../../hooks/useFormatAMPM";
 import CalendarRowOfDays from "./CalendarRowOfDays";
 
+import {daysOfWeek, months} from '../../data/lists'
+
 // uuid
 const { v4: uuid } = require("uuid");
 
@@ -27,8 +29,7 @@ function AMPMTime(time) {
   return useFormatAMPM(time);
 }
 
-const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const days = daysOfWeek
 
 function daysInMonth(month, year) {
   // console.log(`month: ${month}`)

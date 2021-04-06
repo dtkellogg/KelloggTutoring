@@ -8,9 +8,7 @@ import BookingElement from './BookingElement'
 // actions
 import { requestAppointment } from "../../actions/appointmentActions";
 import { getUserDetails } from "../../actions/userActions";
-
-// screens
-import PleaseLogin from '../../screens/PleaseLoginScreen'
+import PleaseLogin from '../PleaseLogin'
 
 // hooks
 import useWindowDimensions from '../../hooks/useWindowDimensions'
@@ -91,7 +89,7 @@ export default function Booking({ location, history, type}) {
   } else { 
     return (
       <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
-        <form onSubmit={handleSubmit} className="messageForm">
+        <form onSubmit={handleSubmit} className="form">
           <h2 className="booking__header font-size-2 letter-spacing-sm">
             Request an appointment
           </h2>
@@ -104,12 +102,12 @@ export default function Booking({ location, history, type}) {
             <BookingElement htmlFor="time" text="end time" type="time" placeholder="end time" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={endTime} onChange={(e) => setEndTime(e.target.value)}/>
 
             {submitted && (
-              <p className="messageForm__success-message--contact font-size-3">
+              <p className="form__success-message--contact font-size-3">
                 Message has been sent.
               </p>
             )}
             {failed.length > 0 && (
-              <p className="messageForm__fail-message--contact font-size-3">
+              <p className="form__fail-message--contact font-size-3">
                 {failed}
               </p>
             )}

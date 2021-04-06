@@ -111,8 +111,8 @@
   }
 }
 
-label[for="email__messageForm"]::after,
-label[for="message__messageForm"]::after {
+label[for="email__form"]::after,
+label[for="message__form"]::after {
   content: "*";
   color: $red;
   padding-left: 0.2rem; 

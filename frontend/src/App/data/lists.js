@@ -132,3 +132,7 @@ export const navCondensedAdmin = [
     to: "/settings",
   },
 ];
+
+
+export const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
+export const  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
