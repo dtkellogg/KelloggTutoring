@@ -1,6 +1,6 @@
 export const apptsList = ["Booking", "Payments", "List", "Calendar"];
 export const contactList = ['message', 'schedule', 'contact info'];
-export const toshiList = ["About", "Teaching", "Reviews", "Blog"];
+export const toshiList = ["About", "Teaching", "Reviews"];
 export const adminList = ["Users", "Appts", "Reviews", "Requests", "Stats"];
 
 export const searchBar = [

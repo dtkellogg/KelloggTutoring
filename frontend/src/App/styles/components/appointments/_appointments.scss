@@ -402,6 +402,12 @@
     grid-row: 1 / span 1;
     grid-column: 2 / -1;
     text-align: center;
+    font-size: var(--font-size-2);
+    font-weight: inherit;
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
   }
 }
 

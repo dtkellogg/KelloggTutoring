@@ -1,20 +1,29 @@
 .reviews {
 	@include hundredPercentHW();
 	display: flex;
-	margin-top: 2rem;
+	grid-column: 2 / -1;
+	padding: 2rem;
+	position: relative;
 
 	@media (max-width: 1050px) {
 		flex-direction: column-reverse;
 	}
 
+	@media (max-width: 950px) {
+		grid-column: 1 / -1;
+	}
+
 	&__list {
 		@include hundredPercentHW();
+		height: min-content;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		overflow-y: scroll;
 		cursor: ns-resize;
+		position: absolute;
+		top: 6rem;
 
 		@media (max-width: 600px) {
 			// justify-content: flex-start;

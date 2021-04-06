@@ -8,6 +8,9 @@ const PageHeader = React.lazy(() => import("../components/PageHeader"));
 const Blog = React.lazy(() => import("../components/toshi/ToshiBlog"));
 const Reviews = React.lazy(() => import("../components/reviews/Reviews"));
 
+const ReviewCreate = React.lazy(() => import("../components/reviews/ReviewCreate"))
+
+
 function ApptsScreen() {
   const location = useLocation();
   const { url } = useRouteMatch();
@@ -19,6 +22,8 @@ function ApptsScreen() {
             <Route exact path={`${url}/about`} component={ToshiAbout} />
             <Route exact path={`${url}/teaching`} component={ToshiTeaching} />
             <Route exact path={`${url}/reviews`} component={() => <Reviews type="meetToshi" />} />
+          <Route exact path={`${url}/reviews/create-review`} component={ReviewCreate} />
+
             {/* <Route exact path={`${url}/reviews/UserCreateReview`} component={UserCreateReview} /> */}
             <Route exact path={`${url}/blog`} component={Blog} />
             <Route path="*" component={PageHeader} />

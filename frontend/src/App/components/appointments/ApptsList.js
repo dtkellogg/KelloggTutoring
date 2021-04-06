@@ -137,20 +137,19 @@ export default function ApptsList({ type }) {
         </table>
       </div>
     )
- } else if (type === "upcoming") {
-   return (
-     <h2 className="font-size-2" style={{ textAlign: "center" }}>
-       You have no upcoming sessions
-      </h2>
-   )
- } else if (type === "all") {
-   return (
-     <div className="container__screen--sidebar">
-       <h2 className="font-size-2 msg__no-prev-appts">
-         You have no appointment history
+  } else if (type === "upcoming") {
+  return (
+    <h2 className="font-size-2" style={{ textAlign: "center" }}>
+      You have no upcoming sessions
+    </h2>
+  )} else if (type === "all") {
+    return (
+      <div className="container__screen--sidebar">
+        <h2 className="msg__no-prev-appts">
+          You have no appointment history
         </h2>
-     </div>
-   )
+      </div>
+    )
  } else return null
 }
 

@@ -25,7 +25,6 @@ const Profile = React.lazy(() => import("./screens/ProfileScreen"));
 const Register = React.lazy(() => import("./screens/RegisterScreen"));
 // const Resources = React.lazy(() => import("./screens/ResourcesScreen"));
 const ReviewEdit = React.lazy(() => import("./components/reviews/ReviewEdit"))
-const ReviewCreate = React.lazy(() => import("./components/reviews/ReviewCreate"))
 // const SubmitPaymentScreen = React.lazy(() => import("./screens/PaymentSubmitScreen"));
 const ApptsScreen = React.lazy(() => import("./screens/ApptsScreen"));
 const ToshiScreen = React.lazy(() => import("./screens/ToshiScreen"));
@@ -64,11 +63,12 @@ export default function App() {
       setSidebarTitle("Admin");
       setSidebarList(adminList)
       setSidebarUrl('admin')
-    } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login') {
+    } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login' || locationForSidebar === 'review/create-review') {
       setShowSidebar(false)
     }
 
   }, [location])
+
 
   return (
     <ToastProvider styles={{
@@ -94,7 +94,6 @@ export default function App() {
                 <Route path="/contact" component={() => <ContactScreen />} />
                 <Route path="/admin" component={() => <AdminScreen />} />
                 <Route exact path="/review/:id/edit" component={ReviewEdit} />
-                <Route exact path="/review/create-review" component={ReviewCreate} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/register" component={Register} />
