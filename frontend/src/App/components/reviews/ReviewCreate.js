@@ -92,14 +92,14 @@ export default function ReviewCreateScreen({ history }) {
 
         <div className="reviews__new-review--element">
           <input
-            className="reviews__new-review--input font-size-4"
+            className="reviews__new-review--input"
             type="text"
             placeholder="Name"
             style={{ color: "var(--old-blue-2)" }}
             value={name || ""}
             onChange={(e) => setName(e.target.value)}
           />
-          <label className="reviews__new-review--label font-size-4"></label>
+          <label className="reviews__new-review--label"></label>
         </div>
 
         <div className="reviews__new-review--radio-btns">
@@ -115,7 +115,7 @@ export default function ReviewCreateScreen({ history }) {
             />
 
             <label
-              className="reviews__new-review--label font-size-4"
+              className="reviews__new-review--label"
               // style={{ color: "var(--old-blue-2)" }}
             >
               Student
@@ -131,7 +131,7 @@ export default function ReviewCreateScreen({ history }) {
               className="btn__radio--input"
               onChange={(e) => handleRadioBtnChange(e)}
             />
-            <label className="reviews__new-review--label font-size-4">
+            <label className="reviews__new-review--label">
               Parent
             </label>
           </div>
@@ -145,7 +145,7 @@ export default function ReviewCreateScreen({ history }) {
               className="btn__radio--input"
               onChange={(e) => handleRadioBtnChange(e)}
             />
-            <label className="reviews__new-review--label font-size-4">
+            <label className="reviews__new-review--label">
               Friend
             </label>
           </div>
@@ -159,7 +159,7 @@ export default function ReviewCreateScreen({ history }) {
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
           ></textarea>
-          <label className="reviews__new-review--label font-size-4"></label>
+          <label className="reviews__new-review--label"></label>
         </div>
 
         {submitted && (

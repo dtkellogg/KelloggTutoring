@@ -65,12 +65,13 @@ const createAppointment = asyncHandler(async (req, res) => {
   })
 
   if (appointment) {
+    console.log(`date: ${date}`)
     res.status(201).json({
       _id: appointment._id,
       user: req.user_id,
       student: appointment.student,
       subject: appointment.subject,
-      date: new Date(appointment.date),
+      date: (new Date(appointment.date)).setHours(appointment.startTime),
       startTime: appointment.startTime,
       endTime: appointment.endTime,
       paid: appointment.paid,

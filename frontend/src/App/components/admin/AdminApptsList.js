@@ -65,7 +65,8 @@ export default function AdminAppointmentsList({ location, history }) {
 		}
 
 		if (errorCreate || errorDelete) {
-			dispatch(subheader({ errorCreate }));
+			// dispatch(subheader({ errorCreate }));
+			console.log(errorCreate)
 		}
 	}, [dispatch, loadingDelete, errorDelete, loadingCreate, errorCreate])
 

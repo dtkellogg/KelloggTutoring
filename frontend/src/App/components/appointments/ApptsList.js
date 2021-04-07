@@ -19,6 +19,15 @@ import {useSortMultiple} from '../../hooks/useSort'
 import { subheader } from "../../actions/subheader"
 import { listAppointments } from '../../actions/appointmentActions'
 
+const formatDate = (appt) => {
+  const dataDestructured = appt.date.split("-")
+  const month = (dataDestructured[1].replace(/^0+/, '')) - 1
+  const day = dataDestructured[2].split("T")[0]
+
+  const dateObject = new Date(dataDestructured[0], month, day, appt.startTime.split(":")[0], appt.startTime.split(":")[1])
+  return dateObject
+}
+
 
 
 export default function ApptsList({ type }) {
@@ -61,54 +70,30 @@ export default function ApptsList({ type }) {
 
   useEffect(() => {
     if(userInfo) {
+      
       if (type === "all") {
         setAppts(sortedAppts.filter((appt) => appt.student === userInfo.name))
+
       } else if (type === "upcoming" && userInfo) {
         setAppts(sortedAppts
           .filter((appt) => appt.student === userInfo.name)
-          .filter((appt) => (new Date(appt.date)) > today)
-
-          
+          .filter((appt) => {
+            const dateObject = formatDate(appt)
+            return dateObject > today
+          })
         )
 
-        //--------------solution-to-below--------------//
-
-        //--------------appts' date is not saved into db... need to go thru model and controller--------------//
-
-        const test = sortedAppts
-          .filter((appt) => appt.student === userInfo.name)
-          // .map((appt) => console.log(moment(appt.date).isAfter(now)))
-          // .map((appt) => console.log(`${new Date(appt.date)} ${today}`))
-          .map((appt) => console.log((new Date(appt.date))))
-          .map((appt) => console.log(today))
-          // .map((appt) => console.log(new Date(appt.date) > today))
-
-          // .map((appt) => console.log(today))
-
-
-          // .map((appt) => console.log(moment(appt.date).isAfter(now.subtract(0, 'days'))))
-          // .filter((appt) => moment(appt.date).isAfter(now))
-
-        // console.log("NOW")
-        // console.log(now)
-        // console.log(test)
-        // console.log(appts)
       } else if (type === "admin") {
         setAppts(appointments)
       }
     }
   }, [appointments])
 
-  // console.log(sortedAppts.filter((appt) => appt.student === userInfo.name).filter((appt) => moment(appt.date).isAfter(now.subtract(0, 'days'))))
-  // console.log("sortedAppts")
 
 
-  //////////////////////////////////////
-  //////////////////////////////////////
   if (!userInfo || userInfo === null) {
     return <PleaseLogin />
-  }
- else if (type === "upcoming" && appts.length > 0) {
+  } else if (type === "upcoming" && appts.length > 0) {
     return (
       <div className="">
         <table className="appointments__list">
@@ -150,7 +135,7 @@ export default function ApptsList({ type }) {
         </h2>
       </div>
     )
- } else return null
+  } else return null
 }
 
 ApptsList.propTypes = {

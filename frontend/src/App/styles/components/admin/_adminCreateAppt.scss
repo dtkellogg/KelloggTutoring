@@ -8,11 +8,11 @@
   // padding: 1rem 2rem;
   width: 40rem;
   overflow: visible;
+  grid-column: 2 / -1;
   
 
-  @media (max-width: 900px) {
-    // padding: 1rem 2rem;
-    // width: 90vw;
+  @media (max-width: 950px) {
+    grid-column: 1 / -1;
     width: 88%;
   }
 
@@ -23,6 +23,9 @@
   &__header {
     text-align: center;
     margin-bottom: 3rem;
+    font-size: var(--font-size-2);
+    font-weight: 300;
+    margin-top: 5rem;
 
     
     @media (max-width: 950px) and (max-height: 450px) {
@@ -46,6 +49,7 @@
 
   &__label {
     color: $grey-light-5;
+    font-size: var(--font-size-4);
   }
 
   &__input {
@@ -64,6 +68,7 @@
       border: none;
       border-bottom: 1px solid black;
       height: 3rem;
+      font-size: var(--font-size-3);
     }
 
     &--contact-message {

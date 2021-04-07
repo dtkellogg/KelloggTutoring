@@ -348,31 +348,13 @@
       color: $black;
     }
   }
-  
-
-  // i forget if either the above or below code r what i want for btn__edit-user
-  
-  // &__user-edit {
-  //   @extend %btn;
-  //   margin: 2rem 0.25rem;
-  //   width: 6rem;
-  //   height: 3.5rem;
-  //   color: $white;
-  //   padding: 1rem;
-  //   cursor: pointer;
-  //   text-align: center;
-
-  //   position: absolute;
-  //   top: 1rem;
-  //   left: 2rem;
-  // }
 
   &__create-appt {
     @extend %btn;
     @extend %btn--blue;
     margin: 1rem;
 
-    width: 100%;
+    width: 12rem;
     transform: translateY(2rem);
     align-self: center;
 

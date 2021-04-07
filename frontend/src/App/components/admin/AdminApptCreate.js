@@ -99,15 +99,13 @@ export default function AdminAppointmentCreate() {
     <div className="container__screen--sidebar">
       { loading ? <LoadingSpinner/> : (
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
-        <div className="createApptScreen__header">
-          <h2 className="font-size-2 letter-spacing-sm">
-            Create a new appointment
-          </h2>
-        </div>
+        <h2 className="createApptScreen__header letter-spacing-sm">
+          Create a new appointment
+        </h2>
         <div className="createApptScreen__content">
           <div className="createApptScreen__element">
             <label
-              className="font-size-4 letter-spacing-md createApptScreen__label"
+              className="letter-spacing-md createApptScreen__label"
               htmlFor="student"
             >
               student
@@ -115,7 +113,7 @@ export default function AdminAppointmentCreate() {
             {users && (
             <select 
               type="name" 
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               placeholder="student name"
               value={student}
               onChange={(e) => setStudent(e.target.value)}
@@ -141,14 +139,14 @@ export default function AdminAppointmentCreate() {
 
           <div className="createApptScreen__element">
             <label
-              className="font-size-4 letter-spacing-md createApptScreen__label"
+              className="letter-spacing-md createApptScreen__label"
               htmlFor="subject"
             >
               subject
             </label>
             <input
               type="text"
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               placeholder="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
@@ -156,12 +154,12 @@ export default function AdminAppointmentCreate() {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="font-size-4 letter-spacing-md createApptScreen__label">
+            <label className="letter-spacing-md createApptScreen__label">
               date
             </label>
             <input
               type="date"
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               placeholder="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -169,12 +167,12 @@ export default function AdminAppointmentCreate() {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="font-size-4 letter-spacing-md createApptScreen__label">
+            <label className="letter-spacing-md createApptScreen__label">
               start time
             </label>
             <input
               type="time"
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               placeholder="start time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
@@ -182,12 +180,12 @@ export default function AdminAppointmentCreate() {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="font-size-4 letter-spacing-md createApptScreen__label">
+            <label className="letter-spacing-md createApptScreen__label">
               end time
             </label>
             <input
               type="time"
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               placeholder="end time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
@@ -195,12 +193,12 @@ export default function AdminAppointmentCreate() {
           </div>
 
           <div className="createApptScreen__element">
-            <label className="font-size-4 letter-spacing-md createApptScreen__label">
+            <label className="letter-spacing-md createApptScreen__label">
               paid?
             </label>
             <input
               type="checkbox"
-              className="createApptScreen__input createApptScreen__input-contact font-size-3"
+              className="createApptScreen__input createApptScreen__input-contact"
               style={{ alignSelf: "flex-start" }}
               placeholder="paid"
               value={paid}

@@ -95,7 +95,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 					</label>
 					<input
 							type="name"
-							className="appt-edit__input appt-edit__input-contact font-size-3"
+							className="appt-edit__input appt-edit__input-contact"
 							placeholder="Student name"
 							value={student}
 							onChange={(e) => setStudent(e.target.value)}
@@ -111,7 +111,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact font-size-3"
+								className="appt-edit__input appt-edit__input-contact"
 								placeholder="subject"
 								value={subject}
 								onChange={(e) => setSubject(e.target.value)}
@@ -124,7 +124,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact font-size-3"
+								className="appt-edit__input appt-edit__input-contact"
 								placeholder="date"
 								value={date}
 								onChange={(e) => setDate(e.target.value)}
@@ -137,7 +137,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact font-size-3"
+								className="appt-edit__input appt-edit__input-contact"
 								placeholder="duration"
 								value={duration}
 								onChange={(e) => setDuration(e.target.value)}
@@ -150,7 +150,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 						</label>
 						<input
 								type="text"
-								className="appt-edit__input appt-edit__input-contact font-size-3"
+								className="appt-edit__input appt-edit__input-contact"
 								placeholder="time"
 								value={time}
 								onChange={(e) => setTime(e.target.value)}
