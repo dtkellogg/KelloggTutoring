@@ -43,11 +43,13 @@ function ReviewsCard({review}, type) {
             }}
           >
             {review.name}
-            <span className="reviews__relation">
-              {" "}
-              ({review.relation})
-            </span>
+            
           </div>
+
+          <span className="reviews__relation">
+            {" "}
+            ({review.relation})
+          </span>
 
           <div
             className="reviews__card--item-date"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import {useHistory, useLocation} from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
 
@@ -98,7 +98,10 @@ export default function AdminAppointmentCreate() {
 
 	return (
     <div className="container__screen--sidebar">
+      <Link to='/toshi/reviews' className="btn__user-edit">Go Back</Link>
+
       { loading ? <LoadingSpinner/> : (
+
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
 
         <h2 className="createApptScreen__header letter-spacing-sm">

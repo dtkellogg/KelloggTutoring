@@ -7,10 +7,7 @@ import { createReview } from "../../actions/reviewActions";
 import { getUserDetails } from "../../actions/userActions";
 
 // components
-import {Sidebar} from "../navigation/Sidebar";
-
-// data
-import { toshiList } from "../../data/lists"
+import Input from '../Input'
 
 
 
@@ -70,6 +67,7 @@ export default function ReviewCreateScreen({ history }) {
 
   const handleRadioBtnChange = (e) => {
     // e.preventDefault();
+    console.log(`e.target.value: ${e.target.value}`)
     setRelation(e.target.value);
   };
 
@@ -84,24 +82,30 @@ export default function ReviewCreateScreen({ history }) {
 
   return (
     <div className="container__screen--sidebar">
-      <Sidebar title="Toshi" list={toshiList} />
       <form className="reviews__new-review">
+
         <h2 className="reviews__new-review--header">
           Create a review
         </h2>
 
-        <div className="reviews__new-review--element">
-          <input
-            className="reviews__new-review--input"
-            type="text"
-            placeholder="Name"
-            value={name || ""}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label className="reviews__new-review--label"></label>
-        </div>
+        <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--input"
+          htmlFor="" label="" type="text" value={name || ""} placeholder="name" onChange={(e) => setName(e.target.value)}
+        />
 
         <div className="reviews__new-review--radio-btns">
+
+          {/* <Input containerClass="reviews__new-review--radio-btn" labelClass="reviews__new-review--label" inputClass="btn__radio--input"
+            htmlFor="" label="Student" type="radio" value={relation} placeholder="" onChange={(e) => handleRadioBtnChange(e.target.value)}
+            id="Student" name="relation"
+          /> */}
+          {/* <Input containerClass="reviews__new-review--radio-btn" labelClass="reviews__new-review--label" inputClass="btn__radio--input"
+            htmlFor="" label="subject" type="radio" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
+          />
+          <Input containerClass="reviews__new-review--radio-btn" labelClass="reviews__new-review--label" inputClass="btn__radio--input"
+            htmlFor="" label="date" type="radio" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
+          /> */}
+          
+
           <div className="reviews__new-review--radio-btn">
             <input
               type="radio"
@@ -145,18 +149,13 @@ export default function ReviewCreateScreen({ history }) {
               Friend
             </label>
           </div>
+
         </div>
 
-        <div className="reviews__new-review--element">
-          <textarea
-            className="reviews__new-review--textarea"
-            type="text"
-            placeholder="Message"
-            value={msg}
-            onChange={(e) => setMsg(e.target.value)}
-          ></textarea>
-          <label className="reviews__new-review--label"></label>
-        </div>
+        <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--textarea"
+          htmlFor="" label="" type="text" value={msg} placeholder="message" onChange={(e) => setMsg(e.target.value)}
+          textarea={true}
+        />
 
         {submitted && (
           <p className="form__success-message--contact">

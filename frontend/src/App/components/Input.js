@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({ containerClass, labelClass, inputClass, htmlFor, label, type, value, placeholder, onChange, pattern, textarea}) {
+function Input({ containerClass, labelClass, inputClass, htmlFor, label, type, value, placeholder, onChange, pattern, textarea, id, name}) {
     return (
         <div className={containerClass} htmlFor={htmlFor}>
             <label className={labelClass}>
@@ -14,6 +14,8 @@ function Input({ containerClass, labelClass, inputClass, htmlFor, label, type, v
                     value={value}
                     onChange={onChange}
                     pattern={pattern}
+                    id={id}
+                    name={name}
                 />
                 : <textarea
                     type={type}

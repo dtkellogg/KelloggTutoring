@@ -57,7 +57,7 @@
     &--header-container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 4vh 3vh;
+      grid-template-rows: 3rem 3rem;
       align-items: center;
       justify-items: center;
       width : 100%;
@@ -70,6 +70,7 @@
     grid-row: 2 / span 1;
     text-align: center;
     font-size: var(--font-size-2);
+    font-weight: 300;
     
     @media (max-width: 1080px) {
       width: 110%;
@@ -108,10 +109,10 @@
     }
 
     &--container-checkout {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      justify-items: center;
+      // display: grid;
+      // grid-template-columns: repeat(5, 1fr);
+      // align-items: center;
+      // justify-items: center;
       width : 100%;
     }
   }
@@ -122,7 +123,7 @@
     line-height: 3.5rem;
     display: table;
     overflow: scroll;
-    height: 62vh;
+    height: min-content;
 
     &--item {
       // @include flexCenterCenter($justify-content: space-between);
@@ -196,11 +197,6 @@
     &--cancel {
       grid-column: 6 / span 1;
       text-align: center;
-      height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 5rem;
       font-size: var(--font-size-3);
 
       @media (max-width: 600px) {
@@ -274,11 +270,13 @@
 
   &__th {
      &--date {
-      grid-column: 1 / span 1;  
+      grid-column: 1 / span 1;
+      font-weight: 500;
     }
 
     &--time {
       grid-column: 2 / span 1;
+      font-weight: 500;
 
       @media (max-width: 600px) {
         // width: 29vw;
@@ -287,6 +285,7 @@
 
     &--student {
       grid-column: 4 / span 1;
+      font-weight: 500;
 
       @media (max-width: 600px) {
         width: 14vw;
@@ -295,6 +294,7 @@
 
     &--subject {
       grid-column: 3 / span 1;
+      font-weight: 500;
 
       @media (max-width: 600px) {
         width: 25vw;
@@ -329,22 +329,27 @@
   &__th--upcoming {
     &-date {
       grid-column: 1 / span 1;  
+      font-weight: 500;
     }
 
     &-time {
       grid-column: 2 / span 1;
+      font-weight: 500;
     }
 
     &-student {
       grid-column: 4 / span 1;
+      font-weight: 500;
     }
 
     &-subject {
       grid-column: 3 / span 1;
+      font-weight: 500;
     }
 
     &-btns {
       grid-column: 5 / span 1;
+      font-weight: 500;
     }
   }
 
@@ -407,7 +412,7 @@
     grid-row: 1 / span 1;
     grid-column: 2 / -1;
     text-align: center;
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-3);
     font-weight: inherit;
 
     @media (max-width: 950px) {

@@ -45,9 +45,10 @@ export default function App() {
   React.useEffect(() => {
     setShowSidebar(true)
     
-    const locationForSidebar = location.pathname.split("/")[1]
+    const locationForSidebar = location.pathname.split("/")[location.pathname.split("/").length -1]
+    console.log(`locationForSidebar: ${locationForSidebar}`)
 
-    if(locationForSidebar === 'toshi') {
+    if (locationForSidebar === 'toshi' || locationForSidebar === 'create-review') {
       setSidebarTitle('Toshi')
       setSidebarList(toshiList)
       setSidebarUrl('toshi')
@@ -63,7 +64,7 @@ export default function App() {
       setSidebarTitle("Admin");
       setSidebarList(adminList)
       setSidebarUrl('admin')
-    } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login' || locationForSidebar === 'review/create-review') {
+    } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login') {
       setShowSidebar(false)
     }
 

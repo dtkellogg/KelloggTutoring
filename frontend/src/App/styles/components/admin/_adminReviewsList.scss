@@ -2,7 +2,7 @@
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
 
-  padding: 2.5rem 1rem;
+  padding: 2rem;
   height: 100%;
 
   align-items: center;
@@ -10,6 +10,7 @@
   flex-direction: column;
   position: absolute;
   height: 83vh;
+  width: 100%;
   overflow: scroll;
   top: 0;
 

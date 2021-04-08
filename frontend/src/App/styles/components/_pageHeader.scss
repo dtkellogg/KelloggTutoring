@@ -10,6 +10,7 @@
 
     &__text {
         font-size: var(--font-size-2);
+        font-weight: inherit;
 
         &--emoji {
             font-size: var(--font-size-0);

@@ -77,11 +77,13 @@
 			display: flex;
 			align-items: center;
 			font-size: var(--font-size-3);
+			font-weight: inherit;
 		}
 
 		&--item-relation {
 			color: $grey-light-4;
 			font-size: var(--font-size-5);
+			
 		}
 
 		&--item-approved {
@@ -123,6 +125,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		height: 100%;
+		width: 100%;
 
 		width: 73%;
 		padding: 8rem 2rem;
@@ -141,6 +144,7 @@
 
 		&--header {
 			font-size: var(--font-size-2);
+			font-weight: inherit;
 
 			@media (max-width: 1050px) {
 				margin-bottom: 2rem;
@@ -166,6 +170,7 @@
 			width: 100%;
 			border: 1px solid $old-blue-2;
 			color: $old-blue-2;
+			color: $black;
 			height: 4rem;
 			padding: 1rem;
 			
@@ -208,7 +213,8 @@
 			margin-right: 1.5rem;
 			display: flex;
 			align-items: center;
-			transform: translateY(0.5rem);
+			// transform: translateY(0.5rem);
+			// @include flexCenterCenter($flex-direction: row-reverse);
 		}
 
 		&--radio-btns {
@@ -254,6 +260,8 @@
 
 	&__relation {
 		color: $black;
-		margin-left: 1rem;
+		font-weight: inherit;
+		font-size: var(--font-size-4);
+		font-weight: 300;
 	}
 }

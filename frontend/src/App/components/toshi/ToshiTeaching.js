@@ -15,33 +15,17 @@ export default function ToshiTeaching() {
         </h2>
 
         <p className="toshi__p">
-          I come from both a science and language ba
+          I have been teaching students for the past 7 years. I have truly enjoyed my time, as I have found helping and watching someone learn to be extremely satisfactory. I have spent many hours working one-on-one with students, and have used my own personal interest in psychology to analyze the different ways in which students learn. I am by no means an expert, but I have found that I can teach a wide variety of students.
         </p>
 
         <p className="toshi__p">
-          My philosophy is that you learn best when you are relaxed.
-          I therefore make sure to build a sort of friendship with my student.
-          {/* Having spent thousands of hours teaching students,
-          I have been able to develop a teaching method that both acts to my strength and works for everyone. I 
-          have always been a great listener and and can connect with most types of people. When you feel heard and are treated
-          with respect, you are much more likely to respond well, communicate without hesitation, and remain calm.
-          Although these aspects are often disgregarded, I believe that they do not only affect your ability to learn,
-          but also your ability to think. */}
+          I have always considered myself to be a good listener, and I make no exception when I am teaching. I have a calm manner (possibly due to my monotone), and I tend to focus on keeping a relatively relaxed atmosphere for my students. I honestly believe that you learn best when you are relaxed.
         </p>
 
-        {/* 
         <p className="toshi__p">
-          Besides being a good listener, I am also very patient. I watched my extremely careful parents for years and 
-          I have learned how valuable being patient with others is, especially when you are trying to process some
-          new piece of information. 
-          </p>
-
-        <p className="toshi__p">
-          For many years, I have watched how people learn new things. Everyone is different. However, the one thing that's shared 
-          is that getting somewhere is never easy. Everyone who succeeds has to esentially work so hard that they are outcompeting
-          their peers.
+          Choosing me as your teacher is only half the journey: the rest will require effort on your part. But if you are willing to work and you pick me as a teacher, I can guarantee that I will help you grow.
         </p>
-         */}
+
       </div>
     </div>
   )

@@ -48,6 +48,7 @@
     position: relative;
     margin-bottom: 1rem;
     font-size: var(--font-size-2);
+    font-weight: 300;
 
 
     
@@ -256,11 +257,13 @@
   &__th {
      &--name {
       grid-column: 1 / span 1;
+      font-weight: 500;
       // width: 20rem;
     }
 
     &--email {
       grid-column: 2 / span 1;
+      font-weight: 500;
 
       @media (max-width: 600px) {
         // width: 29vw;
@@ -279,6 +282,7 @@
 
     &--edit {
       grid-column: 5 / span 1;
+      font-weight: 500;
       text-align: center;
       // @include flexCenterCenter($justify-content: space-between);
 
@@ -289,6 +293,7 @@
 
     &--delete {
       grid-column: 6 / span 1;
+      font-weight: 500;
       text-align: center;
       width: 5rem;
       padding: 1rem;

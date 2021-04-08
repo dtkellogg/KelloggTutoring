@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useRouteMatch } from "react-router-dom"
 
 import ReviewsList from "./ReviewsList";
 
 
 
 export default function Reviews({ type }) {
+  const { url } = useRouteMatch()
+
   return (
     <div className={
       type === "meetToshi" ? "container__screen--sidebar" : "container__home--reviews"
@@ -17,7 +19,7 @@ export default function Reviews({ type }) {
         }
       >
         {type === "meetToshi" && (
-          <Link to={`/reviews/create-review`} className="btn__reviews">
+          <Link to={`${url}/create-review`} className="btn__reviews">
             Create Review
           </Link>
         )}
