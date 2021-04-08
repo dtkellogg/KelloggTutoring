@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
+    font-size: var(--font-size-4);
 
   }
 
@@ -34,6 +35,7 @@
     border-bottom: 1px solid black;
     height: 4rem;
     color: $old-blue-2;
+    font-size: var(--font-size-3);
 
     &:focus {
       outline: none;
@@ -45,6 +47,7 @@
       border: none;
       border-bottom: 1px solid black;
       height: 3rem;
+      font-size: var(--font-size-3);
     }
 
     &--contact-message {
@@ -52,20 +55,11 @@
     }
   }
 
-  &__success-message--contact {
-    color: $green;
-    margin-top: 1rem;
-  }
-
-  &__fail-message--contact {
-    color: $red;
-    margin-top: 1rem;
-  }
-
   &__textarea {
     min-height: 30vh;
     max-height: 62vh;
     width: 100%;
+    font-size: var(--font-size-4);
 
     margin: 1rem 0;
     padding: 1rem;

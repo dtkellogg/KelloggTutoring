@@ -233,19 +233,12 @@
     padding: 0.5rem;
     position: absolute;
     top: 5rem;
-
-    width: 13rem;
     text-align: center;
+    width: 13rem;
+    font-size: var(--font-size-6);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    @include flexCenterCenter();
     transform: translateY(-2.75rem);
-
-    @media ( max-width: 900px ) {
-      // right: 8vw;
-    }
 
     &:hover {
       background-color: $green-12;
@@ -308,6 +301,7 @@
       position: absolute;
       width: 13rem;
       text-align: center;
+      font-size: var(--font-size-6);
 
       display: flex;
       align-items: center;
@@ -608,5 +602,6 @@
     background: none;
     color: $white;
     text-align: left;
+    font-size: var(--font-size-5);
   }
 }

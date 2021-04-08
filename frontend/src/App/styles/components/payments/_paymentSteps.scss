@@ -29,7 +29,8 @@
 		}
 
 		&__li {
-    		cursor: pointer;
+			cursor: pointer;
+			font-size: var(--font-size-6);
 		}
 	}
 
@@ -83,10 +84,12 @@
 		padding: 1rem;
 
 		&--name {
+			font-size: var(--font-size-4);
 
 		}
 
 		&--email {
+			font-size: var(--font-size-4);
 
 		}
 
@@ -114,5 +117,6 @@
 	&__header {
 		display: block;
 		padding: 1rem;
+		font-size: var(--font-size-2);
 	}
 }

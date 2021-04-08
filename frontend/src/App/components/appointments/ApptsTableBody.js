@@ -48,14 +48,14 @@ function ApptsTableBody({appts, type}) {
                     const date = appt.date.split("T")[0].split("-");
                     return (
                         <tr key={appt._id} className="tr">
-                            <td className="font-size-3 appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
-                            <td className="font-size-3 appointments__td--upcoming-time">{`${AMPMTime(
+                            <td className="appointments__td--upcoming-date">{`${date[1]}-${date[2]}`}</td>
+                            <td className="appointments__td--upcoming-time">{`${AMPMTime(
                                 appt.startTime
                             )} - ${AMPMTime(appt.endTime)}`}</td>
-                            <td className="font-size-3 appointments__td--upcoming-student">
+                            <td className="appointments__td--upcoming-student">
                                 {appt.student}
                             </td>
-                            <td className="font-size-3 appointments__td--upcoming-subject">
+                            <td className="appointments__td--upcoming-subject">
                                 {appt.subject}
                             </td>
                             <td className="appointments__item--btns">
@@ -106,7 +106,7 @@ function ApptsTableBody({appts, type}) {
                                 }
                             </td>
 
-                            <td className="font-size-3 appointments__item--cancel">
+                            <td className="appointments__item--cancel">
                                 {(type === 'admin' || moment(appt.date).isAfter(now.subtract(1, 'days'))) ? (
                                     <FaTrash
                                         size={20}

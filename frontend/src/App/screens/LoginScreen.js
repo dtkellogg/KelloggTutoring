@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
 import { subheader } from "../actions/subheader"
+import Input from '../components/Input'
 
 export default function Login({ location, history }) {
   const dispatch= useDispatch()
@@ -56,67 +57,45 @@ export default function Login({ location, history }) {
   return (
     <div className="container__screen--no-sidebar">
       <form onSubmit={handleSubmit} className="container__login--form">
-      <div className="login__header">
-        <h2 className="font-size-2 letter-spacing-sm">Please login.</h2>
-      </div>
+        <h2 className="login__header font-size-2 letter-spacing-sm">Please login.</h2>
 
-      <div className="login__content">
-        <div className="login__input-container">
-          <div className="login__element">
-            <label
-              className="font-size-5 letter-spacing-md login__label"
-              htmlFor="email"
-            >
-              email
-            </label>
-            <input
-              type="email"
-              className="login__input login__input-contact font-size-3"
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+        <div className="login__content">
+
+          <div className="login__input-container">
+            <Input containerClass="login__element" labelClass="login__label" inputClass="login__input"
+              htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input containerClass="login__element" labelClass="login__label" inputClass="login__input"
+              htmlFor="" label="password" type="password" value={password} placeholder="your password" onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          <div className="login__element">
-            <label className="font-size-5 letter-spacing-md login__label">
-              password
-            </label>
-            <input
-              type="password"
-              className="login__input login__input-contact font-size-3"
-              placeholder="Your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          {/* {failedMsg && (
+            <span className="login__failed-message">
+              {failedMsg}
+            </span>
+          )}
+          {successMsg && (
+            <span className="login__success-message">{successMsg}</span>
+          )} */}
+
+          <button
+            className="btn__login"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Login
+          </button>
+
+          <div className="login__register">
+            New User?{" "}
+            <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+              <span style={{ color: "blue" }}>Register</span>
+            </Link>
           </div>
+          
         </div>
-
-        {failedMsg && (
-          <span className="font-size-3 login__failed-message">
-            {failedMsg}
-          </span>
-        )}
-        {successMsg && (
-          <span className="login__success-message">{successMsg}</span>
-        )}
-
-        <button
-          className="btn__login"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Login
-        </button>
-
-        <div className="font-size-5 login__register">
-          New User?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            <span style={{ color: "blue" }}>Register</span>
-          </Link>
-        </div>
-      </div>
-    </form>
+      </form>
     </div>
   );
 }

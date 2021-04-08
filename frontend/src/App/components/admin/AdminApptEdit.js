@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 // components
 import {Sidebar} from "../navigation/Sidebar"
+import Input from '../../components/Input'
 
 // actions
 import { updateAppointment, getAppointmentDetails } from "../../actions/appointmentActions"
@@ -78,95 +79,39 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 		<div className="toshi">
 		<Sidebar title="Toshi" list={adminList} />
 		<form onSubmit={handleSubmit} className="appt-edit user__page">
-			<div className="appt-edit__header">
-				<h2 className="font-size-2 letter-spacing-sm">
-					Edit Appointment
-				</h2>
-			</div>
+			<h2 className="appt-edit__header">
+				Edit Appointment
+			</h2>
 
 			<div className="appt-edit__content">
 				<div className="loginScreen__input-container">
-				<div className="appt-edit__element">
-					<label
-							className="font-size-4 letter-spacing-md appt-edit__label"
-							htmlFor="student"
-					>
-							student
-					</label>
-					<input
-							type="name"
-							className="appt-edit__input appt-edit__input-contact"
-							placeholder="Student name"
-							value={student}
-							onChange={(e) => setStudent(e.target.value)}
-					/>
+
+				<Input containerClass="appt-edit__element" labelClass="appt-edit__label" inputClass="appt-edit__input appt-edit__input-contact"
+					htmlFor="student" label="student" type="name" value={student} placeholder="student name" onChange={(e) => setStudent(e.target.value)}
+				/>
+				<Input containerClass="appt-edit__element" labelClass="appt-edit__label" inputClass="appt-edit__input appt-edit__input-contact"
+					htmlFor="subject" label="subject" type="text" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
+				/>
+				<Input containerClass="appt-edit__element" labelClass="appt-edit__label" inputClass="appt-edit__input appt-edit__input-contact"
+					htmlFor="" label="date" type="text" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
+				/>
+				<Input containerClass="appt-edit__element" labelClass="appt-edit__label" inputClass="appt-edit__input appt-edit__input-contact"
+					htmlFor="" label="duration" type="text" value={duration} placeholder="duration" onChange={(e) => setDuration(e.target.value)}
+				/>
+				<Input containerClass="appt-edit__element" labelClass="appt-edit__label" inputClass="appt-edit__input appt-edit__input-contact"
+					htmlFor="" label="time" type="text" value={time} placeholder="time" onChange={(e) => setTime(e.target.value)}
+				/>
+
+				<button
+					className="btn__appt-edit"
+					type="submit"
+					onClick={handleSubmit}
+				>
+					Submit changes
+				</button>
+
 				</div>
-
-					<div className="appt-edit__element">
-						<label
-								className="font-size-4 letter-spacing-md appt-edit__label"
-								htmlFor="subject"
-						>
-								subject
-						</label>
-						<input
-								type="text"
-								className="appt-edit__input appt-edit__input-contact"
-								placeholder="subject"
-								value={subject}
-								onChange={(e) => setSubject(e.target.value)}
-						/>
-					</div>
-
-					<div className="appt-edit__element">
-						<label className="font-size-4 letter-spacing-md appt-edit__label">
-								date
-						</label>
-						<input
-								type="text"
-								className="appt-edit__input appt-edit__input-contact"
-								placeholder="date"
-								value={date}
-								onChange={(e) => setDate(e.target.value)}
-						/>
-					</div>
-
-					<div className="appt-edit__element">
-						<label className="font-size-4 letter-spacing-md appt-edit__label">
-								duration
-						</label>
-						<input
-								type="text"
-								className="appt-edit__input appt-edit__input-contact"
-								placeholder="duration"
-								value={duration}
-								onChange={(e) => setDuration(e.target.value)}
-						/>
-					</div>
-
-					<div className="appt-edit__element">
-						<label className="font-size-4 letter-spacing-md appt-edit__label">
-								time
-						</label>
-						<input
-								type="text"
-								className="appt-edit__input appt-edit__input-contact"
-								placeholder="time"
-								value={time}
-								onChange={(e) => setTime(e.target.value)}
-						/>
-					</div>
-
-					<button
-						className="btn__appt-edit"
-						type="submit"
-						onClick={handleSubmit}
-					>
-						Submit changes
-					</button>
-
-					</div>
-				</div>
+			</div>
 		</form>
 		</div>
 	)

@@ -2,19 +2,15 @@ import React from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+// components
+import Input from "../Input"
+
 // actions
 import { subheader } from "../../actions/subheader";
 import { getUserDetails, updateUser } from '../../actions/userActions'
 
 // constants
 import { USER_UPDATE_RESET } from '../../constants/userConstants'
-
-// components
-import {Sidebar} from "../navigation/Sidebar";
-
-
-
-import { adminList } from "../../data/lists"
 
 
 export default function AdminUserEdit ({ match }) {
@@ -76,62 +72,24 @@ export default function AdminUserEdit ({ match }) {
 	}
 
 	return (
-			<div className="toshi">
+		<div className="toshi">
 			<form onSubmit={handleSubmit} className="userEditScreen user__page">
-			<Link to='/admin/users' className="btn__user-edit" >Go Back</Link>
-				<div className="userEditScreen__header">
-					<h2 className="font-size-2 letter-spacing-sm">
-							Edit User
-					</h2>
-				</div>
+
+				<Link to='/admin/users' className="btn__user-edit">Go Back</Link>
+
+				<h2 className="userEditScreen__header">Edit User</h2>
 
 				<div className="userEditScreen__content">
 					<div className="userEditScreen__element--container">
-						<div className="userEditScreen__element">
-							<label
-								className="font-size-4 letter-spacing-md userEditScreen__label"
-								for="name"
-							>
-								name
-							</label>
-							<input
-								type="text"
-								className="userEditScreen__input userEditScreen__input-contact font-size-3"
-								placeholder="Your name address"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-						</div>
-
-						<div className="userEditScreen__element">
-							<label
-								className="font-size-4 letter-spacing-md userEditScreen__label"
-								for="email"
-							>
-								email
-							</label>
-							<input
-								type="email"
-								className="userEditScreen__input userEditScreen__input-contact font-size-3"
-								placeholder="Your email address"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-						</div>
-
-						<div className="userEditScreen__element">
-							<label className="font-size-4 letter-spacing-md userEditScreen__label">
-								Is Admin
-							</label>
-							<input
-								type="radio"
-								checked={isAdmin}
-								className="userEditScreen__input userEditScreen__input-contact font-size-3"
-								placeholder="Admin?"
-								value={isAdmin}
-								onChange={(isAdmin) => setIsAdmin(!isAdmin)}
-							/>
-						</div>
+						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+							htmlFor="" label="name" type="name" value={name} placeholder="name" onChange={(e) => setName(e.target.value)}
+						/>
+						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+							htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)}
+						/>
+						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+							htmlFor="" label="admin?" type="radio" value={isAdmin} placeholder="Admin?" onChange={(isAdmin) => setIsAdmin(!isAdmin)}
+						/>
 					</div>
 
 					<button

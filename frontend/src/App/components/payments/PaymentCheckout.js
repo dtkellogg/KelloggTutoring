@@ -17,9 +17,6 @@ import useFormatAMPM from "../../hooks/useFormatAMPM";
 //constants
 import { CART_RESET } from "../../constants/cartConstants";
 
-// data
-import { apptsList } from "../../data/lists"
-
 
 function PaymentCheckout({ match }) {
   const dispatch = useDispatch();
@@ -82,34 +79,25 @@ function PaymentCheckout({ match }) {
 
         <PaymentSteps step1 step2 step3 step4 />
 
-        <div className="appointments__header--container-checkout">
-          <h2 className="font-size-2 appointments__header">Checkout</h2>
-        </div>
+        <h2 className="appointments__header--container-checkout appointments__header">Checkout</h2>
 
         <div className="checkout__payment-method">
           <h2 className="font-size-4">Payment Method:&nbsp;</h2>
 
-          <div className="font-size-2 checkout__payment-method--text">
-            {/* <strong className="font-size-3"> */}
-              &nbsp;{cart.paymentMethod}
-            {/* </strong> */}
+          <div className="checkout__payment-method--text">
+            &nbsp;{cart.paymentMethod}
           </div>
         </div>
 
-        {error && <h2 className="font-size-2">{error}</h2>}
+        {error && <h2 className="">{error}</h2>}
 
-        <div
-          className="checkout__appts"
-          style={{
-            padding: "1rem 0",
-          }}
-        >
-          <h2 className="font-size-4" style={{ padding: "1rem" }}>
+        <div className="checkout__appts">
+          <p className="font-size-4" style={{ padding: "1rem" }}>
             Paying for the following (<strong>{cart.cartItems.length}</strong>){" "}
             appointments:
-          </h2>
+          </p>
           {cart.cartItems.length === 0 ? (
-            <h2
+            <p
               className="font-size-3"
               style={{
                 padding: "1rem",
@@ -117,9 +105,9 @@ function PaymentCheckout({ match }) {
               }}
             >
               Your cart is <span style={{ color: "red" }}>empty</span>
-            </h2>
+            </p>
           ) : (
-            <table className="font-size-3 appointments__list">
+            <table className="appointments__list">
               <thead className="thead">
                 <tr className="tr">
                   <th className="appointments__th--date">date</th>
@@ -136,14 +124,14 @@ function PaymentCheckout({ match }) {
 
                   return (
                     <tr key={id} className="appointments__list--item">
-                      <td className="font-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="font-size-3 appointments__item--time">{`${AMPMTime(
+                      <td className="appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                      <td className="appointments__item--time">{`${AMPMTime(
                         appt.startTime
                       )} - ${AMPMTime(appt.endTime)}`}</td>
-                      <td className="font-size-3 appointments__item--student">
+                      <td className="appointments__item--student">
                         $50.00
                       </td>
-                      <td className="font-size-3 appointments__item--subject">
+                      <td className="appointments__item--subject">
                         {appt.subject}
                       </td>
 

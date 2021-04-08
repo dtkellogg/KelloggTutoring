@@ -83,19 +83,12 @@
 
 .booking {
   @include hundredPercentHW();
-  // padding: 1rem 18vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  // align-items: center;
+  @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
   padding: 1rem 2rem;
-  // width: 40rem;
   grid-column: 2 / -1;
   
 
   @media (max-width: 950px) {
-    // padding: 1rem 2rem;
-    // width: 90vw;
     width: 100%;
     grid-column: 1 / -1;
   }
@@ -112,7 +105,6 @@
     @media (max-width: 950px) and (max-height: 450px) {
       margin-bottom: 1rem;
     }
-    
   }
 
   &__content {
@@ -140,6 +132,7 @@
 
   &__label {
     color: $grey-light-5;
+    font-size: var(--font-size-5);
   }
 
   &__input {
@@ -149,6 +142,7 @@
     color: $old-blue-2;
     cursor: pointer;
     width: 100%;
+    font-size: var(--font-size-4);
 
     &:focus {
       outline: none;

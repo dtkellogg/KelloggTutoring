@@ -81,17 +81,18 @@ export default function Profile({ location, history }) {
         <h2 className="profile__header">
           Update your profile
         </h2>
+
         <div className="profile__content">
           <div className="profile__element">
             <label
-              className="font-size-4 letter-spacing-md profile__label"
+              className="profile__label"
               htmlFor="name"
             >
               name
             </label>
             <input
               type="name"
-              className="profile__input profile__input-contact font-size-3"
+              className="profile__input profile__input-contact"
               placeholder="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -100,14 +101,14 @@ export default function Profile({ location, history }) {
 
           <div className="profile__element">
             <label
-              className="font-size-4 letter-spacing-md profile__label"
+              className="profile__label"
               htmlFor="email"
             >
               email
             </label>
             <input
               type="email"
-              className="profile__input profile__input-contact font-size-3"
+              className="profile__input profile__input-contact"
               placeholder="Your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -115,12 +116,12 @@ export default function Profile({ location, history }) {
           </div>
 
           <div className="profile__element">
-            <label className="font-size-4 letter-spacing-md profile__label">
+            <label className="profile__label">
               password
             </label>
             <input
               type="password"
-              className="profile__input profile__input-contact font-size-3"
+              className="profile__input profile__input-contact"
               placeholder="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -128,12 +129,12 @@ export default function Profile({ location, history }) {
           </div>
 
           <div className="profile__element">
-            <label className="font-size-4 letter-spacing-md profile__label">
+            <label className="profile__label">
               confirm password
             </label>
             <input
               type="password"
-              className="profile__input profile__input-contact font-size-3"
+              className="profile__input profile__input-contact"
               placeholder="confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -148,6 +149,7 @@ export default function Profile({ location, history }) {
             Update
           </button>
         </div>
+        
       </form>
     </div>
   );

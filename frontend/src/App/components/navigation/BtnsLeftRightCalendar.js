@@ -96,7 +96,7 @@ function BtnsLeftRightCalendar({ date, day, month, year, setDate, setDay, setMon
 
 
     return (
-        <div className="calendar__row--header font-size-2">
+        <div className="calendar__row--header">
             <FaCaretLeft
                 size={30}
                 fill="var(--old-blue-2)"

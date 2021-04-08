@@ -44,6 +44,8 @@
 
   &__label {
     color: $grey-light-5;
+    font-size: var(--font-size-4);
+    font-size: var(--font-size-4);
   }
 
   &__input {
@@ -51,6 +53,7 @@
     border-bottom: 1px solid black;
     height: 4rem;
     color: $old-blue-2;
+    font-size: var(--font-size-3);
 
     &:focus {
       outline: none;

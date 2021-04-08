@@ -98,7 +98,7 @@ function HomeAppointments({calendarRef}) {
         </div>
         <div className="container__home--appointments-right" ref={calendarRef}>
           {!userInfo ? (
-                <Link to={`/login`} className="font-size-2 msg__userInfoNull">
+                <Link to={`/login`} className="msg__userInfoNull">
                   Please&nbsp;
                   <span className="font-size-2" style={{ color: "blue" }}>
                         login&nbsp;

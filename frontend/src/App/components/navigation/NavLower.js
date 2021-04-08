@@ -40,7 +40,7 @@ export default function NavLower() {
 
   return (
     <nav className="container__nav--lower">
-      <h3 className="font-size-3">{subheader}</h3>
+      <h3 className="nav__subheader">{subheader}</h3>
       <div className="search__wrapper fadeInAnimated--0">
         <input
           value={searchInput}
@@ -77,7 +77,7 @@ export default function NavLower() {
               <Link
                 key={linkKey}
                 to={item.link}
-                className="search__item font-size-5"
+                className="search__item"
                 onClick={handleClick}
               >
                 {item.name}

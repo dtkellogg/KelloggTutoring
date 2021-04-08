@@ -43,10 +43,10 @@ function UserList() {
         {users && users.map((user) => { 
           return (
               <tr key={user._id} className="tr">
-                <td className="font-size-3 users__td--name">
+                <td className="users__td--name">
                 {user.name}
                 </td>
-                <td className="font-size-3 users__td--email">
+                <td className="users__td--email">
                 <a href={`mailto:${user.email}`}>{user.email}</a>
                 </td>
 

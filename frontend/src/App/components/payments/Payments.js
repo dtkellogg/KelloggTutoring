@@ -5,7 +5,6 @@ import { Link,  useLocation} from 'react-router-dom'
 
 // hooks
 import { useSortMultiple } from "../../hooks/useSort";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 // actions
 import { listAppointments } from '../../actions/appointmentActions'
@@ -18,9 +17,6 @@ import { CART_RESET } from "../../constants/cartConstants";
 // components
 import PaymentSteps from './PaymentSteps'
 import PleaseLogin from '../PleaseLogin'
-
-// data
-import { apptsList } from "../../data/lists"
 
 
 
@@ -43,10 +39,7 @@ export default function Payments({ match, history }) {
   
   const reduxCart = useSelector((state) => state.cart);
   
-  const { width, height } = useWindowDimensions() // eslint-disable-line no-unused-vars
-  const redirect = location.search ? location.search.split("=")[1] : "/"; // eslint-disable-line no-unused-vars
-
- 
+  // const redirect = location.search ? location.search.split("=")[1] : "/"; // eslint-disable-line no-unused-vars
 
   React.useEffect(() => {
     const fetchAppts = async () => {
@@ -131,7 +124,7 @@ export default function Payments({ match, history }) {
         ) : sortedAppts
             .filter((appt) => appt.student === userInfo.name)
             .filter((appt) => appt.paid === false).length === 0 ? (
-            <div className="font-size-2 msg__userInfoNull">
+            <div className="msg__userInfoNull">
               You have no unpaid appointments
             </div>
         ) : (
@@ -145,12 +138,12 @@ export default function Payments({ match, history }) {
                 continue
               </Link>
               <button className="btn__cart--reset" onClick={handleReset}>reset cart</button>
-              <div className="appointments__header font-size-2">
+              <h2 className="appointments__header">
                 Select appointments to pay for:
-              </div>
+              </h2>
             </div>
             <div className="appointments__table--payments-container">
-              <table className="appointments__list font-size-3">
+              <table className="appointments__list">
                 <thead className="thead">
                   <tr className="tr">
                     <th className="appointments__th--date">date</th>
@@ -200,12 +193,12 @@ export default function Payments({ match, history }) {
                       const date = appt.date.split("T")[0].split("-");
                       return (
                         <tr key={appt._id} className="appointments__list--item">
-                          <td className="font-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                          <td className="font-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                          <td className="font-size-3 appointments__item--student">
+                          <td className="appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                          <td className="appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                          <td className="appointments__item--student">
                             {appt.student}
                           </td>
-                          <td className="font-size-3 appointments__item--subject">
+                          <td className="appointments__item--subject">
                             {appt.subject}
                           </td>
                           <td className="appointments__item--btns">

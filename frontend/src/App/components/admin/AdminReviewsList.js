@@ -79,14 +79,13 @@ export default function AdminReviewsList({ location, history }) {
 
     return (
         <div className="container__screen--sidebar">
-            {/* <Sidebar title="Toshi" list={adminList} /> */}
             <div className="reviewsAdmin">
-                <div className="font-size-2 reviewsAdmin__header">
+                <div className="reviewsAdmin__header">
                     All reviews:
                 </div>
                 
                 <div className="admin__table--container">
-                    <table className="font-size-3 reviewsAdmin__list--all">
+                    <table className="reviewsAdmin__list--all">
                         <thead className="thead">
                             <tr className="tr">
                                 <th className="th__reviews-list reviewsAdmin__th--posted">date</th>
@@ -101,10 +100,10 @@ export default function AdminReviewsList({ location, history }) {
                                 const date = review.date.split("T")[0].split("-");
                                 return (
                                     <tr key={review._id} className="reviewsAdmin__list--item">
-                                        <td className="font-size-3 reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
-                                        <td className="font-size-3 reviewsAdmin__item--by"> {review.name}</td>
-                                        <td className="font-size-3 reviewsAdmin__item--msg">{review.msg}</td>
-                                        <td className="font-size-3 reviewsAdmin__item--approved">
+                                        <td className="reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
+                                        <td className="reviewsAdmin__item--by"> {review.name}</td>
+                                        <td className="reviewsAdmin__item--msg">{review.msg}</td>
+                                        <td className="reviewsAdmin__item--approved">
                                             {review.approved ? (
                                             <FaCheckSquare
                                                 size={20}
@@ -128,7 +127,7 @@ export default function AdminReviewsList({ location, history }) {
                                         </td>
 
 
-                                        <td className="font-size-3 reviewsAdmin__item--delete">
+                                        <td className="reviewsAdmin__item--delete">
                                             <FaTrash
                                                 size={20}
                                                 color="var(--green-dark)"

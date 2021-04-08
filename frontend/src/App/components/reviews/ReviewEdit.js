@@ -83,14 +83,14 @@ export default function ReviewEdit({ match, history, location }) {
         <div className="edit-review__content">
           <div className="edit-review__element">
             <label
-              className="font-size-4 letter-spacing-md edit-review__label"
+              className="letter-spacing-md edit-review__label"
               htmlFor="name"
             >
               name
             </label>
             <input
               type="text"
-              className="edit-review__input edit-review__input-contact font-size-3"
+              className="edit-review__input edit-review__input-contact"
               placeholder="Your name address"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -111,7 +111,7 @@ export default function ReviewEdit({ match, history, location }) {
                 />
 
                 <label
-                  className="reviews__new-review--label font-size-4"
+                  className="reviews__new-review--label"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -131,7 +131,7 @@ export default function ReviewEdit({ match, history, location }) {
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
                 <label
-                  className="reviews__new-review--label font-size-4"
+                  className="reviews__new-review--label"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -151,7 +151,7 @@ export default function ReviewEdit({ match, history, location }) {
                   onChange={(e) => handleRadioBtnChange(e)}
                 />
                 <label
-                  className="reviews__new-review--label font-size-4"
+                  className="reviews__new-review--label"
                   style={{
                     color: "var(--old-blue-2)",
                   }}
@@ -163,22 +163,22 @@ export default function ReviewEdit({ match, history, location }) {
           </div>
 
           {/* <div className="edit-review__element">
-            <label className="font-size-4 letter-spacing-md edit-review__label">
+            <label className=" letter-spacing-md edit-review__label">
               Is Admin
             </label>
             <input
               type="radio"
               checked={isAdmin}
-              className="edit-review__input edit-review__input-contact font-size-3"
+              className="edit-review__input edit-review__input-contact"
               placeholder="Admin?"
               value={isAdmin}
               onChange={(isAdmin) => setIsAdmin(!isAdmin)}
             />
           </div> */}
 
-          <div className="edit-review__element font-size-4">
+          <div className="edit-review__element">
             <textarea
-              className="edit-review__textarea font-size-4"
+              className="edit-review__textarea"
               type="text"
               placeholder="Message"
               style={{ color: "var(--old-blue-2)" }}
@@ -189,7 +189,7 @@ export default function ReviewEdit({ match, history, location }) {
               // }}
               onChange={(e) => setMsg(e.target.value)}
             ></textarea>
-            <label className="reviews__new-review--label font-size-4"></label>
+            <label className="reviews__new-review--label"></label>
           </div>
 
           <button

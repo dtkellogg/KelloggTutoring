@@ -18,9 +18,7 @@ export default function Reviews({ type }) {
       >
         {type === "meetToshi" && (
           <Link to={`/reviews/create-review`} className="btn__reviews">
-            <span className="font-size-6" style={{ textAlign: "center" }}>
-              Create Review
-            </span>
+            Create Review
           </Link>
         )}
 

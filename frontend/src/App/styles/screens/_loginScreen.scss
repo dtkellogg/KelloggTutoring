@@ -25,6 +25,7 @@
 
   &__label {
     color: $grey-light-5;
+    font-size: var(--font-size-5);
   }
 
   &__input {
@@ -32,6 +33,7 @@
     border-bottom: 1px solid black;
     height: 4rem;
     color: $old-blue-2;
+    font-size: var(--font-size-3);
 
     &:focus {
       outline: none;
@@ -76,15 +78,18 @@
 
   &__register {
     text-align: center;
+    font-size: var(--font-size-5);
   }
 
   &__success-message {
     color: $green;
+    font-size: var(--font-size-3);
     // margin-bottom: 1.5rem;
   }
 
   &__failed-message {
     color: $red;
+    font-size: var(--font-size-3);
     // margin-bottom: 3rem;
     // position: absolute;
     // bottom: 10rem;

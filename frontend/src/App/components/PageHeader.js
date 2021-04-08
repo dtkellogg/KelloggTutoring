@@ -26,10 +26,10 @@ export default function PageHeader() {
   return (
     <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar" }>
         <div className="container__page-header">
-        <h2 className="page-header__text font-size-2">
+        <h2 className="page-header__text">
           {`Please select an option ${directionText}.`}
         </h2>
-        <span className="page-header__text--emoji font-size-0">
+        <span className="page-header__text--emoji">
           <span role="img" aria-label="email emoji">
             {Hand}
           </span>

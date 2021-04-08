@@ -126,14 +126,12 @@ function PaymentScreen({ match, history }) {
 
   return loading ? (
     <Loading />
-  ) : error ? (
-    <h2 className="font-size-2">{error}</h2>
   ) : (
     <div className="pg__appointment">
       <Sidebar title="Appointments" list={apptsList} />
       <div className="appointments">
         {/* <PaymentSteps step1 step2 step3 step4 /> */}
-          <h2 className="font-size-2 payment__header">
+          <h2 className="payment__header">
             Payment {payment._id}
           </h2>
         <div className="payment__subgroups">
@@ -144,10 +142,10 @@ function PaymentScreen({ match, history }) {
               <h2 className="payment__subgroups--not-paid">Not Paid</h2>
             )}
           </div>
-          <div className="font-size-4 payment__subgroups--name">
+          <div className="payment__subgroups--name">
             <strong> Name: </strong> {payment.user.name}
           </div>
-          <div className="font-size-4 payment__subgroups--email">
+          <div className="payment__subgroups--email">
             <strong> Email: </strong>
             <a href={`mailto:${payment.user.email}`}>{payment.user.email}</a>
           </div>
@@ -168,7 +166,7 @@ function PaymentScreen({ match, history }) {
           </div>
         </div>
 
-        {error && <h2 className="font-size-2">{error}</h2>}
+        {/* {error && <h2 className="font-size-2">{error}</h2>} */}
 
         <div
           className=""
@@ -191,7 +189,7 @@ function PaymentScreen({ match, history }) {
               Payment is <span style={{ color: "red" }}>empty</span>
             </h2>
           ) : (
-            <table className="font-size-3 appointments__list">
+            <table className="appointments__list">
               <thead className="thead">
                 <tr className="tr">
                   <th className="appointments__th--date">date</th>
@@ -207,12 +205,12 @@ function PaymentScreen({ match, history }) {
                   console.log(appt)
                   return (
                     <tr key={id} className="appointments__list--item">
-                      <td className="font-size-3 appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="font-size-3 appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                      <td className="font-size-3 appointments__item--student">
+                      <td className="appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                      <td className="appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                      <td className="appointments__item--student">
                         $50.00
                       </td>
-                      <td className="font-size-3 appointments__item--subject">
+                      <td className="appointments__item--subject">
                         {appt.subject}
                       </td>
                     </tr>

@@ -1,10 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// components
-import {Sidebar} from "../navigation/Sidebar";
-
-
 // actions
 import { listAppointmentRequests, deleteAppointmentRequest } from "../../actions/appointmentRequestActions"; // eslint-disable-line no-unused-vars
 import { subheader } from "../../actions/subheader";
@@ -12,9 +8,6 @@ import { subheader } from "../../actions/subheader";
 // hooks
 import { useSortMultiple } from '../../hooks/useSort' // eslint-disable-line no-unused-vars
 import useFormatAMPM from "../../hooks/useFormatAMPM"
-
-
-import { adminList } from "../../data/lists"
 
 
 
@@ -73,14 +66,12 @@ export default function AdminApptRequests({ location, history }) {
             <div className="container__screen--sidebar">
                 {/* <Sidebar title="Toshi" list={adminList} /> */}
                 <div className="appointment-requests">
-                    <div className="font-size--2 appointment-requests__header--container">
-                        <div className="font-size--2 appointment-requests__header">
-                            All Appointment Requests:
-                        </div>
-                    </div>
+                    <h2 className="appointment-requests__header--container appointment-requests__header">
+                        All Appointment Requests:
+                    </h2>
 
                     <div className="admin__table--container">
-                        <table className="appointment-requests__list font-size--3">
+                        <table className="appointment-requests__list">
                             <thead className="thead">
                                 <tr className="tr">
                                     <th className="appointment-requests__th--date">date</th>
@@ -94,11 +85,11 @@ export default function AdminApptRequests({ location, history }) {
                                     const date = request.date.split("T")[0].split("-")
                                     return (
                                         <tr key={request._id} className="tr">
-                                            <td className="font-size--3 appointment-requests__td--date">
+                                            <td className="appointment-requests__td--date">
                                                 {`${date[1]}-${date[2]}`}
                                             </td>
 
-                                            <td className="font-size--3 appointment-requests__td--student">
+                                            <td className="appointment-requests__td--student">
                                                 {request.student}
                                             </td>
 
@@ -115,6 +106,7 @@ export default function AdminApptRequests({ location, history }) {
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         )

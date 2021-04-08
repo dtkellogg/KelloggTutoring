@@ -10,6 +10,9 @@ import { sendMessageToNodeMailer } from "../actions/msgActions";
 import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
+// components
+import Input from '../components/Input'
+
 // can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
   let output = ''
@@ -110,88 +113,38 @@ export default function MessageScreen({ history }) {
           Any questions?
         </h2>
         <div className="form__body">
-          <div className="form__element">
-            <label className="form__label">
-              name
-            </label>
-            <input
-              type="name"
-              className="form__input form__input-contact font-size-4"
-              placeholder="name"
-              value={name || ""}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="form__element">
-            <label
-              className="form__label"
-              htmlFor="email__form"
-            >
-              email
-            </label>
-            <input
-              type="email"
-              className="form__input form__input-contact font-size-4"
-              placeholder="email"
-              value={email || ""}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="form__element">
-            <label className="form__label">
-              phone
-            </label>
-            <input
-              type="tel"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              // format="(###) ###-####"
-              className="form__input form__input-contact font-size-4"
-              placeholder="(xxx) xxx - xxxx"
-              // value={phone ? useFormatedPhoneNumber(phone) : phone}
-              value={phone ? FormattedPhoneNum(phone) : phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div className="form__element">
-            <label className="form__label">
-              subject
-            </label>
-            <input
-              type="subject"
-              className="form__input form__input-contact font-size-4"
-              placeholder="subject"
-              value={subject || ""}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-          </div>
-          <div className="form__element">
-            <label
-              className="form__label"
-              htmlFor="message__form"
-            >
-              message
-            </label>
-            <textarea
-              type="text"
-              className="form__textarea form__input--contact-message font-size-4"
-              placeholder="Please leave your message here."
-              value={message || ""}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </div>
+
+          <Input containerClass="form__element" labelClass="form__label" inputClass="form__input form__input-contact"
+            htmlFor="" label="name" type="name" value={name || ""} placeholder="name" onChange={(e) => setName(e.target.value)}
+          />
+          <Input containerClass="form__element" labelClass="form__label" inputClass="form__input form__input-contact"
+            htmlFor="email__form" label="email" type="email" value={email || ""} placeholder="email" onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input containerClass="form__element" labelClass="form__label" inputClass="form__input form__input-contact"
+            htmlFor="" label="phone" type="tel" value={phone ? FormattedPhoneNum(phone) : phone} placeholder="(xxx) xxx - xxxx" onChange={(e) => setPhone(e.target.value)} 
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          />
+          <Input containerClass="form__element" labelClass="form__label" inputClass="form__input form__input-contact"
+            htmlFor="" label="subject" type="subject" value={subject || ""} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
+          />
+          <Input containerClass="form__element" labelClass="form__label" inputClass="form__textarea form__input--contact-message"
+            htmlFor="message__form" label="message" type="text" value={message || ""} placeholder="Please leave your message here." onChange={(e) => setMessage(e.target.value)}
+            textarea={true}
+          />
           
-          {submitted && (
-            <p className="form__success-message--contact font-size-3">
+          {/* {submitted && (
+            <p className="form__success-message--contact">
               Message has been sent.
             </p>
           )}
           {failed.length > 0 && (
-            <p className="form__fail-message--contact font-size-3">
+            <p className="form__fail-message--contact">
               {failed}
             </p>
-          )}
+          )} */}
 
         </div>
+        
         <button
           className="btn__form"
           onClick={handleSubmit}

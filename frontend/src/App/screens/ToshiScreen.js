@@ -22,9 +22,7 @@ function ApptsScreen() {
             <Route exact path={`${url}/about`} component={ToshiAbout} />
             <Route exact path={`${url}/teaching`} component={ToshiTeaching} />
             <Route exact path={`${url}/reviews`} component={() => <Reviews type="meetToshi" />} />
-          <Route exact path={`${url}/reviews/create-review`} component={ReviewCreate} />
-
-            {/* <Route exact path={`${url}/reviews/UserCreateReview`} component={UserCreateReview} /> */}
+            <Route exact path={`${url}/reviews/create-review`} component={ReviewCreate} />
             <Route exact path={`${url}/blog`} component={Blog} />
             <Route path="*" component={PageHeader} />
           </Switch>

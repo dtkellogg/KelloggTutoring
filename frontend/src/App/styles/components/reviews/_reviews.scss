@@ -76,10 +76,12 @@
 			font-weight: 500;
 			display: flex;
 			align-items: center;
+			font-size: var(--font-size-3);
 		}
 
 		&--item-relation {
 			color: $grey-light-4;
+			font-size: var(--font-size-5);
 		}
 
 		&--item-approved {
@@ -87,16 +89,32 @@
 
 		&--item-date {
 			color: $grey-light-4;
+			font-size: var(--font-size-4);
 		}
 
 		&--item-msg {
 			padding: 1rem;
 			height: 100%;
 			position: relative;
+			font-size: var(--font-size-4);
 		}
 
 		&--item-approved {
 			color: $grey-light-4;
+			font-size: var(--font-size-4);
+		}
+
+		&--interactions {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			width: 100%;
+			padding: 2rem;
+
+			transform: translateY(-2.75rem);
 		}
 	}
 
@@ -122,6 +140,8 @@
 		}
 
 		&--header {
+			font-size: var(--font-size-2);
+
 			@media (max-width: 1050px) {
 				margin-bottom: 2rem;
 			}
@@ -145,6 +165,7 @@
 			height: 100%;
 			width: 100%;
 			border: 1px solid $old-blue-2;
+			color: $old-blue-2;
 			height: 4rem;
 			padding: 1rem;
 			
@@ -163,6 +184,7 @@
 			min-height: 55vh;
 			max-height: 62vh;
 			width: 100%;
+			font-size: var(--font-size-4);
 
 			margin: 1rem 0;
 			padding: 1rem;
@@ -234,17 +256,4 @@
 		color: $black;
 		margin-left: 1rem;
 	}
-}
-
-.reviews__card--interactions {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  padding: 2rem;
-
-  transform: translateY(-2.75rem);
 }

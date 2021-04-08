@@ -36,21 +36,21 @@ function ReviewsCard({review}, type) {
           }}
         >
           <div
-            className="reviews__card--item-name font-size-3"
+            className="reviews__card--item-name"
             style={{
               color:
                 type === "meetToshi" ? "var(--black)" : "var(--old-blue-2)",
             }}
           >
             {review.name}
-            <span className="reviews__relation font-size-5">
+            <span className="reviews__relation">
               {" "}
               ({review.relation})
             </span>
           </div>
 
           <div
-            className="reviews__card--item-date font-size-4"
+            className="reviews__card--item-date"
             style={{
               color:
                 type === "meetToshi" ? "var(--black)" : "var(--grey-light-5)",
@@ -60,11 +60,11 @@ function ReviewsCard({review}, type) {
           </div>
         </div>
 
-        <div className="reviews__card--item-msg font-size-4">{review.msg}</div>
+        <div className="reviews__card--item-msg">{review.msg}</div>
 
         <div className="reviews__card--interactions">
           <div
-            className="reviews__card--item-approved font-size-4"
+            className="reviews__card--item-approved"
             style={{
               color:
                 type === "meetToshi" ? "var(--black)" : "var(--grey-light-5)",
@@ -105,21 +105,21 @@ function ReviewsCard({review}, type) {
           }}
         >
           <div
-            className="reviews__card--item-name font-size-3"
+            className="reviews__card--item-name"
             style={{
               color:
                 type === "meetToshi" ? "var(--black)" : "var(--old-blue-2)",
             }}
           >
             {review.name}
-            <span className="reviews__relation font-size-5">
+            <span className="reviews__relation">
               {" "}
               ({review.relation})
             </span>
           </div>
 
           <div
-            className="reviews__card--item-date font-size-4"
+            className="reviews__card--item-date"
             style={{
               color: type === "meetToshi" ? "var(--black)" : "var(--black)",
             }}
@@ -129,11 +129,11 @@ function ReviewsCard({review}, type) {
           </div>
         </div>
 
-        <div className="reviews__card--item-msg font-size-4">{review.msg}</div>
+        <div className="reviews__card--item-msg">{review.msg}</div>
 
         <div className="btns__reviews">
           <div
-            className="reviews__card--item-approved font-size-4"
+            className="reviews__card--item-approved"
             style={{
               color:
                 type === "meetToshi"

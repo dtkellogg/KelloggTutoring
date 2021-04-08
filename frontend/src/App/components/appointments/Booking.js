@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // components
 import { subheader } from "../../actions/subheader";
-import BookingElement from './BookingElement'
+import Input from '../Input'
 
 // actions
 import { requestAppointment } from "../../actions/appointmentActions";
@@ -90,27 +90,41 @@ export default function Booking({ location, history, type}) {
     return (
       <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
         <form onSubmit={handleSubmit} className="form">
-          <h2 className="booking__header font-size-2 letter-spacing-sm">
+          <h2 className="booking__header">
             Request an appointment
           </h2>
 
           <div className="booking__content">
-            <BookingElement htmlFor="student" text="student" type="name" placeholder="student" style={{}} value={student || ''} onChange={(e) => setStudent(e.target.value)}/>
-            <BookingElement htmlFor="subject" text="subject" type="subject" placeholder="subject" style={{}} value={subject} onChange={(e) => setSubject(e.target.value)}/>
-            <BookingElement htmlFor="date" text="date" type="date" placeholder="student" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={date} onChange={(e) => setDate(e.target.value)}/>
-            <BookingElement htmlFor="time" text="start time" type="time" placeholder="start time" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={startTime} onChange={(e) => setStartTime(e.target.value)}/>
-            <BookingElement htmlFor="time" text="end time" type="time" placeholder="end time" style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }} value={endTime} onChange={(e) => setEndTime(e.target.value)}/>
 
-            {submitted && (
-              <p className="form__success-message--contact font-size-3">
+            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+              htmlFor="student" label="student" type="name" value={student || ''} placeholder="student" onChange={(e) => setStudent(e.target.value)}
+            />
+            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+              htmlFor="subject" label="subject" type="subject" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
+            />
+            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+              htmlFor="date" label="date" type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
+              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+            />
+            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+              htmlFor="time" label="start time" type="time" value={startTime} placeholder="start time" onChange={(e) => setStartTime(e.target.value)}
+              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+            />
+            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+              htmlFor="time" label="end time?" type="time" value={endTime} placeholder="end time" onChange={(e) => setEndTime(e.target.value)}
+              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+            />
+
+            {/* {submitted && (
+              <p className="form__success-message--contact">
                 Message has been sent.
               </p>
             )}
             {failed.length > 0 && (
-              <p className="form__fail-message--contact font-size-3">
+              <p className="form__fail-message--contact">
                 {failed}
               </p>
-            )}
+            )} */}
 
           </div>
           <button className="btn__booking" type="submit" onClick={handleSubmit} >

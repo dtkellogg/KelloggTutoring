@@ -33,12 +33,12 @@ function SidebarRaw({ title, list, url }) {
 
   return (
     <div className="container__sidebar">
-      <h4 className="sidebar__title font-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
-      <ul className="sidebar__list font-size-5">
+      <h4 className="sidebar__title" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
+      <ul className="sidebar__list">
         {list.map((item) => {
           if(item === 'contact info') {
             return (
-              <button className="btn__contact-info font-size-5" key={uuid()} onClick={handleScroll} >
+              <button className="btn__contact-info" key={uuid()} onClick={handleScroll} >
                 contact info
               </button>)
           } else {
@@ -83,12 +83,12 @@ function SidebarRaw({ title, list, url }) {
 
 //   return (
 //     <div className="container__sidebar">
-//       <h4 className="sidebar__title font-size-4" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
-//       <ul className="sidebar__list font-size-5">
+//       <h4 className="sidebar__title" style={{color: 'var(--old-blue-2)'}}>{title}</h4>
+//       <ul className="sidebar__list">
 //         {list.map((item) => {
 //           if (item === 'contact info') {
 //             return (
-//               <button className="btn__contact-info font-size-5" key={uuid()} onClick={handleScroll} >
+//               <button className="btn__contact-info" key={uuid()} onClick={handleScroll} >
 //                 contact info
 //               </button>)
 //           } else if (url.split('/').length === 3){

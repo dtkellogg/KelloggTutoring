@@ -13,6 +13,7 @@
   &__header {
     text-align: center;
     margin-bottom: 3rem;
+    font-size: var(--font-size-2);
   }
 
   &__content {
@@ -34,12 +35,14 @@
 
   &__label {
     color: $grey-light-5;
+    font-size: var(--font-size-4);
   }
 
   &__input {
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;
+    font-size: var(--font-size-3);
     color: $old-blue-2;
 
     &:focus {

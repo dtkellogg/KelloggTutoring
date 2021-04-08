@@ -86,7 +86,7 @@ export default function ReviewCreateScreen({ history }) {
     <div className="container__screen--sidebar">
       <Sidebar title="Toshi" list={toshiList} />
       <form className="reviews__new-review">
-        <h2 className="reviews__new-review--header font-size-2">
+        <h2 className="reviews__new-review--header">
           Create a review
         </h2>
 
@@ -95,7 +95,6 @@ export default function ReviewCreateScreen({ history }) {
             className="reviews__new-review--input"
             type="text"
             placeholder="Name"
-            style={{ color: "var(--old-blue-2)" }}
             value={name || ""}
             onChange={(e) => setName(e.target.value)}
           />
@@ -114,10 +113,7 @@ export default function ReviewCreateScreen({ history }) {
               onChange={(e) => handleRadioBtnChange(e)}
             />
 
-            <label
-              className="reviews__new-review--label"
-              // style={{ color: "var(--old-blue-2)" }}
-            >
+            <label className="reviews__new-review--label">
               Student
             </label>
           </div>
@@ -151,9 +147,9 @@ export default function ReviewCreateScreen({ history }) {
           </div>
         </div>
 
-        <div className="review__new-review--element font-size-4">
+        <div className="reviews__new-review--element">
           <textarea
-            className="reviews__new-review--textarea font-size-4"
+            className="reviews__new-review--textarea"
             type="text"
             placeholder="Message"
             value={msg}
@@ -163,12 +159,12 @@ export default function ReviewCreateScreen({ history }) {
         </div>
 
         {submitted && (
-          <p className="form__success-message--contact font-size-3">
+          <p className="form__success-message--contact">
             Your review was submitted successfully. Thank you!
           </p>
         )}
         {failed.length > 0 && (
-          <p className="form__fail-message--contact font-size-3">
+          <p className="form__fail-message--contact">
             {failed}
           </p>
         )}

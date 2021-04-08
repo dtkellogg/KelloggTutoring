@@ -1,11 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { useToasts } from "react-toast-notifications";
 
 // actions
 import { register } from "../actions/userActions"
 
-import { useToasts } from "react-toast-notifications";
+// components
+import Input from '../components/Input'
 
 
 export default function Register({ location, history }) {
@@ -62,68 +64,26 @@ export default function Register({ location, history }) {
           Sign up.
         </h2>
 
-          <div className="container__register--inputs">
-            <div className="register-screen__element">
-              <label className="register-screen__label" htmlFor="name" >
-                Full name
-              </label>
-              <input
-                type="name"
-                className="register-screen__input"
-                placeholder="Full name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-
-            <div className="register-screen__element">
-              <label
-                className="register-screen__label"
-                htmlFor="email"
-              >
-                email
-              </label>
-              <input
-                type="email"
-                className="register-screen__input"
-                placeholder="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <div className="register-screen__element">
-              <label className="register-screen__label">
-                password
-              </label>
-              <input
-                type="password"
-                className="register-screen__input"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            <div className="register-screen__element">
-              <label className="register-screen__label">
-                confirm password
-              </label>
-              <input
-                type="password"
-                className="register-screen__input"
-                placeholder="confirm password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-          </div>
+          <section className="container__register--inputs">
+            <Input containerClass="register-screen__element" labelClass="register-screen__label" inputClass="register-screen__input"
+              htmlFor="name" label="Full name" type="name" value={name} placeholder="full name" onChange={(e) => setName(e.target.value)} 
+            />
+            <Input containerClass="register-screen__element" labelClass="register-screen__label" inputClass="register-screen__input"
+              htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)} 
+            />
+            <Input containerClass="register-screen__element" labelClass="register-screen__label" inputClass="register-screen__input"
+              htmlFor="" label="password" type="password" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)} 
+            />
+            <Input containerClass="register-screen__element" labelClass="register-screen__label" inputClass="register-screen__input"
+              htmlFor="" label="confirm password" type="password" value={confirmPassword} placeholder="confirm password" onChange={(e) => setConfirmPassword(e.target.value)} 
+            />
+          </section>
 
           <button className="btn__register" type="submit" onClick={handleSubmit} >
             Sign up
           </button>
 
-      <div className="font-size-5">
+          <div className="font-size-5">
             Have an account?{" "}
             <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} >
               <span style={{color: "blue"}}>Login</span>
@@ -131,6 +91,6 @@ export default function Register({ location, history }) {
           </div>
 
       </form>
-      </div>
+    </div>
   )
 }

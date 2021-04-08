@@ -9,14 +9,13 @@ export default function AdminUsers () {
   return (
     <div className="container__screen--sidebar">
       <div className="container__admin">
-        <div className="font-size-2 users__header--container">
-          <div className="font-size-2 users__header">
-            All active users:
-          </div>
-        </div>
+        <h2 className="users__header">
+          All active users:
+        </h2>
 
         <div className="admin__table--container">
-          <table className="users__list font-size-3">
+
+          <table className="users__list">
             <thead className="thead">
               <tr className="tr">
                 <th className="users__th--name">name</th>
@@ -25,9 +24,9 @@ export default function AdminUsers () {
                 <th className="users__th--delete">delete</th>
               </tr>
             </thead>
-            
-              <AdminUserList />
+            <AdminUserList />
           </table>
+
         </div>
       </div>
     </div>
