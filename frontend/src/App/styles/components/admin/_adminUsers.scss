@@ -89,6 +89,7 @@
 
   &__list {
     @include hundredPercentHW();
+    height: min-content;
     // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
     line-height: 3.5rem;
     display: table;
@@ -202,7 +203,7 @@
     &--name {
       grid-column: 1 / span 1;
       text-align: left;
-      padding: 0 1rem;
+      padding: 0 2rem;
       // padding-left: 1.5rem;
       text-align: start;
       font-size: var(--font-size-3);
@@ -220,10 +221,11 @@
 
     &--email {
       grid-column: 2 / span 1;
-      text-align: left;
-      padding: 1rem;
+      text-align: center;
+      padding: 0 2rem;
       width: auto;
       font-size: var(--font-size-3);
+      color: blue;
 
       @media (max-width: 750px) {
         width: auto;

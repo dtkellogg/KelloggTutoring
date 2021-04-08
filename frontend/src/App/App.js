@@ -85,7 +85,8 @@ export default function App() {
             <Sidebar key={sidebarTitle} title={sidebarTitle} list={sidebarList} url={sidebarUrl} />
         )}
 
-        <React.Suspense fallback={<LoadingSpinner />}>
+        {/* <React.Suspense fallback={<LoadingSpinner />}> */}
+        <React.Suspense fallback={""}>
           <TransitionGroup>
             <CSSTransition timeout={250} classNames="fade" key={location.key}>
               <Switch location={location}>

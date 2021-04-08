@@ -537,7 +537,7 @@
   @include hundredPercentHW();
   background-color: $grey-light-8;
 
-  @include hundredPercentHW();
+  height: min-content;
   // width: 100%;
   // min-height: 1rem;
 
@@ -568,10 +568,6 @@
 
 tbody tr:nth-of-type(odd) {
   background-color: $grey-light-7;
-}
-
-tbody tr {
-  line-height: 3rem;
 }
 
 .thead {

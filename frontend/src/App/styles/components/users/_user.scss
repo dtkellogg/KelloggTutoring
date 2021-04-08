@@ -138,6 +138,10 @@
   }
 
   &__input {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: var(--font-size-4);
+    letter-spacing: var(--letter-spacing-1);
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;

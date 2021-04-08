@@ -106,14 +106,14 @@
       }
     }
     &--tutoring-simplified {
-      font-size: var(--font-size-2);
+      font-size: var(--font-size-1);
       font-weight: inherit;
-      transform: translate(0rem,0.5rem);
+      transform: translate(0rem, 1.25rem);
     }
     &--subjects {
       font-size: var(--font-size-3);
       font-weight: inherit;
-      transform: translate(0.15rem,-1rem);
+      transform: translate(0.15rem,-0.75rem);
       width: 38rem;
 
       @media (max-width: 950px) {

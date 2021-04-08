@@ -84,9 +84,9 @@ export default function Booking({ location, history, type}) {
   };
 
     
-  if(!userInfo) { 
-    return <PleaseLogin />
-  } else { 
+  // if(!userInfo) { 
+  //   return <PleaseLogin />
+  // } else { 
     return (
       <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
         <form onSubmit={handleSubmit} className="form">
@@ -134,5 +134,5 @@ export default function Booking({ location, history, type}) {
         </form>
       </div>
     )
-  }
+  // }
 }

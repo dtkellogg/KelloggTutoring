@@ -17,7 +17,7 @@ const activeStyle = {
   color: "var(--old-blue-2)",
   backgroundColor: "var(--old-blue-2-opacity-2)",
   border: "1px dotted var(--old-blue-2)",
-  fontWeight: 900,
+  fontWeight: 600,
 };
 
 function NavUpper() {

@@ -222,7 +222,7 @@
 .admin {
   &__table {
     &--container {
-      height: 100%;
+      height: min-content;
       overflow: scroll;
       padding-bottom: 2rem;
 
