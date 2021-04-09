@@ -491,6 +491,39 @@
     
   }
 
+  &__reviews {
+    &--home-screen {
+      @include hundredPercentHW();
+      display: flex;
+      grid-column: 2 / -1;
+      position: relative;
+
+      @media (max-width: 1050px) {
+        flex-direction: column-reverse;
+      }
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+      }
+    }
+
+    &--toshi-screen {
+      @include hundredPercentHW();
+      display: flex;
+      grid-column: 2 / -1;
+      padding: 2rem;
+      position: relative;
+
+      @media (max-width: 1050px) {
+        flex-direction: column-reverse;
+      }
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
   //--------------------admin--------------------//
 
   &__admin {

@@ -3,7 +3,7 @@
   height: 100%;
   grid-column: 2 / -1;
   padding: 3rem 2rem;
-  overflow: scroll;
+  // overflow: scroll;
   cursor: ns-resize;
   @include hundredPercentHW();
   @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
@@ -28,7 +28,7 @@
   }
 
   @media (max-width: 600px) {
-    overflow: visible;
+    // overflow: visible;
   }
 
   &__header {
@@ -75,7 +75,6 @@
     &:focus {
       outline: none;
       border-bottom: 1px solid $old-blue-2;
-
     }
     
     &--contact {

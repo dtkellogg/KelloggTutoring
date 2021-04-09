@@ -13,7 +13,9 @@ export default function Reviews({ type }) {
       type === "meetToshi" ? "container__screen--sidebar" : "container__home--reviews"
     }>
       <div
-        className="reviews"
+        className={
+          type === "meetToshi" ? "container__reviews--toshi-screen" : "container__reviews--home-screen"
+        }
         style={
           type === "meetToshi" ? { display: "block" } : { display: "flex" }
         }

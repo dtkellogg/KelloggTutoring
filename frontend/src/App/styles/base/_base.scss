@@ -60,6 +60,11 @@ li {
   list-style-type: none;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: $old-blue-2;
+}
+
 
 //--------------------font-size--------------------//
 

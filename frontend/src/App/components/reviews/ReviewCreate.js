@@ -89,7 +89,7 @@ export default function ReviewCreateScreen({ history }) {
         </h2>
 
         <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--input"
-          htmlFor="" label="" type="text" value={name || ""} placeholder="name" onChange={(e) => setName(e.target.value)}
+          htmlFor="name" label="name" type="name" value={name || ""} placeholder="name" onChange={(e) => setName(e.target.value)}
         />
 
         <div className="reviews__new-review--radio-btns">
@@ -112,6 +112,7 @@ export default function ReviewCreateScreen({ history }) {
               id="Student"
               name="relation"
               value="Student"
+              placeholder="name"
               className="btn__radio--input"
               // checked
               onChange={(e) => handleRadioBtnChange(e)}
@@ -153,7 +154,7 @@ export default function ReviewCreateScreen({ history }) {
         </div>
 
         <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--textarea"
-          htmlFor="" label="" type="text" value={msg} placeholder="message" onChange={(e) => setMsg(e.target.value)}
+          htmlFor="message" label="message" type="text" value={msg || ""} placeholder="message" onChange={(e) => setMsg(e.target.value)}
           textarea={true}
         />
 
