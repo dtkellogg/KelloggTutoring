@@ -9,6 +9,7 @@ import Input from '../Input'
 import { requestAppointment } from "../../actions/appointmentActions";
 import { getUserDetails } from "../../actions/userActions";
 import PleaseLogin from '../PleaseLogin'
+import { useToasts } from "react-toast-notifications";
 
 // hooks
 import useWindowDimensions from '../../hooks/useWindowDimensions'
@@ -16,15 +17,15 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 export default function Booking({ location, history, type}) {
   const { width } = useWindowDimensions()
+  const { addToast } = useToasts();
+
 
   const [student, setStudent] = React.useState("")
   const [subject, setSubject] = React.useState("")
   const [date, setDate] = React.useState("")
   const [startTime, setStartTime] = React.useState("")
   const [endTime, setEndTime] = React.useState("")
-  const [submitted, setSubmitted] = React.useState(false)
   const [paid, setPaid] = React.useState(false) // eslint-disable-line no-unused-vars
-  const [failed, setFailed] = React.useState("");
 
   const dispatch = useDispatch();
 
@@ -34,52 +35,75 @@ export default function Booking({ location, history, type}) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const appointmentRequestCreate = useSelector((state) => state.appointmentRequestCreate);
+  const { loading: loadingCreate, error: errorCreate, success: successCreate } = appointmentRequestCreate;
+
+  
+
   React.useEffect(() => {
     if (!user) {
       dispatch(getUserDetails("profile"));
-    } else if (user) {
+    } else if (Object.keys(user).length !== 0) {  // this line checks if the object is empty
       setStudent(user.name);
-      // setEmail(user.email);
-    } else {
-      setStudent("");
     }
+    else {
+      return
+    } 
 
-  }, [dispatch, history, submitted]);
+  }, [dispatch, history]);
 
   React.useEffect(() => {
-    if (loading ) {
+    if (loading || loadingCreate) {
       dispatch(subheader("Loading..."));
+    } else if (error || errorCreate) {
+      addToast("There was an error. Please try submitting your request again.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    } else if (successCreate) {
+      setStudent("")
+      setSubject("")
+
+      setDate("")
+      setStartTime("")
+      setEndTime("")
+
+      addToast("Request was successfully submitted. Please expect up to 24 hours for a response.", {
+        appearance: "success",
+        autoDismiss: true,
+      });
     } else {
       dispatch(subheader(""));
     }
-
-    // need to think of better way to handle error below. Right now, it's an object.
-    // if (error) {
-    //   dispatch(subheader({ error }));
-    // }
-  }, [dispatch, loading, error]);
+  }, [dispatch, loading, error, loadingCreate, errorCreate, successCreate]);
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (subject && student && date && startTime && endTime) {
+      if (subject && student && date && startTime && endTime) {
 
-    setSubmitted(true);
+      await dispatch(
+        requestAppointment(subject, student, date, startTime, endTime, paid)
+      )
+        addToast("Request was successfully submitted. Please expect up to 24 hours for a response.", {
+          appearance: "success",
+          autoDismiss: true,
+        });
 
-    window.setTimeout(() => {
-        setSubmitted(false);
-      }, 4000);
+        setStudent("")
+        setSubject("")
 
-    dispatch(
-      requestAppointment(subject, student, date, startTime, endTime, paid)
-    )
-    } else {
-      setFailed("Please fill out all fields.")
-
-      window.setTimeout(() => {
-        setFailed("");
-      }, 4000);
+        setDate("")
+        setStartTime("")
+        setEndTime("")
+      }
+    } catch {
+      addToast("There was an error. Please try submitting your request again.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
     }
   };
 

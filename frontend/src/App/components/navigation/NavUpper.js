@@ -75,13 +75,13 @@ function NavUpper() {
               <FaUserCircle
                 size={30}
                 fill="var(--old-blue-2)"
-                className="icon grey-light-7"
+                className="icon grey-7"
               />
             )}
             <FaCaretDown
               size={15}
               fill="var(--old-blue-2)"
-              className="icon grey-light-7 user__dropdown-menu--icon"
+              className="icon grey-7 user__dropdown-menu--icon"
               style={{ display: width > 450 || userInfo ? "block" : "none" }}
             />
             {!userInfo ? (

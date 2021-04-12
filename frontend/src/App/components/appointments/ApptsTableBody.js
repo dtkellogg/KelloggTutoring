@@ -64,9 +64,9 @@ function ApptsTableBody({appts, type}) {
                                         <>
                                             <FaCheckSquare
                                                 size={20}
-                                                color="var(--green-dark)"
-                                                fill="var(--green)"
-                                                className="icon__square grey-light-7"
+                                                color="var(--green-2)"
+                                                fill="var(--green-1)"
+                                                className="icon__square grey-7"
                                                 type="button"
                                                 onClick={() => paidHandler(appt._id)}
                                             />
@@ -74,8 +74,8 @@ function ApptsTableBody({appts, type}) {
                                     ) : (
                                             <FaTimes
                                                 size={20}
-                                                color="var(--green-dark)"
-                                                fill="var(--grey-light-5)"
+                                                color="var(--green-2)"
+                                                fill="var(--grey-5)"
                                                 className="icon--times"
                                                 type="button"
                                                 onClick={() => paidHandler(appt._id)}
@@ -85,9 +85,9 @@ function ApptsTableBody({appts, type}) {
                                             <>
                                                 <FaCheckSquare
                                                     size={20}
-                                                    color="var(--green-dark)"
-                                                    fill="var(--green)"
-                                                    className="icon__square grey-light-7"
+                                                    color="var(--green-2)"
+                                                    fill="var(--green-1)"
+                                                    className="icon__square grey-7"
                                                     type="button"
                                                     // onClick={() => paidHandler(appt._id)}
                                                 />
@@ -95,8 +95,8 @@ function ApptsTableBody({appts, type}) {
                                         ) : (
                                                 <FaTimes
                                                     size={20}
-                                                    color="var(--green-dark)"
-                                                    fill="var(--grey-light-5)"
+                                                    color="var(--green-2)"
+                                                    fill="var(--grey-5)"
                                                     className="icon--times"
                                                     type="button"
                                                     // onClick={() => paidHandler(appt._id)}
@@ -111,15 +111,15 @@ function ApptsTableBody({appts, type}) {
                                     <FaTrash
                                         size={20}
                                         fill="var(--red)"
-                                        className="icon__trash grey-light-7"
+                                        className="icon__trash grey-7"
                                         type="button"
                                         onClick={() => deleteHandler(appt._id)}
                                     />
                                  ) : (
                                     <FaTrash
                                         size={20}
-                                        fill="var(--grey-light-5)"
-                                        className="icon__trash grey-light-7"
+                                        fill="var(--grey-5)"
+                                        className="icon__trash grey-7"
                                         type="button"
                                         // onClick={() => deleteHandler(appt._id)}
                                     />

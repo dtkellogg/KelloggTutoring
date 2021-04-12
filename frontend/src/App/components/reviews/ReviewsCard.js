@@ -55,7 +55,7 @@ function ReviewsCard({review}, type) {
             className="reviews__card--item-date"
             style={{
               color:
-                type === "meetToshi" ? "var(--black)" : "var(--grey-light-5)",
+                type === "meetToshi" ? "var(--black)" : "var(--grey-5)",
             }}
           >
             {orderedDate}
@@ -69,7 +69,7 @@ function ReviewsCard({review}, type) {
             className="reviews__card--item-approved"
             style={{
               color:
-                type === "meetToshi" ? "var(--black)" : "var(--grey-light-5)",
+                type === "meetToshi" ? "var(--black)" : "var(--grey-5)",
             }}
           >
             {!review.approved && "Pending"}
@@ -139,8 +139,8 @@ function ReviewsCard({review}, type) {
             style={{
               color:
                 type === "meetToshi"
-                  ? "var(--grey-light-5)"
-                  : "var(--grey-light-5)",
+                  ? "var(--grey-5)"
+                  : "var(--grey-5)",
             }}
           >
             {!review.approved && "Pending"}

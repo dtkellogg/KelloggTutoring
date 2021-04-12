@@ -59,9 +59,9 @@ function UserList() {
                 <td className="users__td--delete">
                 <FaTrash
                     size={20}
-                    color="var(--green-dark)"
+                    color="var(--green-2)"
                     fill="var(--red)"
-                    className="icon grey-light-7"
+                    className="icon grey-7"
                     type="button"
                     onClick={() => deleteHandler(user._id)}
                 />

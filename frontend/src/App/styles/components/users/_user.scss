@@ -22,7 +22,7 @@
     position: absolute;
     // transform: translate(-17%, 72.5%);
     background-color: $white;
-    border: 2px solid $black;
+    border: 2px solid $grey-4;
     width: 15rem;
     max-height: 27rem;
     z-index: 9999999;
@@ -35,7 +35,7 @@
       right: 0;
       // transform: translate(-17%, 15.25rem);
       background-color: $white;
-      border: 2px solid $black;
+      border: 2px solid $grey-4;
       width: 15rem;
       max-height: 27rem;
       z-index: 9999;
@@ -49,7 +49,7 @@
       right: 0;
       // transform: translate(-17%, 13.35rem);
       background-color: $white;
-      border: 2px solid $black;
+      border: 2px solid $grey-4;
       width: 15rem;
       max-height: 27rem;
       z-index: 9999;
@@ -64,7 +64,7 @@
       right: 0;
       // transform: translate(-4rem, 7.85rem);
       background-color: $white;
-      border: 2px solid $black;
+      border: 2px solid $grey-4;
       width: 15rem;
       max-height: 15rem;
       z-index: 9999;
@@ -76,7 +76,10 @@
       @include hundredPercentHW();
       @include flexCenterCenter();
       padding: 1rem;
-      border-bottom: 1px solid $grey-light-4;
+    }
+    
+    &--link:not(:last-child) {
+      border-bottom: 2px solid $grey-4;
     }
   }
 }
@@ -133,7 +136,7 @@
   }
 
   &__label {
-    color: $grey-light-5;
+    color: $grey-5;
     font-size: var(--font-size-5);
   }
 
@@ -166,27 +169,17 @@
     }
   }
 
-  &__success-message--contact {
-    color: $green;
-    margin-top: 1rem;
-  }
-
-  &__fail-message--contact {
-    color: $red;
-    margin-top: 1rem;
-  }
-
   &__textarea {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px dashed $green;
+    border: 1px dashed $green-1;
     height: 20rem;
     color: $old-blue-2;
     resize: vertical;
 
     &:focus {
       outline: none;
-      border: 1px solid $green;
+      border: 1px solid $green-1;
     }
   }
 }

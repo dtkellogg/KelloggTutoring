@@ -5,7 +5,7 @@ import LoadingSpinner from "../components/loading/LoadingSpinner";
 
 
 const Booking = React.lazy(() => import("../components/appointments/Booking"));
-const Payments = React.lazy(() => import("../components/payments/Payments"));
+const Payments = React.lazy(() => import("../components/payments/PaymentsList"));
 const ApptsList = React.lazy(() => import("../components/appointments/ApptsList"));
 const CalendarScreen = React.lazy(() => import("./CalendarScreen"));
 const PageHeader = React.lazy(() => import("../components/PageHeader"));

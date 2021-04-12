@@ -21,8 +21,14 @@ export default function ReviewsList({ type }) {
   const sortedReviews = useSortMultiple(reviews, "date", "name");
 
   React.useEffect(() => {
-    dispatch(listReviews())
+    if(reviews.length === 0) {
+      dispatch(listReviews())
+    }
   }, [dispatch])
+
+  console.log("Inside Reviews List Component")
+  console.log(`reviews: ${reviews}`)
+  console.log(reviews)
 
   React.useEffect(() => {
     if (loading) {

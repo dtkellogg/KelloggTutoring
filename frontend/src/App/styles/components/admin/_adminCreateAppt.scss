@@ -48,7 +48,7 @@
   }
 
   &__label {
-    color: $grey-light-5;
+    color: $grey-5;
     font-size: var(--font-size-4);
   }
 
@@ -58,6 +58,8 @@
     height: 4rem;
     color: $old-blue-2;
     cursor: pointer;
+    font-size: var(--font-size-3);
+    font-weight: 300;
 
     &:focus {
       outline: none;
@@ -76,27 +78,45 @@
     }
   }
 
-  &__success-message--contact {
-    color: $green;
-    margin-top: 1rem;
-  }
+  &__check-box {
+    border: none;
+    border-bottom: 1px solid black;
+    color: $old-blue-2;
+    cursor: pointer;
+    font-size: var(--font-size-3);
+    font-weight: 300;
+    align-self: flex-start;
+    margin: 1rem 0.5rem;
+    
 
-  &__fail-message--contact {
-    color: $red;
-    margin-top: 1rem;
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $old-blue-2;
+    }
+    
+    &--contact {
+      border: none;
+      border-bottom: 1px solid black;
+      height: 3rem;
+      font-size: var(--font-size-3);
+    }
+
+    &--contact-message {
+      height: 30rem;
+    }
   }
 
   &__textarea {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px dashed $green;
+    border: 1px dashed $green-1;
     height: 20rem;
     color: $old-blue-2;
     resize: vertical;
 
     &:focus {
       outline: none;
-      border: 1px solid $green;
+      border: 1px solid $green-1;
     }
   }
 }
@@ -106,6 +126,6 @@ label[for="time"]::after,
 label[for="date"]::after,
 label[for="subject"]::after {
   content: "*";
-  color: $red;
+  color: $red-1;
   padding-left: 0.2rem; 
 }

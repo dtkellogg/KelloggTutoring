@@ -54,7 +54,7 @@ export default function NavLower() {
           <FaSearch
             size={12.5}
             fill="var(--black)"
-            className="nav__search--icon grey-light-7"
+            className="nav__search--icon grey-7"
             onChange={handleSearchChange}
           />
         </button>

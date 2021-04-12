@@ -82,6 +82,7 @@ const reducer = combineReducers({
     paymentPay: paymentPayReducer,
     paymentListMy: paymentListMyReducer,
     paymentList: paymentListReducer,
+    // paymentMethod: paymentMethodReducer,
     reviewList: reviewListReducer,
     reviewDetails: reviewDetailsReducer,
     reviewDelete: reviewDeleteReducer,
@@ -100,9 +101,13 @@ const cartItemsFromStorage = localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems")) 
     : []
 
+const paymentMethodFromStorage = localStorage.getItem("paymentMethod")
+    ? JSON.parse(localStorage.getItem("paymentMethod"))
+    : null
+
 const initialState = {
     userLogin: { userInfo: userInfoFromStorage },
-    cart: { cartItems: cartItemsFromStorage }
+    cart: { cartItems: cartItemsFromStorage, paymentMethod: paymentMethodFromStorage },
 }
 
 const middleware = [thunk]

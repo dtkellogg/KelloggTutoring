@@ -21,7 +21,7 @@
   }
 
   &__contact-item {
-    color: $grey-light-4;
+    color: $grey-4;
     padding: 0 5rem;
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@
     }
 
     &:first-child::after {
-      border: 1px dashed $green;
+      border: 1px dashed $green-1;
     }
 
     &:last-child {
@@ -44,7 +44,7 @@
   }
 
   &__emoji {
-    fill: $grey-light-4;
+    fill: $grey-4;
   }
 }
 
@@ -52,7 +52,7 @@
   @include hundredPercentHW();
   text-align: center;
   margin-bottom: 1rem;
-  color: $grey-light-4;
+  color: $grey-4;
   font-size: var(--font-size-5);
 
   @media (max-width: 320px) {

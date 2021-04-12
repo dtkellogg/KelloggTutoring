@@ -1,5 +1,6 @@
 // react
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 
 // actions
@@ -82,6 +83,7 @@ export default function ReviewCreateScreen({ history }) {
 
   return (
     <div className="container__screen--sidebar">
+      <Link to='/toshi/reviews' className="btn__go-back--admin">go back</Link>
       <form className="reviews__new-review">
 
         <h2 className="reviews__new-review--header">

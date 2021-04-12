@@ -87,6 +87,7 @@ export default function AdminAppointmentCreate() {
     if(student && subject && date && startTime && endTime) {
       setSubmitted(true)
       dispatch(createAppointment(subject, student, date, startTime, endTime, paid))
+      setSubmitted(false)
     } else {
       addToast("Please fill all inputs and try again.", {
         appearance: "error",
@@ -96,9 +97,11 @@ export default function AdminAppointmentCreate() {
   }
 
 
+  console.log(users)
+
 	return (
     <div className="container__screen--sidebar">
-      <Link to='/toshi/reviews' className="btn__user-edit">Go Back</Link>
+      <Link to='/admin/appts' className="btn__go-back--admin">go back</Link>
 
       { loading ? <LoadingSpinner/> : (
 
@@ -137,7 +140,7 @@ export default function AdminAppointmentCreate() {
               ))} */}
               <option></option>
               {users.map((user, i) => (
-                <option key={i}>{user.email}</option>
+                <option key={i}>{user.name}</option>
 
               ))}
             </select>
@@ -156,7 +159,7 @@ export default function AdminAppointmentCreate() {
           <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
             htmlFor="" label="end time" type="time" value={endTime} placeholder="end time" onChange={(e) => setEndTime(e.target.value)}
           />
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
+          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input-contact createApptScreen__check-box"
             htmlFor="" label="paid?" type="checkbox" value={paid} placeholder="paid" onChange={(e) => {paid ? setPaid(false) : setPaid(true)}}
           />
 

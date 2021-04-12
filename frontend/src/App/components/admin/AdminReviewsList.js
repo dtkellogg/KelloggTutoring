@@ -107,17 +107,17 @@ export default function AdminReviewsList({ location, history }) {
                                             {review.approved ? (
                                             <FaCheckSquare
                                                 size={20}
-                                                color="var(--green-dark)"
-                                                fill="var(--green)"
-                                                className="icon grey-light-7"
+                                                color="var(--green-2"
+                                                fill="var(--green-1)"
+                                                className="icon grey-7"
                                                 type="button"
                                                 onClick={() => approvedHandler(review._id)}
                                             />
                                             ) : (
                                                     <FaTimes
                                                         size={20}
-                                                        color="var(--green-dark)"
-                                                        fill="var(--grey-light-5)"
+                                                        color="var(--green-2)"
+                                                        fill="var(--grey-5)"
                                                         className="icon"
                                                         type="button"
                                                         onClick={() => approvedHandler(review._id)}
@@ -130,9 +130,9 @@ export default function AdminReviewsList({ location, history }) {
                                         <td className="reviewsAdmin__item--delete">
                                             <FaTrash
                                                 size={20}
-                                                color="var(--green-dark)"
+                                                color="var(--green-2)"
                                                 fill="var(--red)"
-                                                className="icon__trash grey-light-7"
+                                                className="icon__trash grey-7"
                                                 type="button"
                                                 onClick={() => deleteHandler(review._id)}
                                             />

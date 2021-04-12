@@ -164,17 +164,19 @@ export const requestAppointment = (subject, student, date, startTime, endTime, p
 			type: APPOINTMENT_REQUEST_REQUEST,
 		})
 
-		const {
-			userLogin: { userInfo },
-		} = getState()
+		const { data } = await axios.post(`/api/appointmentRequests`, { subject, student, date, startTime, endTime, paid, user })
 
-		const config = {
-			headers: {
-				Authorization: `Bearer ${userInfo.token}`,
-			},
-		}
+		// const {
+		// 	userLogin: { userInfo },
+		// } = getState()
 
-		const { data } = await axios.post(`/api/appointmentRequests`, { subject, student, date, startTime, endTime, paid, user }, config)
+		// const config = {
+		// 	headers: {
+		// 		Authorization: `Bearer ${userInfo.token}`,
+		// 	},
+		// }
+
+		// const { data } = await axios.post(`/api/appointmentRequests`, { subject, student, date, startTime, endTime, paid, user }, config)
 
 		dispatch({
 			type: APPOINTMENT_REQUEST_SUCCESS,

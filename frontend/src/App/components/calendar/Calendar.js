@@ -219,13 +219,13 @@ export default function Calendar({ type }) {
                 return (
                   <li
                     className="calendar__row--element-with-appts"
-                    style={{ color: "var(grey-light-5)" }}
+                    style={{ color: "var(grey-5)" }}
                     key={dayKey}
                   >
                     <div
                       style={{
                         display: "block",
-                        color: "var(--grey-light-5)",
+                        color: "var(--grey-5)",
                         alignSelf: "flex-end",
                       }}
                     >
@@ -254,7 +254,7 @@ export default function Calendar({ type }) {
                   <li
                     key={uuid()}
                     className="calendar__row--element"
-                    style={{ color: "var(--grey-light-5)" }}
+                    style={{ color: "var(--grey-5)" }}
                   >
                     {numDay.num}
                   </li>
@@ -553,13 +553,13 @@ Calendar.propTypes = {
 //                 return (
 //                   <li
 //                     className="calendar__row--element-with-appts"
-//                     style={{ color: "var(grey-light-5)" }}
+//                     style={{ color: "var(grey-5)" }}
 //                     key={dayKey}
 //                   >
 //                     <div
 //                       style={{
 //                         display: "block",
-//                         color: "var(--grey-light-5)",
+//                         color: "var(--grey-5)",
 //                         alignSelf: "flex-end",
 //                       }}
 //                     >
@@ -589,7 +589,7 @@ Calendar.propTypes = {
 //                   <li
 //                     key={numDay.num}
 //                     className="calendar__row--element"
-//                     style={{ color: "var(--grey-light-5)" }}
+//                     style={{ color: "var(--grey-5)" }}
 //                   >
 //                     {numDay.num}
 //                   </li>

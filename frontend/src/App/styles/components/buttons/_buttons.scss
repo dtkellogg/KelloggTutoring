@@ -111,8 +111,8 @@
       border: 1px dotted $white;
 
       &:hover {
-        background-color: $green-12;
-        border: 1px solid $green-12;
+        background-color: $green-1;
+        border: 1px solid $green-1;
         color: $black;
       }
 
@@ -140,8 +140,8 @@
     padding: 1rem;
     width: 7rem;
     border-radius: 5rem 0 0 5rem;
-    border: 1px solid $green;
-    color: $green;
+    border: 1px solid $green-1;
+    color: $green-1;
     cursor: pointer;
 
     @media (max-width: 1050px) {
@@ -241,8 +241,8 @@
     transform: translateY(-2.75rem);
 
     &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
+      background-color: $green-1;
+      border: 1px solid $green-1;
       color: $black;
     }
 
@@ -286,7 +286,7 @@
       color: $white;
   
       &:hover {
-        background-color: $green-12;
+        background-color: $green-1;
         color: $black;
       }
     }
@@ -316,8 +316,8 @@
       }
 
       &:hover {
-        background-color: $green-12;
-        border: 1px solid $green-12;
+        background-color: $green-1;
+        border: 1px solid $green-1;
         color: $black;
       }
     }
@@ -337,8 +337,8 @@
     width: 100%;
 
     &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
+      background-color: $green-1;
+      border: 1px solid $green-1;
       color: $black;
     }
   }
@@ -353,8 +353,8 @@
     align-self: center;
 
     &:hover {
-      background-color: $green-12;
-      border: 1px solid $green-12;
+      background-color: $green-1;
+      border: 1px solid $green-1;
       color: $black;
     }
 
@@ -373,7 +373,7 @@
 
   &__payments {
 
-      &--continue {
+    &--continue {
       @extend %btn;
       grid-column: 1 / span 1;
       align-self: start;
@@ -384,6 +384,7 @@
       border-radius: 5rem;
       border: 2px solid $white;;
       color: $white;
+      font-size: var(--font-size-5);
       transform: translate(1rem, -0.5rem);
 
       &:hover {
@@ -394,9 +395,10 @@
     &--confirm-payment {
       @extend %btn;
       padding: 1rem;
-      width: 12rem;
+      width: 13rem;
       margin: 1rem 0;
       color: $white;
+          transform: translateY(6rem);
 
       &:hover {
         color: $black;
@@ -418,7 +420,7 @@
 
 
       &:hover {
-        background-color: $green-12;
+        background-color: $green-1;
         color: $black;
       }
 
@@ -440,22 +442,13 @@
       text-align: center;
       border-radius: 5rem;
       color: $white;
+      font-size: var(--font-size-5);
+      font-family: inherit;
+      font-weight: 300;
       transform: translate(1rem, -0.5rem);
 
       &:hover {
         color: $black;
-      }
-
-      @media (max-width: 900px) {
-        grid-column: 1 / span 1;
-        align-self: start;
-        justify-self: start;
-        padding: 0.5rem;
-        width: 12rem;
-        text-align: center;
-        border-radius: 5rem;
-        border: 2px solid #fff;
-        color: #fff;
       }
     }
   }
@@ -465,14 +458,17 @@
     &--reset {
       @extend %btn;
       background-image: none;
-      background: $grey-light-5;
+      background: $grey-5;
       grid-column: 5 / span 1;
       align-self: start;
       padding: 0.5rem;
       width: 12rem;
       text-align: center;
       border-radius: 5rem;
-      border: 2px solid $white;;
+      border: 2px solid $white;
+      font-size: var(--font-size-5);
+      font-weight: 300;
+      font-family: inherit;
       color: $white;
 
       @media (max-width:750px) {
@@ -492,7 +488,7 @@
       margin: 0.25rem;
 
       &:hover {
-        background-color: $green-12;
+        background-color: $green-1;
         color: $black;
       }
 
@@ -539,7 +535,7 @@
     transform: translateY(8rem);
 
     &:hover {
-      background-color: $green-12;
+      background-color: $green-1;
       color: $black;
     }
   }
@@ -552,8 +548,8 @@
     transform: translateY(4rem);
 
     &:hover {
-      // background-color: $green-12;
-      border: 1px solid $green-12;
+      // background-color: $green-1;
+      border: 1px solid $green-1;
       color: $black;
     }
 
@@ -603,5 +599,51 @@
     color: $white;
     text-align: left;
     font-size: var(--font-size-5);
+  }
+
+  &__go-back {
+    &--admin {
+      @extend %btn;
+      @extend %btn--blue;
+
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+      align-self: start;
+      justify-self: start;
+      margin: 1.5rem 0 0 2rem;
+      text-align: center;
+      width: 12rem;
+      padding: 0.5rem;
+      font-size: var(--font-size-6);
+
+      // position: absolute;
+      // top: 1rem;
+      // left: 1rem;
+      // transform: translateY(2rem);
+      z-index: 99999999999999999;
+    }
+
+    &--appt-create {
+      @extend %btn;
+      @extend %btn--blue;
+
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+      align-self: end;
+      justify-self: start;
+      margin: 1.5rem 0 0 2rem;
+      text-align: center;
+      width: 12rem;
+      padding: 0.5rem;
+      font-size: var(--font-size-6);
+      z-index: 99999999999999999;
+    }
+  }
+}
+
+.btns {
+  &__paypal {
+    width: 30rem;
+    height: 10rem;
   }
 }

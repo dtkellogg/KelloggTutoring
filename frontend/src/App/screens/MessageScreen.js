@@ -131,17 +131,6 @@ export default function MessageScreen({ history }) {
             htmlFor="message__form" label="message" type="text" value={message || ""} placeholder="Please leave your message here." onChange={(e) => setMessage(e.target.value)}
             textarea={true}
           />
-          
-          {/* {submitted && (
-            <p className="form__success-message--contact">
-              Message has been sent.
-            </p>
-          )}
-          {failed.length > 0 && (
-            <p className="form__fail-message--contact">
-              {failed}
-            </p>
-          )} */}
 
         </div>
         

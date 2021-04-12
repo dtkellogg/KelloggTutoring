@@ -1,19 +1,23 @@
 :root {
-  --green: rgb(39, 170, 39);
-  --green-12: rgb(95, 255, 95);
-  --green-dark: rgb(73, 165, 73);
-  --green-dark-2: rgb(73, 131, 77);
-
-  --red: rgb(230, 36, 36);
-  --grey-light-1: #585858;
-  --grey-light-5: #989898;
-  --grey-light-6: #D0D0D0;
   --black: #000;
+
+  --grey-1: #585858;
+  --grey-5: #989898;
+  --grey-6: #D0D0D0;
+
   --old-blue: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
   --old-blue-1: #fefefe;
   --old-blue-2: #00a4e4;
   --old-blue-2-opacity: #00a3e418;
   --old-blue-2-opacity-2: #00a3e444;
+
+  --green-1: rgb(39, 170, 39);
+  --green-2: rgb(73, 131, 77);
+  --green-3: rgb(73, 165, 73);
+  --green-4: rgb(95, 255, 95);
+
+  --red-1: rgb(230, 36, 36);
+
 
   --font-size-0: 6.5rem;
   --font-size-1: 3rem;
@@ -63,6 +67,7 @@ li {
 input::placeholder,
 textarea::placeholder {
   color: $old-blue-2;
+  font-weight: 300;
 }
 
 

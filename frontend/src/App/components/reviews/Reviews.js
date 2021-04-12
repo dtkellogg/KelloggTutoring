@@ -5,8 +5,10 @@ import ReviewsList from "./ReviewsList";
 
 
 
-export default function Reviews({ type }) {
+export default function ReviewsRaw({ type }) {
   const { url } = useRouteMatch()
+
+  console.log("Inside Reviews Component")
 
   return (
     <div className={
@@ -16,9 +18,9 @@ export default function Reviews({ type }) {
         className={
           type === "meetToshi" ? "container__reviews--toshi-screen" : "container__reviews--home-screen"
         }
-        style={
-          type === "meetToshi" ? { display: "block" } : { display: "flex" }
-        }
+        // style={
+        //   type === "meetToshi" ? { display: "block" } : { display: "flex" }
+        // }
       >
         {type === "meetToshi" && (
           <Link to={`${url}/create-review`} className="btn__reviews">
@@ -31,3 +33,7 @@ export default function Reviews({ type }) {
     </div>
   );
 }
+
+export const Reviews = React.memo(ReviewsRaw, (prevProps, nextProps) => {
+  return prevProps.count === nextProps.count
+})

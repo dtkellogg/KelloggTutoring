@@ -1,7 +1,7 @@
 // react
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link,  useLocation} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // hooks
 import { useSortMultiple } from "../../hooks/useSort";
@@ -20,16 +20,12 @@ import PleaseLogin from '../PleaseLogin'
 
 
 
+
 export default function Payments({ match, history }) {
-  const [checkedAppointments, setCheckedAppointments] = React.useState([]); // eslint-disable-line no-unused-vars
-  const [submitted, setSubmitted] = React.useState(false); // eslint-disable-line no-unused-vars
-  const [cart, setCart] = React.useState([]);
-  const [disabledBtns, setDisabledBtns] = React.useState([]); // eslint-disable-line no-unused-vars
+  const [cart, setCart] = useState([]);
+  const [cartFull, setCartFull] = useState(false);
 
   const dispatch = useDispatch();
-  const location = useLocation();
-  // const { url, path } = useRouteMatch()
-
 
   const appointmentList = useSelector((state) => state.appointmentList);
   const { loading, error, appointments } = appointmentList;
@@ -41,15 +37,9 @@ export default function Payments({ match, history }) {
   
   // const redirect = location.search ? location.search.split("=")[1] : "/"; // eslint-disable-line no-unused-vars
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchAppts = async () => {
       dispatch(listAppointments());
-
-      try {
-        setDisabledBtns(new Array(appointments.length).fill(false));
-      } catch (err) {
-        console.log(err);
-      }
     };
 
     fetchAppts();
@@ -57,19 +47,16 @@ export default function Payments({ match, history }) {
     reduxCart.cartItems.forEach((appt) => {
       setCart((cart) => cart.concat(appt.appointment));
     });
+
   }, [dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const sortedAppts = useSortMultiple(appointments, "date", "startTime") || []
 
   const addToCartHandler = (e, idx, id) => {
     e.preventDefault();
-    setSubmitted(true);
 
     setCart((cart) => cart.concat(id));
     dispatch(addToCart(id));
-
-    console.log(cart.includes(id));
-    console.log(id);
   };
 
   const addAllHandler = (e) => {
@@ -77,7 +64,6 @@ export default function Payments({ match, history }) {
       .filter((appt) => appt.student === userInfo.name)
       .filter((appt) => appt.paid === false)
       .forEach((appt, idx) => {
-        // const date = appt.date.split("T")[0].split("-");
         const id = appt._id;
 
         if (!cart.includes(id)) {
@@ -87,16 +73,7 @@ export default function Payments({ match, history }) {
       });
   };
 
-  
-
-  ////////////////////////////////
-  // The line below is just for testing purposes
-
-  // localStorage.clear()
-  ////////////////////////////////
-
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading) {
       dispatch(subheader("Loading..."));
     } else {
@@ -104,13 +81,18 @@ export default function Payments({ match, history }) {
     }
     if (error) {
       dispatch(subheader({ error }));
+
+    if(sortedAppts
+      .filter((appt) => appt.student === userInfo.name)
+      .filter((appt) => appt.paid === false).length === cart.length
+    ) {setCartFull(true)}
     }
-  }, [dispatch, loading, error]);
+  }, [dispatch, loading, error, cart, sortedAppts]);
 
 
   // ability to reset cart
-  const handleReset = async () => {
-    await dispatch({ type: CART_RESET })
+  const handleReset = () => {
+    dispatch({ type: CART_RESET })
     setCart([])
     dispatch(listAppointments())
   }
@@ -130,20 +112,23 @@ export default function Payments({ match, history }) {
         ) : (
           <div className="appointments__payments--container">
             <PaymentSteps step1 step2 />
+
             <div className="appointments__payments--header-container">
-              <Link
-                to={`/appointments/payments/payment-method`}
-                className="btn__payments--continue"
-              >
+              <Link to={`/appointments/payments/payment-method`} className="btn__payments--continue" >
                 continue
               </Link>
-              <button className="btn__cart--reset" onClick={handleReset}>reset cart</button>
+              <button className="btn__cart--reset" onClick={handleReset}>
+                reset cart
+              </button>
               <h2 className="appointments__header">
                 Select appointments to pay for:
               </h2>
             </div>
+
             <div className="appointments__table--payments-container">
+
               <table className="appointments__list">
+
                 <thead className="thead">
                   <tr className="tr">
                     <th className="appointments__th--date">date</th>
@@ -153,12 +138,7 @@ export default function Payments({ match, history }) {
                     <th className="appointments__th--select">
                       <button
                         className="btn__payments--add-all"
-                        disabled={
-                          sortedAppts
-                            .filter((appt) => appt.student === userInfo.name)
-                            .filter((appt) => appt.paid === false).length ===
-                          cart.length
-                        }
+                        disabled={ cartFull }
                         style={{
                           backgroundImage:
                             sortedAppts
@@ -185,6 +165,7 @@ export default function Payments({ match, history }) {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody className="tbody">
                   {sortedAppts
                     .filter((appt) => appt.student === userInfo.name)
@@ -232,6 +213,7 @@ export default function Payments({ match, history }) {
                       );
                     })}
                 </tbody>
+                
               </table>
             </div>
           </div>

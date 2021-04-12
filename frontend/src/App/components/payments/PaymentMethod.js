@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { withRouter, useRouteMatch, useHistory } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 
 // components
 import CheckoutSteps from "./PaymentSteps";
@@ -14,7 +14,6 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 const PaymentMethodScreen = () => {
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
-  const { url } = useRouteMatch();
   
   const { width } = useWindowDimensions()
   const history = useHistory()

@@ -28,9 +28,9 @@
 			}
 		}
 
-		&__li {
+		&--li {
 			cursor: pointer;
-			font-size: var(--font-size-6);
+			font-size: var(--font-size-5);
 		}
 	}
 
@@ -79,38 +79,74 @@
 
 	&__subgroups {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		padding: 1rem;
+		margin-bottom: 3rem;
 
 		&--name {
 			font-size: var(--font-size-4);
-
+			margin-bottom: 0.6rem;
 		}
 
 		&--email {
 			font-size: var(--font-size-4);
-
+			margin-bottom: 0.6rem;
 		}
 
-		&--paid {
+		&--payment-method {
+			font-size: var(--font-size-4);
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 0.6rem;
 
+			@media (max-width: 900px) {
+				padding: 1rem;
+				width: 100%;
+				justify-content: flex-start;
+			}
+
+			&--text {
+				display: inline-block;
+				line-height: 2rem;
+				font-size: var(--font-size-3);
+
+				@media (max-width: 550px) {
+					// line-height: 0rem;
+				}
+			}
+		}
+
+		&--status {
+			font-size: var(--font-size-5);
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 0.5rem;
 		}
 
 		&--not-paid {
-			color: $red;
-			background-color: $red-light-2;
-			border: 1px solid $red;
-			padding: 0.6rem;
-			border-radius: 0.5rem;
+			color: $red-1;
+			background-color: $red-2;
+			border: 1px solid $red-1;
+			padding: 0.2rem;
+			border-radius: 0.6rem;
+			width: 9rem;
+			text-align: center;
+			margin-left: 0.5rem;
+			font-size: var(--font-size-4);
 		}
 
 		&--paid-on {
-			color: $green;
-			background-color: $green-light-1;
-			border: 1px solid $green;
-			padding: 0.6rem;
+			color: $green-1;
+			background-color: $green-5;
+			border: 1px solid $green-1;
+			padding: 0.2rem;
 			border-radius: 0.5rem;
+			width: 9rem;
+			text-align: center;
+			margin-left: 0.5rem;
+			font-size: var(--font-size-4);
 		}
 	}
 
@@ -118,5 +154,12 @@
 		display: block;
 		padding: 1rem;
 		font-size: var(--font-size-2);
+		display: flex;
+		justify-content: center;
+	}
+
+	&__id {
+		font-weight: 300;
+		margin-left: 1rem;
 	}
 }

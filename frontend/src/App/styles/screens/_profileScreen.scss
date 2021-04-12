@@ -44,7 +44,7 @@
   }
 
   &__label {
-    color: $grey-light-5;
+    color: $grey-5;
     font-size: var(--font-size-4);
     font-size: var(--font-size-4);
   }
@@ -90,6 +90,6 @@
 label[for="email__form"]::after,
 label[for="message__form"]::after {
   content: "*";
-  color: $red;
+  color: $red-1;
   padding-left: 0.2rem; 
 }

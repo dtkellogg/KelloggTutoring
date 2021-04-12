@@ -34,7 +34,7 @@
   }
 
   &__label {
-    color: $grey-light-5;
+    color: $grey-5;
     font-size: var(--font-size-4);
   }
 
@@ -61,27 +61,17 @@
     }
   }
 
-  &__success-message--contact {
-    color: $green;
-    margin-top: 1rem;
-  }
-
-  &__fail-message--contact {
-    color: $red;
-    margin-top: 1rem;
-  }
-
   &__textarea {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px dashed $green;
+    border: 1px dashed $green-1;
     height: 20rem;
-    color: $green;
+    color: $green-1;
     resize: vertical;
 
     &:focus {
       outline: none;
-      border: 1px solid $green;
+      border: 1px solid $green-1;
     }
   }
 }
@@ -89,6 +79,6 @@
 label[for="email__form"]::after,
 label[for="message__form"]::after {
   content: "*";
-  color: $red;
+  color: $red-1;
   padding-left: 0.2rem; 
 }
