@@ -78,7 +78,7 @@ export default function Profile({ location, history }) {
   return (
     <div className="container__screen--no-sidebar">
       <form onSubmit={handleSubmit} className="container__profile--form">
-        <h2 className="profile__header">
+        <h2 className="header__profile">
           Update your profile
         </h2>
 

@@ -57,7 +57,7 @@ export default function Login({ location, history }) {
   return (
     <div className="container__screen--no-sidebar">
       <form onSubmit={handleSubmit} className="container__login--form">
-        <h2 className="login__header font-size-2 letter-spacing-sm">Please login.</h2>
+        <h2 className="header__login letter-spacing-sm">Please login.</h2>
 
         <div className="login__content">
 

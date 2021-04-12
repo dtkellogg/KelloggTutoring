@@ -77,7 +77,7 @@ export default function AdminStatsScreen({history, location}) {
             <div className="container__screen--sidebar">
             {/* <Sidebar title="Toshi" list={adminList} /> */}
             <div className="appointment-requests">
-                <h2 className="appointment-requests__header">
+                    <h2 className="header__appointment-requests">
                     Stats:
                 </h2>
 

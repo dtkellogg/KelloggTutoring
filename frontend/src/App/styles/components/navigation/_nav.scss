@@ -140,10 +140,6 @@
     }
   }
 
-  &__header {
-    color: $black;
-  }
-
   // to display drop down menu:
   &__user-icons {
     @include flexCenterCenter();

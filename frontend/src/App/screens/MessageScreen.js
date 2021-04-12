@@ -109,7 +109,7 @@ export default function MessageScreen({ history }) {
   return (
     <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
       <form className="form" onSubmit={handleSubmit}>
-        <h2 className="form__header">
+        <h2 className="header__form">
           Any questions?
         </h2>
         <div className="form__body">

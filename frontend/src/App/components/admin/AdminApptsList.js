@@ -75,7 +75,7 @@ export default function AdminAppointmentsList({ location, history }) {
 		<div className="container__screen--sidebar">
 			<div className="container__admin">
 				<div className="admin__header--container">
-					<div className="appointments__header">
+					<div className="header__appointments">
 						All appointments:
 					</div>
 					<Link to={`${url}/create-appointment`} className="btn__admin--appts-list">

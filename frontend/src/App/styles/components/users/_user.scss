@@ -100,18 +100,6 @@
     margin: 0 auto;
   }
 
-  &__header {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-weight: inherit;
-    font-size: var(--font-size-2);
-
-    
-    @media (max-width: 950px) and (max-height: 450px) {
-      margin-bottom: 1rem;
-    }
-  }
-
   &__content {
     display: flex;
     flex-direction: column;

@@ -69,7 +69,7 @@ function PaymentCheckout() {
 
         <PaymentSteps step1 step2 step3 step4 />
 
-        <h2 className="appointments__header--container-checkout appointments__header">Checkout</h2>
+        <h2 className="appointments__header--container-checkout header__appointments">Checkout</h2>
 
         <div className="checkout__payment-method">
           <span className="font-size-4">Payment Method:&nbsp;</span>

@@ -80,7 +80,7 @@ export default function AdminReviewsList({ location, history }) {
     return (
         <div className="container__screen--sidebar">
             <div className="reviewsAdmin">
-                <div className="reviewsAdmin__header">
+                <div className="header__reviewsAdmin">
                     All reviews:
                 </div>
                 

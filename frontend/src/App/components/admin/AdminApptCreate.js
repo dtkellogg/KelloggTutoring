@@ -107,7 +107,7 @@ export default function AdminAppointmentCreate() {
 
       <form onSubmit={handleSubmit} className="createApptScreen user__page">
 
-        <h2 className="createApptScreen__header letter-spacing-sm">
+        <h2 className="header__createApptScreen">
           Create a new appointment
         </h2>
 

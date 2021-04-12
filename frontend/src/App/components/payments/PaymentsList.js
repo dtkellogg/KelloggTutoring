@@ -120,7 +120,7 @@ export default function Payments({ match, history }) {
               <button className="btn__cart--reset" onClick={handleReset}>
                 reset cart
               </button>
-              <h2 className="appointments__header">
+                <h2 className="header__appointments">
                 Select appointments to pay for:
               </h2>
             </div>

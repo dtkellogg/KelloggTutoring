@@ -118,7 +118,7 @@ function PaymentScreen({ match, history }) {
     <div className="container__screen--sidebar">
       <div className="appointments">
 
-          <h2 className="payment__header">
+          <h2 className="header__payment">
             Payment 
             <span className="payment__id">{payment._id}</span> 
           </h2>

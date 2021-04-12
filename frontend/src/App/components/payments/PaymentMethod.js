@@ -34,7 +34,7 @@ const PaymentMethodScreen = () => {
         <form onSubmit={submitHandler} className="payment__method--screen--form">
           <div className="payment__method--screen--form-container">
             <div className="appointments__header--container">
-              <h2 as="legend" className="appointments__header">
+              <h2 as="legend" className="header__appointments">
                 Select payment method:
               </h2>
               <button type="submit" className="btn__payment-method--continue">

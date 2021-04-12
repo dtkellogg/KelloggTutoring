@@ -79,7 +79,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 		<div className="toshi">
 		<Sidebar title="Toshi" list={adminList} />
 		<form onSubmit={handleSubmit} className="appt-edit user__page">
-			<h2 className="appt-edit__header">
+			<h2 className="header__appt-edit">
 				Edit Appointment
 			</h2>
 

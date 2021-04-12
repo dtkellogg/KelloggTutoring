@@ -66,7 +66,7 @@ export default function AdminApptRequests({ location, history }) {
             <div className="container__screen--sidebar">
                 {/* <Sidebar title="Toshi" list={adminList} /> */}
                 <div className="appointment-requests">
-                    <h2 className="appointment-requests__header--container appointment-requests__header">
+                    <h2 className="appointment-requests__header--container header__appointment-requests">
                         All Appointment Requests:
                     </h2>
 

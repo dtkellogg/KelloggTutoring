@@ -9,7 +9,7 @@ export default function AdminUsers () {
   return (
     <div className="container__screen--sidebar">
       <div className="container__admin">
-        <h2 className="users__header">
+        <h2 className="header__users">
           All active users:
         </h2>
 
