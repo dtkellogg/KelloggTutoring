@@ -43,16 +43,26 @@ export default function App() {
 
 
   React.useEffect(() => {
-    setShowSidebar(true)
+
+      setShowSidebar(true)
+
     
-    const locationForSidebar = location.pathname.split("/")[location.pathname.split("/").length -1]
+      const locationForSidebar = location.pathname.split("/").filter((word) => word !== "")[0]
+      // const locationForSidebar = await JSON.stringify(location.pathname.split("/").filter((word) => word !== ""))
+    // const locationForSidebar = location.pathname.split("/")[location.pathname.split("/").length -1]
     console.log(`locationForSidebar: ${locationForSidebar}`)
+    console.log(`location.pathname: ${location.pathname}`)
+      console.log(`typeof locationForSidebar: ${typeof JSON.stringify(locationForSidebar)}`)
+    
+
 
     if (locationForSidebar === 'toshi' || locationForSidebar === 'create-review') {
       setSidebarTitle('Toshi')
       setSidebarList(toshiList)
       setSidebarUrl('toshi')
     } else if (locationForSidebar === 'appointments') {
+      console.log("IUBWIBWB")
+      console.log(apptsList)
       setSidebarTitle("Appointments");
       setSidebarList(apptsList)
       setSidebarUrl('appointments')
@@ -67,6 +77,7 @@ export default function App() {
     } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login') {
       setShowSidebar(false)
     }
+
 
   }, [location])
 

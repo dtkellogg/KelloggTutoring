@@ -1,47 +1,19 @@
-// .pg__appointment {
-//   height: 83vh;
-//   width: 100vw;
-//   display: grid;
-//   grid-template-rows: 1fr;
-//   grid-template-columns: repeat(5, 1fr);
-
-//   @media (max-width: 900px) {
-//     display: flex;
-//     flex-direction: column;
-//     height: min-content;
-//   }
-
-//   @media (max-width: 950px) and (max-height: 450px) {
-//     grid-template-columns: none;
-//     min-height: 148vh;
-//   }
-
-//   @include mediaQueriesContainerWithSidebar();
-// }
-
 .appointments {
   grid-row: 1 / span 1;
   grid-column: 2 / -1;
 
   padding: 2rem;
 
-  // align-items: center;
-  // justify-content: center;
   flex-direction: column;
   position: relative;
   height: 100%;
   width: 100%;
   display: flex;
-  // overflow: scroll;
   position: relative;
 
   @media (max-width: 950px) {
     padding: 2rem;
     grid-column: 1 / -1;
-  }
-
-  @media (max-width: 600px) {
-    // padding: 2rem 1rem;
   }
 
   &__payments {
@@ -66,62 +38,14 @@
     }
   }
 
-  &__header {
-    // grid-column: 2 / span 3;
-    // grid-row: 2 / span 1;
-    // text-align: center;
-    // font-size: var(--font-size-2);
-    // font-weight: 300;
-    // // width: 100%;
-    // align-self: center;
-    // text-align: center;
-
-    // @media (max-width: 900px) {
-    //   // margin-top: 1.5rem;
-    //   grid-row: 2 / span 1;
-    //   width : 100%;
-    //   display: flex;
-    //   flex-direction: column;
-    // }
-
-    // @media (max-width: 900px) {
-    //   margin: 1rem 0;
-    //   grid-column: 1 / span 5;
-    //   text-align: center;
-    //   margin-bottom: 1rem;
-    // }
-
-    // @media (max-width: 450px) {
-    //   // margin: 6rem 0 4.5rem 0;
-    //   grid-column: 1 / span 5;
-    //   text-align: center;
-    // }
-
-    &--container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 4vh 3vh;
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-      margin-bottom: 1rem;
-    }
-
-    &--container-checkout {
-      width : 100%;
-    }
-  }
-
   &__list {
     @include hundredPercentHW();
-    // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
     line-height: 3.5rem;
     display: table;
     overflow: scroll;
     height: min-content;
 
     &--item {
-      // @include flexCenterCenter($justify-content: space-between);
       display: table-row;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(6, 1fr);
@@ -131,7 +55,6 @@
 
     &--all {
       @include hundredPercentHW();
-      // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
       line-height: 3.5rem;
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
@@ -210,19 +133,13 @@
       justify-content: center;
       padding: 0.8rem;
       height: 100%;
-      // @include flexCenterCenter($justify-content: space-between);
-      
       
       @media (max-width: 900px) {
-        // display: flex;
-        justify-content: center;
-        align-items: center;
         height: 5rem;
       }
 
       @media (max-width: 600px) {
         width: 4rem;
-        // width: 6rem;
       }
     }
   }
@@ -304,7 +221,6 @@
     &--btns {
       grid-column: 5 / span 1;
       text-align: center;
-      // @include flexCenterCenter($justify-content: space-between);
       padding: 0 6.5rem;
 
       @media (max-width: 600px) {
@@ -315,7 +231,6 @@
     &--cancel {
       grid-column: 6 / span 1;
       text-align: center;
-      // @include flexCenterCenter($justify-content: space-between);
       padding: 0 6.5rem;
       width: 3rem;
 
@@ -393,7 +308,6 @@
 .msg {
 
   &__userInfoNull {
-    // @include hundredPercentHW();
     @include flexCenterCenter();
     grid-row: 1 / span 1;
     grid-column: 2 / -1;
@@ -455,28 +369,13 @@
       font-size: var(--font-size-3);
     }
   }
-
-  
 }
-
-
 
 .payments {
   &__login--msg {
     margin-top: 20rem;
     text-align: center;
   }
-}
-
-.appointments-2 {
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 2;
-  padding: 2rem;
-  height: 100%;
-  overflow: scroll;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .appt__checkout {
@@ -498,77 +397,3 @@
     padding: 2rem;
   }
 }
-
-
-// TABLE CLASSES - names given to html elements
-.table {
-  border: 5px double $grey-6;
-
-  &__apptsList {
-    width : 100%;
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
-  }
-}
-
-.th {
-  padding: 1.5rem;
-  font-weight: 500;
-
-  @media ( max-width: 450px ) {
-    padding: 1rem;
-  }
-}
-
-.tbody {
-  @include hundredPercentHW();
-  background-color: $grey-8;
-
-  height: min-content;
-  // width: 100%;
-  // min-height: 1rem;
-
-  // height: 10rem;
-  // height: 5rem;
-  align-items: center;
-  width : 100%;
-
-  overflow: scroll;
-  
-  display: table-row-group;
-  // border-bottom: 2px solid $grey-6;
-  // background-color: $grey-7;
-}
-
-.tr {
-  display: table-row;
-  height: 4rem;
-
-  @media (max-width: 600px) {
-    height: 5rem;
-  }
-  
-  @media (max-width: 450px) {
-    font-size: 1.3rem;
-  }
-}
-
-tbody tr:nth-of-type(odd) {
-  background-color: $grey-7;
-}
-
-.thead {
-  @include hundredPercentHW();
-
-  font-size: var(--font-size-3);
-  height: 5rem;
-  align-items: center;
-  
-  display: table-header-group;
-  border-bottom: 2px solid $grey-6;
-  background-color: $grey-8;
-}
-
-
-
-

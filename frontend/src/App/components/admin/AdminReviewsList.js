@@ -6,14 +6,8 @@ import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 import { listReviews, deleteReview, updateReview } from "../../actions/reviewActions";
 import { subheader } from "../../actions/subheader";
 
-// components
-import {Sidebar} from "../navigation/Sidebar";
-
 // hooks
 import { useSortMultiple } from "../../hooks/useSort";
-
-// data
-import { adminList } from "../../data/lists"
 
 
 export default function AdminReviewsList({ location, history }) {
@@ -46,18 +40,13 @@ export default function AdminReviewsList({ location, history }) {
     }
 
     const approvedHandler = (id) => {
-        
         const selectedReview = reviews.find(x => x._id === id)
         const { approved, name, relation, msg } = selectedReview
 
         console.log(approved)
         if (window.confirm("Are you sure you want to approve this review?")) {
             dispatch(updateReview({ _id: id, approved: !approved, name, relation, msg }))
-            // dispatch(updateReview({_id: id, approved: !approved}))
         }
-        // console.log(review)
-        // e.preventDefault()
-        // dispatch(updateReview({ _id: review.id, name: review.name, relation: review.relation, msg: review.msg }))
     }
 
     React.useEffect(() => {
@@ -70,40 +59,36 @@ export default function AdminReviewsList({ location, history }) {
         } else {
             dispatch(subheader(""));
         }
-
     }, [dispatch, loadingDelete, errorDelete])
-
-    // console.log(sortedReviews[0])
-    // console.log(`reviews: ${reviews[0]}`)
 
 
     return (
         <div className="container__screen--sidebar">
-            <div className="reviewsAdmin">
-                <div className="header__reviewsAdmin">
+            <div className="admin-reviews">
+                <div className="header__admin-reviews">
                     All reviews:
                 </div>
                 
                 <div className="admin__table--container">
-                    <table className="reviewsAdmin__list--all">
+                    <table className="admin-reviews__list--all">
                         <thead className="thead">
                             <tr className="tr">
-                                <th className="th__reviews-list reviewsAdmin__th--posted">date</th>
-                                <th className="th__reviews-list reviewsAdmin__th--by">by</th>
-                                <th className="th__reviews-list reviewsAdmin__th--msg">message</th>
-                                <th className="th__reviews-list reviewsAdmin__th--approved">ok?</th>
-                                <th className="th__reviews-list reviewsAdmin__th--delete"></th>
+                                <th className="th__reviews-list admin-reviews__th--posted">date</th>
+                                <th className="th__reviews-list admin-reviews__th--by">by</th>
+                                <th className="th__reviews-list admin-reviews__th--msg">message</th>
+                                <th className="th__reviews-list admin-reviews__th--approved">ok?</th>
+                                <th className="th__reviews-list admin-reviews__th--delete"></th>
                             </tr>
                         </thead>
                         <tbody className="tbody">
                             {sortedReviews.map((review) => {
                                 const date = review.date.split("T")[0].split("-");
                                 return (
-                                    <tr key={review._id} className="reviewsAdmin__list--item">
-                                        <td className="reviewsAdmin__item--posted">{`${date[1]}-${date[2]}`}</td>
-                                        <td className="reviewsAdmin__item--by"> {review.name}</td>
-                                        <td className="reviewsAdmin__item--msg">{review.msg}</td>
-                                        <td className="reviewsAdmin__item--approved">
+                                    <tr key={review._id} className="admin-reviews__list--item">
+                                        <td className="admin-reviews__item--posted">{`${date[1]}-${date[2]}`}</td>
+                                        <td className="admin-reviews__item--by"> {review.name}</td>
+                                        <td className="admin-reviews__item--msg">{review.msg}</td>
+                                        <td className="admin-reviews__item--approved">
                                             {review.approved ? (
                                             <FaCheckSquare
                                                 size={20}
@@ -127,7 +112,7 @@ export default function AdminReviewsList({ location, history }) {
                                         </td>
 
 
-                                        <td className="reviewsAdmin__item--delete">
+                                        <td className="admin-reviews__item--delete">
                                             <FaTrash
                                                 size={20}
                                                 color="var(--green-2)"

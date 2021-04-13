@@ -1,20 +1,16 @@
-.reviewsAdmin {
+.admin-reviews {
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
 
-  padding: 2rem;
-  height: 100%;
+  @include flexCenterCenter($flex-direction: column);
 
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  padding: 2rem;
   position: absolute;
   height: 83vh;
   width: 100%;
   overflow: scroll;
   top: 0;
 
-  
   @media (max-width: 950px) {
     grid-column: 1 / -1;
     overflow: visible;
@@ -28,79 +24,24 @@
     height: 75vh;
   }
 
-  &__header {
-    grid-column: 2 / span 3;
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: var(--font-size-2);
-
-
-    
-    @media (max-width: 1080px) {
-      width: 110%;
-      justify-self: start;
-    }
-    
-
-    @media (max-width: 900px) {
-      grid-row: 2 / span 1;
-      width : 100%;
-    }
-
-    @media (max-width: 900px) {
-      grid-column: 1 / span 5;
-      text-align: center;
-    }
-
-    @media (max-width: 450px) {
-      grid-column: 1 / span 5;
-      text-align: center;
-    }
-
-    &--container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-      margin-bottom: 1rem;
-    }
-
-    &--container-checkout {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-    }
-  }
-
   &__list {
     @include hundredPercentHW();
-    // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
     line-height: 3.5rem;
     display: table;
 
     &--item {
-      // @include flexCenterCenter($justify-content: space-between);
       display: table-row;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(6, 1fr);
-
       width: 100%;
     }
 
     &--all {
       @include hundredPercentHW();
-      // @include flexCenterCenter($flex-direction: column, $align-items: flex-start, $justify-content: space-between);
       line-height: 3.5rem;
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
       font-size: var(--font-size-3);
-
-    //   @media ( max-width: 600px ) {
-    //     height: auto;
-    //   }
     }
   }
 
@@ -117,8 +58,8 @@
       padding: 0.5rem;
       font-size: var(--font-size-3);
 
-      @media ( max-width: 500px ) {
-          width: 5rem;
+      @media (max-width: 500px) {
+        width: 5rem;
       }
     }
 
@@ -129,16 +70,16 @@
       padding: 2rem;
       font-size: var(--font-size-3);
 
-      @media ( max-width: 550px ) {
+      @media (max-width: 550px) {
         width: 5rem;
       }
 
-      @media ( max-width: 500px ) {
+      @media (max-width: 500px) {
         width: 3rem;
         padding: 0.5rem;
       }
 
-      @media ( max-width: 450px ) {
+      @media (max-width: 450px) {
       }
     }
 
@@ -147,8 +88,8 @@
       text-align: center;
       width: 4rem;
 
-      @media ( max-width: 500px ) {
-          width: 4rem;
+      @media (max-width: 500px) {
+        width: 4rem;
       }
     }
 
@@ -159,7 +100,7 @@
       padding: 2rem;
       font-size: var(--font-size-3);
 
-      @media ( max-width: 500px ) {
+      @media (max-width: 500px) {
         width: 5rem;
         padding: 2rem 1rem;
       }
@@ -173,7 +114,7 @@
       padding: 2rem;
       font-size: var(--font-size-3);
 
-      @media ( max-width: 450px ) {
+      @media (max-width: 450px) {
         padding: 1rem;
       }
     }
@@ -196,11 +137,9 @@
       grid-column: 4 / span 1;
     }
 
-
     &--msg {
       grid-column: 3 / span 1;
       text-align: center;
-      // @include flexCenterCenter($justify-content: space-between);
       padding: 0 6.5rem;
     }
   }
@@ -210,13 +149,9 @@
   padding: 1.5rem;
   font-weight: 500;
 
-  @media ( max-width: 450px ) {
-      padding: 1.25rem 1rem;
+  @media (max-width: 450px) {
+    padding: 1.25rem 1rem;
   }
-
-  // @media ( max-width: 400px ) {
-  //     padding: 1.5rem 1rem;
-  // }
 }
 
 .admin {
@@ -226,7 +161,7 @@
       overflow: scroll;
       padding-bottom: 2rem;
 
-      @media (max-width:900px) {
+      @media (max-width: 900px) {
         height: 59vh;
       }
     }

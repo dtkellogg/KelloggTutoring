@@ -56,7 +56,7 @@ export default function Booking({ location, history, type}) {
     if (loading || loadingCreate) {
       dispatch(subheader("Loading..."));
     } else if (error || errorCreate) {
-      addToast("There was an error. Please try submitting your request again.", {
+      addToast("There was an error.", {
         appearance: "error",
         autoDismiss: true,
       });
@@ -107,56 +107,41 @@ export default function Booking({ location, history, type}) {
     }
   };
 
-    
-  // if(!userInfo) { 
-  //   return <PleaseLogin />
-  // } else { 
-    return (
-      <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
-        <form onSubmit={handleSubmit} className="form">
-          <h2 className="header__booking">
-            Request an appointment
-          </h2>
 
-          <div className="booking__content">
+  return (
+    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+      <form onSubmit={handleSubmit} className="form">
+        <h2 className="header__booking">
+          Request an appointment
+        </h2>
 
-            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
-              htmlFor="student" label="student" type="name" value={student || ''} placeholder="student" onChange={(e) => setStudent(e.target.value)}
-            />
-            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
-              htmlFor="subject" label="subject" type="subject" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
-            />
-            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
-              htmlFor="date" label="date" type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
-              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
-            />
-            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
-              htmlFor="time" label="start time" type="time" value={startTime} placeholder="start time" onChange={(e) => setStartTime(e.target.value)}
-              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
-            />
-            <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
-              htmlFor="time" label="end time?" type="time" value={endTime} placeholder="end time" onChange={(e) => setEndTime(e.target.value)}
-              style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
-            />
+        <div className="booking__content">
 
-            {/* {submitted && (
-              <p className="form__success-message--contact">
-                Message has been sent.
-              </p>
-            )}
-            {failed.length > 0 && (
-              <p className="form__fail-message--contact">
-                {failed}
-              </p>
-            )} */}
+          <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+            htmlFor="student" label="student" type="name" value={student || ''} placeholder="student" onChange={(e) => setStudent(e.target.value)}
+          />
+          <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+            htmlFor="subject" label="subject" type="subject" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
+          />
+          <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+            htmlFor="date" label="date" type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
+            style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+          />
+          <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+            htmlFor="time" label="start time" type="time" value={startTime} placeholder="start time" onChange={(e) => setStartTime(e.target.value)}
+            style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+          />
+          <Input containerClass="booking__element" labelClass="booking__label" inputClass="booking__input booking__input-contact"
+            htmlFor="time" label="end time?" type="time" value={endTime} placeholder="end time" onChange={(e) => setEndTime(e.target.value)}
+            style={width > '450' ? { "alignItems": 'stretch' } : { "alignItems": 'flex-end' }}
+          />
 
-          </div>
-          <button className="btn__booking" type="submit" onClick={handleSubmit} >
-            Submit
-          </button>
-          
-        </form>
-      </div>
-    )
-  // }
+        </div>
+        <button className="btn__booking" type="submit" onClick={handleSubmit} >
+          Submit
+        </button>
+        
+      </form>
+    </div>
+  )
 }

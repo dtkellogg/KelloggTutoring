@@ -670,6 +670,18 @@
       // padding: 0 45rem;
     }
   }
+
+  &__header {
+    &--appointments {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 4vh 3vh;
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 

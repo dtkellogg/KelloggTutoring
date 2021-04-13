@@ -11,10 +11,7 @@
 		cursor: ns-resize;
 		position: absolute;
 		top: 6rem;
-
-		@media (max-width: 600px) {
-			// justify-content: flex-start;
-		}
+		left: 0;
 	}
 
 	&__card {

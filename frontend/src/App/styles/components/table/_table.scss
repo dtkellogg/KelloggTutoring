@@ -1,0 +1,57 @@
+.table {
+  border: 5px double $grey-6;
+
+  &__apptsList {
+    width : 100%;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+  }
+}
+
+.th {
+  padding: 1.5rem;
+  font-weight: 500;
+
+  @media ( max-width: 450px ) {
+    padding: 1rem;
+  }
+}
+
+.tbody {
+  @include hundredPercentHW();
+  background-color: $grey-8;
+  height: min-content;
+  align-items: center;
+  width : 100%;
+  overflow: scroll;
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+  height: 4rem;
+
+  @media (max-width: 600px) {
+    height: 5rem;
+  }
+  
+  @media (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: $grey-7;
+}
+
+.thead {
+  @include hundredPercentHW();
+
+  font-size: var(--font-size-3);
+  height: 5rem;
+  align-items: center;
+  
+  display: table-header-group;
+  border-bottom: 2px solid $grey-6;
+  background-color: $grey-8;
+}
