@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -25,7 +25,7 @@ function PaymentScreen({ match, history }) {
 
   console.log("In Payment.js")
   
-  const [loadingDefault, setLoadingDefault] = React.useState(false); // eslint-disable-line no-unused-vars
+  const [loadingDefault, setLoadingDefault] = useState(false); // eslint-disable-line no-unused-vars
   
   const dispatch = useDispatch();
 
@@ -46,7 +46,7 @@ function PaymentScreen({ match, history }) {
   ///////////////////////////
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading) {
       dispatch(subheader("Loading..."));
     } else {
@@ -62,12 +62,12 @@ function PaymentScreen({ match, history }) {
   // the following in the useState and useEffect are to dynamically add
   // the paypal script
 
-  const [sdkReady, setSdkReady] = React.useState(false);
+  const [sdkReady, setSdkReady] = useState(false);
 
   const paymentPay = useSelector((state) => state.paymentPay);
   const { loading: loadingPay, success: successPay } = paymentPay;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!userInfo) {
       history.push("/login");
     }
@@ -116,73 +116,73 @@ function PaymentScreen({ match, history }) {
     <Loading />
   ) : (
     <div className="container__screen--sidebar">
-      <div className="appointments">
+      <div className="appointments container__payment">
 
-          <h2 className="header__payment">
-            Payment 
-            <span className="payment__id">{payment._id}</span> 
-          </h2>
+        <h2 className="header__payment">
+          Payment 
+          <span className="payment__id">{payment._id}</span> 
+        </h2>
 
-          <div className="payment__subgroups">
-            <div className="payment__subgroups--name">
-              <strong> Name: </strong> {payment.user.name}
-            </div>
-            <div className="payment__subgroups--email">
-              <strong> Email: </strong>
-              <a href={`mailto:${payment.user.email}`}>{payment.user.email}</a>
-            </div>
-            <div className="payment__subgroups--payment-method">
-              <strong>Payment Method:&nbsp;</strong>
-              <span>{payment.paymentMethod}</span>
-            </div>
-            <div className="payment__subgroups--status">
-              <strong>Status:&nbsp;</strong>
-              <span>{payment.isPaid ? (
-                <span className="payment__subgroups--paid-on">Paid on {payment.paidAt}</span>
-              ) : (
-                  <span className="payment__subgroups--not-paid">Not Paid</span>
-                )}</span>
-            </div>
+        <div className="payment__subgroups">
+          <div className="payment__subgroups--name">
+            <strong> Name: </strong> {payment.user.name}
           </div>
+          <div className="payment__subgroups--email">
+            <strong> Email: </strong>
+            <a href={`mailto:${payment.user.email}`}>{payment.user.email}</a>
+          </div>
+          <div className="payment__subgroups--payment-method">
+            <strong>Payment Method:&nbsp;</strong>
+            <span>{payment.paymentMethod}</span>
+          </div>
+          <div className="payment__subgroups--status">
+            <strong>Status:&nbsp;</strong>
+            <span>{payment.isPaid ? (
+              <span className="payment__subgroups--paid-on">Paid on {payment.paidAt}</span>
+            ) : (
+                <span className="payment__subgroups--not-paid">Not Paid</span>
+              )}</span>
+          </div>
+        </div>
 
-          <span className="text__payment--paying-for">
-            You are paying for the following {" "}
-            <strong>{payment.paymentItems.length}</strong> appointments:
-          </span>
-          {payment.paymentItems.length === 0 ? (
-            <h2
-              className="font-size-3"
-              style={{
-                padding: "1rem",
-                borderBottom: "2px solid var(--grey-6)",
-              }}
-            >
-              Payment is <span style={{ color: "red" }}>empty</span>
-            </h2>
-          ) : (
-            <table className="appointments__list">
-              <PaymentsTableHead type="payment" />
-              <tbody className="tbody">
-                {payment.paymentItems.map((appt, idx) => {
-                  const date = appt.date.split("T")[0].split("-");
-                  const id = appt.appointment;
+        <span className="text__payment--paying-for">
+          You are paying for the following {" "}
+          <strong>{payment.paymentItems.length}</strong> appointments:
+        </span>
+        {payment.paymentItems.length === 0 ? (
+          <h2
+            className="font-size-3"
+            style={{
+              padding: "1rem",
+              borderBottom: "2px solid var(--grey-6)",
+            }}
+          >
+            Payment is <span style={{ color: "red" }}>empty</span>
+          </h2>
+        ) : (
+          <table className="appointments__list">
+            <PaymentsTableHead type="payment" />
+            <tbody className="tbody">
+              {payment.paymentItems.map((appt, idx) => {
+                const date = appt.date.split("T")[0].split("-");
+                const id = appt.appointment;
 
-                  return (
-                    <tr key={id} className="appointments__list--item">
-                      <td className="appointments__item--date">{`${date[1]}-${date[2]}`}</td>
-                      <td className="appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
-                      <td className="appointments__item--student">
-                        $50.00
-                      </td>
-                      <td className="appointments__item--subject">
-                        {appt.subject}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          )}
+                return (
+                  <tr key={id} className="appointments__list--item">
+                    <td className="appointments__item--date">{`${date[1]}-${date[2]}`}</td>
+                    <td className="appointments__item--time">{`${appt.startTime} - ${appt.endTime}`}</td>
+                    <td className="appointments__item--student">
+                      $50.00
+                    </td>
+                    <td className="appointments__item--subject">
+                      {appt.subject}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
 
         <PaymentTotals />
 

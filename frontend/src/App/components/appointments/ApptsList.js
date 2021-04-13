@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 // prop-types
@@ -8,9 +8,6 @@ import PropTypes from "prop-types"
 import ApptsTableHead from "./AppointmentsHead"
 import ApptsTableBody from "./ApptsTableBody"
 import PleaseLogin from '../PleaseLogin'
-
-// moment
-import moment from 'moment'
 
 // hooks
 import {useSortMultiple} from '../../hooks/useSort'
@@ -31,9 +28,8 @@ const formatDate = (appt) => {
 
 
 export default function ApptsList({ type }) {
-  const [appts, setAppts] = React.useState([])
+  const [appts, setAppts] = useState([])
   const today = new Date(Date.now())
-  var now = moment()
 
   const dispatch = useDispatch()
 
@@ -66,7 +62,7 @@ export default function ApptsList({ type }) {
 
   useEffect(() => {
     dispatch(listAppointments())
-  }, [dispatch, userInfo, successUpdate])
+  }, [])
 
   useEffect(() => {
     if(userInfo) {
@@ -89,6 +85,8 @@ export default function ApptsList({ type }) {
     }
   }, [appointments])
 
+  console.log("IN APPTS LIST")
+
 
 
   if (!userInfo || userInfo === null) {
@@ -105,17 +103,15 @@ export default function ApptsList({ type }) {
   } else if (type === "all" && userInfo && appts.length) {
     return (
       <div className="container__screen--sidebar">
-        <div className="appointments__table--container">
-          <table className="appointments__list--all">
-            <ApptsTableHead />
-            <ApptsTableBody appts={appts} type={type} />
-          </table>
-        </div>
+        <table className="appointments__list--all">
+          <ApptsTableHead />
+          <ApptsTableBody appts={appts} type={type} />
+        </table>
       </div>
     );
   } else if (type === "admin" && userInfo && appts.length ) {
     return (
-      <div className="admin__table--container">
+      <div className="container__admin--table">
         <table className="appointments__list--all">
           <ApptsTableHead />
           <ApptsTableBody appts={appts} type={type} />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-      <div className="footer">
+      <div className="container__footer">
         <div className="footer__contact-items">
 
           <div className="footer__contact-item">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -18,9 +18,9 @@ export default function AdminUserEdit ({ match }) {
 	const history = useHistory()
 	const location = useLocation()
 
-	const [name, setName] = React.useState('')
-	const [email, setEmail] = React.useState('')
-	const [isAdmin, setIsAdmin] = React.useState(false)
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+	const [isAdmin, setIsAdmin] = useState(false)
 
 	const dispatch = useDispatch()
 
@@ -39,7 +39,7 @@ export default function AdminUserEdit ({ match }) {
 
 
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (loading || loadingUpdate) {
 			dispatch(subheader("Loading..."));
 		} else {
@@ -73,21 +73,21 @@ export default function AdminUserEdit ({ match }) {
 
 	return (
 		<div className="toshi">
-			<form onSubmit={handleSubmit} className="userEditScreen user__page">
+			<form onSubmit={handleSubmit} className="container__user-edit user__page">
 
 				<Link to='/admin/users' className="btn__user-edit">Go Back</Link>
 
-				<h2 className="header__userEditScreen">Edit User</h2>
+				<h2 className="header__user-edit">Edit User</h2>
 
-				<div className="userEditScreen__content">
-					<div className="userEditScreen__element--container">
-						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+				<div className="user-edit__content">
+					<div className="container__user-edit--element">
+						<Input containerClass="user-edit__element" labelClass="user-edit__label" inputClass="user-edit__input user-edit__input-contact"
 							htmlFor="" label="name" type="name" value={name} placeholder="name" onChange={(e) => setName(e.target.value)}
 						/>
-						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+						<Input containerClass="user-edit__element" labelClass="user-edit__label" inputClass="user-edit__input user-edit__input-contact"
 							htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)}
 						/>
-						<Input containerClass="userEditScreen__element" labelClass="userEditScreen__label" inputClass="userEditScreen__input userEditScreen__input-contact"
+						<Input containerClass="user-edit__element" labelClass="user-edit__label" inputClass="user-edit__input user-edit__input-contact"
 							htmlFor="" label="admin?" type="radio" value={isAdmin} placeholder="Admin?" onChange={(isAdmin) => setIsAdmin(!isAdmin)}
 						/>
 					</div>

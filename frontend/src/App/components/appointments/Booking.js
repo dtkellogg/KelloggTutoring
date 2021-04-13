@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // components
@@ -18,65 +18,56 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 export default function Booking({ location, history, type}) {
   const { width } = useWindowDimensions()
   const { addToast } = useToasts();
-
-
-  const [student, setStudent] = React.useState("")
-  const [subject, setSubject] = React.useState("")
-  const [date, setDate] = React.useState("")
-  const [startTime, setStartTime] = React.useState("")
-  const [endTime, setEndTime] = React.useState("")
-  const [paid, setPaid] = React.useState(false) // eslint-disable-line no-unused-vars
-
   const dispatch = useDispatch();
+
+  const [student, setStudent] = useState("")
+  const [subject, setSubject] = useState("")
+  const [date, setDate] = useState("")
+  const [startTime, setStartTime] = useState("")
+  const [endTime, setEndTime] = useState("")
+  const paid = false // eslint-disable-line no-unused-vars
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
   const appointmentRequestCreate = useSelector((state) => state.appointmentRequestCreate);
   const { loading: loadingCreate, error: errorCreate, success: successCreate } = appointmentRequestCreate;
 
-  
-
-  React.useEffect(() => {
-    if (!user) {
-      dispatch(getUserDetails("profile"));
-    } else if (Object.keys(user).length !== 0) {  // this line checks if the object is empty
-      setStudent(user.name);
+  useEffect(() => {
+    if (user) {
+      if (!user.name) {
+        dispatch(getUserDetails("profile"));
+      } else if (Object.keys(user).length !== 0) {  // this line checks if the object is empty
+        setStudent(user.name);
+      }
     }
-    else {
-      return
-    } 
+  }, [dispatch, history, user]);
 
-  }, [dispatch, history]);
+  useEffect(() => {
+    if(user) {
+      if (loading || loadingCreate) {
+        dispatch(subheader("Loading..."));
+      } else if (error || errorCreate) {
+        addToast("There was an error.", {
+          appearance: "error",
+          autoDismiss: true,
+        });
+      } else if (successCreate) {
+        setStudent("")
+        setSubject("")
+        setDate("")
+        setStartTime("")
+        setEndTime("")
 
-  React.useEffect(() => {
-    if (loading || loadingCreate) {
-      dispatch(subheader("Loading..."));
-    } else if (error || errorCreate) {
-      addToast("There was an error.", {
-        appearance: "error",
-        autoDismiss: true,
-      });
-    } else if (successCreate) {
-      setStudent("")
-      setSubject("")
-
-      setDate("")
-      setStartTime("")
-      setEndTime("")
-
-      addToast("Request was successfully submitted. Please expect up to 24 hours for a response.", {
-        appearance: "success",
-        autoDismiss: true,
-      });
-    } else {
-      dispatch(subheader(""));
+        addToast("Request was successfully submitted. Please expect up to 24 hours for a response.", {
+          appearance: "success",
+          autoDismiss: true,
+        });
+      } else {
+        dispatch(subheader(""));
+      }
     }
   }, [dispatch, loading, error, loadingCreate, errorCreate, successCreate]);
-
 
   const handleSubmit = async (e) => {
     try {
@@ -94,7 +85,6 @@ export default function Booking({ location, history, type}) {
 
         setStudent("")
         setSubject("")
-
         setDate("")
         setStartTime("")
         setEndTime("")
@@ -110,7 +100,7 @@ export default function Booking({ location, history, type}) {
 
   return (
     <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="container__form">
         <h2 className="header__booking">
           Request an appointment
         </h2>

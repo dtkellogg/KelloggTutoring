@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,9 +15,9 @@ export default function ReviewEdit({ match, history, location }) {
   const reviewId = match.params.id;
   const dispatch = useDispatch();
 
-  const [name, setName] = React.useState("");
-  const [relation, setRelation] = React.useState("");
-  const [msg, setMsg] = React.useState("");
+  const [name, setName] = useState("");
+  const [relation, setRelation] = useState("");
+  const [msg, setMsg] = useState("");
 
 
   const reviewDetails = useSelector((state) => state.reviewDetails);
@@ -31,7 +31,7 @@ export default function ReviewEdit({ match, history, location }) {
   } = reviewUpdate;
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading || loadingUpdate) {
       dispatch(subheader("Loading..."));
     } else {
@@ -42,7 +42,7 @@ export default function ReviewEdit({ match, history, location }) {
     }
   }, [dispatch, loading, error, loadingUpdate, errorUpdate]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (successUpdate) {
       dispatch({ type: REVIEW_UPDATE_RESET });
       history.push("/");
@@ -73,7 +73,7 @@ export default function ReviewEdit({ match, history, location }) {
       <Link to="/" className="btn__reviews--go-back">
         Go Back
       </Link>
-      <form onSubmit={handleSubmit} className="edit-review user__page">
+      <form onSubmit={handleSubmit} className="container__edit-review user__page">
         <div className="header__edit-review">
           <h2 className="font-size-2 letter-spacing-sm">
             Edit Review

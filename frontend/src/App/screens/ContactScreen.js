@@ -1,12 +1,12 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import LoadingSpinner from "../components/loading/LoadingSpinner";
 
 
-const PageHeader = React.lazy(() => import("../components/PageHeader"));
-const Booking = React.lazy(() => import("../components/appointments/Booking"));
-const MessageScreen = React.lazy(() => import("./MessageScreen"));
+const PageHeader = lazy(() => import("../components/PageHeader"));
+const Booking = lazy(() => import("../components/appointments/Booking"));
+const MessageScreen = lazy(() => import("./MessageScreen"));
 
 
 

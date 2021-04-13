@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
@@ -11,8 +11,8 @@ const { v4: uuid } = require("uuid");
 
 
 export default function NavLower() {
-  const [searchInput, setSearchInput] = React.useState('')
-  const [filterDisplay, setFilterDisplay] = React.useState(searchBar)
+  const [searchInput, setSearchInput] = useState('')
+  const [filterDisplay, setFilterDisplay] = useState(searchBar)
   
   const subheader = useSelector((state) => state.subheader);
   

@@ -1,18 +1,16 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import LoadingSpinner from "../components/loading/LoadingSpinner";
 
-
-const Booking = React.lazy(() => import("../components/appointments/Booking"));
-const Payments = React.lazy(() => import("../components/payments/PaymentsList"));
-const ApptsList = React.lazy(() => import("../components/appointments/ApptsList"));
-const CalendarScreen = React.lazy(() => import("./CalendarScreen"));
-const PageHeader = React.lazy(() => import("../components/PageHeader"));
-const PaymentMethod = React.lazy(() => import("../components/payments/PaymentMethod"));
-const Checkout = React.lazy(() => import("../components/payments/PaymentCheckout"));    
-const Payment = React.lazy(() => import("../components/payments/Payment"));
-
+// components
+const Booking = lazy(() => import("../components/appointments/Booking"));
+const Payments = lazy(() => import("../components/payments/PaymentsList"));
+const ApptsList = lazy(() => import("../components/appointments/ApptsList"));
+const CalendarScreen = lazy(() => import("./CalendarScreen"));
+const PageHeader = lazy(() => import("../components/PageHeader"));
+const PaymentMethod = lazy(() => import("../components/payments/PaymentMethod"));
+const Checkout = lazy(() => import("../components/payments/PaymentCheckout"));    
+const Payment = lazy(() => import("../components/payments/Payment"));
 
 
 function ApptsScreen() {
@@ -30,6 +28,7 @@ function ApptsScreen() {
               <Route exact path={`${url}/payments/checkout`} component={Checkout} />
               <Route exact path={`${url}/payments/:id/edit`} component={Payment} />
               <Route exact path={`${url}/list`} component={() => <ApptsList type="all" />} />
+              {/* <Route exact path={`${url}/list`} component={() => <ApptsList type="all" />} /> */}
               <Route exact path={`${url}/calendar`} component={CalendarScreen} />
               <Route path="*" component={PageHeader} />
             </Switch>

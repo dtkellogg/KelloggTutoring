@@ -1,16 +1,17 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-const PageHeader = React.lazy(() => import("../components/PageHeader"));
-const AdminUsers = React.lazy(() => import("../components/admin/AdminUsers"));
-const AdminUserEdit = React.lazy(() => import("../components/admin/AdminUserEdit"));
-const AdminApptRequests = React.lazy(() => import("../components/admin/AdminApptRequests"));
-const AdminReviewsList = React.lazy(() => import("../components/admin/AdminReviewsList"));
-const AdminAppointmentsList = React.lazy(() => import("../components/admin/AdminApptsList"));
-const AdminAppointmentEdit = React.lazy(() => import("../components/admin/AdminApptEdit"));
-const AdminAppointmentCreate = React.lazy(() => import("../components/admin/AdminApptCreate"));
-const AdminStats = React.lazy(() => import("../components/admin/AdminStats"));
+const PageHeader = lazy(() => import("../components/PageHeader"));
+const AdminUsers = lazy(() => import("../components/admin/AdminUsers"));
+const AdminUserEdit = lazy(() => import("../components/admin/AdminUserEdit"));
+const AdminApptRequests = lazy(() => import("../components/admin/AdminApptRequests"));
+const AdminReviewsList = lazy(() => import("../components/admin/AdminReviewsList"));
+const AdminAppointmentsList = lazy(() => import("../components/admin/AdminApptsList"));
+// const ApptsList = lazy(() => import("../components/appointments/ApptsList"));
+const AdminAppointmentEdit = lazy(() => import("../components/admin/AdminApptEdit"));
+const AdminAppointmentCreate = lazy(() => import("../components/admin/AdminApptCreate"));
+const AdminStats = lazy(() => import("../components/admin/AdminStats"));
 
 function AdminScreen() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function AdminScreen() {
           <Switch location={location}>
             <Route exact path={`${url}/users`} component={AdminUsers} />
             <Route exact path={`${url}/user/:id/edit`} component={AdminUserEdit} />
+            {/* <Route exact path={`${url}/appts`} component={() => <ApptsList type="admin" />} /> */}
             <Route exact path={`${url}/appts`} component={AdminAppointmentsList} />
             <Route exact path={`${url}/appt/:id/edit`} component={AdminAppointmentEdit} />
             <Route exact path={`${url}/appts/create-appointment`} component={AdminAppointmentCreate} />

@@ -14,7 +14,7 @@ export default function useAppointmentsList() {
 
     console.log(`${appointments}`)
 
-    React.useEffect(() => {
+    useEffect(() => {
         dispatch(listAppointments())
     }, [dispatch])
 
@@ -23,7 +23,7 @@ export default function useAppointmentsList() {
     // console.log(`appointments: ${appointments.map((appt) => appt.date)}`);
 
     return (
-        <div className="appointments">
+        <div className="container__appointments">
             {appointments}
         </div>
     );

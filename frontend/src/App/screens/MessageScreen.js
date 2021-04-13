@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useToasts } from "react-toast-notifications";
 
@@ -23,13 +23,13 @@ function FormattedPhoneNum(input) {
 
 
 export default function MessageScreen({ history }) {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [subject, setSubject] = React.useState("");
-  const [message, setMessage] = React.useState("");
-  const [submitted, setSubmitted] = React.useState(false);
-  const [failed, setFailed] = React.useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [failed, setFailed] = useState("");
 
   const dispatch = useDispatch();
   const { width } = useWindowDimensions()
@@ -43,7 +43,7 @@ export default function MessageScreen({ history }) {
   } = userDetails;
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
       if (!user.name) {
         dispatch(getUserDetails("profile"));
@@ -108,7 +108,7 @@ export default function MessageScreen({ history }) {
 
   return (
     <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="container__form" onSubmit={handleSubmit}>
         <h2 className="header__form">
           Any questions?
         </h2>

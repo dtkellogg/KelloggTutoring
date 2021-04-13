@@ -110,7 +110,7 @@ function ApptsTableBody({appts, type}) {
                                 {(type === 'admin' || moment(appt.date).isAfter(now.subtract(1, 'days'))) ? (
                                     <FaTrash
                                         size={20}
-                                        fill="var(--red)"
+                                        fill="var(--red-1)"
                                         className="icon__trash grey-7"
                                         type="button"
                                         onClick={() => deleteHandler(appt._id)}

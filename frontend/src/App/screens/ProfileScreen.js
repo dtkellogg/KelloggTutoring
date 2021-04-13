@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 
 // actions
@@ -12,10 +12,10 @@ export default function Profile({ location, history }) {
   const { addToast } = useToasts();
 
 
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
 
   const userDetails = useSelector((state) => state.userDetails);
@@ -40,7 +40,7 @@ export default function Profile({ location, history }) {
     history.push("/");
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
       if (!userInfo) {
         history.push('/login');
@@ -53,7 +53,7 @@ export default function Profile({ location, history }) {
         }
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

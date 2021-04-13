@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, useRouteMatch } from "react-router-dom"
 
 import ReviewsList from "./ReviewsList";
@@ -34,6 +34,6 @@ export default function ReviewsRaw({ type }) {
   );
 }
 
-export const Reviews = React.memo(ReviewsRaw, (prevProps, nextProps) => {
+export const Reviews = memo(ReviewsRaw, (prevProps, nextProps) => {
   return prevProps.count === nextProps.count
 })

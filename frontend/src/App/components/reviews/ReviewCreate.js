@@ -1,5 +1,5 @@
 // react
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,13 +17,13 @@ export default function ReviewCreateScreen({ history }) {
 
   console.log(history.location.pathname);
 
-  const [name, setName] = React.useState("");
-  const [relation, setRelation] = React.useState("Student");
-  const [msg, setMsg] = React.useState("");
-  const [date, setDate] = React.useState(Date.now()); // eslint-disable-line no-unused-vars
-  const [submitted, setSubmitted] = React.useState(false);
-  const [failed, setFailed] = React.useState("");
-  const [sent, setSent] = React.useState(false); // eslint-disable-line no-unused-vars
+  const [name, setName] = useState("");
+  const [relation, setRelation] = useState("Student");
+  const [msg, setMsg] = useState("");
+  const [date, setDate] = useState(Date.now()); // eslint-disable-line no-unused-vars
+  const [submitted, setSubmitted] = useState(false);
+  const [failed, setFailed] = useState("");
+  const [sent, setSent] = useState(false); // eslint-disable-line no-unused-vars
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
@@ -73,7 +73,7 @@ export default function ReviewCreateScreen({ history }) {
   };
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user === undefined) {
       dispatch(getUserDetails("profile"));
     } else {

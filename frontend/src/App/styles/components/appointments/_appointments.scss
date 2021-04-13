@@ -1,42 +1,4 @@
 .appointments {
-  grid-row: 1 / span 1;
-  grid-column: 2 / -1;
-
-  padding: 2rem;
-
-  flex-direction: column;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  position: relative;
-
-  @media (max-width: 950px) {
-    padding: 2rem;
-    grid-column: 1 / -1;
-  }
-
-  &__payments {
-    &--container {
-      @include hundredPercentHW();
-      grid-column: 2 / -1;
-      padding: 2rem;
-
-      @media (max-width: 950px) {
-        grid-column: 1 / -1;
-      }
-    }
-
-    &--header-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 3rem 3rem;
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-      margin-bottom: 1rem;
-    }
-  }
 
   &__list {
     @include hundredPercentHW();
@@ -49,12 +11,12 @@
       display: table-row;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(6, 1fr);
-
       width: 100%;
     }
 
     &--all {
       @include hundredPercentHW();
+      height: min-content;
       line-height: 3.5rem;
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
@@ -116,6 +78,7 @@
       grid-column: 6 / span 1;
       text-align: center;
       font-size: var(--font-size-3);
+      fill: var(--red-1);
 
       @media (max-width: 600px) {
         width: 8rem;
@@ -128,9 +91,7 @@
 
     &--btns {
       grid-column: 5 / span 1;
-      display: flex;
       text-align: center;
-      justify-content: center;
       padding: 0.8rem;
       height: 100%;
       
@@ -266,43 +227,6 @@
       font-weight: 500;
     }
   }
-
-  &__payments {
-    &--container {
-      @include hundredPercentHW();
-    }
-
-    &--header-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 4vh 3vh;
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-      margin-bottom: 1rem;
-    }
-  }
-
-  &__table {
-    &--container {
-      @include hundredPercentHW();
-      overflow: scroll;
-      grid-column: 2 / -1;
-      
-      @media (max-width:900px) {
-        grid-column: 1 / -1;
-      }
-    }
-
-    &--payments-container {
-      height: 63vh;
-
-      @media (max-width:900px) {
-        height: 52vh;
-        overflow: scroll;
-      }
-    }
-  }
 }
 
 .msg {
@@ -331,69 +255,5 @@
     @media (max-width: 950px) {
       grid-column: 1 / -1;
     }
-  }
-}
-
-.checkout {
-  
-
-  &__totals {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-bottom: 2px solid $grey-6;
-    padding: 1rem;
-    width: 100%;
-
-    @media (max-width: 600px) {
-      margin-top: 0rem;
-    }
-  }
-
-  &__appts {
-    width: 100%;
-    height: min-content;
-    padding: 1rem 0;
-
-    @media (max-width: 600px) {
-      height: min-content;
-    }
-  }
-
-  &__payment-method {
-    display: flex;
-    align-items: center;
-
-    &--text {
-      font-size: var(--font-size-3);
-    }
-  }
-}
-
-.payments {
-  &__login--msg {
-    margin-top: 20rem;
-    text-align: center;
-  }
-}
-
-.appt__checkout {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 4;
-  padding: 2rem;
-  height: 100%;
-  overflow: scroll;
-
-  grid-column: 2 / -1;
-
-  @media (max-width: 950px) {
-    grid-column: 1 / -1;
-    padding: 2rem;
   }
 }

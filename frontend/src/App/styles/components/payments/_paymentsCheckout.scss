@@ -1,0 +1,35 @@
+.checkout {
+
+  &__totals {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid $grey-6;
+    padding: 1rem;
+    width: 100%;
+
+    @media (max-width: 600px) {
+      margin-top: 0rem;
+    }
+  }
+
+  &__appts {
+    width: 100%;
+    height: min-content;
+    padding: 1rem 0;
+
+    @media (max-width: 600px) {
+      height: min-content;
+    }
+  }
+
+  &__payment-method {
+    display: flex;
+    align-items: center;
+
+    &--text {
+      font-size: var(--font-size-3);
+    }
+  }
+}

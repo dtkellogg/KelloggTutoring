@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 
 // prop-types
@@ -47,13 +47,13 @@ function daysInMonth(month, year) {
 export default function Calendar({ type }) {
   const dispatch = useDispatch()
   
-  const [date, setDate] = React.useState(new Date(Date.now()))
-	const [day, setDay] = React.useState(date.getDate())
-  const [month, setMonth] = React.useState(months[date.getMonth()])
-  const [year, setYear] = React.useState(date.getFullYear())
-  const [daysInThisMonth, setDaysInThisMonth] = React.useState(daysInMonth(date.getMonth(), year))
-  const [daysInLastMonth, setDaysInLastMonth] = React.useState(daysInMonth(date.getMonth() + 1, year))
-	const [calendarDays, setCalendarDays] = React.useState([])
+  const [date, setDate] = useState(new Date(Date.now()))
+	const [day, setDay] = useState(date.getDate())
+  const [month, setMonth] = useState(months[date.getMonth()])
+  const [year, setYear] = useState(date.getFullYear())
+  const [daysInThisMonth, setDaysInThisMonth] = useState(daysInMonth(date.getMonth(), year))
+  const [daysInLastMonth, setDaysInLastMonth] = useState(daysInMonth(date.getMonth() + 1, year))
+	const [calendarDays, setCalendarDays] = useState([])
 	
 	
 	const appointmentList = useSelector((state) => state.appointmentList);
@@ -178,7 +178,7 @@ export default function Calendar({ type }) {
 		setCalendarDays(allDaysWithAppts)
 	}
 
-  React.useEffect(() => {
+  useEffect(() => {
     !sortedAppts && dispatch(listAppointments());
 
     if (sortedAppts) {
@@ -186,7 +186,7 @@ export default function Calendar({ type }) {
     }
   }, [sortedAppts]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading) {
       dispatch(subheader("Loading..."))
     } else {
@@ -207,7 +207,7 @@ export default function Calendar({ type }) {
     )
 	 } else {
 	 return (
-      <div className="calendar">
+      <div className="container__calendar">
         <BtnsLeftRightCalendar date={date} day={day} month={month} year={year} setDate={setDate} setDay={setDay} setMonth={setMonth} setYear={setYear} getCalendarDays={getCalendarDays} />
         <CalendarRowOfDays />
         <ul className="calendar__row--numDays">
@@ -392,11 +392,11 @@ Calendar.propTypes = {
 // export default function Calendar({ type }) {
 //   const dispatch = useDispatch()
 
-//   const [date, setDate] = React.useState(new Date())
-//   const [day, setDay] = React.useState('')
-//   const [month, setMonth] = React.useState('')
-//   const [year, setYear] = React.useState(date.getFullYear())
-//   const [calendarDays, setCalendarDays] = React.useState([])
+//   const [date, setDate] = useState(new Date())
+//   const [day, setDay] = useState('')
+//   const [month, setMonth] = useState('')
+//   const [year, setYear] = useState(date.getFullYear())
+//   const [calendarDays, setCalendarDays] = useState([])
 
 
 //   const appointmentList = useSelector((state) => state.appointmentList);
@@ -512,7 +512,7 @@ Calendar.propTypes = {
 //     setCalendarDays(allDaysWithAppts)
 //   }
 
-//   React.useEffect(() => {
+//   useEffect(() => {
 //     dispatch(listAppointments());
 
 //     if (sortedAppts) {
@@ -520,7 +520,7 @@ Calendar.propTypes = {
 //     }
 //   }, [dispatch]);
 
-//   React.useEffect(() => {
+//   useEffect(() => {
 //     if (loading) {
 //       dispatch(subheader("Loading..."))
 //     } else {
@@ -541,7 +541,7 @@ Calendar.propTypes = {
 //     )
 //   } else {
 //     return (
-//       <div className="calendar">
+//       <div className="container__calendar">
 //         <BtnsLeftRightCalendar date={date} day={day} month={month} year={year} setDate={setDate} setMonth={setMonth} setYear={setYear} getCalendarDays={getCalendarDays} />
 //         <CalendarRowOfDays />
 //         <ul className="calendar__row--numDays">

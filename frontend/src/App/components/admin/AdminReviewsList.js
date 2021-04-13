@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 
@@ -49,11 +49,11 @@ export default function AdminReviewsList({ location, history }) {
         }
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         dispatch(listReviews())
     }, [dispatch, loadingDelete, errorDelete, successDelete, successUpdate])
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (loadingDelete) {
             dispatch(subheader("Loading..."));
         } else {
@@ -64,12 +64,12 @@ export default function AdminReviewsList({ location, history }) {
 
     return (
         <div className="container__screen--sidebar">
-            <div className="admin-reviews">
+            <div className="container__admin-reviews">
                 <div className="header__admin-reviews">
-                    All reviews:
+                    All reviews
                 </div>
                 
-                <div className="admin__table--container">
+                <div className="container__admin--table">
                     <table className="admin-reviews__list--all">
                         <thead className="thead">
                             <tr className="tr">
@@ -116,7 +116,7 @@ export default function AdminReviewsList({ location, history }) {
                                             <FaTrash
                                                 size={20}
                                                 color="var(--green-2)"
-                                                fill="var(--red)"
+                                                fill="var(--red-1)"
                                                 className="icon__trash grey-7"
                                                 type="button"
                                                 onClick={() => deleteHandler(review._id)}

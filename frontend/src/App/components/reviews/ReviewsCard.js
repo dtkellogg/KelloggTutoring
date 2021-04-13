@@ -86,7 +86,7 @@ function ReviewsCard({review}, type) {
               </Link>
               <FaTrash
                 size={20}
-                fill="var(--red)"
+                fill="var(--red-1)"
                 className="icon__trash"
                 type="button"
                 onClick={() => deleteHandler(review._id)}
@@ -158,7 +158,7 @@ function ReviewsCard({review}, type) {
               </Link>
               <FaTrash
                 size={20}
-                fill="var(--red)"
+                fill="var(--red-1)"
                 className="icon__trash"
                 type="button"
                 onClick={() => deleteHandler(review._id)}

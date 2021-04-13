@@ -1,14 +1,14 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-const ToshiAbout = React.lazy(() => import("../components/toshi/ToshiAbout"));
-const ToshiTeaching = React.lazy(() => import("../components/toshi/ToshiTeaching"));
-const PageHeader = React.lazy(() => import("../components/PageHeader"));
-const Blog = React.lazy(() => import("../components/toshi/ToshiBlog"));
-const Reviews = React.lazy(() => import("../components/reviews/Reviews"));
+const ToshiAbout = lazy(() => import("../components/toshi/ToshiAbout"));
+const ToshiTeaching = lazy(() => import("../components/toshi/ToshiTeaching"));
+const PageHeader = lazy(() => import("../components/PageHeader"));
+const Blog = lazy(() => import("../components/toshi/ToshiBlog"));
+const Reviews = lazy(() => import("../components/reviews/Reviews"));
 
-const ReviewCreate = React.lazy(() => import("../components/reviews/ReviewCreate"))
+const ReviewCreate = lazy(() => import("../components/reviews/ReviewCreate"))
 
 
 function ApptsScreen() {

@@ -1,32 +1,8 @@
 .admin-reviews {
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 4;
-
-  @include flexCenterCenter($flex-direction: column);
-
-  padding: 2rem;
-  position: absolute;
-  height: 83vh;
-  width: 100%;
-  overflow: scroll;
-  top: 0;
-
-  @media (max-width: 950px) {
-    grid-column: 1 / -1;
-    overflow: visible;
-  }
-
-  @media (max-width: 600px) {
-    padding: 2rem 1rem;
-  }
-
-  @media (max-width: 900px) {
-    height: 75vh;
-  }
 
   &__list {
     @include hundredPercentHW();
-    line-height: 3.5rem;
+    // line-height: 3.5rem;
     display: table;
 
     &--item {
@@ -38,7 +14,7 @@
 
     &--all {
       @include hundredPercentHW();
-      line-height: 3.5rem;
+      // line-height: 3.5rem;
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
       font-size: var(--font-size-3);
@@ -146,30 +122,10 @@
 }
 
 .th__reviews-list {
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   font-weight: 500;
 
   @media (max-width: 450px) {
     padding: 1.25rem 1rem;
-  }
-}
-
-.admin {
-  &__table {
-    &--container {
-      height: min-content;
-      overflow: scroll;
-      padding-bottom: 2rem;
-
-      @media (max-width: 900px) {
-        height: 59vh;
-      }
-    }
-  }
-
-  &__header {
-    &--container {
-      margin-bottom: 1rem;
-    }
   }
 }

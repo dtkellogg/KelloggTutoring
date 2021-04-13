@@ -19,8 +19,6 @@ import PaymentSteps from './PaymentSteps'
 import PleaseLogin from '../PleaseLogin'
 
 
-
-
 export default function Payments({ match, history }) {
   const [cart, setCart] = useState([]);
   const [cartFull, setCartFull] = useState(false);
@@ -110,10 +108,10 @@ export default function Payments({ match, history }) {
               You have no unpaid appointments
             </div>
         ) : (
-          <div className="appointments__payments--container">
+          <div className="container__payments">
             <PaymentSteps step1 step2 />
 
-            <div className="appointments__payments--header-container">
+            <div className="container__payments--header">
               <Link to={`/appointments/payments/payment-method`} className="btn__payments--continue" >
                 continue
               </Link>

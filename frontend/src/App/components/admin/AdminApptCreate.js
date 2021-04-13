@@ -105,17 +105,17 @@ export default function AdminAppointmentCreate() {
 
       { loading ? <LoadingSpinner/> : (
 
-      <form onSubmit={handleSubmit} className="createApptScreen user__page">
+      <form onSubmit={handleSubmit} className="container__create-appointment user__page">
 
-        <h2 className="header__createApptScreen">
+        <h2 className="header__create-appointment">
           Create a new appointment
         </h2>
 
-        <div className="createApptScreen__content">
+        <div className="create-appointment__content">
 
-          <div className="createApptScreen__element">
+          <div className="create-appointment__element">
             <label
-              className="createApptScreen__label"
+              className="create-appointment__label"
               htmlFor="student"
             >
               student
@@ -123,7 +123,7 @@ export default function AdminAppointmentCreate() {
             {users && (
             <select 
               type="name" 
-              className="createApptScreen__input createApptScreen__input-contact"
+              className="create-appointment__input create-appointment__input-contact"
               placeholder="student name"
               value={student}
               onChange={(e) => setStudent(e.target.value)}
@@ -147,19 +147,19 @@ export default function AdminAppointmentCreate() {
               )}
           </div>
 
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
+          <Input containerClass="create-appointment__element" labelClass="create-appointment__label" inputClass="create-appointment__input create-appointment__input-contact"
             htmlFor="subject" label="subject" type="subject" value={subject} placeholder="subject" onChange={(e) => setSubject(e.target.value)}
           />
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
+          <Input containerClass="create-appointment__element" labelClass="create-appointment__label" inputClass="create-appointment__input create-appointment__input-contact"
             htmlFor="" label="date" type="date" value={date} placeholder="date" onChange={(e) => setDate(e.target.value)}
           />
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
+          <Input containerClass="create-appointment__element" labelClass="create-appointment__label" inputClass="create-appointment__input create-appointment__input-contact"
             htmlFor="" label="start time" type="time" value={startTime} placeholder="start time" onChange={(e) => setStartTime(e.target.value)}
           />
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input createApptScreen__input-contact"
+          <Input containerClass="create-appointment__element" labelClass="create-appointment__label" inputClass="create-appointment__input create-appointment__input-contact"
             htmlFor="" label="end time" type="time" value={endTime} placeholder="end time" onChange={(e) => setEndTime(e.target.value)}
           />
-          <Input containerClass="createApptScreen__element" labelClass="createApptScreen__label" inputClass="createApptScreen__input-contact createApptScreen__check-box"
+          <Input containerClass="create-appointment__element" labelClass="create-appointment__label" inputClass="create-appointment__input-contact create-appointment__check-box"
             htmlFor="" label="paid?" type="checkbox" value={paid} placeholder="paid" onChange={(e) => {paid ? setPaid(false) : setPaid(true)}}
           />
 

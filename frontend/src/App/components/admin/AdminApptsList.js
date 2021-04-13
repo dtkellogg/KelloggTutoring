@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -45,7 +45,7 @@ export default function AdminAppointmentsList({ location, history }) {
 	} = appointmentCreate;
 
 
-	React.useEffect(() => {
+	useEffect(() => {
 		dispatch({ type: APPOINTMENT_CREATE_RESET })
 
 		// ADD CHECK FOR ADMIN
@@ -57,7 +57,7 @@ export default function AdminAppointmentsList({ location, history }) {
 		}
 	}, [dispatch, history, loadingDelete, errorDelete, successDelete, successCreate, createdAppt])
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (loadingCreate || loadingDelete) {
 			dispatch(subheader("Loading..."));
 		} else {
@@ -74,7 +74,8 @@ export default function AdminAppointmentsList({ location, history }) {
 	return (
 		<div className="container__screen--sidebar">
 			<div className="container__admin">
-				<div className="admin__header--container">
+
+				<div className="container__admin--header">
 					<div className="header__appointments">
 						All appointments:
 					</div>
@@ -84,7 +85,9 @@ export default function AdminAppointmentsList({ location, history }) {
 						</span>
 					</Link>
 				</div>
-			<ApptsList type={"admin"} />
+
+				<ApptsList type={"admin"} />
+
 			</div>
 		</div>
   	);

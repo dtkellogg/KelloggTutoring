@@ -1,13 +1,8 @@
 .payment {
 
 	// PAYMENT STEPS - SIGN IN, APPTS, METHOD, PAYMENT, SUBMIT PAYMENT
+	
 	&__steps {
-
-		&--container {
-			// height: 3rem;
-			width: 100%;
-			margin-bottom: 2rem;
-		}
 
 		&--ul {
 			@include flexCenterCenter($justify-content: space-between);
@@ -62,18 +57,15 @@
     	}
 
 		&--screen--form-element {
-				// @include hundredPercentHW();
-				@include flexCenterCenter();
-				width: 100%;
-
-				
+			@include flexCenterCenter();
+			width: 100%;
 		}
 
 		&--screen--form-container {
-				width: 100%;
-				height: 50vh;
-				@include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
-				padding: auto 0 10rem 0;
+			width: 100%;
+			height: 50vh;
+			@include flexCenterCenter($justify-content: flex-start, $flex-direction: column);
+			padding: auto 0 10rem 0;
 		}
 	}
 
@@ -111,10 +103,6 @@
 				display: inline-block;
 				line-height: 2rem;
 				font-size: var(--font-size-3);
-
-				@media (max-width: 550px) {
-					// line-height: 0rem;
-				}
 			}
 		}
 

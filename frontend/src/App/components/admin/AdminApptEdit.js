@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 // components
@@ -19,14 +19,14 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 	const dispatch = useDispatch()
 	const appointmentId = match.params.id
 
-	const [student, setStudent] = React.useState("")
-	const [subject, setSubject] = React.useState("")
-	const [email, setEmail] = React.useState("")
-	const [date, setDate] = React.useState("")
-	const [duration, setDuration] = React.useState("")
-	const [time, setTime] = React.useState("")
-	const [paid, setPaid] = React.useState(null)
-	const [user, setUser] = React.useState("")
+	const [student, setStudent] = useState("")
+	const [subject, setSubject] = useState("")
+	const [email, setEmail] = useState("")
+	const [date, setDate] = useState("")
+	const [duration, setDuration] = useState("")
+	const [time, setTime] = useState("")
+	const [paid, setPaid] = useState(null)
+	const [user, setUser] = useState("")
 
 
 	const appointmentDetails = useSelector((state) => state.appointmentDetails)
@@ -50,10 +50,10 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 			
 	// const redirect = location.search ? location.search.split("=")[1] : "/"
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (successUpdate) {
 				dispatch({ type: APPOINTMENT_UPDATE_RESET })
-				history.push('/admin/userlist')
+				history.push('/admin/users')
 		} else {
 				if (!appointment.student || appointment._id !== appointmentId) {
 						dispatch(getAppointmentDetails(appointmentId))
@@ -78,7 +78,7 @@ export default function AdminAppointmentEdit({ match, location, history }) {
 	return (
 		<div className="toshi">
 		<Sidebar title="Toshi" list={adminList} />
-		<form onSubmit={handleSubmit} className="appt-edit user__page">
+		<form onSubmit={handleSubmit} className="container__appt-edit user__page">
 			<h2 className="header__appt-edit">
 				Edit Appointment
 			</h2>

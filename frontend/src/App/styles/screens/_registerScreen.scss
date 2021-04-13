@@ -1,9 +1,4 @@
-.register-screen {
-  width: 100vw;
-  padding: 7rem 2rem 7rem 2rem;
-  height: 100%;
-  overflow: scroll;
-
+.register {
 
   &__content {
     height: 60vh;
@@ -33,6 +28,8 @@
     border: none;
     border-bottom: 1px solid black;
     height: 3rem;
+    font-size: var(--font-size-3);
+    font-family: $font-family-1;
 
     &:focus {
       outline: none;
@@ -53,6 +50,11 @@
       outline: none;
       border: 1px solid $old-blue-2;
     }
+  }
+
+  &__redirect-to-login {
+    font-size: var(--font-size-5);
+    align-self: center;
   }
 }
 

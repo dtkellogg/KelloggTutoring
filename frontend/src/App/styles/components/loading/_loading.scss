@@ -10,11 +10,6 @@
   border-radius: 50%;
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   animation: spinner 0.7s linear infinite;
-
-  // @media (max-width:900px) {
-  //   top: 30vh;
-  //   left: 50vh;
-  // }
 }
 
 @keyframes spinner {
@@ -36,8 +31,6 @@
   border-radius: 50%;
   background: linear-gradient($white, $old-blue-2);
 }
-
-
 
 .loader span:nth-child(1) {
   filter: blur(5px)

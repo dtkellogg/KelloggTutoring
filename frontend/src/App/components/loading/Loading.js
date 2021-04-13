@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 // prop-types
 import PropTypes from "prop-types";
 
-// styles
+
 const styles = {
     content: {
         fontSize: "15px",
@@ -17,9 +17,9 @@ const styles = {
 
 
 export default function Loading({ text = "Loading", speed = 300 }) {
-    const [content, setContent] = React.useState(text);
+    const [content, setContent] = useState(text);
 
-    React.useEffect(() => {
+    useEffect(() => {
       if (content !== "Loading") {
         document.title = content
 
@@ -28,7 +28,7 @@ export default function Loading({ text = "Loading", speed = 300 }) {
 
     console.log(content)
 
-    React.useEffect(() => {
+    useEffect(() => {
         const id = window.setInterval(() => {
             setContent((content) => {
                 return content === `${text}...` ? text : `${content}.`;

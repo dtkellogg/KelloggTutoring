@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 
 // components
@@ -20,7 +20,7 @@ export default function ReviewsList({ type }) {
 
   const sortedReviews = useSortMultiple(reviews, "date", "name");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(reviews.length === 0) {
       dispatch(listReviews())
     }
@@ -30,7 +30,7 @@ export default function ReviewsList({ type }) {
   console.log(`reviews: ${reviews}`)
   console.log(reviews)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loading) {
       dispatch(subheader("Loading..."));
     } else {

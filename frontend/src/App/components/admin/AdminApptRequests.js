@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // actions
@@ -6,14 +6,18 @@ import { listAppointmentRequests, deleteAppointmentRequest } from "../../actions
 import { subheader } from "../../actions/subheader";
 
 // hooks
-import { useSortMultiple } from '../../hooks/useSort' // eslint-disable-line no-unused-vars
 import useFormatAMPM from "../../hooks/useFormatAMPM"
+import { useHistory } from "react-router-dom";
 
 
+function AMPMTime(time) {
+    return useFormatAMPM(time)
+}
 
-export default function AdminApptRequests({ location, history }) {
+
+export default function AdminApptRequests() {
     const dispatch = useDispatch()
-
+    const history = useHistory()
 
     const appointmentRequestList = useSelector((state) => state.appointmentRequestList)
     const {
@@ -29,7 +33,7 @@ export default function AdminApptRequests({ location, history }) {
     const { success: successDelete } = appointmentRequestDelete
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
             dispatch(listAppointmentRequests())
         } else {
@@ -38,7 +42,7 @@ export default function AdminApptRequests({ location, history }) {
         }
     }, [dispatch, history, successDelete, userInfo])
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (loading) {
             dispatch(subheader("Loading..."));
         } else {
@@ -49,28 +53,22 @@ export default function AdminApptRequests({ location, history }) {
         // }
     }, [dispatch, loading, error])
 
-
     // const deleteHandler = (id) => {
-    //     if (window.confirm('Are you sure you want to delete this user?')) {
+    //     if (window.confirm('Are you sure you want to delete this appointment request?')) {
     //         dispatch(deleteAppointmentRequest(id))
     //     }
     // }
 
-    function AMPMTime(time) {
-        return useFormatAMPM(time)
-    }
-
-
+    
     if (appointmentRequests) {
         return (
             <div className="container__screen--sidebar">
-                {/* <Sidebar title="Toshi" list={adminList} /> */}
-                <div className="appointment-requests">
-                    <h2 className="appointment-requests__header--container header__appointment-requests">
+                <div className="container__appointment-requests">
+                    <h2 className="header__appointment-requests">
                         All Appointment Requests:
                     </h2>
 
-                    <div className="admin__table--container">
+                    <div className="container__admin--table">
                         <table className="appointment-requests__list">
                             <thead className="thead">
                                 <tr className="tr">

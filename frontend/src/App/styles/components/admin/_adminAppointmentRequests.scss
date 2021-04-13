@@ -1,15 +1,4 @@
 .appointment-requests {
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 4;
-
-  padding: 2rem;
-  height: 100%;
-  width: 100%;
-
-  @media (max-width: 950px) {
-    grid-column: 1 / -1;
-  }
-
 
   &__list {
     @include hundredPercentHW();
@@ -19,7 +8,6 @@
 
     &--item {
       @include flexCenterCenter($justify-content: space-around);
-
       width: 100%;
     }
   }
@@ -45,21 +33,6 @@
     &--btns {
       grid-column: 4 / span 2;
       @include flexCenterCenter();
-    }
-  }
-
-  &__header {
-
-    &--container {
-      width : 100%;
-    }
-
-    &--container-checkout {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      justify-items: center;
-      width : 100%;
     }
   }
 
@@ -179,10 +152,7 @@
       padding: 0 1rem;
       text-align: center;
       font-size: var(--font-size-4);
-
       width: 8rem;
-
-     
     }
 
     &--student {
@@ -240,13 +210,11 @@
       }
     }
 
-
     &--time {
       grid-column: 5 / span 1;
       font-size: var(--font-size-3);
       font-weight: 500;
       text-align: center;
-      // @include flexCenterCenter($justify-content: space-between);
 
       @media (max-width: 600px) {
         padding: 0;
@@ -260,7 +228,6 @@
       text-align: center;
       width: 5rem;
       padding: 1rem;
-      // @include flexCenterCenter($justify-content: space-between);
 
       @media (max-width: 600px) {
         padding: 0;

@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-// components
-import {Sidebar} from "../navigation/Sidebar";
 
 // actions
 import { listAppointments } from "../../actions/appointmentActions";
 import { subheader } from "../../actions/subheader";
 
 // hooks
-import { useSortMultiple } from '../../hooks/useSort' // eslint-disable-line no-unused-vars
 import useFormatAMPM from "../../hooks/useFormatAMPM"
 
 
-import { adminList } from "../../data/lists"
+function AMPMTime(time) { // eslint-disable-line no-unused-vars
+    return useFormatAMPM(time)
+}
+
 
 export default function AdminStatsScreen({history, location}) {
     const dispatch = useDispatch()
 
-    // const [students, setStudents] = React.useState([])
+    // const [students, setStudents] = useState([])
     const students = []
 
     const userLogin = useSelector((state) => state.userLogin)
@@ -28,7 +27,7 @@ export default function AdminStatsScreen({history, location}) {
     const { loading, error, appointments } = appointmentList
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
             dispatch(listAppointments())
         } else {
@@ -37,7 +36,7 @@ export default function AdminStatsScreen({history, location}) {
         }
     }, [dispatch, history, userInfo])
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (loading) {
             dispatch(subheader("Loading..."));
         } else {
@@ -48,7 +47,7 @@ export default function AdminStatsScreen({history, location}) {
         // }
     }, [dispatch, loading, error])
 
-    React.useEffect(() => {
+    useEffect(() => {
         appointments.forEach((appt) => {
             // console.log(`appt.student: ${appt.student}`)
             students.push(appt.student)
@@ -56,28 +55,18 @@ export default function AdminStatsScreen({history, location}) {
         })
     }, [appointments, students])
 
-
-    function AMPMTime(time) { // eslint-disable-line no-unused-vars
-        return useFormatAMPM(time)
-    }
-
     console.log(appointments)
     console.log(students)
-
-    
-
     console.log(`students: ${students}`)
 
-    
 
     if (appointments) {
-
     
         return (
             <div className="container__screen--sidebar">
             {/* <Sidebar title="Toshi" list={adminList} /> */}
-            <div className="appointment-requests">
-                    <h2 className="header__appointment-requests">
+            <div className="container__appointment-requests">
+                <h2 className="header__appointment-requests">
                     Stats:
                 </h2>
 
@@ -119,7 +108,7 @@ export default function AdminStatsScreen({history, location}) {
                 <span>This Year:</span>
               </div>
 
-              {/* <div className="admin__table--container">
+              {/* <div className="container__admin--table">
                         <table className="appointment-requests__list">
                             <thead className="thead">
                                 <tr className="tr">

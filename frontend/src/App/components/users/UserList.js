@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
@@ -20,7 +20,7 @@ function UserList() {
   const dispatch = useDispatch();
   const history = useHistory()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listUsers());
     } else {
@@ -60,7 +60,7 @@ function UserList() {
                 <FaTrash
                     size={20}
                     color="var(--green-2)"
-                    fill="var(--red)"
+                    fill="var(--red-1)"
                     className="icon grey-7"
                     type="button"
                     onClick={() => deleteHandler(user._id)}

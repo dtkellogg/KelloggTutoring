@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 
 // slug
@@ -136,6 +136,6 @@ function SidebarRaw({ title, list, url }) {
 //   );
 // }
 
-export const Sidebar = React.memo(SidebarRaw, (prevProps, nextProps) => {
+export const Sidebar = memo(SidebarRaw, (prevProps, nextProps) => {
   return prevProps.count === nextProps.count
 })

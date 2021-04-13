@@ -5,6 +5,7 @@ import { useLocation, Link } from "react-router-dom";
 // components
 import ApptsList from '../appointments/ApptsList'
 import Calendar from "../calendar/Calendar";
+import PleaseLogin from "../PleaseLogin";
 
 // actions
 import { listAppointments } from '../../actions/appointmentActions'
@@ -44,7 +45,7 @@ function HomeAppointments({calendarRef}) {
               </button>
             </Link>
 
-            <Link to={`/appointments/appts`} className="">
+            <Link to={`/appointments/list`} className="">
               <button className="btn__home--3-btns">
                 View all appointments
               </button>
@@ -98,13 +99,7 @@ function HomeAppointments({calendarRef}) {
         </div>
         <div className="container__home--appointments-right" ref={calendarRef}>
           {!userInfo ? (
-                <Link to={`/login`} className="msg__userInfoNull">
-                  Please&nbsp;
-                  <span className="font-size-2" style={{ color: "blue" }}>
-                        login&nbsp;
-                  </span>
-                  <span className="font-size-2"> to view your appointments</span>
-                </Link>
+            <PleaseLogin />
           ) : displayAppts === "list" ? (
               <ApptsList type="upcoming" />
           ) : (

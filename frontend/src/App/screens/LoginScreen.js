@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
@@ -9,15 +9,15 @@ export default function Login({ location, history }) {
   const dispatch= useDispatch()
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [failedMsg, setFailedMsg] = React.useState("")
-  const [successMsg, setSuccessMsg] = React.useState('') // eslint-disable-line no-unused-vars
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [failedMsg, setFailedMsg] = useState("")
+  const [successMsg, setSuccessMsg] = useState('') // eslint-disable-line no-unused-vars
 
   const userLogin = useSelector(state => state.userLogin)
   const { loading, error, userInfo } = userLogin
   
-  React.useEffect(() => {
+  useEffect(() => {
     if(userInfo) {
       history.push(redirect)
     }
@@ -69,15 +69,6 @@ export default function Login({ location, history }) {
               htmlFor="" label="password" type="password" value={password} placeholder="your password" onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
-          {/* {failedMsg && (
-            <span className="login__failed-message">
-              {failedMsg}
-            </span>
-          )}
-          {successMsg && (
-            <span className="login__success-message">{successMsg}</span>
-          )} */}
 
           <button
             className="btn__login"
