@@ -4,39 +4,45 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
 import { subheader } from "../actions/subheader"
 import Input from '../components/Input'
+import { useToasts } from 'react-toast-notifications'
 
 export default function Login({ location, history }) {
   const dispatch= useDispatch()
   const redirect = location.search ? location.search.split('=')[1] : '/'
+  const { addToast } = useToasts()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [failedMsg, setFailedMsg] = useState("")
-  const [successMsg, setSuccessMsg] = useState('') // eslint-disable-line no-unused-vars
 
   const userLogin = useSelector(state => state.userLogin)
   const { loading, error, userInfo } = userLogin
-  
+
   useEffect(() => {
     if(userInfo) {
       history.push(redirect)
+      const firstName = userInfo.name.split(" ")[0]
+      
+      addToast(`Welcome back ${firstName}`, {
+        appearance: "success",
+        autoDismiss: true,
+      })
     }
+  }, [userInfo])
+
+  useEffect(() => {
     if(loading) {
       dispatch(subheader("Loading..."));
     } else {
       dispatch(subheader(""));
     }
     if(error) {
-      // dispatch(subheader({error}));
       console.log(error);
-      setFailedMsg('There was a problem logging in. Reenter your email and password.');
-
-      window.setTimeout(() => {
-        setFailedMsg("");
-      }, 5000);
-
+      addToast('There was a problem logging in. Reenter your email and password.', {
+        appearance: "error",
+        autoDismiss: true,
+      })
     }
-  }, [dispatch, history, userInfo, redirect, loading, error])
+  }, [dispatch, loading, error])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,16 +50,14 @@ export default function Login({ location, history }) {
     if (email.length > 0 && password.length > 0) {
       dispatch(login(email, password))
     } else {
-      setFailedMsg('Enter a valid email address and password.')
-
-      window.setTimeout(() => {
-        setFailedMsg("");
-      }, 4000);
+      addToast('Enter a valid email address and password.', {
+        appearance: "error",
+        autoDismiss: true,
+      })
     } 
   }
 
-
-
+  
   return (
     <div className="container__screen--no-sidebar">
       <form onSubmit={handleSubmit} className="container__login--form">

@@ -18,9 +18,6 @@ export default function ReviewsRaw({ type }) {
         className={
           type === "meetToshi" ? "container__reviews--toshi-screen" : "container__reviews--home-screen"
         }
-        // style={
-        //   type === "meetToshi" ? { display: "block" } : { display: "flex" }
-        // }
       >
         {type === "meetToshi" && (
           <Link to={`${url}/create-review`} className="btn__reviews">
