@@ -85,8 +85,7 @@ export default function Payments({ match, history }) {
       .filter((appt) => appt.paid === false).length === cart.length
     ) {setCartFull(true)}
     }
-  }, [dispatch, loading, error, cart, sortedAppts]);
-
+  }, [dispatch, loading, error, cart, sortedAppts]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ability to reset cart
   const handleReset = () => {

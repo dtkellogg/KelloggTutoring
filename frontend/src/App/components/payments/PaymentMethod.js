@@ -28,7 +28,7 @@ const PaymentMethodScreen = () => {
 
 
   return (
-    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
       <div className="payment__method--screen">
         <CheckoutSteps step1 step2 step3 />
         <form onSubmit={submitHandler} className="payment__method--screen--form">

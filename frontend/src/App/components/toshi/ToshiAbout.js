@@ -7,7 +7,7 @@ export default function ToshiAbout() {
   const { width } = useWindowDimensions()
 
     return (
-      <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+      <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
         <div className="container__toshi">
           <h2 className="header__toshi letter-spacing-sm">
             Hello!

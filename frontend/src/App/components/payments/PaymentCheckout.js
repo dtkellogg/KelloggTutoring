@@ -18,6 +18,7 @@ import useFormatAMPM from "../../hooks/useFormatAMPM";
 
 //constants
 import { CART_RESET } from "../../constants/cartConstants";
+import { useToasts } from "react-toast-notifications";
 
 
 function AMPMTime(time) {
@@ -28,6 +29,7 @@ function AMPMTime(time) {
 function PaymentCheckout() {
   const dispatch = useDispatch();
   const history = useHistory()
+  const {addToast} = useToasts()
 
   const cart = useSelector((state) => state.cart);
   const paymentMethod = cart.paymentMethod;
@@ -39,9 +41,14 @@ function PaymentCheckout() {
     if (success) {
       dispatch({ type: CART_RESET });
       history.push(`/appointments/payments/${payment._id}/edit`);
+    } else if (error) {
+      addToast('There was an error. Please try submitting again.', {
+        appearance: "error",
+        autoDismiss: true,
+      })
     }
     
-  }, [history, success]); // eslint-disable-next-line
+  }, [dispatch, history, success, error, addToast, payment._id]); // eslint-disable-next-line
 
   const submitPaymentHandler = () => {
     dispatch(

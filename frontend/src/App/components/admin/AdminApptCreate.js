@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
 
@@ -29,7 +29,6 @@ export default function AdminAppointmentCreate() {
 
   const dispatch = useDispatch()
   const history = useHistory()
-  const location = useLocation()
   const { addToast } = useToasts();
 
   useEffect(() => {
@@ -70,16 +69,7 @@ export default function AdminAppointmentCreate() {
       history.push("/admin/appts");
     }
 
-  }, [
-    dispatch,
-    history,
-    loading,
-    error,
-    submitted,
-    successCreate,
-    loadingCreate,
-    errorCreate,
-  ]);
+  }, [dispatch, history, loading, error, submitted, successCreate, loadingCreate, errorCreate]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const handleSubmit = async (e) => {
     e.preventDefault()

@@ -55,7 +55,7 @@ function PaymentScreen({ match, history }) {
     if (error) {
       dispatch(subheader({ error }));
     }
-  }, [loading, error])
+  }, [dispatch, loading, error])
 
   // PAYPAL STUFF ... PROB WANT TO MOVE TO A CHECKOUT SCREEN EVENTUALLY
 

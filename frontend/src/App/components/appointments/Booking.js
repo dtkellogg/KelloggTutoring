@@ -66,7 +66,7 @@ export default function Booking({ location, history, type}) {
         dispatch(subheader(""));
       }
     }
-  }, [dispatch, loading, error, loadingCreate, errorCreate, successCreate]);
+  }, [dispatch, loading, error, loadingCreate, errorCreate, successCreate, addToast, user]);
 
   const handleSubmit = async (e) => {
     try {
@@ -98,7 +98,7 @@ export default function Booking({ location, history, type}) {
 
 
   return (
-    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
       <form onSubmit={handleSubmit} className="container__form">
         <h2 className="header__booking">
           Request an appointment

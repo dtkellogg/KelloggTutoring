@@ -3,7 +3,7 @@ import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
 function BtnsLeftRightCalendar({ date, day, month, year, setDate, setDay, setMonth, setYear, getCalendarDays }) {
 
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
+    // const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"]
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     

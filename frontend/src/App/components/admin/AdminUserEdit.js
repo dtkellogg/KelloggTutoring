@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // components
@@ -16,7 +16,6 @@ import { USER_UPDATE_RESET } from '../../constants/userConstants'
 export default function AdminUserEdit ({ match }) {
 	const userId = match.params.id
 	const history = useHistory()
-	const location = useLocation()
 
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')

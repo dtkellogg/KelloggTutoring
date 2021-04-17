@@ -3,6 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 
+import {subheader} from "../../actions/subheader"
+
 // actions
 import { listUsers, deleteUser } from "../../actions/userActions";
 import LoadingSpinner from '../loading/LoadingSpinner';
@@ -28,6 +30,17 @@ function UserList() {
       history.push("/login");
     }
   }, [dispatch, history, successDelete, userInfo]);
+
+  useEffect(() => {
+    if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
+    }
+    if (error) {
+      dispatch(subheader("Error"));
+    }
+  }, [dispatch, loading, error]) 
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {

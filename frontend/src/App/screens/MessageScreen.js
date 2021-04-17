@@ -29,7 +29,6 @@ export default function MessageScreen({ history }) {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [failed, setFailed] = useState("");
 
   const dispatch = useDispatch();
   const { width } = useWindowDimensions()
@@ -107,7 +106,7 @@ export default function MessageScreen({ history }) {
   };
 
   return (
-    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
       <form className="container__form" onSubmit={handleSubmit}>
         <h2 className="header__form">
           Any questions?
@@ -137,7 +136,7 @@ export default function MessageScreen({ history }) {
         <button
           className="btn__form"
           onClick={handleSubmit}
-          disabled={submitted || failed.length > 0}
+          disabled={submitted}
         >
           Submit
         </button>

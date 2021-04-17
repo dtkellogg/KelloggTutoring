@@ -19,7 +19,9 @@ import { useSort } from '../../hooks/useSort'
 import useFormatAMPM from "../../hooks/useFormatAMPM";
 import CalendarRowOfDays from "./CalendarRowOfDays";
 
-import {daysOfWeek, months} from '../../data/lists'
+import {
+  // daysOfWeek, 
+  months} from '../../data/lists'
 
 // uuid
 const { v4: uuid } = require("uuid");
@@ -29,7 +31,7 @@ function AMPMTime(time) {
   return useFormatAMPM(time);
 }
 
-const days = daysOfWeek
+// const days = daysOfWeek
 
 function daysInMonth(month, year) {
   // console.log(`month: ${month}`)
@@ -184,7 +186,7 @@ export default function Calendar({ type }) {
     if (sortedAppts) {
       getCalendarDays(date);
     }
-  }, [sortedAppts]);
+  }, [sortedAppts]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (loading) {

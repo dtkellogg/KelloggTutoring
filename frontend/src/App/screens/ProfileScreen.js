@@ -53,7 +53,7 @@ export default function Profile({ location, history }) {
         }
       }
     }
-  }, [dispatch, history, user]);
+  }, [dispatch, history, user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -40,7 +40,7 @@ export default function ApptsList({ type }) {
   const {
     loading: loadingUpdate, // eslint-disable-line no-unused-vars
     error: errorUpdate, // eslint-disable-line no-unused-vars
-    success: successUpdate
+    success: successUpdate // eslint-disable-line no-unused-vars
   } = appointmentUpdate;
 
   const userLogin = useSelector((state) => state.userLogin)
@@ -62,7 +62,7 @@ export default function ApptsList({ type }) {
 
   useEffect(() => {
     dispatch(listAppointments())
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if(userInfo) {
@@ -83,12 +83,9 @@ export default function ApptsList({ type }) {
         setAppts(appointments)
       }
     }
-  }, [appointments])
+  }, [appointments]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log("IN APPTS LIST")
-
-
-
+  
   if (!userInfo || userInfo === null) {
     return <PleaseLogin />
   } else if (type === "upcoming" && appts.length > 0) {

@@ -8,7 +8,7 @@ import ReviewsCard from './ReviewsCard'
 import { useSortMultiple } from "../../hooks/useSort";
 
 // actions
-import { listReviews, deleteReview } from "../../actions/reviewActions";
+import { listReviews } from "../../actions/reviewActions";
 import { subheader } from "../../actions/subheader";
 
 
@@ -24,11 +24,7 @@ export default function ReviewsList({ type }) {
     if(reviews.length === 0) {
       dispatch(listReviews())
     }
-  }, [dispatch])
-
-  console.log("Inside Reviews List Component")
-  console.log(`reviews: ${reviews}`)
-  console.log(reviews)
+  }, [dispatch]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (loading) {

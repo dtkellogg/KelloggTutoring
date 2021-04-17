@@ -1,3 +1,80 @@
+// Number at end of fadeInAnimated classes denotes time of delay (seconds)
+
+.fadeInAnimated--0, .fadeInAnimated--kelloggtutoring,
+.fadeInAnimated--hackerNewsClone, .fadeInAnimated--omnifood,
+.fadeInAnimated--1, .fadeInAnimated--nexter,
+.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket,
+.fadeInAnimated--1-5, .fadeInAnimated--2, .fadeInAnimated--thalassa,
+.fadeInAnimated--tetris,  .fadeInAnimated--natours, .fadeInAnimated--2-25, 
+.fadeInAnimated--2-5, .fadeInAnimated--3, .fadeInAnimated--indonesia2015,
+.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball, .fadeInAnimated--3-25,
+.fadeInAnimated--4, .fadeInAnimated--4-5, .fadeInAnimated--5, .fadeInAnimated--6,
+.fadeInAnimated--7, .fadeInAnimated--8, .fadeInAnimated--9  {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.fadeInAnimated--1, .fadeInAnimated--nexter,
+.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket  {
+  animation-delay: 1s;
+}
+
+.fadeInAnimated--1-5 {
+  animation-delay: 1.5s;
+}
+
+.fadeInAnimated--2, .fadeInAnimated--thalassa,
+.fadeInAnimated--tetris, .fadeInAnimated--natours {
+  animation-delay: 2s;
+}
+
+.fadeInAnimated--2-25 {
+  animation-delay: 2.25s;
+}
+
+.fadeInAnimated--2-5 {
+  animation-delay: 2.25s;
+}
+
+.fadeInAnimated--3, .fadeInAnimated--indonesia2015,
+.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball {
+  animation-delay: 3s;
+}
+
+.fadeInAnimated--3-25 {
+  animation-delay: 3.25s;
+}
+
+.fadeInAnimated--4 {
+  animation-delay: 4s;
+}
+
+.fadeInAnimated--4-5 {
+  animation-delay: 4.5s;
+}
+
+.fadeInAnimated--5 {
+  animation-delay: 5s;
+}
+
+.fadeInAnimated--6 {
+  animation-delay: 6s;
+}
+
+.fadeInAnimated--7 {
+  animation-delay: 7s;
+}
+
+.fadeInAnimated--8 {
+  animation-delay: 8s;
+}
+
+.fadeInAnimated--9 {
+  animation-delay: 9s;
+}
+
+////////////////////////////////
+
 @keyframes fadeIn {
   from {opacity: 0}
   to {opacity: 1}
@@ -6,107 +83,4 @@
 @keyframes fadeOut {
   from {opacity: 1}
   to {opacity: 0}
-}
-
-// Number at end of fadeInAnimated classes denotes time of delay (seconds)
-
-.fadeInAnimated--0, .fadeInAnimated--kelloggtutoring,
-.fadeInAnimated--hackerNewsClone, .fadeInAnimated--omnifood {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-}
-
-.fadeInAnimated--1, .fadeInAnimated--nexter,
-.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket  {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 1s;
-}
-
-.fadeInAnimated--1-5 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 1.5s;
-}
-
-.fadeInAnimated--2, .fadeInAnimated--thalassa,
-.fadeInAnimated--tetris,  .fadeInAnimated--natours {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 2s;
-}
-
-.fadeInAnimated--2-25 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 2.25s;
-}
-
-.fadeInAnimated--2-5 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 2.25s;
-}
-
-.fadeInAnimated--3, .fadeInAnimated--indonesia2015,
-.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 3s;
-}
-
-.fadeInAnimated--3-25 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 3.25s;
-}
-
-.fadeInAnimated--4 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 4s;
-}
-
-.fadeInAnimated--4-5 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 4.5s;
-}
-
-.fadeInAnimated--5 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 5s;
-}
-
-.fadeInAnimated--6 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 6s;
-}
-
-.fadeInAnimated--7 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 7s;
-}
-
-.fadeInAnimated--8 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 8s;
-}
-
-.fadeInAnimated--9 {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 9s;
-}
-
-
-////////////////////////////////
-
-@keyframes fadeIn {
-  from {opacity: 0}
-  to {opacity: 1}
 }

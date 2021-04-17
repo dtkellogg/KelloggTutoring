@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { FaCheckSquare, FaTrash, FaTimes } from 'react-icons/fa'
 
 // prop-types
@@ -134,3 +134,9 @@ function ApptsTableBody({appts, type}) {
 }
 
 export default ApptsTableBody
+
+
+ApptsTableBody.propTypes = {
+    appts: PropTypes.array,
+    type: PropTypes.string
+}

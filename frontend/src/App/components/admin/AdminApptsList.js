@@ -7,7 +7,6 @@ import { listAppointments } from '../../actions/appointmentActions'
 import { subheader } from "../../actions/subheader";
 
 // components
-import {Sidebar} from "../navigation/Sidebar";
 import ApptsList from '../appointments/ApptsList'
 
 // constants

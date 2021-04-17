@@ -10,7 +10,6 @@ import { getReviewDetails, updateReview } from "../../actions/reviewActions";
 import { REVIEW_UPDATE_RESET } from "../../constants/reviewConstants";
 
 
-
 export default function ReviewEdit({ match, history, location }) {
   const reviewId = match.params.id;
   const dispatch = useDispatch();

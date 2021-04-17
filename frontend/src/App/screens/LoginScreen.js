@@ -27,7 +27,7 @@ export default function Login({ location, history }) {
         autoDismiss: true,
       })
     }
-  }, [userInfo])
+  }, [history, addToast, redirect, userInfo]) 
 
   useEffect(() => {
     if(loading) {
@@ -42,7 +42,7 @@ export default function Login({ location, history }) {
         autoDismiss: true,
       })
     }
-  }, [dispatch, loading, error])
+  }, [dispatch, addToast, loading, error]) 
 
   const handleSubmit = async (e) => {
     e.preventDefault();

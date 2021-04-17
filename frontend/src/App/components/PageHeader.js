@@ -16,7 +16,7 @@ export default function PageHeader() {
     width > 950
       ? setHand(handsLeft[Math.floor(Math.random() * handsLeft.length)])
       : setHand(handsUp[Math.floor(Math.random() * handsUp.length)])
-  }, [directionText])
+  }, [ width])
 
   useEffect(() => {
     setDirectionText(width > 950 ? "to the left" : "above")
@@ -24,7 +24,7 @@ export default function PageHeader() {
 
 
   return (
-    <div className={"fadeInAnimated--0", width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar" }>
+    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar" }>
         <div className="container__page-header">
         <h2 className="page-header__text">
           {`Please select an option ${directionText}.`}
