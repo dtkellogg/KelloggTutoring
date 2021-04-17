@@ -109,7 +109,7 @@ export default function ApptsList({ type }) {
   } else if (type === "admin" && userInfo && appts.length ) {
     return (
       <div className="container__admin--table">
-        <table className="appointments__list--all">
+        <table className="appointments__list--admin">
           <ApptsTableHead />
           <ApptsTableBody appts={appts} type={type} />
         </table>

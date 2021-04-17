@@ -65,7 +65,7 @@ export default function AdminApptRequests() {
             <div className="container__screen--sidebar">
                 <div className="container__admin--appointment-requests">
                     <h2 className="header__appointment-requests">
-                        All Appointment Requests:
+                        All Appointment Requests
                     </h2>
 
                     <div className="container__admin--table">

@@ -377,7 +377,7 @@
     height: 100%;
     grid-row: 3 / span 2;
     grid-column: 1 / span 1;
-    z-index: 100;
+    z-index: 99;
 
     @media (max-width: 950px) {
       @include flexCenterCenter($justify-content: space-around);
@@ -827,7 +827,7 @@
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
 
-      @include flexCenterCenter($flex-direction: column);
+      @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
 
       padding: 2rem;
       position: absolute;

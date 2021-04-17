@@ -14,7 +14,7 @@
       width: 100%;
     }
 
-    &--all {
+    &--all, &--admin {
       width: 100%;
       height: min-content;
       line-height: 3.5rem;
@@ -22,7 +22,7 @@
       grid-column: 2 / -1;
 
       position: absolute;
-      top: 0;
+      
 
       @media ( max-width: 950px ) {
         grid-column: 1 / -1;
@@ -31,6 +31,14 @@
       @media ( max-width: 600px ) {
         height: auto;
       }
+    }
+
+    &--all {
+      top: 0;
+    }
+
+    &--admin {
+      top: 7rem;
     }
   }
 
