@@ -73,9 +73,9 @@ export default function AdminUserEdit ({ match }) {
 
 	return (
 		<div className="toshi">
-			<form onSubmit={handleSubmit} className="container__user-edit user__page">
+			<form onSubmit={handleSubmit} className="container__admin--edit-user">
 
-				<Link to='/admin/users' className="btn__user-edit">Go Back</Link>
+				<Link to='/admin/users' className="btn__admin--user-edit">Go Back</Link>
 
 				<h2 className="header__user-edit">Edit User</h2>
 

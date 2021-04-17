@@ -1,14 +1,13 @@
 .container {
 
   &__main {
-    height: max-content;
-    position: relative;
-    width: 100%;
     display: grid;
-    // grid-template-rows: 8.1rem minmax(6.0vh, 5rem) minmax(83vh, min-content) 12.5rem;
     grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 83vh) 14.5rem;
     grid-template-columns: repeat(5, 20vw);
-    // grid-template-columns: 0.001rem repeat(5, 1fr) 0.001rem;
+
+    position: relative;
+    height: max-content;
+    width: 100%;
 
     @media (max-height: 1400px) {
       grid-template-rows: 9.5rem 6rem 4.5rem 121rem 14.5rem;
@@ -62,8 +61,6 @@
       grid-template-rows: 5.5rem 3.5rem minmax(100vh, min-content) 12.5rem;
     }
   }
-
-
 
   &__body {
     grid-row: 3 / span 1;
@@ -122,18 +119,14 @@
 
       @include mediaQueriesContainerWithSidebar();
     }
-    
 
     &--no-sidebar {
-      @include hundredPercentHW();
       height: 100%;
       width: 100vw;
-      // padding: 10rem 2rem;
       overflow: scroll;
     
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
-      // overflow: visible;
       position: relative;
 
       @include mediaQueriesContainerWithSidebar();
@@ -148,7 +141,6 @@
       @media (max-width: 950px) {
         margin-top: 4.5rem;
       }
-
     }
   }
 
@@ -167,7 +159,6 @@
     &--secondary {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      // grid-template-rows: 86vh 100vh 100vh 20vh;
       grid-template-rows: minmax(min-content, 90rem) minmax(min-content, 100rem) minmax(min-content, 100rem) minmax(min-content, 20vh);
       height: min-content;
       width: 90vw;
@@ -183,26 +174,22 @@
       @media (max-height: 900px) {
         grid-template-rows: minmax(min-content, 70rem) minmax(min-content, 100rem) minmax(min-content, 100rem) minmax(min-content, 20vh);
       }
-
       
       @media (max-width: 1050px) {
         grid-template-rows: minmax(min-content, 90rem) minmax(min-content, 175rem) minmax(min-content, 111rem) minmax(min-content, 20vh);
       }
+
       @media (max-width: 950px) {
         width: 100vw;
         transform: translate(0);
       }
+
       @media (max-width: 950px) and (max-height: 450px) {
         grid-template-rows: 86vh 400vh 163vh 20vh;
       }
+
       @media (max-width: 600px) {
         grid-template-rows: minmax(min-content, 90rem) minmax(min-content, 100rem) minmax(min-content, 111rem) minmax(min-content, 20vh);
-      }
-
-      
-
-      @media (max-height: 650px) {
-        // grid-template-rows: minmax(min-content, 110vh) minmax(min-content, 100rem) minmax(min-content, 111rem) minmax(min-content, 20vh);
       }
 
       @media (max-width: 950px) and (max-height: 450px) {
@@ -267,16 +254,14 @@
       grid-column: 1 / -1;
       background: $old-blue;
     }
+
     &--reviews-2 {
       grid-row: 1 / span 1;
       grid-column: 1 / span 3;
       height: 100%;
       overflow: hidden;
-
-      @media (max-width: 600px) {
-        // display: none;
-      }
     }
+
     &--reviews-3 {
       height: 100%;
       padding: 2rem;
@@ -318,32 +303,11 @@
       grid-column: 1 / -1;
     }
 
-    // &--right {
-    //   width: 40rem;
-    //   align-items: center;
-    //   transform: translate(0, -17rem);
-    //   @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
-
-    //   @media (max-height: 850px) {
-    //     transform: translate(0rem, -14rem);
-    //   }
-    // }
-
-    // &--text {
-    //   line-height: 5rem;
-    //   transform: translate(0rem, -10rem);
-
-    //   @media (max-width: 950px) {
-    //     transform: translate(0rem, 0rem);
-    //     @include flexCenterCenter($flex-direction: column);
-    //   }
-    // }
-
     &--right {
+      @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
       width: 40rem;
       align-items: center;
       transform: translate(0, -17rem);
-      @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
 
       @media (max-width: 950px) {
         transform: translate(0rem, -14rem);
@@ -386,7 +350,7 @@
       background-color: $grey-9;
       border-bottom: 1px solid $grey-6;
       color: $black;
-      z-index: 99;
+      z-index: 100;
 
       @media ( max-width: 510px ) {
         display: grid;
@@ -402,26 +366,24 @@
       border-bottom: 1px solid $grey-6;
       padding: 1rem 1rem 1rem 2rem;
       position: relative;
-      // overflow: hidden;
     }
   }
 
   &__sidebar {
     padding: 2rem;
     background: $labor-work;
-    // grid-row: 3 / -1;
     width: 100%;
     position: absolute;
     height: 100%;
     grid-row: 3 / span 2;
     grid-column: 1 / span 1;
-    z-index: 50;
+    z-index: 100;
 
     @media (max-width: 950px) {
+      @include flexCenterCenter($justify-content: space-around);
       grid-row: 3 / span 1;
       grid-column: 1 / -1;
       width: 100%;
-      @include flexCenterCenter($justify-content: space-around);
     }
 
     @media (max-width: 950px) and (max-height: 450px) {
@@ -435,7 +397,7 @@
     }
   }
 
-  //--------------------register--------------------//
+  //--------------------user--------------------//
 
   &__register {
 
@@ -443,6 +405,37 @@
       width: 35rem;
       margin-bottom: 11rem;
       margin-top: 3rem;
+    }
+  }
+
+  &__profile {
+    &--form {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      width: 30rem;
+      position: absolute;
+      top: 0;
+      margin-top: 10%;
+    }
+  }
+
+  &__login {
+    &--form {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+    }
+  }
+
+  &__register {
+    &--form {
+      grid-column: 1 / -1;
+      @include flexCenterCenter($flex-direction: column);
+      width: 35rem;
+      overflow: hidden;
     }
   }
 
@@ -493,7 +486,10 @@
     
   }
 
+  //--------------------reviews--------------------//
+
   &__reviews {
+
     &--home-screen {
       @include hundredPercentHW();
       display: flex;
@@ -526,26 +522,6 @@
     }
   }
 
-  //--------------------admin--------------------//
-
-  &__admin {
-    grid-column: 2 / -1;
-    width: 100%;
-    height: 100%;
-    padding: 3rem 2rem;
-    overflow: hidden;
-
-    @media (max-width: 950px) {
-      grid-column: 1 / -1;
-    }
-  }
-  //--------------------calendar--------------------//
-
-  &__calendar {
-    @include hundredPercentHW();
-    grid-column: 2 / -1;
-  }
-
   //--------------------pg-header--------------------//
 
   &__page-header {
@@ -557,63 +533,6 @@
     }
   }
 
-  //--------------------profile--------------------//
-
-  &__profile {
-      &--form {
-        grid-column: 1 / -1;
-        display: flex;
-        flex-direction: column;
-        justify-self: center;
-        width: 30rem;
-        position: absolute;
-        top: 0;
-        margin-top: 10%;
-      }
-    }
-
-  //--------------------login--------------------//
-
-  &__login {
-    &--form {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-direction: column;
-      justify-self: center;
-    }
-  }
-
-  //--------------------register--------------------//
-
-  &__register {
-    &--form {
-      grid-column: 1 / -1;
-      @include flexCenterCenter($flex-direction: column);
-      width: 35rem;
-      overflow: hidden;
-    }
-  }
-
-  &__payments {
-    @include hundredPercentHW();
-    grid-column: 2 / -1;
-    padding: 2rem;
-
-    @media (max-width: 950px) {
-      grid-column: 1 / -1;
-    }
-
-    &--header {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 3rem 3rem;
-      align-items: center;
-      justify-items: center;
-      width : 100%;
-      margin-bottom: 1rem;
-    }
-  }
-
   //--------------------form--------------------//
 
   &__form {
@@ -621,7 +540,6 @@
     height: 100%;
     grid-column: 2 / -1;
     padding: 3rem 2rem;
-    // overflow: scroll;
     cursor: ns-resize;
     @include hundredPercentHW();
     @include flexCenterCenter($flex-direction: column, $justify-content: space-between);
@@ -679,7 +597,7 @@
       grid-row: 3 / span 1;
       grid-column: 5 / -1;
       height: 100%;
-      z-index: 99;
+      z-index: 100;
       position: absolute;
       right: 2.5vw;
       top: 70vh;
@@ -695,7 +613,7 @@
       grid-column: 2 / span 1;
       width: max-content;
       transform: translate(-0.75rem, 7.5rem);
-      z-index: 9999999;
+      z-index: 100;
 
       @media (max-height: 850px) {
         transform: translate(-1rem, 10.5rem);
@@ -737,9 +655,29 @@
 
   //--------------------payments--------------------//
 
+  &__payments {
+    @include hundredPercentHW();
+    grid-column: 2 / -1;
+    padding: 2rem;
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
+
+    &--header {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 3rem 3rem;
+      align-items: center;
+      justify-items: center;
+      width : 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
   &__paypal {
-    width: 100%;
     @include flexCenterCenter();
+    width: 100%;
     margin-top: 5rem;
 
     &--btns {
@@ -749,23 +687,23 @@
   }
 
   &__header {
+
     &--appointments {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 4vh 3vh;
       align-items: center;
       justify-items: center;
+
       width : 100%;
       margin-bottom: 1rem;
     }
   }
 
   &__checkout {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include hundredPercentHW();
+    @include flexCenterCenter($flex-direction: column, $justify-content: stretch);
+
     grid-row: 1 / span 1;
     grid-column: 2 / span 4;
     padding: 2rem;
@@ -800,6 +738,14 @@
   //--------------------admin--------------------//
 
   &__admin {
+    @include hundredPercentHW();
+    grid-column: 2 / -1;
+    padding: 3rem 2rem;
+    overflow: hidden;
+
+    @media (max-width: 950px) {
+      grid-column: 1 / -1;
+    }
 
     &--table {
       height: min-content;
@@ -813,17 +759,114 @@
       }
     }
 
-    &__header {
+    &--header {
       margin-bottom: 1rem;
     }
+
+
+    &--edit-appointment {
+      grid-row: 1 / span 1;
+      padding: 10rem 2rem 10rem 2rem;
+      overflow: scroll;
+
+      @include hundredPercentHW();
+      @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
+      grid-column: 2 / span 4;
+    }
+
+    &--create-appointment {
+      @include hundredPercentHW();
+      @include flexCenterCenter($flex-direction: column);
+
+      grid-row: 1 / span 1;
+      grid-column: 2 / -1;
+      width: 40rem;
+      padding: 2rem;
+      overflow: scroll;
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+        width: 88%;
+      }
+
+      @media (max-width: 450px) {
+        margin: 0 auto;
+      }
+    }
+
+    &--appointment-requests {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 4;
+
+      padding: 2rem;
+      height: 100%;
+      width: 100%;
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+      }
+    }
+
+    &--edit-user {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 4;
+      padding: 10rem 2rem 10rem 2rem;
+      height: 100%;
+      overflow: scroll;
+      position: relative;
+
+      @include hundredPercentHW();
+      @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
+
+      @media (max-width: 480px) {
+        padding: 10rem 2rem 0rem 2rem;
+      }
+    }
+
+    &--reviews {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 4;
+
+      @include flexCenterCenter($flex-direction: column);
+
+      padding: 2rem;
+      position: absolute;
+      height: 83vh;
+      width: 100%;
+      overflow: scroll;
+      top: 0;
+
+      @media (max-width: 950px) {
+        grid-column: 1 / -1;
+        overflow: visible;
+      }
+
+      @media (max-width: 600px) {
+        padding: 2rem 1rem;
+      }
+
+      @media (max-width: 900px) {
+        height: 75vh;
+      }
+    }
+
+    &--edit-review {
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 3;
+      padding: 5rem 2rem 5rem 2rem;
+      height: 100%;
+      overflow: scroll;
+    }
   }
+
+
+  //--------------------appointments--------------------//
 
   &__appointments {
     grid-row: 1 / span 1;
     grid-column: 2 / -1;
 
     padding: 2rem;
-
     display: flex;
     flex-direction: column;
     position: relative;
@@ -847,108 +890,5 @@
   &__footer {
     grid-row: 5 / span 1;
     grid-column: 1 / -1;
-  }
-
-
-
-  &__user-edit {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 4;
-    padding: 10rem 2rem 10rem 2rem;
-    height: 100%;
-    overflow: scroll;
-    position: relative;
-
-    @media (max-width: 480px) {
-      padding: 10rem 2rem 0rem 2rem;
-    }
-
-    &--element {
-      height: 30vh;
-    }
-  }
-
-  &__edit-review {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 3;
-    padding: 5rem 2rem 5rem 2rem;
-    height: 100%;
-    overflow: scroll;
-  }
-
-  &__users {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 4;
-
-    padding: 2.5rem 1rem;
-    height: 100%;
-  }
-
-  &__admin-reviews {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 4;
-
-    @include flexCenterCenter($flex-direction: column);
-
-    padding: 2rem;
-    position: absolute;
-    height: 83vh;
-    width: 100%;
-    overflow: scroll;
-    top: 0;
-
-    @media (max-width: 950px) {
-      grid-column: 1 / -1;
-      overflow: visible;
-    }
-
-    @media (max-width: 600px) {
-      padding: 2rem 1rem;
-    }
-
-    @media (max-width: 900px) {
-      height: 75vh;
-    }
-  }
-
-  &__create-appointment {
-    @include hundredPercentHW();
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40rem;
-    overflow: visible;
-    grid-column: 2 / -1;
-    
-
-    @media (max-width: 950px) {
-      grid-column: 1 / -1;
-      width: 88%;
-    }
-
-    @media (max-width: 450px) {
-      margin: 0 auto;
-    }
-  }
-
-  &__appt-edit {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
-    padding: 10rem 2rem 10rem 2rem;
-    height: 100%;
-    overflow: scroll;
-  }
-
-  &__appointment-requests {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 4;
-
-    padding: 2rem;
-    height: 100%;
-    width: 100%;
-
-    @media (max-width: 950px) {
-      grid-column: 1 / -1;
-    }
   }
 }

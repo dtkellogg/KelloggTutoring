@@ -63,7 +63,7 @@ export default function AdminApptRequests() {
     if (appointmentRequests) {
         return (
             <div className="container__screen--sidebar">
-                <div className="container__appointment-requests">
+                <div className="container__admin--appointment-requests">
                     <h2 className="header__appointment-requests">
                         All Appointment Requests:
                     </h2>

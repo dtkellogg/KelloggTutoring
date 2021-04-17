@@ -13,15 +13,29 @@
 
 //--------------------components--------------------//
 
+@import "styles/components/admin/adminAppointmentRequests";
+@import "styles/components/admin/adminApptEdit";
+@import "styles/components/admin/adminCreateAppt";
+@import "styles/components/admin/adminReviewsList";
+@import "styles/components/admin/adminUsers";
+@import "styles/components/admin/editReview";
+@import "styles/components/admin/userEdit";
+
+@import "styles/components/appointments/appointments";
+@import "styles/components/appointments/booking";
+
 @import "styles/components/buttons/buttons";
 
 @import "styles/components/calendar/calendar";
 
-@import "styles/components/pageHeader";
+@import "styles/components/contact/forms";
 
 @import "styles/components/icons/icons";
 
 @import "styles/components/loading/loading";
+
+@import "styles/components/navigation/nav";
+@import "styles/components/navigation/sidebar";
 
 @import "styles/components/payments/paymentSteps";
 @import "styles/components/payments/paymentsCheckout";
@@ -30,29 +44,12 @@
 
 @import "styles/components/table/table";
 
-@import "styles/components/users/user";
-
-@import "styles/components/contact/forms";
-
-
-@import "styles/components/navigation/nav";
-@import "styles/components/navigation/sidebar";
-
-@import "styles/components/admin/adminAppointmentRequests";
-@import "styles/components/admin/adminApptEdit";
-@import "styles/components/admin/adminCreateAppt";
-@import "styles/components/admin/adminReviewsList";
-@import "styles/components/admin/adminUsers";
-@import "styles/components/admin/userEdit";
-@import "styles/components/admin/editReview";
-
-@import "styles/components/appointments/appointments";
+@import "styles/components/pageHeader";
 
 //--------------------layout--------------------//
 
 @import "styles/layout/containers";
 @import "styles/layout/footer";
-@import "styles/layout/hero";
 
 //--------------------screens--------------------//
 

@@ -8,8 +8,6 @@ import PleaseLoginScreen from "../components/PleaseLogin"
 import Calendar from '../components/calendar/Calendar'
 
 
-
-
 function CalendarScreen() {
 
     const userLogin = useSelector(state => state.userLogin)
@@ -22,8 +20,8 @@ function CalendarScreen() {
             <div className="container__screen--sidebar">
                 <Calendar />
             </div>
-            );
-        }
+        );
     }
+}
 
 export default CalendarScreen

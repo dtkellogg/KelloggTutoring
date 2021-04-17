@@ -64,7 +64,7 @@ export default function AdminReviewsList({ location, history }) {
 
     return (
         <div className="container__screen--sidebar">
-            <div className="container__admin-reviews">
+            <div className="container__admin--reviews">
                 <div className="header__admin-reviews">
                     All reviews
                 </div>
@@ -94,7 +94,7 @@ export default function AdminReviewsList({ location, history }) {
                                                 size={20}
                                                 color="var(--green-2"
                                                 fill="var(--green-1)"
-                                                className="icon grey-7"
+                                                className="icon"
                                                 type="button"
                                                 onClick={() => approvedHandler(review._id)}
                                             />
@@ -117,7 +117,7 @@ export default function AdminReviewsList({ location, history }) {
                                                 size={20}
                                                 color="var(--green-2)"
                                                 fill="var(--red-1)"
-                                                className="icon__trash grey-7"
+                                                className="icon__trash"
                                                 type="button"
                                                 onClick={() => deleteHandler(review._id)}
                                             />

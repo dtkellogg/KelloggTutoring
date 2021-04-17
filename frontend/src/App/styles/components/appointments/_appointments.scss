@@ -15,11 +15,18 @@
     }
 
     &--all {
-      @include hundredPercentHW();
+      width: 100%;
       height: min-content;
       line-height: 3.5rem;
       grid-row: 1 / span 1;
-      grid-column: 2 / span 4;
+      grid-column: 2 / -1;
+
+      position: absolute;
+      top: 0;
+
+      @media ( max-width: 950px ) {
+        grid-column: 1 / -1;
+      }
 
       @media ( max-width: 600px ) {
         height: auto;

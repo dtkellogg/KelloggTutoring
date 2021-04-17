@@ -58,7 +58,7 @@ function NavUpper() {
                 <NavLink
                   to={navEl.to}
                   activeStyle={activeStyle}
-                  className="nav__link letter-spacing-sm"
+                  className="nav__link"
                 >
                   {navEl.name}
                 </NavLink>
@@ -81,16 +81,16 @@ function NavUpper() {
             <FaCaretDown
               size={15}
               fill="var(--old-blue-2)"
-              className="icon grey-7 user__dropdown-menu--icon"
+              className="icon grey-7 dropdown-nav__icon"
               style={{ display: width > 450 || userInfo ? "block" : "none" }}
             />
             {!userInfo ? (
-              <ul className="user__dropdown-menu--not-logged-in">
+              <ul className="dropdown-nav__not-logged-in">
                 {navCondensedNotLoggedIn.map((navEl)=> {
                   return <NavLink
                     to={navEl.to}
                     activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link letter-spacing-sm"
+                    className="dropdown-nav__link nav__link"
                   >
                     {navEl.name}
                   </NavLink>
@@ -99,12 +99,12 @@ function NavUpper() {
               </ul>
 
             ) : userInfo.isAdmin ? (
-                <ul className="user__dropdown-menu--logged-in">
+                <ul className="dropdown-nav__logged-in">
                   {navCondensedAdmin.map((navEl) => {
                     return <NavLink
                       to={navEl.to}
                       activeStyle={activeStyle}
-                      className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
+                      className="dropdown-nav__link nav__link--dropdown"
                     >
                       {navEl.name}
                     </NavLink>
@@ -113,7 +113,7 @@ function NavUpper() {
                 <NavLink
                   to="/login"
                   activeStyle={activeStyle}
-                  className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
+                  className="dropdown-nav__link nav__link--dropdown"
                   onClick={handleLogout}
                 >
                   Logout
@@ -121,12 +121,12 @@ function NavUpper() {
               </ul>
 
             ) : (
-              <ul className="user__dropdown-menu--logged-in--not-admin">
+              <ul className="dropdown-nav__logged-in--not-admin">
                 {navCondensedLoggedIn.map((navEl) => {
                   return <NavLink
                     to={navEl.to}
                     activeStyle={activeStyle}
-                    className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
+                    className="dropdown-nav__link nav__link--dropdown"
                   >
                     {navEl.name}
                   </NavLink>;
@@ -135,7 +135,7 @@ function NavUpper() {
                 <NavLink
                   to="/logout"
                   activeStyle={activeStyle}
-                  className="user__dropdown-menu--link nav__link--dropdown letter-spacing-sm"
+                  className="dropdown-nav__link nav__link--dropdown"
                   onClick={handleLogout}
                 >
                   Logout

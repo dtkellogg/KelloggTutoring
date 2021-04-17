@@ -8,7 +8,6 @@ import Input from '../Input'
 // actions
 import { requestAppointment } from "../../actions/appointmentActions";
 import { getUserDetails } from "../../actions/userActions";
-import PleaseLogin from '../PleaseLogin'
 import { useToasts } from "react-toast-notifications";
 
 // hooks

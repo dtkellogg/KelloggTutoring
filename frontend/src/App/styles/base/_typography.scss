@@ -39,6 +39,9 @@
 //--------------------headers--------------------//
 
 .header {
+
+  //--------------------home--------------------//
+
   &__home {
     &--appointments {
       font-size: var(--font-size-2);
@@ -50,14 +53,7 @@
     }
   }
 
-  &__no-appts {
-    height: 100%;
-    @include flexCenterCenter();
-
-    @media(max-width: 900px) {
-      height: 58vh;
-    }
-  }
+  //--------------------register--------------------//
 
   &__register {
     font-size: var(--font-size-2);
@@ -66,13 +62,17 @@
     text-align: center;
   }
 
+  //--------------------404--------------------//
+
   &__four-oh-four {
     font-size: var(--font-size-1);
     font-weight: inherit;
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     position: absolute;
     top: 5rem;
   }
+
+  //--------------------toshi--------------------//
 
   &__toshi {
     font-size: var(--font-size-2);
@@ -81,6 +81,8 @@
     margin-bottom: 1rem;
     font-weight: inherit;
   }
+
+  //--------------------user--------------------//
 
   &__profile {
     text-align: center;
@@ -115,10 +117,23 @@
 		display: flex;
 		justify-content: center;
   }
+
+  &__form {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-2);
+    font-weight: inherit;
+    letter-spacing: var(--letter-spacing-3);
+  }
+
+  //--------------------navigation--------------------//
   
   &__nav {
     color: $black;
   }
+
+  //--------------------appointments--------------------//
 
   &__appointments {
     grid-column: 2 / span 3;
@@ -149,6 +164,8 @@
     }
   }
 
+  //--------------------admin--------------------//
+
   &__user-edit {
     text-align: center;
     margin-bottom: 3rem;
@@ -175,19 +192,9 @@
     }
 
     @media (max-width: 450px) {
-      // margin: 6rem 0 4.5rem 0;
       grid-column: 1 / span 5;
       text-align: center;
     }
-  }
-
-  &__form {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: var(--font-size-2);
-    font-weight: inherit;
-    letter-spacing: var(--letter-spacing-3);
   }
 
   &__appt-edit {
@@ -213,13 +220,10 @@
     text-align: center;
     margin-bottom: 1rem;
     font-size: var(--font-size-2);
-
-
     
     @media (max-width: 1080px) {
       justify-self: start;
     }
-    
 
     @media (max-width: 900px) {
       grid-row: 2 / span 1;
@@ -268,9 +272,11 @@
   }
 }
 
-//--------------------home--------------------//
+//--------------------text--------------------//
 
 .text {
+
+  //--------------------home--------------------//
 
   &__home {
     
@@ -284,11 +290,13 @@
         letter-spacing: 0;
       }
     }
+
     &--tutoring-simplified {
       font-size: var(--font-size-1);
       font-weight: inherit;
       transform: translate(0rem, 1.25rem);
     }
+
     &--subjects {
       font-size: var(--font-size-3);
       font-weight: inherit;
@@ -311,11 +319,9 @@
     }
 
     &--request-tutoring {
-
     }
 
     &--payments {
-
     }
   }
 

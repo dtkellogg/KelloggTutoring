@@ -22,7 +22,7 @@ export default function Profile({ location, history }) {
   const {
     //  loading, 
     //  error, 
-     user } = userDetails;
+    user } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

@@ -52,7 +52,7 @@ function UserList() {
 
                 <td className="users__td--edit">
                 <Link to={`/admin/user/${user._id}/edit`}>
-                    <button className="btn__admin--edit">edit</button>
+                    <button className="btn__admin--edit-user">edit</button>
                 </Link>
                 </td>
 

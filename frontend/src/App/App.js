@@ -8,7 +8,7 @@ import './App.scss';
 import NavUpper from "./components/navigation/NavUpper";
 import NavLower from "./components/navigation/NavLower";
 import Footer from "./components/Footer";
-import LoadingSpinner from "./components/loading/LoadingSpinner"
+// import LoadingSpinner from "./components/loading/LoadingSpinner"
 import { Sidebar } from "./components/navigation/Sidebar";
 
 // sidebar list

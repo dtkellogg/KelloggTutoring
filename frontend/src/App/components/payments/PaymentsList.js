@@ -95,18 +95,19 @@ export default function Payments({ match, history }) {
     dispatch(listAppointments())
   }
 
-
-
-  return (
-    <div className="container__screen--sidebar">
-        {!userInfo ? (
-            <PleaseLogin />
-        ) : sortedAppts
-            .filter((appt) => appt.student === userInfo.name)
-            .filter((appt) => appt.paid === false).length === 0 ? (
-            <div className="msg__userInfoNull">
-              You have no unpaid appointments
-            </div>
+  if(!userInfo) {
+    return (
+      <PleaseLogin />
+    )
+  } else {
+    return (
+      <div className="container__screen--sidebar">
+        {sortedAppts
+          .filter((appt) => appt.student === userInfo.name)
+          .filter((appt) => appt.paid === false).length === 0 ? (
+          <div className="msg__userInfoNull">
+            You have no unpaid appointments
+          </div>
         ) : (
           <div className="container__payments">
             <PaymentSteps step1 step2 />
@@ -210,12 +211,13 @@ export default function Payments({ match, history }) {
                         </tr>
                       );
                     })}
-                </tbody>
-                
-              </table>
+                  </tbody>
+                  
+                </table>
+              </div>
             </div>
-          </div>
-        )}
-    </div>
-  );
+          )}
+      </div>
+    );
+  }
 }

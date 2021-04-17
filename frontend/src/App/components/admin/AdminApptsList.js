@@ -79,7 +79,7 @@ export default function AdminAppointmentsList({ location, history }) {
 					<div className="header__appointments">
 						All appointments:
 					</div>
-					<Link to={`${url}/create-appointment`} className="btn__admin--appts-list">
+					<Link to={`${url}/create-appointment`} className="btn__admin--go-to-create-appt">
 						<span style={{ textAlign: "center" }}>
 							{width > 900 ? "Create appointment" : "Create"}
 						</span>

@@ -32,13 +32,9 @@
         width: 6.2rem;
       }
     }
-
   }
 
-  
-
   &__upper {
-    
 
     &--text {
       font-size: var(--font-size-1);
@@ -47,7 +43,6 @@
       display: flex;
       align-items: center;
       padding: 0 2.5rem;
-
 
       @media ( max-width: 400px ) {
         display: none;
@@ -64,12 +59,10 @@
     }
 
     &--title-text {
+      @include flexCenterCenter();
       font-size: var(--font-size-1);
       display: inline-block;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
       @media ( max-width: 510px ) {
         width: 100%;
@@ -80,63 +73,46 @@
     &--title-line {
       display: inline-block;
       display: none;
-
-      // @media ( max-width: 650px ) {
-      //   display: none;
-      // }
     }
 
     &--house-icon {
-      display: inline-block;
       display: none;
-
-      // @media ( max-width: 650px ) {
-      //   display: none;
-      // }
 
       @media ( max-width: 400px ) {
         display: inline-block;
         padding: 1.5rem;
       }
-
-      @media ( max-width: 360px ) {
-        // padding: 0rem;
-      }
     }
   }
 
-  
-
   &__link {
+    @include flexCenterCenter();
+    @include hundredPercentHW();
     font-size: var(--font-size-5);
     font-weight: inherit;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: $black;
     box-sizing: border-box;
     line-height: 100%;
     transition: .1s;
     width: 100%;
-    font-size: var(--font-size-5);
 
     &:hover {
       background-color: $old-blue-2-opacity;
     }
-  }
 
-  &__link--dropdown {
-    font-size: var(--font-size-5);
-    font-weight: inherit;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: $black;
-    line-height: 100%;
-
-    &:hover {
-      background-color: $old-blue-2-opacity;
+    &--dropdown {
+      font-size: var(--font-size-5);
+      font-weight: inherit;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $black;
+      line-height: 100%;
+  
+      &:hover {
+        background-color: $old-blue-2-opacity;
+      }
     }
   }
 
@@ -171,14 +147,11 @@
     }
   }
 
-
   &__upper-header {
-      &:hover {
-        color: $old-blue-2;
-      }
-}
-
-
+    &:hover {
+      color: $old-blue-2;
+    }
+  }
 
   &__search {
     &--icon {
@@ -205,44 +178,85 @@
   &__subheader {
     font-size: var(--font-size-3);
     font-weight: 200;
-    // font-weight: inherit;
   }
 }
 
-.search {
-  &__results {
+//--------------------dropdown--------------------//
+
+
+.dropdown-nav {
+  @include flexCenterCenter($flex-direction: column);
+  width: 100%;
+  display: none;
+  position: absolute;
+  background-color: $white;
+  border: 2px solid $grey-4;
+  width: 15rem;
+  max-height: 27rem;
+  z-index: 100;
+
+  &__logged-in, &__logged-in--not-admin, &__not-logged-in {
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
+    background-color: $white;
+    border: 2px solid $grey-4;
+    width: 15rem;
+    max-height: 27rem;
+    z-index: 100;
+  }
+
+  &__logged-in, &__logged-in--not-admin {
+    max-height: 27rem;
+  }
+
+  &__not-logged-in {
+    max-height: 15rem;
+  }
+
+  &__link {
+    @include hundredPercentHW();
+    @include flexCenterCenter();
+    padding: 1rem;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid $grey-4;
+    }
+  }
+}
+
+//--------------------search-bar--------------------//
+
+.search {
+
+  &__results {
+    @include flexCenterCenter($flex-direction: column);
+    position: absolute;
+    top: 100%;
+    right: 0;
+
     display: none;
     background: $white;
     z-index: 100;
     width: 23rem;
     max-height: 70rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    // border-bottom: 1px solid $grey-6;
     overflow: hidden;
     border-bottom: 2px solid var(--black);
   }
 
   &__item {
+    @include flexCenterCenter();
+
     border-bottom: 1px solid $grey-6;
     height: 4rem;
     line-height: 3rem;
     width: 100%;
     font-size: var(--font-size-5);
-    
-    @include flexCenterCenter();
 
     &:hover {
       background-color: $old-blue-2-opacity;
     }
-  }
-
-  &__item:not(:last-child) {
   }
 
   &__wrapper {
@@ -251,28 +265,5 @@
     display: flex;
     align-items: center;
     transition: 1s;
-
-    @media ( max-width: 600px) {
-      // width: 20.5rem;
-
-      &:hover, &:active, &:visited {
-        // width: 30rem;
-      }
-
-    }
-
-
-    @media ( max-width: 450px ) {
-      // width: 20.5rem;
-    }
   }
-}
-
-// input[placeholder="Search"] {
-input[type="text"]::placeholder {
-  color: $grey-8;
-}
-
-input[type="text"] {
-  // color: $black;
 }

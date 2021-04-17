@@ -105,7 +105,7 @@ export default function AdminAppointmentCreate() {
 
       { loading ? <LoadingSpinner/> : (
 
-      <form onSubmit={handleSubmit} className="container__create-appointment user__page">
+      <form onSubmit={handleSubmit} className="container__admin--create-appointment">
 
         <h2 className="header__create-appointment">
           Create a new appointment
@@ -164,7 +164,7 @@ export default function AdminAppointmentCreate() {
           />
 
           <button
-            className="btn__create-appt"
+            className="btn__admin--create-appt"
             type="submit"
             onClick={handleSubmit}
           >
