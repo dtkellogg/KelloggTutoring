@@ -12,47 +12,48 @@
 
 @mixin mediaQueriesContainerWithSidebar() {
 	@media (max-height: 1400px) {
-        height: 125.5rem;
+        height: 137rem;
     }
 
     @media (max-height: 1300px) {
-        height: 115.5rem;
+        height: 127rem;
     }
 
     @media (max-height: 1200px) {
-        height: 105.5rem;
+        height: 117rem;
     }
 
     @media (max-height: 1100px) {
-        height: 95.5rem;
+        height: 107rem;
     }
 
     @media (max-height: 1000px) {
-        height: 85.5rem;
+        height: 97rem;
     }
 
     @media (max-height: 900px) {
-        height: 75.5rem;
+        height: 87rem;
     }
 
     @media (max-height: 800px) {
-        height: 65.5rem;
+        height: 77rem;
+        // height: 65.5rem;
     }
 
     @media (max-height: 700px) {
-        height: 55.5rem;
+        height: 67rem;
     }
 
     @media (max-height: 600px) {
-        height: 45.5rem;
+        height: 57rem;
     }
 
     @media (max-height: 500px) {
-        height: 35.5rem;
+        height: 47rem;
     }
 
     @media (max-height: 400px) {
-        height: 25.5rem;
+        height: 37rem;
     }
     
 
