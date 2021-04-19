@@ -13,7 +13,6 @@
 .font-size-2 {
   font-size: var(--font-size-2);
   font-weight: 300;
-  box-sizing: inherit;
 }
 
 .font-size-3 {
@@ -47,19 +46,14 @@
       font-size: var(--font-size-2);
       font-weight: inherit;
 
+      @media(max-width: 1050px) {
+       margin-bottom: 10rem;
+      }
+
       @media(max-width: 600px) {
         display: none;
       }
     }
-  }
-
-  //--------------------register--------------------//
-
-  &__register {
-    font-size: var(--font-size-2);
-    font-weight: inherit;
-    margin-bottom: 3rem;
-    text-align: center;
   }
 
   //--------------------404--------------------//
@@ -84,26 +78,28 @@
 
   //--------------------user--------------------//
 
-  &__profile {
-    text-align: center;
-    margin-bottom: 5rem;
+  &__profile, &__login, &__register, &__booking, 
+  &__payment, &__form {
     font-size: var(--font-size-2);
+    letter-spacing: var(--letter-spacing-3);
     font-weight: 300;
+    text-align: center;
+  }
+
+  &__profile {
+    margin-bottom: 5rem;
   }
 
   &__login {
-    text-align: center;
     margin-bottom: 2rem;
-    font-size: var(--font-size-2);
-    font-weight: 300;
+  }
+
+  &__register {
+    margin-bottom: 3rem;
   }
 
   &__booking {
-    text-align: center;
     margin-bottom: 3rem;
-    font-weight: inherit;
-    font-size: var(--font-size-2);
-
     
     @media (max-width: 950px) and (max-height: 450px) {
       margin-bottom: 1rem;
@@ -113,18 +109,11 @@
   &__payment {
 		display: block;
 		padding: 1rem;
-		font-size: var(--font-size-2);
-		display: flex;
-		justify-content: center;
   }
 
   &__form {
     width: 100%;
-    text-align: center;
     margin-bottom: 1rem;
-    font-size: var(--font-size-2);
-    font-weight: inherit;
-    letter-spacing: var(--letter-spacing-3);
   }
 
   //--------------------navigation--------------------//
@@ -166,19 +155,21 @@
 
   //--------------------admin--------------------//
 
-  &__user-edit {
-    text-align: center;
-    margin-bottom: 3rem;
+  &__user-edit, &__appointment-requests, &__appt-edit, &__create-appointment,
+  &__admin-reviews, &__users {
     font-size: var(--font-size-2);
+    font-weight: 300;
+    text-align: center;
+  }
+
+  &__user-edit {
+    margin-bottom: 3rem;
   }
 
   &__appointment-requests {
     grid-column: 2 / span 3;
-    text-align: center;
     position: relative;
     margin-bottom: 1rem;
-    font-size: var(--font-size-2);
-    font-weight: 300;
     
     @media (max-width: 1080px) {
       width: 110%;
@@ -193,21 +184,15 @@
 
     @media (max-width: 450px) {
       grid-column: 1 / span 5;
-      text-align: center;
     }
   }
 
   &__appt-edit {
-    text-align: center;
     margin-bottom: 3rem;
-    font-size: var(--font-size-2);
   }
 
   &__create-appointment {
-    text-align: center;
     margin-bottom: 3rem;
-    font-size: var(--font-size-2);
-    font-weight: 300;
     margin-top: 5rem;
     
     @media (max-width: 950px) and (max-height: 450px) {
@@ -217,9 +202,7 @@
 
   &__admin-reviews {
     grid-column: 2 / span 3;
-    text-align: center;
     margin-bottom: 1rem;
-    font-size: var(--font-size-2);
     
     @media (max-width: 1080px) {
       justify-self: start;
@@ -232,12 +215,6 @@
 
     @media (max-width: 900px) {
       grid-column: 1 / span 5;
-      text-align: center;
-    }
-
-    @media (max-width: 450px) {
-      grid-column: 1 / span 5;
-      text-align: center;
     }
   }
 
@@ -248,14 +225,11 @@
 
   &__users {
     grid-column: 2 / span 3;
-    text-align: center;
     position: relative;
     margin-bottom: 1rem;
-    font-size: var(--font-size-2);
-    font-weight: 300;
 
     @media (max-width: 1080px) {
-      width: 110%;
+      width: 100%;
       justify-self: start;
     }
 
@@ -267,7 +241,6 @@
 
     @media (max-width: 450px) {
       grid-column: 1 / span 5;
-      text-align: center;
     }
   }
 }

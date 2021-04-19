@@ -21,12 +21,6 @@
       grid-row: 1 / span 1;
       grid-column: 2 / -1;
 
-      position: absolute;
-      
-
-      @media ( max-width: 950px ) {
-        grid-column: 1 / -1;
-      }
 
       @media ( max-width: 600px ) {
         height: auto;
@@ -35,10 +29,21 @@
 
     &--all {
       top: 0;
+      position: absolute;
+
+
+      @media ( max-width: 950px ) {
+        grid-column: 1 / -1;
+      }
     }
 
     &--admin {
       top: 7rem;
+      width: 100%;
+
+      @media ( max-width: 950px ) {
+        grid-column: 1 / span 1;
+      }
     }
   }
 
@@ -129,31 +134,31 @@
     &-time {
       grid-column: 2 / span 1;
       text-align: center;
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-4);
     }
 
     &-date {
       grid-column: 1 / span 1;
       text-align: center;
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-4);
     }
 
     &-subject {
       grid-column: 3 / span 1;
       text-align: center;
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-4);
     }
 
     &-student {
       grid-column: 4 / span 1;
       text-align: center;
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-4);
     }
 
     &-btns {
       grid-column: 7 / span 2;
       text-align: center;
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-4);
       @include flexCenterCenter($flex-direction: column);
       height: 100%;
       padding: 1rem 0;

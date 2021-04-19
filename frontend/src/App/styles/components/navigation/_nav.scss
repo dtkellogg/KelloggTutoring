@@ -79,8 +79,10 @@
       display: none;
 
       @media ( max-width: 400px ) {
-        display: inline-block;
+        display: flex;
+        align-items: center;
         padding: 1.5rem;
+        height: 100%;
       }
     }
   }
