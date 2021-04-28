@@ -65,7 +65,7 @@ export default function AdminReviewsList({ location, history }) {
     return (
         <div className="container__screen--sidebar">
             <div className="container__admin--reviews">
-                <div className="header__admin-reviews">
+                <div className="header__admin--reviews">
                     All reviews
                 </div>
                 

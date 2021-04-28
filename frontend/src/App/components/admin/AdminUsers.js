@@ -11,7 +11,7 @@ export default function AdminUsers () {
       
       <div className="container__admin">
 
-        <h2 className="header__users">
+        <h2 className="header__admin--user-list">
           All active users:
         </h2>
 

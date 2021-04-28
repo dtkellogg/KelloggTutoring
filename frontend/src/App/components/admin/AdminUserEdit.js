@@ -76,7 +76,7 @@ export default function AdminUserEdit ({ match }) {
 
 				<Link to='/admin/users' className="btn__admin--user-edit">Go Back</Link>
 
-				<h2 className="header__user-edit">Edit User</h2>
+				<h2 className="header__admin--edit-user">Edit User</h2>
 
 				<div className="user-edit__content">
 					<div className="container__user-edit--element">

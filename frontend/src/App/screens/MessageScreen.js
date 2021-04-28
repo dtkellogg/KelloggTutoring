@@ -15,11 +15,8 @@ import Input from '../components/Input'
 
 // can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
-  let output = ''
-  output += useFormatedPhoneNumber(input)
-  return output;
+  return useFormatedPhoneNumber(input)
 }
-
 
 
 export default function MessageScreen({ history }) {

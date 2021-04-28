@@ -97,7 +97,7 @@ export default function AdminAppointmentCreate() {
 
       <form onSubmit={handleSubmit} className="container__admin--create-appointment">
 
-        <h2 className="header__create-appointment">
+        <h2 className="header__admin--create-appt">
           Create a new appointment
         </h2>
 

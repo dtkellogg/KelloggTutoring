@@ -73,7 +73,7 @@ export default function ReviewEdit({ match, history, location }) {
         Go Back
       </Link>
       <form onSubmit={handleSubmit} className="container__admin--edit-review">
-        <div className="header__edit-review">
+        <div className="header__admin--edit-review">
           <h2 className="font-size-2 letter-spacing-sm">
             Edit Review
           </h2>
