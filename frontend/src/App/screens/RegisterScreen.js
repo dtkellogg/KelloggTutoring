@@ -3,8 +3,10 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
 
+
 // actions
 import { register } from "../actions/userActions"
+import { subheader } from "../actions/subheader";
 
 // components
 import Input from '../components/Input'
@@ -23,16 +25,25 @@ export default function Register({ location, history }) {
 
   const userRegister = useSelector((state) => state.userRegister)
   const { 
-    loading, // eslint-disable-line no-unused-vars
-    error, // eslint-disable-line no-unused-vars
+    loading,
+    error,
     userInfo 
   } = userRegister
 
   useEffect(() => {
     if (userInfo) {
-       history.push(redirect);
+      history.push(redirect);
+    } else if (error) {
+      addToast("There was an error. Please refresh the page.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
     }
-  }, [history, userInfo, redirect]);
+  }, [history, userInfo, redirect, loading, error]);
 
   const handleSubmit = async (e) => {
     try {
@@ -46,7 +57,6 @@ export default function Register({ location, history }) {
       } else {
         dispatch(register(name, email, password))
       }
-
     } catch {
       addToast("Sorry, there was an error. Please try registering again.", {
         appearance: "error",
@@ -63,31 +73,31 @@ export default function Register({ location, history }) {
           Sign up.
         </h2>
 
-          <section className="container__register--inputs">
-            <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
-              htmlFor="name" label="full name" type="name" value={name} placeholder="full name" onChange={(e) => setName(e.target.value)} 
-            />
-            <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
-              htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)} 
-            />
-            <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
-              htmlFor="" label="password" type="password" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)} 
-            />
-            <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
-              htmlFor="" label="confirm password" type="password" value={confirmPassword} placeholder="confirm password" onChange={(e) => setConfirmPassword(e.target.value)} 
-            />
-          </section>
+        <section className="container__register--inputs">
+          <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
+            htmlFor="name" label="full name" type="name" value={name} placeholder="full name" onChange={(e) => setName(e.target.value)} 
+          />
+          <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
+            htmlFor="email" label="email" type="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)} 
+          />
+          <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
+            htmlFor="" label="password" type="password" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)} 
+          />
+          <Input containerClass="register__element" labelClass="register__label" inputClass="register__input"
+            htmlFor="" label="confirm password" type="password" value={confirmPassword} placeholder="confirm password" onChange={(e) => setConfirmPassword(e.target.value)} 
+          />
+        </section>
 
-          <button className="btn__register" type="submit" onClick={handleSubmit} >
-            Sign up
-          </button>
+        <button className="btn__register" type="submit" onClick={handleSubmit} >
+          Sign up
+        </button>
 
-          <div className="register__redirect-to-login">
-            Have an account?{" "}
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} >
-              <span style={{color: "blue"}}>Login</span>
-            </Link>
-          </div>
+        <div className="register__redirect-to-login">
+          Have an account?{" "}
+          <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} >
+            <span style={{color: "blue"}}>Login</span>
+          </Link>
+        </div>
 
       </form>
     </div>

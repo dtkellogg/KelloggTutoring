@@ -7,18 +7,18 @@ export default function ToshiAbout() {
   const { width } = useWindowDimensions()
 
     return (
-      <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+      <div className="container__screen--sidebar">
         <div className="container__toshi">
           <h2 className="header__toshi letter-spacing-sm">
             Hello!
           </h2>
 
-          {/* <p className="toshi__p">
+          {/* <p className="p__toshi">
             My name is Damian Kellogg, but you probably know me by my middle name,
             <span style={{ color: "var(--old-blue-2)" }}> Toshi</span>.
           </p> */}
 
-          <div className="toshi__p">
+          <div className="p__toshi">
             I am a UC Davis graduate with a B.S. in Chemistry who spends his time walking/running, reading, coding, and teaching. 
             I used to run competitively, and still find exercise to be a key component of my day. Books I have read recently include 
             {" "}<i>Heart of Darkness</i>, <i>Into Thin Air</i>,  <i>Batavia’s Graveyard</i>, <i>Ashenden: Or the British Agent</i>, <i>The Lord of the Rings</i>, and <i>Life of Pi</i>. As my reading 
@@ -27,19 +27,19 @@ export default function ToshiAbout() {
             of the world.
           </div>
 
-          <div className="toshi__p">
+          <div className="p__toshi">
             I come from a strong math and science background. I have always enjoyed both fields, and thus pursued a B.S. in Chemistry. 
             I also come from a biracial background, as my mother was a first generation Japanese woman and my father was born in San Francisco.
             My mother gave me a life of multiple languages, and my father, and avid reader and respectable materials scientist, drove my 
             interest with English. 
           </div>
 
-          <div className="toshi__p">
+          <div className="p__toshi">
             Also... welcome to my website! Thank you so much for taking the time to consider me, or if you already work with me,
             thank you for visiting.
           </div>
 
-          {/* <p className="toshi__p">
+          {/* <p className="p__toshi">
             Besides having 7 years of tutoring experience, having been in the industry for 7
             years. I specialize in teaching concepts{" "}
             <span style={{ color: "var(--old-blue-2)" }}>simply</span>, and I have
@@ -51,7 +51,7 @@ export default function ToshiAbout() {
             in Japan and my father's in San Francisco.
           </p>
 
-          <p className="toshi__p">
+          <p className="p__toshi">
             Besides teaching, I spend my days running and building strong
             relationships with my friends. I have experience running division 1
             track and cross country for the NCAA, and I have taken away and
@@ -59,7 +59,7 @@ export default function ToshiAbout() {
             similarities between being a great athlete and a great student.
           </p>
 
-          <p className="toshi__p">
+          <p className="p__toshi">
             I attended Acalanes High School in Lafayette, CA and UC Davis, where I
             recieved my B.S. in Chemistry. I am very friendly and value forming
             mentor-student relationships, but I am also very{" "}
@@ -67,7 +67,7 @@ export default function ToshiAbout() {
             <span style={{ color: 'var(--old-blue-2)'}}>reliable</span>.
           </p>
 
-          <p className="toshi__p">
+          <p className="p__toshi">
             Please feel free to contact me if you have any questions, or if you
             would like to hear from a few of my clients. Thank you so much for
             taking the time to consider me. If you so choose to try working with

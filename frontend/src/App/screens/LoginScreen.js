@@ -30,17 +30,17 @@ export default function Login({ location, history }) {
   }, [history, addToast, redirect, userInfo]) 
 
   useEffect(() => {
-    if(loading) {
-      dispatch(subheader("Loading..."));
-    } else {
-      dispatch(subheader(""));
-    }
+    
     if(error) {
       console.log(error);
       addToast('There was a problem logging in. Reenter your email and password.', {
         appearance: "error",
         autoDismiss: true,
       })
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
     }
   }, [dispatch, addToast, loading, error]) 
 

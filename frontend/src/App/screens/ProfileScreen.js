@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 // actions
 import { getUserDetails, updateUserProfile } from "../actions/userActions"
+import { subheader } from "../actions/subheader";
 
 import { useToasts } from "react-toast-notifications";
 
@@ -20,21 +21,15 @@ export default function Profile({ location, history }) {
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
-    //  loading, 
-    //  error, 
-    user } = userDetails;
+    loading, 
+    error, 
+  user } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
-
-  // if (success) {
-  //   window.setTimeout(() => {
-  //     success = "";
-  //   }, 4000);
-  // }
 
   if (success) {
     history.push("/");
@@ -52,11 +47,21 @@ export default function Profile({ location, history }) {
           setEmail(user.email)
         }
       }
+    } else if (error) {
+      addToast("There was an error. Please refresh the page.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
     }
-  }, [dispatch, history, user]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dispatch, history, user, error, loading]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!confirmPassword || !name || !email || !password) {
       addToast("Fill out all inputs.", {
         appearance: "error",
@@ -72,8 +77,6 @@ export default function Profile({ location, history }) {
     }
     
   };
-
-
 
   return (
     <div className="container__screen--no-sidebar">

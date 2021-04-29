@@ -24,7 +24,7 @@ export default function PageHeader() {
 
 
   return (
-    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar" }>
+    <div className="container__screen--sidebar">
         <div className="container__page-header">
         <h2 className="page-header__text">
           {`Please select an option ${directionText}.`}

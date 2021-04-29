@@ -2,35 +2,35 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ToastProvider } from "react-toast-notifications";
+
+// SCSS
 import './App.scss';
 
 // components
-import NavUpper from "./components/navigation/NavUpper";
-import NavLower from "./components/navigation/NavLower";
+import Nav from './components/navigation/Nav'
 import Footer from "./components/Footer";
 // import LoadingSpinner from "./components/loading/LoadingSpinner"
 import { Sidebar } from "./components/navigation/Sidebar";
 
-// sidebar list
+// sidebar lists
 import { apptsList, contactList, toshiList, adminList } from "./data/lists";
 
 // screens   
-const Home = lazy(() => import("./screens/HomeScreen"));
-
-const ApptsScreen = lazy(() => import("./screens/ApptsScreen"));
-const ToshiScreen = lazy(() => import("./screens/ToshiScreen"));
-const ContactScreen = lazy(() => import("./screens/ContactScreen"));
 const AdminScreen = lazy(() => import("./screens/AdminScreen"));
-
-const Login = lazy(() => import("./screens/LoginScreen"));
-const Register = lazy(() => import("./screens/RegisterScreen"));
-const Profile = lazy(() => import("./screens/ProfileScreen"));
-const Zoom = lazy(() => import("./screens/ComingSoonScreen"));
-const Resources = lazy(() => import("./screens/ComingSoonScreen"));
-const Settings = lazy(() => import("./screens/ComingSoonScreen"));
-// const Resources = lazy(() => import("./screens/ResourcesScreen"));
-const ReviewEdit = lazy(() => import("./components/reviews/ReviewEdit"))
+const ApptsScreen = lazy(() => import("./screens/ApptsScreen"));
+const ContactScreen = lazy(() => import("./screens/ContactScreen"));
 const FourOhFourScreen = lazy(() => import("./screens/FourOhFourScreen"));
+const Home = lazy(() => import("./screens/HomeScreen"));
+const Login = lazy(() => import("./screens/LoginScreen"));
+const Profile = lazy(() => import("./screens/ProfileScreen"));
+const ToshiScreen = lazy(() => import("./screens/ToshiScreen"));
+const Register = lazy(() => import("./screens/RegisterScreen"));
+
+// components
+const Settings = lazy(() => import("./components/ComingSoon"));
+const Resources = lazy(() => import("./components/ComingSoon"));
+const ReviewEdit = lazy(() => import("./components/reviews/ReviewEdit"))
+const Zoom = lazy(() => import("./components/ComingSoon"));
 
 
 export default function App() {
@@ -63,7 +63,6 @@ export default function App() {
       setSidebarList(adminList)
       setSidebarUrl('admin')
     } else {
-    // } else if (locationForSidebar === 'profile' || locationForSidebar === 'register' || locationForSidebar === 'login') {
       setShowSidebar(false)
     }
 
@@ -77,8 +76,9 @@ export default function App() {
       toastIcon: () => ({ display: 'none' }),
     }}>
       <div className="container__main">
-        <NavUpper />
-        <NavLower />
+        
+        <Nav />
+
         {showSidebar &&
           location.pathname.split("/").filter((word) => word !== "").length > 0 && (
             <Sidebar key={sidebarTitle} title={sidebarTitle} list={sidebarList} url={sidebarUrl} />
@@ -107,7 +107,9 @@ export default function App() {
             </CSSTransition>
           </TransitionGroup>
         </Suspense>
+
         <Footer />
+
       </div>
     </ToastProvider>
   );

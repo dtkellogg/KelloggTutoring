@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useToasts } from "react-toast-notifications";
 
 // actions
-import { getUserDetails } from "../actions/userActions";
-import { sendMessageToNodeMailer } from "../actions/msgActions";
+import { getUserDetails } from "../../actions/userActions";
+import { sendMessageToNodeMailer } from "../../actions/msgActions";
+import { subheader } from "../../actions/subheader";
 
 // hooks
-import useFormatedPhoneNumber from "../hooks/useFormatedPhoneNumber"
-import useWindowDimensions from '../hooks/useWindowDimensions'
+import useFormatedPhoneNumber from "../../hooks/useFormatedPhoneNumber"
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 // components
-import Input from '../components/Input'
+import Input from '../Input'
 
 // can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
@@ -19,7 +20,7 @@ function FormattedPhoneNum(input) {
 }
 
 
-export default function MessageScreen({ history }) {
+export default function Message({ history }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -33,8 +34,8 @@ export default function MessageScreen({ history }) {
 
   const userDetails = useSelector((state) => state.userDetails);
   const {
-    //  loading,
-    //  error,
+     loading,
+     error,
     user,
   } = userDetails;
 
@@ -47,11 +48,21 @@ export default function MessageScreen({ history }) {
         setName(user.name);
         setEmail(user.email);
       }
+    } else if(error) {
+      addToast("There was an error. Please refresh the page.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
     }
-  }, [dispatch, history, user]);
+  }, [dispatch, history, user, loading, error]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const isValid = validate();
 
     if (isValid) {
@@ -73,8 +84,7 @@ export default function MessageScreen({ history }) {
   };
 
   const validate = () => {
-    // eslint-disable-next-line no-useless-escape
-    const emailRegexp = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+    const emailRegexp = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/; // eslint-disable-line no-useless-escape
     const phoneRegexp = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
 
     if (!emailRegexp.test(email) && message.length === 0) {
@@ -103,7 +113,7 @@ export default function MessageScreen({ history }) {
   };
 
   return (
-    <div className={"fadeInAnimated--0" + width > 950 ? "container__screen--sidebar" : "container__screen--no-sidebar"}>
+    <div className="container__screen--sidebar">
       <form className="container__form" onSubmit={handleSubmit}>
         <h2 className="header__form">
           Any questions?

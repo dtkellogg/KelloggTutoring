@@ -145,7 +145,7 @@ function PaymentScreen({ match, history }) {
           </div>
         </div>
 
-        <span className="text__payment--paying-for">
+        <span className="p__payment--paying-for">
           You are paying for the following {" "}
           <strong>{payment.paymentItems.length}</strong> appointments:
         </span>

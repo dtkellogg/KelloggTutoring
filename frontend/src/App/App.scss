@@ -22,13 +22,13 @@
 @import "styles/components/admin/userEdit";
 
 @import "styles/components/appointments/appointments";
-@import "styles/components/appointments/booking";
+@import "styles/components/contact/Booking";
 
 @import "styles/components/buttons/buttons";
 
 @import "styles/components/calendar/calendar";
 
-@import "styles/components/contact/forms";
+@import "styles/components/forms/forms";
 
 @import "styles/components/icons/icons";
 
@@ -54,14 +54,11 @@
 //--------------------screens--------------------//
 
 @import "styles/screens/homeScreen";
-@import "styles/screens/toshiScreen";
 @import "styles/screens/loginScreen";
 @import "styles/screens/profileScreen";
 @import "styles/screens/registerScreen";
 @import "styles/screens/pleaseLoginScreen";
 
-
-@import "styles/screens/comingSoonScreen";
 
 @import "styles/screens/contactScreen";
 

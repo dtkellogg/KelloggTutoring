@@ -40,7 +40,7 @@ function BtnsUpDownHome({calendarRef, reviewsRef}) {
 
 
     return (
-      <div className="container__btns--up-down-ui fadeInAnimated--0">
+      <div className="container__btns--up-down-ui">
         <button className="btn__nav--up">
           <FaCaretUp
             size={40}

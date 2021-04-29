@@ -37,7 +37,7 @@ function NavUpper() {
   return (
     <nav className="container__nav--upper">
       <NavLink to="/" className="nav__upper--title-text">
-        <h1 className="nav__upper--text fadeInAnimated--0">
+        <h1 className="nav__upper--text">
           {" "}Kellogg Tutoring&nbsp;{" "}
         </h1>
         <span className="nav__upper--title-line"> |&nbsp; </span>
@@ -51,7 +51,7 @@ function NavUpper() {
       </NavLink>
 
       <div className="nav__upper--right-container">
-        <ul className="nav__expanded fadeInAnimated--0">
+        <ul className="nav__expanded">
           {navExpandedLinks.map((navEl) => {
             return (
               <li className="nav__expanded--item">

@@ -41,7 +41,7 @@ export default function NavLower() {
   return (
     <nav className="container__nav--lower">
       <h3 className="nav__subheader">{subheader}</h3>
-      <div className="search__wrapper fadeInAnimated--0">
+      <div className="search__wrapper">
         <input
           value={searchInput}
           type="text"

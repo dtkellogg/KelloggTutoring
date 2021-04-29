@@ -5,7 +5,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 const ToshiAbout = lazy(() => import("../components/toshi/ToshiAbout"));
 const ToshiTeaching = lazy(() => import("../components/toshi/ToshiTeaching"));
 const PageHeader = lazy(() => import("../components/PageHeader"));
-const Blog = lazy(() => import("../components/toshi/ToshiBlog"));
 const Reviews = lazy(() => import("../components/reviews/Reviews"));
 
 const ReviewCreate = lazy(() => import("../components/reviews/ReviewCreate"))
@@ -23,7 +22,6 @@ function ApptsScreen() {
             <Route exact path={`${url}/teaching`} component={ToshiTeaching} />
             <Route exact path={`${url}/reviews`} component={() => <Reviews type="meetToshi" />} />
             <Route exact path={`${url}/reviews/create-review`} component={ReviewCreate} />
-            <Route exact path={`${url}/blog`} component={Blog} />
             <Route path="*" component={PageHeader} />
           </Switch>
         </CSSTransition>

@@ -1,76 +1,90 @@
-// Number at end of fadeInAnimated classes denotes time of delay (seconds)
-
-.fadeInAnimated--0, .fadeInAnimated--kelloggtutoring,
-.fadeInAnimated--hackerNewsClone, .fadeInAnimated--omnifood,
-.fadeInAnimated--1, .fadeInAnimated--nexter,
-.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket,
-.fadeInAnimated--1-5, .fadeInAnimated--2, .fadeInAnimated--thalassa,
-.fadeInAnimated--tetris,  .fadeInAnimated--natours, .fadeInAnimated--2-25, 
-.fadeInAnimated--2-5, .fadeInAnimated--3, .fadeInAnimated--indonesia2015,
-.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball, .fadeInAnimated--3-25,
-.fadeInAnimated--4, .fadeInAnimated--4-5, .fadeInAnimated--5, .fadeInAnimated--6,
-.fadeInAnimated--7, .fadeInAnimated--8, .fadeInAnimated--9  {
+@mixin fadeInAnimated__0 {
   opacity: 0;
   animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--1, .fadeInAnimated--nexter,
-.fadeInAnimated--githubBattle, .fadeInAnimated--nightMarket  {
+@mixin fadeInAnimated__1 {
   animation-delay: 1s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--1-5 {
+@mixin fadeInAnimated__1-5 {
   animation-delay: 1.5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--2, .fadeInAnimated--thalassa,
-.fadeInAnimated--tetris, .fadeInAnimated--natours {
+@mixin fadeInAnimated__2 {
   animation-delay: 2s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--2-25 {
+@mixin fadeInAnimated__2-25 {
   animation-delay: 2.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--2-5 {
+@mixin fadeInAnimated__2-5 {
   animation-delay: 2.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--3, .fadeInAnimated--indonesia2015,
-.fadeInAnimated--hangman, .fadeInAnimated--hashBasketball {
+@mixin fadeInAnimated__3 {
   animation-delay: 3s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--3-25 {
+@mixin fadeInAnimated__3-25 {
   animation-delay: 3.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--4 {
+@mixin fadeInAnimated__4 {
   animation-delay: 4s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--4-5 {
+@mixin fadeInAnimated__4-5 {
   animation-delay: 4.5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--5 {
+@mixin fadeInAnimated__5 {
   animation-delay: 5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--6 {
+@mixin fadeInAnimated__6 {
   animation-delay: 6s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--7 {
+@mixin fadeInAnimated__7 {
   animation-delay: 7s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--8 {
+@mixin fadeInAnimated__8 {
   animation-delay: 8s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
-.fadeInAnimated--9 {
+@mixin fadeInAnimated__9 {
   animation-delay: 9s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
 ////////////////////////////////

@@ -1,17 +1,15 @@
 .home {
   
-  //--------------------hero--------------------//
-
   &__teaching-animation {
     width: 40rem;
     height: 40rem;
     grid-row: 2 / span 2;
     grid-column: 2 / span 1;
+    @include fadeInAnimated__0();
 
     @media (max-width: 950px) and (max-height: 450px) {
       grid-row: 2 / span 3;
     }
-
   }
 
   &__bubble {
@@ -22,17 +20,18 @@
     z-index: 100;
     transition: all 0.2s;
 
-      &:hover {
-        background-color: $old-blue-2;
-      }
+    &:hover {
+      background-color: $old-blue-2;
+    }
 
-      @media (max-width: 950px) {
-        display: none;
-      }
+    @media (max-width: 950px) {
+      display: none;
+    }
   }
 }
 
 .bubble {
+
   &--1 {
     transform: translate(-1.5rem, 8.75rem);
     cursor: pointer;
@@ -41,6 +40,7 @@
       transform: translate(-2.0rem, 11.0rem);
     }
   }
+
   &--2 {
     transform: translate(-3rem, 10rem);
     cursor: pointer;
@@ -49,12 +49,9 @@
       transform: translate(-3.25rem, 11rem);
     }
   }
+
   &--3 {
     transform: translate(-4.5rem, 11rem);
     cursor: pointer;
-
-    @media (max-height: 850px) {
-      // transform: translate(-4.5rem, 12rem);
-    }
   }
 }
