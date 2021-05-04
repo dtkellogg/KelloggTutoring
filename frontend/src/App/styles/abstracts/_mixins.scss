@@ -61,3 +61,105 @@
 /* PLEASE NOTE */
 /* PLEASE NOTE */
 /* There are more mixins in the animations.scss */
+
+
+@mixin fadeInAnimated__0 {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__1 {
+  animation-delay: 1s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__1-5 {
+  animation-delay: 1.5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__2 {
+  animation-delay: 2s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__2-25 {
+  animation-delay: 2.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__2-5 {
+  animation-delay: 2.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__3 {
+  animation-delay: 3s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__3-25 {
+  animation-delay: 3.25s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__4 {
+  animation-delay: 4s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__4-5 {
+  animation-delay: 4.5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__5 {
+  animation-delay: 5s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__6 {
+  animation-delay: 6s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__7 {
+  animation-delay: 7s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__8 {
+  animation-delay: 8s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@mixin fadeInAnimated__9 {
+  animation-delay: 9s;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+////////////////////////////////
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1}
+  to {opacity: 0}
+}

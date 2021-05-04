@@ -41,6 +41,10 @@ function HomeHero() {
           
         </div>
 
+        <div className="home__bubble bubble--1 fadeInAnimated__3" />
+        <div className="home__bubble bubble--2 fadeInAnimated__2" />
+        <div className="home__bubble bubble--3 fadeInAnimated__1" />
+
         <div
           id="teaching-animation"
           className="home__teaching-animation"

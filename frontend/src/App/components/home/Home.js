@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 
 // components
-import BtnsUpDownHome from '../components/navigation/BtnsUpDownHome'
-import HomeHero from '../components/home/HomeHero'
-import HomeAppointments from "../components/home/HomeAppointments";
-import HomeReviews from "../components/home/HomeReviews";
+import BtnsUpDownHome from '../navigation/BtnsUpDownHome'
+import HomeHero from './HomeHero'
+import HomeAppointments from "./HomeAppointments";
+import HomeReviews from "./HomeReviews";
 
-export default function HomePage() {
+export default function Home() {
   const calendarRef = useRef(null);
   const reviewsRef = useRef(null)
 

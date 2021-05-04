@@ -20,13 +20,13 @@ const AdminScreen = lazy(() => import("./screens/AdminScreen"));
 const ApptsScreen = lazy(() => import("./screens/ApptsScreen"));
 const ContactScreen = lazy(() => import("./screens/ContactScreen"));
 const FourOhFourScreen = lazy(() => import("./screens/FourOhFourScreen"));
-const Home = lazy(() => import("./screens/HomeScreen"));
 const Login = lazy(() => import("./screens/LoginScreen"));
 const Profile = lazy(() => import("./screens/ProfileScreen"));
 const ToshiScreen = lazy(() => import("./screens/ToshiScreen"));
 const Register = lazy(() => import("./screens/RegisterScreen"));
 
 // components
+const Home = lazy(() => import("./components/home/Home"));
 const Settings = lazy(() => import("./components/ComingSoon"));
 const Resources = lazy(() => import("./components/ComingSoon"));
 const ReviewEdit = lazy(() => import("./components/reviews/ReviewEdit"))

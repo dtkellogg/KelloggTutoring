@@ -2,65 +2,49 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 
 // actions
 import { createReview } from "../../actions/reviewActions";
 import { getUserDetails } from "../../actions/userActions";
+import { subheader } from "../../actions/subheader";
 
 // components
 import Input from '../Input'
 
 
-
 export default function ReviewCreateScreen({ history }) {
   const dispatch = useDispatch();
-
-  console.log(history.location.pathname);
+  const { addToast } = useToasts();
 
   const [name, setName] = useState("");
   const [relation, setRelation] = useState("Student");
   const [msg, setMsg] = useState("");
   const [date, setDate] = useState(Date.now()); // eslint-disable-line no-unused-vars
-  const [submitted, setSubmitted] = useState(false);
-  const [failed, setFailed] = useState("");
-  const [sent, setSent] = useState(false); // eslint-disable-line no-unused-vars
 
   const userDetails = useSelector((state) => state.userDetails);
-  const {
-    // loading,
-    // error,
-    user,
-  } = userDetails;
-
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;  // eslint-disable-line no-unused-vars
+  const { loading, error, user } = userDetails;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const isValid = validate();
 
     if (name === undefined || msg.length === 0) {
-      setFailed("Please enter a name and message.");
-      window.setTimeout(() => {
-        setFailed("");
-      }, 4000);
+      addToast("Please enter a name and message.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
     }
 
     if (name !== undefined && msg.length > 0) {
-      setSubmitted(true);
-
-      window.setTimeout(() => {
-        setSubmitted(false);
-      }, 4000);
+      addToast("Your review was submitted successfully. Thank you!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
 
       await dispatch(createReview(name, relation, msg, date)).then(() => {
-        // setSubmitted(false);
-        setSent(true);
-
         setName("");
         setRelation("Student");
         setMsg("");
-        console.log(history.location.pathname)
         history.push('/meetToshi/reviews')
       });
     }
@@ -72,14 +56,24 @@ export default function ReviewCreateScreen({ history }) {
     setRelation(e.target.value);
   };
 
-
   useEffect(() => {
-    if (user === undefined) {
-      dispatch(getUserDetails("profile"));
+    if (user) {
+      if (!user.name) {
+        dispatch(getUserDetails("profile"));
+      } else {
+        setName(user.name);
+      }
+    } else if (error) {
+      addToast("There was an error. Please refresh the page.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
     } else {
-      setName(user.name);
+      dispatch(subheader(""));
     }
-  }, [dispatch, user]);
+  }, [dispatch, history, user, loading, error]);
 
   return (
     <div className="container__screen--sidebar">
@@ -156,26 +150,14 @@ export default function ReviewCreateScreen({ history }) {
         </div>
 
         <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--textarea"
-          htmlFor="message" label="message" type="text" value={msg || ""} placeholder="message" onChange={(e) => setMsg(e.target.value)}
+          htmlFor="message" label="message" type="text" value={msg || ""} placeholder="Please leave your message here." onChange={(e) => setMsg(e.target.value)}
           textarea={true}
         />
-
-        {submitted && (
-          <p className="form__success-message--contact">
-            Your review was submitted successfully. Thank you!
-          </p>
-        )}
-        {failed.length > 0 && (
-          <p className="form__fail-message--contact">
-            {failed}
-          </p>
-        )}
 
         <button
           type="button"
           className="btn__reviews--new-review"
           onClick={handleSubmit}
-          disabled={submitted || failed.length > 0}
         >
           Submit
         </button>

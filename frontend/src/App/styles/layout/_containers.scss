@@ -315,7 +315,7 @@
       @include flexCenterCenter($flex-direction: column, $justify-content: flex-start);
       width: 40rem;
       align-items: center;
-      transform: translate(0, -17rem);
+      transform: translate(0, -16rem);
 
       @media (max-width: 950px) {
         transform: translate(0rem, -14rem);
@@ -350,6 +350,7 @@
     &--lower {
       grid-row: 2 / span 1;
       grid-column: 1 / -1;
+      position: relative;
     }
 
     &--upper {
@@ -374,6 +375,28 @@
       border-bottom: 1px solid $grey-6;
       padding: 1rem 1rem 1rem 2rem;
       position: relative;
+    }
+
+    &--search-bar {
+      width: 23rem;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      transition: 1s;
+      @include fadeInAnimated__0();
+    }
+
+    &--search-list {
+      @include flexCenterCenter($flex-direction: column);
+      position: absolute;
+      top: 100%;
+      right: 2rem;
+      background: $white;
+      z-index: 99;
+      width: 23rem;
+      max-height: 70rem;
+      overflow: hidden;
+      border-bottom: 2px solid var(--black);
     }
   }
 
@@ -490,8 +513,6 @@
       grid-template-columns: none;
       min-height: 148vh;
     }
-
-    
   }
 
   //--------------------reviews--------------------//
@@ -621,12 +642,11 @@
       grid-row: 1 / span 3;
       grid-column: 2 / span 1;
       width: max-content;
-      transform: translate(-0.75rem, 7.5rem);
+      transform: translate(-0.75rem, 6.5rem);
       z-index: 100;
-      @include fadeInAnimated__4();
 
-      @media (max-height: 850px) {
-        transform: translate(-1rem, 10.5rem);
+      @media (max-height: 900px) {
+        transform: translate(-2.5rem, 9rem);
       }
 
       @media (max-width: 950px) {

@@ -51,6 +51,8 @@
       font-family: 'Cormorant Infant', serif;
       font-size: 1.8rem;
       transition: all 0.2s;
+      @include fadeInAnimated($delay: 3s);
+      
 
       &:hover {
         background-image: none;
@@ -71,8 +73,11 @@
       width: 13rem;
       font-family: 'Cormorant Infant', serif;
       font-size: 1.8rem;
-      transition: all 0.2s;
+      // transition: all 0.2s;
       transform: translate(0, 3rem);
+      opacity: 0;
+      @include fadeInAnimated($delay: 3s);
+      
 
       &:hover {
         background-image: none;
@@ -221,25 +226,23 @@
     @include flexCenterCenter();
 
     &:hover {
-      background-color: $green-1;
-      border: 1px solid $green-1;
       color: $black;
     }
 
     &--new-review {
       @extend %btn;
-      background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
+      @extend %btn--blue;
       box-shadow: 0 0 20px #eee;
       
       padding: 1rem;
       width: 12rem;
       margin: 1rem 0;
-      color: $black;
+      color: $white;
+      align-self: center;
 
       &:hover {
         color: $black;
         background-position: right center; /* change the direction of the change here */
-        color: $old-blue-2;
         text-decoration: none;
       }
     }

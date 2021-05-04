@@ -178,11 +178,6 @@
       }
     }
   }
-
-  &__subheader {
-    font-size: var(--font-size-3);
-    font-weight: 200;
-  }
 }
 
 //--------------------dropdown--------------------//
@@ -239,8 +234,6 @@
     position: absolute;
     top: 100%;
     right: 0;
-
-    display: none;
     background: $white;
     z-index: 100;
     width: 23rem;
@@ -261,14 +254,5 @@
     &:hover {
       background-color: $old-blue-2-opacity;
     }
-  }
-
-  &__wrapper {
-    width: 23rem;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    transition: 1s;
-    @include fadeInAnimated__0();
   }
 }

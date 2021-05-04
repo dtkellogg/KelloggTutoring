@@ -40,8 +40,8 @@ export default function NavLower() {
 
   return (
     <nav className="container__nav--lower">
-      <h3 className="nav__subheader">{subheader}</h3>
-      <div className="search__wrapper">
+      <h3 className="p__subheader">{subheader}</h3>
+      <div className="container__nav--search-bar">
         <input
           value={searchInput}
           type="text"
@@ -62,17 +62,17 @@ export default function NavLower() {
 
       {searchInput && (
         <ul
-          className="search__results"
+          className="container__nav--search-list"
           style={
             (searchInput ? { display: "none" } : { display: "block" },
             !filterDisplay
               ? { border: "none" }
-              : { border: "2px solid var(--black)" })
+              : { border: "2px solid var(--grey-4)" })
           }
         >
           {filterDisplay.map((item) => {
             const linkKey = uuid();
-
+            
             return (
               <Link
                 key={linkKey}
@@ -84,6 +84,7 @@ export default function NavLower() {
               </Link>
             );
           })}
+
         </ul>
       )}
     </nav>
