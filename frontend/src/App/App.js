@@ -29,7 +29,6 @@ const Register = lazy(() => import("./screens/RegisterScreen"));
 const Home = lazy(() => import("./components/home/Home"));
 const Settings = lazy(() => import("./components/ComingSoon"));
 const Resources = lazy(() => import("./components/ComingSoon"));
-const ReviewEdit = lazy(() => import("./components/reviews/ReviewEdit"))
 const Zoom = lazy(() => import("./components/ComingSoon"));
 
 
@@ -94,7 +93,6 @@ export default function App() {
                 <Route path="/toshi" component={() => <ToshiScreen />} />
                 <Route path="/contact" component={() => <ContactScreen />} />
                 <Route path="/admin" component={() => <AdminScreen />} />
-                <Route exact path="/review/:id/edit" component={ReviewEdit} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/register" component={Register} />

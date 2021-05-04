@@ -45,7 +45,7 @@ export default function ReviewCreateScreen({ history }) {
         setName("");
         setRelation("Student");
         setMsg("");
-        history.push('/meetToshi/reviews')
+        history.push('/toshi/reviews')
       });
     }
   };
@@ -77,7 +77,7 @@ export default function ReviewCreateScreen({ history }) {
 
   return (
     <div className="container__screen--sidebar">
-      <Link to='/toshi/reviews' className="btn__go-back--admin">go back</Link>
+      <Link to='/toshi/reviews' className="btn__go-back--admin">Go Back</Link>
       <form className="reviews__new-review">
 
         <h2 className="reviews__new-review--header">

@@ -252,6 +252,9 @@
       @extend %btn--blue;
 
       position: absolute;
+      top: 2rem;
+      left: 2rem;
+      grid-column: 2 / span 1;
       transform: translateY(2rem);
     }
   }
@@ -564,7 +567,7 @@
       grid-column: 2 / span 1;
       grid-row: 1 / span 1;
       justify-self: start;
-      margin: 1.5rem 0 0 2rem;
+      margin: 2rem 0 0 2rem;
       text-align: center;
       width: 7rem;
       padding: 0.5rem;
@@ -596,5 +599,14 @@
   &__paypal {
     width: 30rem;
     height: 10rem;
+  }
+
+  &__reviews {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
   }
 }
