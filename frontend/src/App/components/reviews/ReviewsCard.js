@@ -76,7 +76,7 @@ function ReviewsCard({review}, type) {
           </div>
           {user !== undefined && review.name === user.name && (
             <>
-              <Link to={`/reviews/${review._id}/edit`}>
+              <Link to={`/toshi/reviews/${review._id}/edit`}>
                 <FaEdit
                   size={20}
                   fill="var(--old-blue-2)"
@@ -147,7 +147,7 @@ function ReviewsCard({review}, type) {
           </div>
           {user !== undefined && review.name === user.name && (
             <>
-              <Link to={`/reviews/${review._id}/edit`}>
+              <Link to={`/toshi/reviews/${review._id}/edit`}>
                 <FaEdit
                   size={20}
                   fill="var(--old-blue-2)"
