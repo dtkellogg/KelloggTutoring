@@ -576,19 +576,15 @@
       @extend %btn;
       @extend %btn--blue;
 
+      grid-column: 2 / span 1;
       position: absolute;
       top: 2rem;
       left: 2rem;
-      margin: 2rem 0 0 2rem;
       text-align: center;
       width: 7rem;
       padding: 0.5rem;
       font-size: var(--font-size-6);
       z-index: 100;
-
-      @media (max-width: 550px) {
-        margin: 1.5rem 0 0 1rem;
-      }
     }
 
     &--admin {

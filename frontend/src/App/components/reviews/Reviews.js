@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ReviewsList from "./ReviewsList";
 import { getUserDetails } from "../../actions/userActions";
+import { subheader } from "../../actions/subheader";
 
 
 export default function ReviewsRaw({ type }) {
@@ -14,8 +15,16 @@ export default function ReviewsRaw({ type }) {
   const { loading, error, user } = userDetails;
 
   useEffect(() => {
-    if (!user.name) {
-      dispatch(getUserDetails("profile"));
+    if (user) {
+      if (!user.name) {
+        dispatch(getUserDetails("profile"));
+      }
+    } else if (error) {
+      console.log(error)
+    } else if (loading) {
+      dispatch(subheader("Loading..."));
+    } else {
+      dispatch(subheader(""));
     }
   }, [dispatch, user]);
 

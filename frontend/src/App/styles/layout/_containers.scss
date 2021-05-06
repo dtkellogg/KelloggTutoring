@@ -45,32 +45,32 @@
     }
 
     @media (max-height: 800px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 77rem) 17.5rem; // GOOD ONE
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 77rem) 17.5rem; // GOOD ONE
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 61rem) 17.5rem;
     }
 
     @media (max-height: 700px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 67rem) 17.5rem;
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 67rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 51rem) 17.5rem;
     }
 
     @media (max-height: 600px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 57rem) 17.5rem;
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 57rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 41rem) 17.5rem;
     }
 
     @media (max-height: 500px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 47rem) 17.5rem;
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 47rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, min-content) 17.5rem;
     }
 
     @media (max-height: 400px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 37rem) 17.5rem;
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 37rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 21rem) 17.5rem;
     }
 
     @media (max-width: 950px) and (max-height: 450px) {
-      grid-template-rows: 5.5rem 3.5rem minmax(100vh, min-content) 12.5rem;
+      // grid-template-rows: 5.5rem 3.5rem minmax(100vh, min-content) 12.5rem;
       // grid-template-rows: 5.5rem 3.5rem minmax(100vh, min-content) 12.5rem;
     }
   }
@@ -209,7 +209,7 @@
 
       @media (max-width: 950px) and (max-height: 450px) {
         grid-template-columns: none;
-        min-height: 148vh;
+        min-height: min-content;
       }
 
       @media (max-width: 400px) and (max-height: 500px) {
@@ -343,7 +343,7 @@
         @include flexCenterCenter($flex-direction: column);
 
         position: absolute;
-        top: 5rem;
+        top: 4rem;
       }
     }
   }
@@ -419,6 +419,7 @@
     grid-row: 3 / span 2;
     grid-column: 1 / span 1;
     z-index: 99;
+    overflow: scroll;
 
     @media (max-width: 950px) {
       @include flexCenterCenter($justify-content: space-around);
@@ -583,6 +584,7 @@
   &__page-header {
     grid-column: 2 / -1;
     @include flexCenterCenter($flex-direction: column);
+    @include fadeInAnimated($delay: 0s);
 
     @media (max-width: 950px) {
       grid-column: 1 / -1;

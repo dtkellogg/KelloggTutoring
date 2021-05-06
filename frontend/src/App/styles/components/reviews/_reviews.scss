@@ -2,16 +2,15 @@
 
 	&__list {
 		@include hundredPercentHW();
-		height: min-content;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flexCenterCenter($align-items: flex-start);
+		// height: min-content;
 		flex-wrap: wrap;
 		overflow-y: scroll;
 		cursor: ns-resize;
 		position: absolute;
 		top: 6rem;
 		left: 0;
+		padding-bottom: 5rem;
 	}
 
 	&__card {
@@ -96,7 +95,7 @@
 	&__new-review {
 		height: min-content;
 		width: 100%;
-		padding: 4rem 2rem;
+		padding: 3rem 2rem;
 		position: absolute;
 		top: 0;
 		display: flex;
