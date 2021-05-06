@@ -38,8 +38,8 @@ export default function ApptsList({ type }) {
 
   const appointmentUpdate = useSelector((state) => state.appointmentUpdate);
   const {
-    loading: loadingUpdate, // eslint-disable-line no-unused-vars
-    error: errorUpdate, // eslint-disable-line no-unused-vars
+    loading: loadingUpdate,
+    error: errorUpdate,
     success: successUpdate // eslint-disable-line no-unused-vars
   } = appointmentUpdate;
 
@@ -49,19 +49,21 @@ export default function ApptsList({ type }) {
   const sortedAppts = useSortMultiple(appointments, "date", "startTime")
 
   useEffect(() => {
-    if (loading) {
+    if (loading || loadingUpdate) {
       dispatch(subheader("Loading..."))
     } else {
       dispatch(subheader(""))
     }
-    if (error) {
-      dispatch(subheader({ error }))
-    }
-  }, [dispatch, loading, error])
+    // if (error) {
+    //   dispatch(subheader({ error }))
+    // }
+  }, [dispatch, loading, loadingUpdate, error, errorUpdate])
 
 
   useEffect(() => {
-    dispatch(listAppointments())
+    if (appointments.length <= 0) {
+      dispatch(listAppointments())
+    }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -86,9 +88,7 @@ export default function ApptsList({ type }) {
   }, [appointments]) // eslint-disable-line react-hooks/exhaustive-deps
 
   
-  if (!userInfo || userInfo === null) {
-    return <PleaseLogin />
-  } else if (type === "upcoming" && appts.length > 0) {
+  if (type === "upcoming" && appts.length > 0) {
     return (
       <div className="">
         <table className="appointments__list">
@@ -128,7 +128,9 @@ export default function ApptsList({ type }) {
         </h2>
       </div>
     )
-  } else return null
+  } else if (!userInfo || userInfo === null) {
+    return <PleaseLogin />
+  }
 }
 
 ApptsList.propTypes = {

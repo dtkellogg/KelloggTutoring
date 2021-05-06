@@ -158,7 +158,7 @@
   &__admin {
 
     &--appointment-requests, &--edit-appt, &--create-appt,
-    &--reviews, &--user-list, &--edit-user {
+    &--reviews, &--user-list, &--edit-user, &--edit-review {
       font-size: var(--font-size-2);
       font-weight: 300;
       text-align: center;
@@ -281,6 +281,14 @@
 
       @media (max-width: 1050px) {
         letter-spacing: 0;
+      }
+
+      @media (max-width: 965px) {
+        letter-spacing: -0.2rem;
+      }
+
+      @media (max-width: 950px) {
+        letter-spacing: 0.2rem;
       }
     }
 

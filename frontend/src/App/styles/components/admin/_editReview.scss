@@ -1,8 +1,8 @@
 .edit-review {
 
   &__content {
-    height: 60vh;
-    width: 60%;
+    height: min-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -21,11 +21,14 @@
   }
 
   &__input {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: var(--font-size-4);
+    letter-spacing: var(--letter-spacing-1);
+    color: $old-blue-2;
     border: none;
     border-bottom: 1px solid black;
     height: 4rem;
-    color: $old-blue-2;
-    font-size: var(--font-size-3);
 
     &:focus {
       outline: none;
@@ -46,10 +49,13 @@
   }
 
   &__textarea {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: var(--font-size-4);
+    letter-spacing: var(--letter-spacing-1);
     min-height: 30vh;
     max-height: 62vh;
     width: 100%;
-    font-size: var(--font-size-4);
 
     margin: 1rem 0;
     padding: 1rem;
@@ -57,7 +63,10 @@
     color: $old-blue-2;
     border: 1px dashed $old-blue-2;
     resize: none;
-    font-family: 'Roboto', sans-serif;
+
+    min-height: 55vh;
+    max-height: 62vh;
+    height: 20rem;
 
     &:focus {
       outline: none;

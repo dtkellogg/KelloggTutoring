@@ -6,6 +6,7 @@
     text-decoration: none;
     line-height: 2.25rem;
     font-size: var(--font-size-5);
+    @include fadeInAnimated($delay: 0s);
 
     @media (max-width: 950px ) {
       display: flex;

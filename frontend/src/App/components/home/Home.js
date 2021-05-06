@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import {Link} from 'react-router-dom'
 
 // components
 import BtnsUpDownHome from '../navigation/BtnsUpDownHome'
@@ -19,6 +20,9 @@ export default function Home() {
         <HomeHero />
         <HomeAppointments calendarRef={calendarRef} />
         <HomeReviews reviewsRef={reviewsRef} />
+        <Link to={`toshi/reviews/create-review`} className="btn__home--to-reviews">
+          Write a review
+        </Link>
       </div>
 
     </div>

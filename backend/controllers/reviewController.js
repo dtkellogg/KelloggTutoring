@@ -80,7 +80,7 @@ const createReview = asyncHandler(async (req, res) => {
 
 // @desc    Update a review
 // @route   PUT /api/reviews/:id
-// @access  Private/Admin
+// @access  Private
 const updateReview = asyncHandler(async (req, res) => {
   console.log(req.params.id)
   const review = await Review.findById(req.params.id);
@@ -104,11 +104,10 @@ const updateReview = asyncHandler(async (req, res) => {
 
 
   if (review) {
-    review.user = user;
-    review.name = name;
-    review.relation = relation;
-    review.msg = msg;
-    review.approved = approved;
+    review.name = name || review.name;
+    review.relation = relation || review.relation;
+    review.msg = msg || review.msg;
+    review.approved = approved || review.approved;
 
     const updatedReview = await review.save();
     res.json(updatedReview);

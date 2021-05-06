@@ -81,7 +81,7 @@ export default function ReviewCreateScreen({ history }) {
       <form className="reviews__new-review">
 
         <h2 className="reviews__new-review--header">
-          Create a review
+          Create review
         </h2>
 
         <Input containerClass="reviews__new-review--element" labelClass="reviews__new-review--label" inputClass="reviews__new-review--input"

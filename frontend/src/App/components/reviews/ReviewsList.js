@@ -21,10 +21,10 @@ export default function ReviewsList({ type }) {
   const sortedReviews = useSortMultiple(reviews, "date", "name");
 
   useEffect(() => {
-    if(reviews.length === 0) {
+    if (reviews.length <= 0) {
       dispatch(listReviews())
     }
-  }, [dispatch]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (loading) {

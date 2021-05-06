@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // actions
 import { subheader } from "../../actions/subheader";
 import { getReviewDetails, updateReview } from "../../actions/reviewActions";
+import { useToasts } from "react-toast-notifications";
 
 // constants
 import { REVIEW_UPDATE_RESET } from "../../constants/reviewConstants";
@@ -13,6 +14,7 @@ import { REVIEW_UPDATE_RESET } from "../../constants/reviewConstants";
 export default function ReviewEdit({ match, history, location }) {
   const reviewId = match.params.id;
   const dispatch = useDispatch();
+  const { addToast } = useToasts();
 
   const [name, setName] = useState("");
   const [relation, setRelation] = useState("");
@@ -29,6 +31,10 @@ export default function ReviewEdit({ match, history, location }) {
     success: successUpdate,
   } = reviewUpdate;
 
+  console.log(`name: ${name}`)
+  console.log(`relation: ${relation}`)
+  console.log(`msg: ${msg}`)
+
 
   useEffect(() => {
     if (loading || loadingUpdate) {
@@ -37,14 +43,23 @@ export default function ReviewEdit({ match, history, location }) {
       dispatch(subheader(""));
     }
     if (error || errorUpdate) {
-      dispatch(subheader({ error }));
+      addToast("There was an error. Please refresh the page.", {
+        appearance: "error",
+        autoDismiss: true,
+      });
     }
   }, [dispatch, loading, error, loadingUpdate, errorUpdate]);
 
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: REVIEW_UPDATE_RESET });
-      history.push("/");
+
+      addToast("Your review was successfully updated.", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+
+      history.push("/toshi/reviews");
     } else {
       if (!review.name || review._id !== reviewId) {
         dispatch(getReviewDetails(reviewId));
@@ -62,23 +77,22 @@ export default function ReviewEdit({ match, history, location }) {
     dispatch(updateReview({ _id: reviewId, name, relation, msg}));
   }
 
-
   const handleRadioBtnChange = (e) => {
     setRelation(e.target.value);
   }
 
   return (
     <div className="container__screen--sidebar">
-      <Link to="/" className="btn__reviews--go-back">
+      
+      <Link to="/toshi/reviews" className="btn__reviews--go-back">
         Go Back
       </Link>
-      <form onSubmit={handleSubmit} className="container__reviews--edit-review">
-        <div className="header__admin--edit-review">
-          <h2 className="font-size-2 letter-spacing-sm">
-            Edit Review
-          </h2>
 
-        </div>
+      <form onSubmit={handleSubmit} className="container__reviews--edit-review">
+        <h2 className="header__admin--edit-review">
+          Edit Review
+        </h2>
+
         <div className="edit-review__content">
           <div className="edit-review__element">
             <label
@@ -97,7 +111,7 @@ export default function ReviewEdit({ match, history, location }) {
           </div>
 
           <div className="edit-review__element">
-            <div className="review__new-review--radio-btns">
+            <div className="reviews__new-review--radio-btns">
               <div className="">
                 <input
                   type="radio"
@@ -192,7 +206,7 @@ export default function ReviewEdit({ match, history, location }) {
           </div>
 
           <button
-            className="btn__edit-user"
+            className="btn__reviews--new-review"
             type="submit"
             onClick={handleSubmit}
           >

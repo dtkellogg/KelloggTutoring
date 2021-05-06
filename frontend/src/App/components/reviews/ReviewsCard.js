@@ -20,7 +20,7 @@ function ReviewsCard({review}, type) {
   const dispatch = useDispatch();
 
   const deleteHandler = async (id) => {
-    if (window.confirm("Are you sure you want to delete this user?")) {
+    if (window.confirm("Are you sure you want to delete this review?")) {
       await dispatch(deleteReview(id)).then(() => dispatch(listReviews()));
     }
   };
@@ -43,7 +43,6 @@ function ReviewsCard({review}, type) {
             }}
           >
             {review.name}
-            
           </div>
 
           <span className="reviews__relation">
@@ -114,11 +113,12 @@ function ReviewsCard({review}, type) {
             }}
           >
             {review.name}
-            <span className="reviews__relation">
-              {" "}
-              ({review.relation})
-            </span>
           </div>
+          
+          <span className="reviews__relation">
+            {" "}
+            ({review.relation})
+          </span>
 
           <div
             className="reviews__card--item-date"

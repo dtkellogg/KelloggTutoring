@@ -13,7 +13,7 @@ router.route("/").get(getReviews).post(protect, createReview);
 router
   .route("/:id")
   .get(getReviewById)
-  .delete(protect, admin, deleteReview)
-  .put(protect, admin, updateReview);
+  .delete(protect, deleteReview)
+  .put(protect, updateReview);
 
 module.exports = router;

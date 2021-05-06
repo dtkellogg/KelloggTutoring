@@ -1,14 +1,23 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
 
 import ReviewsList from "./ReviewsList";
-
+import { getUserDetails } from "../../actions/userActions";
 
 
 export default function ReviewsRaw({ type }) {
   const { url } = useRouteMatch()
+  const dispatch = useDispatch();
 
-  console.log("Inside Reviews Component")
+  const userDetails = useSelector((state) => state.userDetails);
+  const { loading, error, user } = userDetails;
+
+  useEffect(() => {
+    if (!user.name) {
+      dispatch(getUserDetails("profile"));
+    }
+  }, [dispatch, user]);
 
   return (
     <div className={

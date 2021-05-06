@@ -47,17 +47,17 @@
       background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
       color: $black;
       margin-right: 1.25rem;
-      width: 13rem;
+      width: 16rem;
       font-family: 'Cormorant Infant', serif;
       font-size: 1.8rem;
-      transition: all 0.2s;
-      @include fadeInAnimated($delay: 3s);
+      transition: all 5s;
+      @include fadeInAnimated($delay: 4s);
+      text-align: center;
       
 
       &:hover {
         background-image: none;
-        background-color: $old-blue-2;
-        color: $white;
+        background-color: $blue-10;
       }
 
       @media(max-width: 600px ) {
@@ -70,31 +70,36 @@
       border: 1px solid $old-blue-2;
       background-image: linear-gradient(to right, $white 0%, $white  51%, $white  100%);
       color: $black;
-      width: 13rem;
+      width: 16rem;
       font-family: 'Cormorant Infant', serif;
       font-size: 1.8rem;
       // transition: all 0.2s;
       transform: translate(0, 3rem);
       opacity: 0;
-      @include fadeInAnimated($delay: 3s);
+      @include fadeInAnimated($delay: 4s);
+      text-align: center;
       
 
       &:hover {
         background-image: none;
         background-color: $blue-10;
-        color: $black;
       }
     }
 
     &--to-reviews {
       @extend %btn;
-      transform: translateY(250%);
       margin: 0.25rem;
       color: $white;
+      width: 22rem;
+      height: min-content;
+      text-align: center;
+      font-size: var(--font-size-5);
+      grid-column: 2 / span 3;
+      align-self: center;
+      justify-self: center;
 
       @media (max-width: 1050px){
-        transform: translateY(200%);
-        padding: 1rem;
+        // padding: 1rem;
         margin: 0.5rem;
       }
     }
@@ -254,8 +259,15 @@
       position: absolute;
       top: 2rem;
       left: 2rem;
+      padding: 0.5rem;
+      width: 7rem;
+      text-align: center;
       grid-column: 2 / span 1;
-      transform: translateY(2rem);
+      font-size: var(--font-size-6);
+
+      @media (max-width: 950px) {
+        grid-column: 1 / span 1;
+      }
     }
   }
 
@@ -564,9 +576,9 @@
       @extend %btn;
       @extend %btn--blue;
 
-      grid-column: 2 / span 1;
-      grid-row: 1 / span 1;
-      justify-self: start;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
       margin: 2rem 0 0 2rem;
       text-align: center;
       width: 7rem;
