@@ -7,7 +7,7 @@ function HomeHero() {
     <section className="container__hero">
       <div className="container__hero--text">
 
-        <h1 className="letter-spacing-lg p__home--welcome">
+        <h1 className="letter-spacing-lg p__home--title">
           Kellogg Tutoring
         </h1>
 

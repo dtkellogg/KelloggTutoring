@@ -272,13 +272,13 @@
 
   &__home {
     
-    &--welcome {
+    &--title {
       font-weight: inherit;
       font-size: var(--font-size-0);
       transform: translate(-0.2rem, -.4rem);
       letter-spacing: 0.4rem;
       text-align: center;
-      @include fadeInAnimated($delay: 1s);
+      @include fadeInAnimated($delay: 0s);
 
       @media (max-width: 1050px) {
         letter-spacing: 0;
@@ -305,7 +305,7 @@
       font-size: var(--font-size-3);
       transform: translate(0.15rem,-0.75rem);
       width: 38rem;
-      @include fadeInAnimated($delay: 4s);
+      @include fadeInAnimated($delay: 0s);
 
       @media (max-width: 950px) {
         text-align: center;

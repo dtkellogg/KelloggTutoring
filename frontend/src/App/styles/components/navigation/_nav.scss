@@ -58,6 +58,7 @@
     &--right-container {
       @include flexCenterCenter($justify-content: space-between);
       height: 100%;
+      position: relative;
 
       @media ( max-width: 510px ) {
         grid-column: 2 / span 4;
@@ -141,8 +142,6 @@
 
     &:hover > ul {
       display: block;
-      position: absolute;
-      
     }
   }
 
