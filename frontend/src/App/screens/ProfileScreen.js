@@ -48,10 +48,7 @@ export default function Profile({ location, history }) {
         }
       }
     } else if (error) {
-      addToast("There was an error. Please refresh the page.", {
-        appearance: "error",
-        autoDismiss: true,
-      });
+      console.log(error)
     } else if (loading) {
       dispatch(subheader("Loading..."));
     } else {

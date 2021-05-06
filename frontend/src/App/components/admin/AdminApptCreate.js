@@ -55,10 +55,7 @@ export default function AdminAppointmentCreate() {
     }
 
     if (error) {
-      addToast("There was an error. Please try again.", {
-        appearance: "error",
-        autoDismiss: true,
-      });
+      console.log(error)
     }
 
     if (submitted) {

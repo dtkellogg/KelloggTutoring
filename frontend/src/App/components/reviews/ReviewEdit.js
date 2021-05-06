@@ -43,10 +43,7 @@ export default function ReviewEdit({ match, history, location }) {
       dispatch(subheader(""));
     }
     if (error || errorUpdate) {
-      addToast("There was an error. Please refresh the page.", {
-        appearance: "error",
-        autoDismiss: true,
-      });
+      console.log(error)
     }
   }, [dispatch, loading, error, loadingUpdate, errorUpdate]);
 

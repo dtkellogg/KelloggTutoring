@@ -47,7 +47,7 @@ export default function Booking({ location, history, type}) {
       if (loading || loadingCreate) {
         dispatch(subheader("Loading..."));
       } else if (error || errorCreate) {
-        addToast("There was an error.", {
+        addToast("There was an error. Please try submitting your request again.", {
           appearance: "error",
           autoDismiss: true,
         });
