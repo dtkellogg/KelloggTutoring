@@ -2,7 +2,7 @@
 
   &__expanded {
     @include flexCenterCenter();
-    @include fadeInAnimated__0();
+    @include fadeInAnimated($delay: 0s);
     height: 100%;
 
     @media ( max-width: 510px ) {
@@ -44,7 +44,11 @@
       display: flex;
       align-items: center;
       padding: 0 2.5rem;
-      @include fadeInAnimated__0();
+      @include fadeInAnimated($delay: 0s);
+
+      @media ( max-width: 500px ) {
+        padding: 0 2rem;
+      }
 
       @media ( max-width: 400px ) {
         display: none;

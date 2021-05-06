@@ -277,7 +277,8 @@
       font-size: var(--font-size-0);
       transform: translate(-0.2rem, -.4rem);
       letter-spacing: 0.4rem;
-      @include fadeInAnimated__1();
+      text-align: center;
+      @include fadeInAnimated($delay: 1s);
 
       @media (max-width: 1050px) {
         letter-spacing: 0;
@@ -296,7 +297,7 @@
       font-weight: inherit;
       font-size: var(--font-size-1);
       transform: translate(0rem, 1.25rem);
-      @include fadeInAnimated__3();
+      @include fadeInAnimated($delay: 0s);
     }
 
     &--subjects {
@@ -304,7 +305,7 @@
       font-size: var(--font-size-3);
       transform: translate(0.15rem,-0.75rem);
       width: 38rem;
-      @include fadeInAnimated__4();
+      @include fadeInAnimated($delay: 4s);
 
       @media (max-width: 950px) {
         text-align: center;

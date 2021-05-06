@@ -398,7 +398,7 @@
       display: flex;
       align-items: center;
       transition: 1s;
-      @include fadeInAnimated__0();
+      @include fadeInAnimated($delay: 0s);
     }
 
     &--search-list {
