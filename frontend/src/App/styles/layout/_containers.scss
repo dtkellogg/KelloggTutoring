@@ -35,12 +35,12 @@
     }
 
     @media (max-height: 950px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 97rem) 17.5rem;
+      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 100rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 81rem) 17.5rem;
     }
 
     @media (max-height: 900px) {
-      grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 87rem) 17.5rem;
+      // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 87rem) 17.5rem;
       // grid-template-rows: 9.5rem 6rem 4.5rem minmax(min-content, 71rem) 17.5rem;
     }
 
