@@ -130,7 +130,7 @@ export default function ApptsList({ type }) {
     )
   } else if (!userInfo || userInfo === null) {
     return <PleaseLogin />
-  }
+  } else return null
 }
 
 ApptsList.propTypes = {

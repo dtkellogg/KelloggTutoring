@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, location, useHistory, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
-
 
 // actions
 import { register } from "../actions/userActions"
@@ -12,8 +11,10 @@ import { subheader } from "../actions/subheader";
 import Input from '../components/Input'
 
 
-export default function Register({ location, history }) {
+export default function Register() {
   const dispatch = useDispatch();
+  const location = useLocation()
+  const history = useHistory()
   const { addToast } = useToasts();
 
   const redirect = location.search ? location.search.split("=")[1] : "/"
@@ -31,8 +32,13 @@ export default function Register({ location, history }) {
   } = userRegister
 
   useEffect(() => {
+    setEmail("")
+  }, [])
+
+  useEffect(() => {
     if (userInfo) {
-      history.push(redirect);
+      history.goBack()
+      // history.push(redirect);
     } else if (error) {
       console.log(error)
     } else if (loading) {

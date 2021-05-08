@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { login } from '../actions/userActions'
-import { subheader } from "../actions/subheader"
-import Input from '../components/Input'
 import { useToasts } from 'react-toast-notifications'
 
-export default function Login({ location, history }) {
-  const dispatch= useDispatch()
-  const redirect = location.search ? location.search.split('=')[1] : '/'
+// actions
+import { login } from '../actions/userActions'
+import { subheader } from "../actions/subheader"
+import { getUserDetails } from "../actions/userActions";
+
+// components
+import Input from '../components/Input'
+
+export default function Login() {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const { addToast } = useToasts()
 
   const [email, setEmail] = useState('')
@@ -19,15 +24,18 @@ export default function Login({ location, history }) {
 
   useEffect(() => {
     if(userInfo) {
-      history.push(redirect)
+      history.goBack()
+      // history.push(redirect)
       const firstName = userInfo.name.split(" ")[0]
       
       addToast(`Welcome back ${firstName}`, {
         appearance: "success",
         autoDismiss: true,
       })
+      
+      dispatch(getUserDetails("profile"));
     }
-  }, [history, addToast, redirect, userInfo]) 
+  }, [history, addToast, userInfo]) 
 
   useEffect(() => {
     
@@ -84,7 +92,7 @@ export default function Login({ location, history }) {
 
           <div className="login__register">
             New User?{" "}
-            <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            <Link to="/register">
               <span style={{ color: "blue" }}>Register</span>
             </Link>
           </div>

@@ -44,9 +44,9 @@ export default function AdminStatsScreen({history, location}) {
         } else {
             dispatch(subheader(""));
         }
-        // if (error) {
-        //     dispatch(subheader({ error }));
-        // }
+        if (error) {
+            dispatch(subheader(error));
+        }
     }, [dispatch, loading, error])
 
     useEffect(() => {

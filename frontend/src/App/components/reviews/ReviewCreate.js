@@ -8,6 +8,7 @@ import { useToasts } from "react-toast-notifications";
 import { createReview } from "../../actions/reviewActions";
 import { getUserDetails } from "../../actions/userActions";
 import { subheader } from "../../actions/subheader";
+import { listReviews } from "../../actions/reviewActions";
 
 // components
 import Input from '../Input'
@@ -24,6 +25,9 @@ export default function ReviewCreateScreen({ history }) {
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +49,7 @@ export default function ReviewCreateScreen({ history }) {
         setName("");
         setRelation("Student");
         setMsg("");
+        dispatch(listReviews())
         history.push('/toshi/reviews')
       });
     }
@@ -57,6 +62,10 @@ export default function ReviewCreateScreen({ history }) {
   };
 
   useEffect(() => {
+    if (!userInfo) {
+      history.push('/login')
+    }
+    
     if (user) {
       if (!user.name) {
         dispatch(getUserDetails("profile"));
