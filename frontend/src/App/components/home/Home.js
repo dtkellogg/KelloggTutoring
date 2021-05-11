@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 import BtnsUpDownHome from '../navigation/BtnsUpDownHome'
 import HomeHero from './HomeHero'
 import HomeAppointments from "./HomeAppointments";
-import HomeReviews from "./HomeReviews";
+
+import Reviews from "../reviews/Reviews";
 
 export default function Home() {
   const calendarRef = useRef(null);
@@ -19,7 +20,7 @@ export default function Home() {
       <div className="container__home--secondary">
         <HomeHero />
         <HomeAppointments calendarRef={calendarRef} />
-        <HomeReviews reviewsRef={reviewsRef} />
+        <Reviews reviewsRef={reviewsRef} type="home" />
         <Link to={`toshi/reviews/create-review`} className="btn__home--to-reviews">
           Write a review
         </Link>

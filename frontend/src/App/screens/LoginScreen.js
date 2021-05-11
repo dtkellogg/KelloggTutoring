@@ -35,7 +35,7 @@ export default function Login() {
       
       dispatch(getUserDetails("profile"));
     }
-  }, [history, addToast, userInfo]) 
+  }, [userInfo]) 
 
   useEffect(() => {
     

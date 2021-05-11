@@ -113,13 +113,15 @@
 
     &--sidebar {
       width: 100vw;
+      height: max-content;
+      position: relative;
+      overflow: auto;
+
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(5, 1fr);
-      height: 83vh;
       justify-items: center;
       align-items: center;
-      position: relative;
 
       @media (max-width: 950px) and (max-height: 450px) {
         grid-template-columns: none;
@@ -136,7 +138,7 @@
     &--no-sidebar {
       height: 100%;
       width: 100vw;
-      overflow: scroll;
+      overflow: auto;
     
       grid-row: 1 / span 1;
       grid-column: 2 / span 4;
@@ -262,7 +264,7 @@
       grid-row: 3 / span 1;
       grid-column: 1 / -1;
       background: $old-blue;
-      overflow: scroll;
+      overflow: auto;
     }
 
     &--reviews-2 {
@@ -492,7 +494,7 @@
     grid-column: 2 / span 4;
     width: 72vw;
     padding: 3rem 2rem;
-    overflow: scroll;
+    overflow: auto;
     cursor: ns-resize;
     position: absolute;
     top: 0;
@@ -540,6 +542,7 @@
       display: flex;
       grid-column: 2 / -1;
       position: relative;
+      overflow: auto;
 
       @media (max-width: 1050px) {
         flex-direction: column-reverse;
