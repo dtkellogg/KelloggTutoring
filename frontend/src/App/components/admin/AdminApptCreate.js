@@ -10,7 +10,7 @@ import { listUsers } from "../../actions/userActions"
 
 // components
 import LoadingSpinner from '../loading/LoadingSpinner'
-import Input from '../../components/Input'
+import Input from '../../components/contact/Input'
 
 
 export default function AdminAppointmentCreate() {

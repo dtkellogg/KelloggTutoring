@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useToasts } from "react-toast-notifications";
 
 // actions
-import { register } from "../actions/userActions"
-import { subheader } from "../actions/subheader";
+import { register } from "../../actions/userActions"
+import { subheader } from "../../actions/subheader";
 
 // components
-import Input from '../components/Input'
+import Input from '../contact/Input'
 
 
 export default function Register() {

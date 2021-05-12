@@ -6,8 +6,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 const Booking = lazy(() => import("../components/contact/Booking"));
 const Payments = lazy(() => import("../components/payments/PaymentsList"));
 const ApptsList = lazy(() => import("../components/appointments/ApptsList"));
-const CalendarScreen = lazy(() => import("./CalendarScreen"));
-const PageHeader = lazy(() => import("../components/PageHeader"));
+const Calendar = lazy(() => import("../components/calendar/Calendar"));
+const PageHeader = lazy(() => import("../components/layout/PageHeader"));
 const PaymentMethod = lazy(() => import("../components/payments/PaymentMethod"));
 const Checkout = lazy(() => import("../components/payments/PaymentCheckout"));    
 const Payment = lazy(() => import("../components/payments/Payment"));
@@ -27,7 +27,7 @@ function ApptsScreen() {
               <Route exact path={`${url}/payments/checkout`} component={Checkout} />
               <Route exact path={`${url}/payments/:id/edit`} component={Payment} />
               <Route exact path={`${url}/list`} component={() => <ApptsList type="all" />} />
-              <Route exact path={`${url}/calendar`} component={CalendarScreen} />
+              <Route exact path={`${url}/calendar`} component={Calendar} />
               <Route path="*" component={PageHeader} />
             </Switch>
           </CSSTransition>

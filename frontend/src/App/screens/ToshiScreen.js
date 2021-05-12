@@ -4,7 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const ToshiAbout = lazy(() => import("../components/toshi/ToshiAbout"));
 const ToshiTeaching = lazy(() => import("../components/toshi/ToshiTeaching"));
-const PageHeader = lazy(() => import("../components/PageHeader"));
+const PageHeader = lazy(() => import("../components/layout/PageHeader"));
 
 const Reviews = lazy(() => import("../components/reviews/Reviews"));
 const ReviewEdit = lazy(() => import("../components/reviews/ReviewEdit"))

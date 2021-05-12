@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
 // components
 import ApptsTableHead from "./AppointmentsHead"
 import ApptsTableBody from "./ApptsTableBody"
-import PleaseLogin from '../PleaseLogin'
+import PleaseLogin from '../layout/PleaseLogin'
 
 // hooks
 import {useSortMultiple} from '../../hooks/useSort'

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 
 // actions
-import { getUserDetails, updateUserProfile } from "../actions/userActions"
-import { subheader } from "../actions/subheader";
+import { getUserDetails, updateUserProfile } from "../../actions/userActions"
+import { subheader } from "../../actions/subheader";
 
 import { useToasts } from "react-toast-notifications";
 

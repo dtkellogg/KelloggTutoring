@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useToasts } from 'react-toast-notifications'
 
 // actions
-import { login } from '../actions/userActions'
-import { subheader } from "../actions/subheader"
-import { getUserDetails } from "../actions/userActions";
+import { login } from '../../actions/userActions'
+import { subheader } from "../../actions/subheader"
+import { getUserDetails } from "../../actions/userActions";
 
 // components
-import Input from '../components/Input'
+import Input from '../contact/Input'
 
 export default function Login() {
   const dispatch = useDispatch()

@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // components
-import Input from "../Input"
+import Input from "../contact/Input"
 
 // actions
 import { subheader } from "../../actions/subheader";

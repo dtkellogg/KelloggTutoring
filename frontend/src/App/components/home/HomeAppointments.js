@@ -5,7 +5,7 @@ import { useLocation, Link } from "react-router-dom";
 // components
 import ApptsList from '../appointments/ApptsList'
 import Calendar from "../calendar/Calendar";
-import PleaseLogin from "../PleaseLogin";
+import PleaseLogin from "../layout/PleaseLogin";
 
 // actions
 import { listAppointments } from '../../actions/appointmentActions'

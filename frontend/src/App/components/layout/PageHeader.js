@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import useWindowDimensions from '../hooks/useWindowDimensions'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 // hands indicating to the user to pick a link
 const handsLeft = ["👈🏻","👈🏼","👈🏽","👈🏾","👈🏿","👈"]

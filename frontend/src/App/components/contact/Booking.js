@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // components
 import { subheader } from "../../actions/subheader";
-import Input from '../Input'
+import Input from './Input'
 
 // actions
 import { requestAppointment } from "../../actions/appointmentActions";

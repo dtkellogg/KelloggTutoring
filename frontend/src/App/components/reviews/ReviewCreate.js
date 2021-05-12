@@ -11,7 +11,7 @@ import { subheader } from "../../actions/subheader";
 import { listReviews } from "../../actions/reviewActions";
 
 // components
-import Input from '../Input'
+import Input from '../contact/Input'
 
 
 export default function ReviewCreateScreen({ history }) {

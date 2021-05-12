@@ -16,7 +16,7 @@ import { CART_RESET } from "../../constants/cartConstants";
 
 // components
 import PaymentSteps from './PaymentSteps'
-import PleaseLogin from '../PleaseLogin'
+import PleaseLogin from '../layout/PleaseLogin'
 
 
 export default function Payments({ match, history }) {

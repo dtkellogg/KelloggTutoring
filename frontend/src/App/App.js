@@ -8,7 +8,7 @@ import './App.scss';
 
 // components
 import Nav from './components/navigation/Nav'
-import Footer from "./components/Footer";
+import Footer from "./components/layout/Footer";
 // import LoadingSpinner from "./components/loading/LoadingSpinner"
 import { Sidebar } from "./components/navigation/Sidebar";
 
@@ -19,17 +19,17 @@ import { apptsList, contactList, toshiList, adminList } from "./data/lists";
 const AdminScreen = lazy(() => import("./screens/AdminScreen"));
 const ApptsScreen = lazy(() => import("./screens/ApptsScreen"));
 const ContactScreen = lazy(() => import("./screens/ContactScreen"));
-const FourOhFourScreen = lazy(() => import("./screens/FourOhFourScreen"));
-const Login = lazy(() => import("./screens/LoginScreen"));
-const Profile = lazy(() => import("./screens/ProfileScreen"));
+const FourOhFourScreen = lazy(() => import("./components/layout/FourOhFour"));
+const Login = lazy(() => import("./components/user/LoginScreen"));
+const Profile = lazy(() => import("./components/user/ProfileScreen"));
 const ToshiScreen = lazy(() => import("./screens/ToshiScreen"));
-const Register = lazy(() => import("./screens/RegisterScreen"));
+const Register = lazy(() => import("./components/user/RegisterScreen"));
 
 // components
 const Home = lazy(() => import("./components/home/Home"));
-const Settings = lazy(() => import("./components/ComingSoon"));
-const Resources = lazy(() => import("./components/ComingSoon"));
-const Zoom = lazy(() => import("./components/ComingSoon"));
+const Settings = lazy(() => import("./components/layout/ComingSoon"));
+const Resources = lazy(() => import("./components/layout/ComingSoon"));
+const Zoom = lazy(() => import("./components/layout/ComingSoon"));
 
 
 export default function App() {

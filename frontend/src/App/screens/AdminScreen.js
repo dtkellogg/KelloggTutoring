@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-const PageHeader = lazy(() => import("../components/PageHeader"));
+const PageHeader = lazy(() => import("../components/layout/PageHeader"));
 const AdminUsers = lazy(() => import("../components/admin/AdminUsers"));
 const AdminUserEdit = lazy(() => import("../components/admin/AdminUserEdit"));
 const AdminApptRequests = lazy(() => import("../components/admin/AdminApptRequests"));

@@ -3,7 +3,7 @@ import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 
-const PageHeader = lazy(() => import("../components/PageHeader"));
+const PageHeader = lazy(() => import("../components/layout/PageHeader"));
 const Booking = lazy(() => import("../components/contact/Booking"));
 const Message = lazy(() => import("../components/contact/Message"));
 

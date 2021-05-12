@@ -12,7 +12,7 @@ import useFormatedPhoneNumber from "../../hooks/useFormatedPhoneNumber"
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 // components
-import Input from '../Input'
+import Input from '../contact/Input'
 
 // can't call hook conditionally in jsx so using the following fn:
 function FormattedPhoneNum(input) {
